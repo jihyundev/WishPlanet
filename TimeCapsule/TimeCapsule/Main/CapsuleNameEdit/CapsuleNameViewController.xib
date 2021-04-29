@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CapsuleNameViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="centerY" destination="Bmc-aB-i6a" id="ouB-nJ-7nx"/>
+                <outlet property="completionButton" destination="YVx-bM-hCQ" id="saA-kC-PIg"/>
+                <outlet property="containerView" destination="8K7-t3-qnb" id="Mm4-Tu-HXO"/>
+                <outlet property="deleteButton" destination="2lF-VN-oX7" id="kfh-m6-SIM"/>
+                <outlet property="exitButton" destination="7cn-My-wIZ" id="I6G-hQ-nus"/>
+                <outlet property="nameTextView" destination="lqb-Xr-YSo" id="Wd3-4J-mXq"/>
+                <outlet property="textCountLabel" destination="rBW-Ki-H7q" id="ki6-0n-hoZ"/>
+                <outlet property="titleLabel" destination="27f-50-9Wc" id="Sry-v7-8CC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8K7-t3-qnb">
+                    <rect key="frame" x="51" y="343.5" width="312" height="209"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로켓 이름 바꾸기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27f-50-9Wc">
+                            <rect key="frame" x="93.5" y="28" width="125" height="22"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cn-My-wIZ">
+                            <rect key="frame" x="256" y="26" width="30" height="30"/>
+                            <state key="normal" image="icon_black_delete"/>
+                            <connections>
+                                <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="ovq-6X-P5r"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lqb-Xr-YSo">
+                            <rect key="frame" x="22" y="71" width="268" height="41"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="41" id="AmW-oL-MtK"/>
+                            </constraints>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVx-bM-hCQ">
+                            <rect key="frame" x="22" y="132" width="268" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="0Gc-Hl-vMP"/>
+                                <constraint firstAttribute="width" constant="268" id="fiS-ox-j4J"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                            <state key="normal" title="완료">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="completionButtonTapped:" destination="-1" eventType="touchUpInside" id="0lg-xf-D2C"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lF-VN-oX7">
+                            <rect key="frame" x="260" y="76.5" width="30" height="30"/>
+                            <state key="normal" image="icon_delete_text"/>
+                            <connections>
+                                <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="u05-QP-wLo"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/10)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBW-Ki-H7q">
+                            <rect key="frame" x="231" y="85.5" width="29" height="12"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="lqb-Xr-YSo" firstAttribute="trailing" secondItem="YVx-bM-hCQ" secondAttribute="trailing" id="7R1-g7-sBb"/>
+                        <constraint firstAttribute="trailing" secondItem="YVx-bM-hCQ" secondAttribute="trailing" constant="22" id="LdY-za-Man"/>
+                        <constraint firstItem="2lF-VN-oX7" firstAttribute="centerY" secondItem="lqb-Xr-YSo" secondAttribute="centerY" id="Oqv-s2-Ktm"/>
+                        <constraint firstAttribute="width" constant="312" id="Z0I-7j-cnB"/>
+                        <constraint firstItem="27f-50-9Wc" firstAttribute="centerX" secondItem="8K7-t3-qnb" secondAttribute="centerX" id="bHf-fG-PjS"/>
+                        <constraint firstItem="27f-50-9Wc" firstAttribute="top" secondItem="8K7-t3-qnb" secondAttribute="top" constant="28" id="beo-w7-nbv"/>
+                        <constraint firstItem="7cn-My-wIZ" firstAttribute="top" secondItem="8K7-t3-qnb" secondAttribute="top" constant="26" id="c65-zr-Zf4"/>
+                        <constraint firstItem="YVx-bM-hCQ" firstAttribute="top" secondItem="lqb-Xr-YSo" secondAttribute="bottom" constant="20" id="dzZ-cH-RIS"/>
+                        <constraint firstItem="2lF-VN-oX7" firstAttribute="leading" secondItem="rBW-Ki-H7q" secondAttribute="trailing" id="eft-DY-k8t"/>
+                        <constraint firstItem="lqb-Xr-YSo" firstAttribute="trailing" secondItem="2lF-VN-oX7" secondAttribute="trailing" id="f0N-F1-h1J"/>
+                        <constraint firstAttribute="height" constant="209" id="fXV-rf-0Xj"/>
+                        <constraint firstItem="rBW-Ki-H7q" firstAttribute="centerY" secondItem="2lF-VN-oX7" secondAttribute="centerY" id="qYn-IC-A4M"/>
+                        <constraint firstAttribute="trailing" secondItem="7cn-My-wIZ" secondAttribute="trailing" constant="26" id="s4Q-FT-fxn"/>
+                        <constraint firstAttribute="bottom" secondItem="YVx-bM-hCQ" secondAttribute="bottom" constant="33" id="tnK-cJ-Kgf"/>
+                        <constraint firstItem="lqb-Xr-YSo" firstAttribute="leading" secondItem="YVx-bM-hCQ" secondAttribute="leading" id="xSo-2P-CRQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="8K7-t3-qnb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Bmc-aB-i6a"/>
+                <constraint firstItem="8K7-t3-qnb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QgG-tw-UdF"/>
+            </constraints>
+            <point key="canvasLocation" x="53.623188405797109" y="61.607142857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_black_delete" width="30" height="30"/>
+        <image name="icon_delete_text" width="30" height="30"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

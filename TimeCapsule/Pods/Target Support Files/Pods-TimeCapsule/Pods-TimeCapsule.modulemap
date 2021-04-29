@@ -1,0 +1,6 @@
+framework module Pods_TimeCapsule {
+  umbrella header "Pods-TimeCapsule-umbrella.h"
+
+  export *
+  module * { export * }
+}
