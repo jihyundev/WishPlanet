@@ -1,2 +1,9 @@
 # WishPlanet
-iOS wishlist app with rocket animation
+> 우주선으로 쏘아올리는 위시리스트 앱
+
+<img width="800" alt="스크린샷 2021-04-13 오후 11 46 01" src="https://user-images.githubusercontent.com/78068968/114572520-85553e00-9cb2-11eb-9686-fb139241798d.png">
+
+## Features
++ 로그인: 카카오 계정으로 로그인 후 + 닉네임 입력
++ 메인페이지: 추가하기 버튼을 눌러 하고싶은 일을 추가하고, 로켓 내 추가된 운석 확인
++ 목표 기간 달성 이후: 로켓 버튼을 누르면 로켓 발사 후 내가 작성한 운석 목록 확인
