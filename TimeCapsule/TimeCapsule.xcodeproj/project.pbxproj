@@ -30,6 +30,8 @@
 		5921F99325FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99225FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf */; };
 		5921F99625FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99525FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf */; };
 		5921F99925FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99825FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf */; };
+		592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A0955263C39E900BA3926 /* MyPageViewController.swift */; };
+		592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A0956263C39E900BA3926 /* MyPageViewController.xib */; };
 		59399AB925FC365E006CBE10 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59399AB825FC365E006CBE10 /* MenuCell.swift */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
@@ -102,6 +104,8 @@
 		5921F99225FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Medium.otf"; sourceTree = "<group>"; };
 		5921F99525FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Regular.otf"; sourceTree = "<group>"; };
 		5921F99825FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Thin.otf"; sourceTree = "<group>"; };
+		592A0955263C39E900BA3926 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		592A0956263C39E900BA3926 /* MyPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageViewController.xib; sourceTree = "<group>"; };
 		59399AB825FC365E006CBE10 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,15 @@
 			path = EndPopUp;
 			sourceTree = "<group>";
 		};
+		592A0954263C39C500BA3926 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				592A0955263C39E900BA3926 /* MyPageViewController.swift */,
+				592A0956263C39E900BA3926 /* MyPageViewController.xib */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +303,7 @@
 				59E971F225FB0483008A7EF9 /* Main */,
 				59BD6032262C6B7F009B4DE6 /* Completed */,
 				59E971F325FB0496008A7EF9 /* CapsuleOpening */,
+				592A0954263C39C500BA3926 /* More */,
 				59E971AC25FB0007008A7EF9 /* AppDelegate.swift */,
 				59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */,
 				59E971B525FB000C008A7EF9 /* Assets.xcassets */,
@@ -517,6 +531,7 @@
 				59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */,
+				592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */,
 				59E971B925FB000C008A7EF9 /* LaunchScreen.storyboard in Resources */,
 				5921F99325FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				59BD6043262C6D06009B4DE6 /* CompletedListViewController.xib in Resources */,
@@ -608,6 +623,7 @@
 				59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
+				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,
 				59E971DA25FB003B008A7EF9 /* Date.swift in Sources */,
 				2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */,
 				59E971DD25FB003B008A7EF9 /* UIButton.swift in Sources */,

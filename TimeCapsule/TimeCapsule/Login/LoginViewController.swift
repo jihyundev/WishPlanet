@@ -11,14 +11,15 @@ class LoginViewController: UIViewController {
     
     let dataManager = UserDataManager()
     
-    
-    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.layer.cornerRadius = 8
     }
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @IBAction func appleloginButtonTapped(_ sender:Any) {
+        dataManager.appleLogin(viewController: self)
+    }
+    
+    @IBAction func kakaologinButtonTapped(_ sender: Any) {
         dataManager.kakaoLogin(viewController: self)
     }
     

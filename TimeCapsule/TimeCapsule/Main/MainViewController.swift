@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var editCapsuleNameButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var dayCountLabel: UILabel!
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -97,13 +98,14 @@ class MainViewController: UIViewController {
     
     func setupUI() {
         shadowView.isHidden = true
-        listButton.layer.cornerRadius = 21
-        listButton.borderWidth = 3
-        listButton.borderColor = UIColor.init(hex: 0x76FF95)
+        //listButton.layer.cornerRadius = 21
+        //listButton.borderWidth = 3
+        //listButton.borderColor = UIColor.init(hex: 0x76FF95)
         listButton.layer.zPosition = 9
-        lockImageView.layer.cornerRadius = 21
-        lockImageView.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
+        //lockImageView.layer.cornerRadius = 21
+        //lockImageView.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
         lockImageView.layer.zPosition = 10
+        dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
         countLabel.layer.masksToBounds = true
         countLabel.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)

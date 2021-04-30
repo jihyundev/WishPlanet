@@ -8,14 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Spoqa Han Sans Neo Medium.otf">
-            <string>SpoqaHanSansNeo-Medium</string>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
-                <outlet property="loginButton" destination="BgE-Ml-KSd" id="g0e-Fa-sRx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,60 +23,84 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_img" translatesAutoresizingMaskIntoConstraints="NO" id="NdC-z7-9kZ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="NdC-z7-9kZ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgE-Ml-KSd">
-                    <rect key="frame" x="25" y="712" width="364" height="50"/>
-                    <color key="backgroundColor" red="0.99350160359999995" green="0.90392649169999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgE-Ml-KSd">
+                    <rect key="frame" x="22" y="774" width="370" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="CWf-da-UhA"/>
+                        <constraint firstAttribute="height" constant="44" id="CWf-da-UhA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
-                    <state key="normal" title="카카오 계정으로 시작하기">
+                    <state key="normal" image="kakao_login">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="STH-GW-VH3"/>
+                        <action selector="kakaologinButtonTapped:" destination="-1" eventType="touchUpInside" id="nHd-aa-TeM"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_login_kakao" translatesAutoresizingMaskIntoConstraints="NO" id="psX-Qn-XpN">
-                    <rect key="frame" x="41" y="717" width="40" height="40"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="eYz-YK-Q2a">
+                    <rect key="frame" x="167" y="192" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="3Nh-Vm-IDa"/>
-                        <constraint firstAttribute="height" constant="40" id="6gV-cX-2d9"/>
-                    </constraints>
-                </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="eYz-YK-Q2a">
-                    <rect key="frame" x="57" y="139" width="300" height="300"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="agg-n6-gSG"/>
+                        <constraint firstAttribute="width" constant="80" id="agg-n6-gSG"/>
                         <constraint firstAttribute="width" secondItem="eYz-YK-Q2a" secondAttribute="height" multiplier="1:1" id="pS8-H0-Rz1"/>
                     </constraints>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="feI-pL-6pa">
+                    <rect key="frame" x="47" y="294" width="320" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="SlH-u0-EWV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시플래닛에 가려면 로그인이 필요해요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlR-Gx-zwS">
+                    <rect key="frame" x="81" y="679" width="252" height="16"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVa-g7-hEo">
+                    <rect key="frame" x="22" y="720" width="370" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="PKj-mE-mp5"/>
+                    </constraints>
+                    <state key="normal" image="apple_login"/>
+                    <connections>
+                        <action selector="appleloginButtonTapped:" destination="-1" eventType="touchUpInside" id="nKi-9M-psU"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="psX-Qn-XpN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="0dX-P7-L3u"/>
-                <constraint firstItem="NdC-z7-9kZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bic-ED-S9p"/>
+                <constraint firstItem="TlR-Gx-zwS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="81" id="1k6-Qy-U7d"/>
+                <constraint firstItem="feI-pL-6pa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="BcZ-ms-iFf"/>
+                <constraint firstItem="NdC-z7-9kZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bic-ED-S9p"/>
                 <constraint firstItem="eYz-YK-Q2a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FjQ-8W-JR7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TlR-Gx-zwS" secondAttribute="trailing" constant="81" id="JPO-oX-zfM"/>
                 <constraint firstAttribute="bottom" secondItem="NdC-z7-9kZ" secondAttribute="bottom" id="RQn-gb-mBj"/>
-                <constraint firstItem="psX-Qn-XpN" firstAttribute="centerY" secondItem="BgE-Ml-KSd" secondAttribute="centerY" id="SOw-Dd-Dsg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BgE-Ml-KSd" secondAttribute="trailing" constant="25" id="Y0P-Vf-6LK"/>
-                <constraint firstItem="eYz-YK-Q2a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="95" id="cMA-VI-dTI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BgE-Ml-KSd" secondAttribute="trailing" constant="22" id="Y0P-Vf-6LK"/>
+                <constraint firstItem="eYz-YK-Q2a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="148" id="cMA-VI-dTI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="feI-pL-6pa" secondAttribute="trailing" constant="47" id="dsa-Bv-Hhn"/>
                 <constraint firstItem="NdC-z7-9kZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ea2-ok-rTv"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BgE-Ml-KSd" secondAttribute="bottom" constant="100" id="raK-3T-iX4"/>
-                <constraint firstItem="BgE-Ml-KSd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="sbf-EV-fqb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NdC-z7-9kZ" secondAttribute="trailing" id="wnz-d9-gqu"/>
+                <constraint firstItem="BgE-Ml-KSd" firstAttribute="top" secondItem="OVa-g7-hEo" secondAttribute="bottom" constant="10" id="flb-Sf-caG"/>
+                <constraint firstItem="feI-pL-6pa" firstAttribute="top" secondItem="eYz-YK-Q2a" secondAttribute="bottom" constant="22" id="lD0-Vh-nx8"/>
+                <constraint firstItem="OVa-g7-hEo" firstAttribute="top" secondItem="TlR-Gx-zwS" secondAttribute="bottom" constant="25" id="n3p-Yv-Pex"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BgE-Ml-KSd" secondAttribute="bottom" constant="44" id="raK-3T-iX4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OVa-g7-hEo" secondAttribute="trailing" constant="22" id="rfg-2w-QjD"/>
+                <constraint firstItem="BgE-Ml-KSd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="sbf-EV-fqb"/>
+                <constraint firstItem="OVa-g7-hEo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="vgp-Lw-tGt"/>
+                <constraint firstAttribute="trailing" secondItem="NdC-z7-9kZ" secondAttribute="trailing" id="wnz-d9-gqu"/>
+                <constraint firstItem="feI-pL-6pa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zi9-UZ-azf"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="63.616071428571423"/>
         </view>
     </objects>
     <resources>
-        <image name="Logo" width="378.5" height="356"/>
-        <image name="background_img" width="375" height="812"/>
-        <image name="icon_login_kakao" width="40" height="40"/>
+        <image name="app_icon" width="80" height="80"/>
+        <image name="apple_login" width="331" height="44"/>
+        <image name="background" width="375" height="812"/>
+        <image name="kakao_login" width="331" height="44"/>
+        <image name="logo" width="280" height="135.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

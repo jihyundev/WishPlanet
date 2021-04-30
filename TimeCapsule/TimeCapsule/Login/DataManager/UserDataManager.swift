@@ -12,6 +12,10 @@ import KakaoSDKUser
 
 class UserDataManager {
     
+    func appleLogin(viewController: LoginViewController) {
+        print("appleLogin() called")
+    }
+    
     func kakaoLogin(viewController: LoginViewController) {
         // 카카오톡 설치 여부 확인
         if (AuthApi.isKakaoTalkLoginAvailable()) {
@@ -61,7 +65,7 @@ class UserDataManager {
     // 가입 회원 여부 검사
     func verifyUser(accessToken: String, viewController: LoginViewController) {
         print("verifyUser() called")
-        let url = Constant.BASE_URL + "users/exists"
+        let url = URLType.userExists.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
         AF.request(url, method: .get, headers: headers).validate().responseString { response in
             switch response.result {
@@ -84,8 +88,7 @@ class UserDataManager {
     // 로그인 (JWT 토큰 발급)
     func login(accessToken: String, viewController: LoginViewController) {
         print("login() called")
-        //let url = "https://www.vivi-pr.shop/v1/users/login"
-        let url = Constant.BASE_URL + "users/login"
+        let url = URLType.userLogin.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
         AF.request(url, method: .post, headers: headers).validate().responseString { response in
             switch response.result {
@@ -106,8 +109,7 @@ class UserDataManager {
     func setNickname(nickname: String, viewController: NicknameViewController) {
         let ud = UserDefaults.standard
         let token = ud.string(forKey: "loginJWTToken")!
-        //let url = "https://www.vivi-pr.shop/v1/users/nickname"
-        let url = Constant.BASE_URL + "users/nickname"
+        let url = URLType.userNickname.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "nicknameDto": nickname]
         AF.request(url, method: .patch, headers: headers).validate().responseString { response in
             switch response.result {
@@ -123,8 +125,7 @@ class UserDataManager {
     
     // 회원가입
     func join(nickname: String, token: String, viewController: NicknameViewController) {
-        //let url = "https://www.vivi-pr.shop/v1/users/signUp"
-        let url = Constant.BASE_URL + "users/signUp"
+        let url = URLType.userSignup.makeURL
         let parameters: [String: Any] = [
             "nickname" : nickname
         ]
