@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
     var currentItems: Int = 21
     var index: Int = 0
     var marbles: [Int] = []
+    var rocketLaunchFlag = false
+    
     lazy var rocketImageView: UIImageView = {
        let view = UIImageView(image: UIImage(named: "rocket"))
         view.frame.size.width = 300
@@ -49,16 +51,14 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        makeGameScene()
         backImageView.contentMode = .scaleAspectFill
         prepareRocket()
         setupUI()
-        getAllMarbles()
+        getRocket()
     }
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        getCapsule()
         isCapsuleOpen()
         
     }
@@ -75,6 +75,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func myPageButtonTapped(_ sender: Any) {
+        let mypageVC = MyPageViewController()
+        let vc = UINavigationController(rootViewController: mypageVC)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -82,28 +86,16 @@ class MainViewController: UIViewController {
         nextVC.delegate = self
         nextVC.count = currentItems
         nextVC.modalPresentationStyle = .overCurrentContext
-//        present(nextVC, animated: true, completion: nil)
         present(nextVC, animated: true) { [weak self] in
             guard let self = self else { return}
             let view = self.gameView as! SKView
             view.scene?.removeFromParent()
         }
-//        guard let pvc = self.presentingViewController else { return }
-//        let nextVC = AddWishViewController()
-//        nextVC.modalPresentationStyle = .overCurrentContext
-//        self.dismiss(animated: true) {
-//            pvc.present(nextVC, animated: true, completion: nil)
-//        }
     }
     
     func setupUI() {
         shadowView.isHidden = true
-        //listButton.layer.cornerRadius = 21
-        //listButton.borderWidth = 3
-        //listButton.borderColor = UIColor.init(hex: 0x76FF95)
         listButton.layer.zPosition = 9
-        //lockImageView.layer.cornerRadius = 21
-        //lockImageView.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
         lockImageView.layer.zPosition = 10
         dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
@@ -144,73 +136,50 @@ class MainViewController: UIViewController {
         skView.presentScene(scene)
     }
     
-    func getCapsule() {
+    func getRocket() {
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.testToken]
-        NetworkService.getData(type: .capsuleInfo, headers: headers, parameters: nil) { [weak self] (result: Result<CapsuleInfo,APIError>) in
-            guard let self = self else {fatalError()}
-            switch result {
-            case .success(let model):
-                print(model)
-                if model.capsuleName == "" {
+        let url = URLType.rocket.makeURL + "?scope=AWAITING&stoneColorCount=true"
+        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+            print("getRocket() called")
+            switch response.result {
+            case .success(let response):
+                print(response)
+                let rocket = response[0]
+                if rocket.rocketName == "" {
                     self.nameLabel.text = "로켓 이름"
                 } else {
-                    self.nameLabel.text = model.capsuleName
+                    self.nameLabel.text = rocket.rocketName
                 }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func getAllMarbles() {
-        print(#function)
-        let headers: HTTPHeaders = ["Accept": "application/json",
-            "X-ACCESS-TOKEN": Constant.testToken]
-        NetworkService.getData(type: .marbleList, headers: headers, parameters: nil) { [weak self] (result: Result<Marbles,APIError>) in
-            guard let self = self else {return}
-            switch result {
-            case .success(let model):
                 self.marbles = []
-                model.marbleList.forEach {
-                    self.marbles.append($0.marbleColor) }
+                for i in 0..<rocket.stoneColorCount.count {
+                    for _ in 0..<rocket.stoneColorCount[i].stoneCount {
+                        self.marbles.append(rocket.stoneColorCount[i].stoneColor)
+                    }
+                }
                 self.currentItems = self.marbles.count
                 self.makeGameScene()
                 self.countLabel.text = ("\(self.marbles.count) / 21")
                 print(self.currentItems)
             case .failure(let error):
-                print(#function, error.localizedDescription)
+                print(error.localizedDescription)
+                self.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ")
             }
         }
-
     }
     
-
-    
     func isCapsuleOpen() {
-        let headers: HTTPHeaders = ["Accept": "application/json",
-                                    "X-ACCESS-TOKEN": Constant.testToken]
-        let url = URLType.capsuleOpen.makeURL
-        
-        AF.request(url, headers: headers).responseJSON { [weak self] response in
-            guard let self = self else { return }
-            if let data = response.data {
-                if let result = String(data: data, encoding: .utf8), result == "true" {
-                    print("코로나 종식")
-                    self.listButton.isEnabled = true
-                    self.lockImageView.isHidden = true
-                    self.addButton.isHidden = true
-                    let nextVC = EndPopUpViewController()
-                    nextVC.delegate = self
-                    nextVC.modalPresentationStyle = .overCurrentContext
-                    self.present(nextVC, animated: true, completion: nil)
-                } else {
-                    print("코로나 중")
-                    self.listButton.isEnabled = false
-                    self.lockImageView.isHidden = false
-                    self.addButton.isHidden = false
-                }
-            }
+        if self.rocketLaunchFlag == true {
+            self.listButton.isEnabled = true
+            self.lockImageView.isHidden = true
+            self.addButton.isHidden = true
+            let nextVC = EndPopUpViewController()
+            nextVC.delegate = self
+            nextVC.modalPresentationStyle = .overCurrentContext
+            self.present(nextVC, animated: true, completion: nil)
+        } else {
+            self.listButton.isEnabled = false
+            self.lockImageView.isHidden = false
+            self.addButton.isHidden = false
         }
     }
 
@@ -220,12 +189,7 @@ extension MainViewController: ReloadDelegate {
     func reloadView() {
         let skView = self.gameView as! SKView
         skView.scene?.removeFromParent()
-        getAllMarbles()
-        isCapsuleOpen()
-    }
-  
-    func reloadName() {
-        getCapsule()
+        getRocket()
         isCapsuleOpen()
     }
      
@@ -247,6 +211,5 @@ extension MainViewController: ReloadDelegate {
 
 protocol ReloadDelegate {
     func reloadView()
-    func reloadName()
     func endGame()
 }

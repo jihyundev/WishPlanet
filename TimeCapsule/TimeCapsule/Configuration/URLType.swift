@@ -32,7 +32,7 @@ enum URLType {
     case nickName
     
     var baseURL: String {
-        return "http://3.35.129.158"
+        return "http://18.216.19.165"
     }
     
     var makeURL: String {

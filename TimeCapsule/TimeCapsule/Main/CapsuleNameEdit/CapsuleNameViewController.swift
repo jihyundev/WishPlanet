@@ -89,7 +89,7 @@ class CapsuleNameViewController: UIViewController {
         AF.request(url, method: .patch, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
             .response { [weak self] response in
                 guard let self = self else { return }
-                self.delegate?.reloadName()
+                self.delegate?.reloadView()
                 self.dismiss(animated: true, completion: nil)
             }
     }
