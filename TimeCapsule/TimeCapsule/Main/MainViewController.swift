@@ -8,6 +8,7 @@
 import UIKit
 import SpriteKit
 import Alamofire
+import KeychainSwift
 
 class MainViewController: UIViewController {
 
@@ -26,6 +27,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var capsuleConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var lockImageView: UIImageView!
+    
+    let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
+    
     var currentItems: Int = 21
     var index: Int = 0
     var marbles: [Int] = []
@@ -56,12 +60,19 @@ class MainViewController: UIViewController {
         setupUI()
         getRocket()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isTransparent = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         isCapsuleOpen()
-        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @IBAction func editCapsuleButtonTapped(_ sender: Any) {
         let nextVC = CapsuleNameViewController()
         nextVC.delegate = self
@@ -76,9 +87,7 @@ class MainViewController: UIViewController {
     
     @IBAction func myPageButtonTapped(_ sender: Any) {
         let mypageVC = MyPageViewController()
-        let vc = UINavigationController(rootViewController: mypageVC)
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(mypageVC, animated: true)
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -94,6 +103,7 @@ class MainViewController: UIViewController {
     }
     
     func setupUI() {
+        self.navigationItem.title = ""
         shadowView.isHidden = true
         listButton.layer.zPosition = 9
         lockImageView.layer.zPosition = 10
@@ -137,9 +147,11 @@ class MainViewController: UIViewController {
     }
     
     func getRocket() {
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.testToken]
+        guard let token = keychain.get(Keys.token) else { return }
+        print("test token: \(Constant.testToken)")
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let url = URLType.rocket.makeURL + "?scope=AWAITING&stoneColorCount=true"
-        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
             switch response.result {
             case .success(let response):

@@ -10,3 +10,11 @@ import Foundation
 struct Signup: Codable {
     let code, message: String
 }
+
+
+struct Keys {
+    static let keyPrefix = "wishplanet_"
+    static let token = "token"
+    static let loginType = "loginType"
+    static let nickname = "nickname"
+}

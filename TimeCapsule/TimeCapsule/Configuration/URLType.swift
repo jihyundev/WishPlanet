@@ -13,6 +13,9 @@ enum URLType {
     case userLogin // 로그인
     case userNickname // 닉네임 수정
     case userSignup // 회원가입
+    case userMore // 더보기 메인화면 정보
+    case userRockets //내 우주선 관리
+    case userDelete // 회원탈퇴
     
     // rocket-controller
     case rocket // 우주선 리스트(GET), 만들기(POST)
@@ -42,9 +45,15 @@ enum URLType {
         case .userLogin:
             return "\(baseURL)/v1/users/login"
         case .userNickname:
-            return "\(baseURL)/v1/users/nickname"
+            return "\(baseURL)/v1/users/nicknames"
         case .userSignup:
             return "\(baseURL)/v1/users/signup"
+        case .userMore:
+            return "\(baseURL)/v1/users/more-informations"
+        case .userRockets:
+            return "\(baseURL)/v1/users/rockets"
+        case .userDelete:
+            return "\(baseURL)/v1/users"
             
         case .rocket:
             return "\(baseURL)/v1/rockets"

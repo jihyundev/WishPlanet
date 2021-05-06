@@ -39,8 +39,9 @@ class LoginViewController: UIViewController {
     
     func userExisted() {
         let mainVC = MainViewController()
-        mainVC.modalPresentationStyle = .fullScreen
-        self.present(mainVC, animated: true, completion: nil)
+        let vc = UINavigationController(rootViewController: mainVC)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 
 }

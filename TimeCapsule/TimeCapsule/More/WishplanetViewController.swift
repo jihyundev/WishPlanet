@@ -12,6 +12,7 @@ class WishplanetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "위시플래닛 소개"
+        self.view.backgroundColor = .mainPurple
     }
 
 

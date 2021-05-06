@@ -35,6 +35,12 @@
 		592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A095B263C474700BA3926 /* GetRocketsResponse.swift */; };
 		592A095F263C489600BA3926 /* GetStonesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A095E263C489600BA3926 /* GetStonesResponse.swift */; };
 		59399AB925FC365E006CBE10 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59399AB825FC365E006CBE10 /* MenuCell.swift */; };
+		595B807B2644275B00B4866D /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B80792644275B00B4866D /* PrivacyPolicyViewController.swift */; };
+		595B807C2644275B00B4866D /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */; };
+		595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B807E264427CA00B4866D /* LogoutViewController.swift */; };
+		595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B807F264427CA00B4866D /* LogoutViewController.xib */; };
+		595B80852644362B00B4866D /* MoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B80842644362B00B4866D /* MoreDataManager.swift */; };
+		595B808A264439FF00B4866D /* GetMoreInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B8089264439FF00B4866D /* GetMoreInfoResponse.swift */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
 		59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */; };
@@ -47,6 +53,12 @@
 		59C686842642EB4D006D9F3B /* MyRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C686822642EB4D006D9F3B /* MyRocketViewController.xib */; };
 		59C686882642EB6A006D9F3B /* WishplanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686862642EB6A006D9F3B /* WishplanetViewController.swift */; };
 		59C686892642EB6A006D9F3B /* WishplanetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C686872642EB6A006D9F3B /* WishplanetViewController.xib */; };
+		59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C6868C264395E4006D9F3B /* MyInfoTableViewCell.swift */; };
+		59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C6868D264395E4006D9F3B /* MyInfoTableViewCell.xib */; };
+		59C6869F2643F746006D9F3B /* NicknameEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C6869D2643F746006D9F3B /* NicknameEditViewController.swift */; };
+		59C686A02643F746006D9F3B /* NicknameEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C6869E2643F746006D9F3B /* NicknameEditViewController.xib */; };
+		59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686A326441168006D9F3B /* MyInfoDataManager.swift */; };
+		59C686A72644155D006D9F3B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686A62644155D006D9F3B /* UITextField.swift */; };
 		59D5474325FBB5FF004763B4 /* FinishedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D5474125FBB5FF004763B4 /* FinishedListCell.swift */; };
 		59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59D5474225FBB5FF004763B4 /* FinishedListCell.xib */; };
 		59E1B03A25FC556D00B46A4A /* WishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1B03925FC556D00B46A4A /* WishList.swift */; };
@@ -118,6 +130,12 @@
 		592A095B263C474700BA3926 /* GetRocketsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRocketsResponse.swift; sourceTree = "<group>"; };
 		592A095E263C489600BA3926 /* GetStonesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStonesResponse.swift; sourceTree = "<group>"; };
 		59399AB825FC365E006CBE10 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		595B80792644275B00B4866D /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
+		595B807E264427CA00B4866D /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		595B807F264427CA00B4866D /* LogoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutViewController.xib; sourceTree = "<group>"; };
+		595B80842644362B00B4866D /* MoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDataManager.swift; sourceTree = "<group>"; };
+		595B8089264439FF00B4866D /* GetMoreInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreInfoResponse.swift; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
 		59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketViewController.xib; sourceTree = "<group>"; };
@@ -130,6 +148,12 @@
 		59C686822642EB4D006D9F3B /* MyRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRocketViewController.xib; sourceTree = "<group>"; };
 		59C686862642EB6A006D9F3B /* WishplanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishplanetViewController.swift; sourceTree = "<group>"; };
 		59C686872642EB6A006D9F3B /* WishplanetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishplanetViewController.xib; sourceTree = "<group>"; };
+		59C6868C264395E4006D9F3B /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		59C6868D264395E4006D9F3B /* MyInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoTableViewCell.xib; sourceTree = "<group>"; };
+		59C6869D2643F746006D9F3B /* NicknameEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameEditViewController.swift; sourceTree = "<group>"; };
+		59C6869E2643F746006D9F3B /* NicknameEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameEditViewController.xib; sourceTree = "<group>"; };
+		59C686A326441168006D9F3B /* MyInfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager.swift; sourceTree = "<group>"; };
+		59C686A62644155D006D9F3B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		59D5474125FBB5FF004763B4 /* FinishedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedListCell.swift; sourceTree = "<group>"; };
 		59D5474225FBB5FF004763B4 /* FinishedListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishedListCell.xib; sourceTree = "<group>"; };
 		59E1B03925FC556D00B46A4A /* WishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
@@ -246,16 +270,34 @@
 		592A0954263C39C500BA3926 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				595B8088264439D700B4866D /* Entity */,
+				595B80832644360D00B4866D /* DataManager */,
+				59C6869C2643F6F2006D9F3B /* MyInfo */,
+				59C6868B264395B6006D9F3B /* TableViewCells */,
 				592A0955263C39E900BA3926 /* MyPageViewController.swift */,
 				592A0956263C39E900BA3926 /* MyPageViewController.xib */,
-				59C6867C2642EAEB006D9F3B /* MyInfoViewController.swift */,
-				59C6867D2642EAEB006D9F3B /* MyInfoViewController.xib */,
 				59C686812642EB4D006D9F3B /* MyRocketViewController.swift */,
 				59C686822642EB4D006D9F3B /* MyRocketViewController.xib */,
 				59C686862642EB6A006D9F3B /* WishplanetViewController.swift */,
 				59C686872642EB6A006D9F3B /* WishplanetViewController.xib */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		595B80832644360D00B4866D /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				595B80842644362B00B4866D /* MoreDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		595B8088264439D700B4866D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				595B8089264439FF00B4866D /* GetMoreInfoResponse.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {
@@ -285,6 +327,39 @@
 				59BD6041262C6D06009B4DE6 /* CompletedListViewController.xib */,
 			);
 			path = Completed;
+			sourceTree = "<group>";
+		};
+		59C6868B264395B6006D9F3B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		59C6869C2643F6F2006D9F3B /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				59C686A22644113C006D9F3B /* DataManager */,
+				59C6867C2642EAEB006D9F3B /* MyInfoViewController.swift */,
+				59C6867D2642EAEB006D9F3B /* MyInfoViewController.xib */,
+				59C6868C264395E4006D9F3B /* MyInfoTableViewCell.swift */,
+				59C6868D264395E4006D9F3B /* MyInfoTableViewCell.xib */,
+				59C6869D2643F746006D9F3B /* NicknameEditViewController.swift */,
+				59C6869E2643F746006D9F3B /* NicknameEditViewController.xib */,
+				595B80792644275B00B4866D /* PrivacyPolicyViewController.swift */,
+				595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */,
+				595B807E264427CA00B4866D /* LogoutViewController.swift */,
+				595B807F264427CA00B4866D /* LogoutViewController.xib */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		59C686A22644113C006D9F3B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				59C686A326441168006D9F3B /* MyInfoDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		59E1B03625FC51E800B46A4A /* ListDataManager */ = {
@@ -374,6 +449,7 @@
 				59E971CD25FB003B008A7EF9 /* UIFont.swift */,
 				59E971CE25FB003B008A7EF9 /* Color.swift */,
 				59C686792642E9F0006D9F3B /* CALayer.swift */,
+				59C686A62644155D006D9F3B /* UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -554,12 +630,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */,
+				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				2520770325FB5235004366E4 /* CapsuleNameViewController.xib in Resources */,
 				59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */,
 				592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */,
 				59E971B925FB000C008A7EF9 /* LaunchScreen.storyboard in Resources */,
+				59C686A02643F746006D9F3B /* NicknameEditViewController.xib in Resources */,
 				5921F99325FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf in Resources */,
 				59BD6043262C6D06009B4DE6 /* CompletedListViewController.xib in Resources */,
 				59E971B625FB000C008A7EF9 /* Assets.xcassets in Resources */,
@@ -568,9 +646,11 @@
 				59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */,
 				5921F99025FBC80F00D097B4 /* Spoqa Han Sans Neo Light.otf in Resources */,
 				252076EF25FB3A8D004366E4 /* AddWishViewController.xib in Resources */,
+				595B807C2644275B00B4866D /* PrivacyPolicyViewController.xib in Resources */,
 				25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */,
 				59E9725425FB72D2008A7EF9 /* FocusView.xib in Resources */,
 				59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */,
+				595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */,
 				59C6867F2642EAEB006D9F3B /* MyInfoViewController.xib in Resources */,
 				59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */,
 				252076FA25FB44E0004366E4 /* TagCollectionViewCell.xib in Resources */,
@@ -639,10 +719,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E9720825FB0722008A7EF9 /* LoginViewController.swift in Sources */,
+				59C686A72644155D006D9F3B /* UITextField.swift in Sources */,
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				2516E83F25FB855200ADD135 /* GameScene.swift in Sources */,
 				59E971DB25FB003B008A7EF9 /* UIView.swift in Sources */,
 				252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */,
+				595B807B2644275B00B4866D /* PrivacyPolicyViewController.swift in Sources */,
 				59399AB925FC365E006CBE10 /* MenuCell.swift in Sources */,
 				59E1B03A25FC556D00B46A4A /* WishList.swift in Sources */,
 				59C686882642EB6A006D9F3B /* WishplanetViewController.swift in Sources */,
@@ -650,12 +732,16 @@
 				252076F925FB44E0004366E4 /* TagCollectionViewCell.swift in Sources */,
 				59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */,
 				59E971DF25FB003B008A7EF9 /* UINavigationBar.swift in Sources */,
+				59C6869F2643F746006D9F3B /* NicknameEditViewController.swift in Sources */,
 				59C6867A2642E9F0006D9F3B /* CALayer.swift in Sources */,
+				595B80852644362B00B4866D /* MoreDataManager.swift in Sources */,
 				59E9723425FB4CE6008A7EF9 /* UserModel.swift in Sources */,
 				59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
+				59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */,
 				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,
+				595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */,
 				59E971DA25FB003B008A7EF9 /* Date.swift in Sources */,
 				2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */,
 				59E971DD25FB003B008A7EF9 /* UIButton.swift in Sources */,
@@ -666,6 +752,7 @@
 				59D5474325FBB5FF004763B4 /* FinishedListCell.swift in Sources */,
 				59E1B03D25FC55B800B46A4A /* WishlistDataManager.swift in Sources */,
 				59E9725B25FB777D008A7EF9 /* WishlistViewController.swift in Sources */,
+				59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */,
 				59C686832642EB4D006D9F3B /* MyRocketViewController.swift in Sources */,
 				59E971E125FB003B008A7EF9 /* Color.swift in Sources */,
 				59E971E025FB003B008A7EF9 /* UIFont.swift in Sources */,
@@ -673,6 +760,7 @@
 				59C6867E2642EAEB006D9F3B /* MyInfoViewController.swift in Sources */,
 				592A095F263C489600BA3926 /* GetStonesResponse.swift in Sources */,
 				59E971D925FB003B008A7EF9 /* Device.swift in Sources */,
+				595B808A264439FF00B4866D /* GetMoreInfoResponse.swift in Sources */,
 				59E9722025FB1B4B008A7EF9 /* ListViewController.swift in Sources */,
 				59E971D725FB003B008A7EF9 /* Constant.swift in Sources */,
 				59E971E625FB003B008A7EF9 /* BaseViewController.swift in Sources */,

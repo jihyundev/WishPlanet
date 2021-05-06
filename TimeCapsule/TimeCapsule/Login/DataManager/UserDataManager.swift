@@ -9,8 +9,11 @@ import Foundation
 import Alamofire
 import KakaoSDKAuth
 import KakaoSDKUser
+import KeychainSwift
 
 class UserDataManager {
+    
+    let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
     func appleLogin(viewController: LoginViewController) {
         print("appleLogin() called")
@@ -95,8 +98,13 @@ class UserDataManager {
             case .success(let response):
                 let jwtToken = response
                 print("token: \(jwtToken)")
-                let ud = UserDefaults.standard
-                ud.setValue(jwtToken, forKey: "loginJWTToken")
+                //let ud = UserDefaults.standard
+                //ud.setValue(jwtToken, forKey: "loginJWTToken")
+                
+                print("login type: kakao")
+                self.keychain.set(jwtToken, forKey: Keys.token)
+                self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                
                 // 메인으로 넘어가기
                 viewController.userExisted()
             case .failure(let error):
@@ -107,8 +115,7 @@ class UserDataManager {
     
     // 닉네임 수정
     func setNickname(nickname: String, viewController: NicknameViewController) {
-        let ud = UserDefaults.standard
-        let token = ud.string(forKey: "loginJWTToken")!
+        guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userNickname.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "nicknameDto": nickname]
         AF.request(url, method: .patch, headers: headers).validate().responseString { response in
@@ -116,7 +123,6 @@ class UserDataManager {
             case .success( _):
                 print("닉네임 수정 성공")
                 viewController.didRetreiveData()
-                //self.join(nickname: nickname, viewController: viewController)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -134,8 +140,15 @@ class UserDataManager {
             switch response.result {
             case .success(let response):
                 let jwtToken = response
-                let ud = UserDefaults.standard
-                ud.setValue(jwtToken, forKey: "loginJWTToken")
+                //let ud = UserDefaults.standard
+                //ud.setValue(jwtToken, forKey: "loginJWTToken")
+                
+                self.keychain.set(jwtToken, forKey: Keys.token)
+                self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                
+                print("token: \(jwtToken)")
+                print("login type: kakao")
+                
                 // 메인으로 넘어가기
                 viewController.didRetreiveData()
             case .failure(let error):
