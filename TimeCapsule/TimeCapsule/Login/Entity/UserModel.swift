@@ -14,7 +14,8 @@ struct Signup: Codable {
 
 struct Keys {
     static let keyPrefix = "wishplanet_"
-    static let token = "token"
-    static let loginType = "loginType"
-    static let nickname = "nickname"
+    static let token = "token" // String
+    static let loginType = "loginType" // String
+    static let nickname = "nickname" // String
+    static let rocketExists = "rocketExists" // Bool
 }

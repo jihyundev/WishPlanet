@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeaveConfirmViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="descLabel" destination="KWG-qd-WBx" id="01q-jX-0bi"/>
+                <outlet property="leaveButton" destination="5nf-ZU-ROM" id="fop-5I-J6y"/>
+                <outlet property="mainTitleLabel" destination="bc4-K2-NHq" id="4ng-wu-OSB"/>
+                <outlet property="textView" destination="sWd-4X-s4B" id="aeT-bx-u9v"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="탈퇴 사유를 남겨주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-K2-NHq">
+                    <rect key="frame" x="22" y="118" width="157" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좀 더 발전하는 위시플래닛이 될게요 :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWG-qd-WBx">
+                    <rect key="frame" x="22" y="146" width="253.5" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWd-4X-s4B">
+                    <rect key="frame" x="22" y="210" width="370" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Thx-iW-283"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-ZU-ROM">
+                    <rect key="frame" x="22" y="770" width="370" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="tLs-m0-KWu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <state key="normal" title="탈퇴하기">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="0.29813582060352856" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="leaveButtonTapped:" destination="-1" eventType="touchUpInside" id="fS1-g3-7G9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sWd-4X-s4B" secondAttribute="trailing" constant="22" id="1QU-Wy-eA3"/>
+                <constraint firstItem="bc4-K2-NHq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="920-6k-mTH"/>
+                <constraint firstItem="sWd-4X-s4B" firstAttribute="top" secondItem="KWG-qd-WBx" secondAttribute="bottom" constant="44" id="9Hd-Pr-vk6"/>
+                <constraint firstItem="sWd-4X-s4B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="CaM-z5-4Cv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5nf-ZU-ROM" secondAttribute="bottom" constant="42" id="NZS-Lr-GPP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5nf-ZU-ROM" secondAttribute="trailing" constant="22" id="bou-pQ-Sgh"/>
+                <constraint firstItem="5nf-ZU-ROM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="l0P-IA-cQP"/>
+                <constraint firstItem="KWG-qd-WBx" firstAttribute="top" secondItem="bc4-K2-NHq" secondAttribute="bottom" constant="8" id="mxw-Ny-vzb"/>
+                <constraint firstItem="bc4-K2-NHq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="qmt-XV-jKR"/>
+                <constraint firstItem="KWG-qd-WBx" firstAttribute="leading" secondItem="bc4-K2-NHq" secondAttribute="leading" id="uBV-X8-Xzz"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="132" y="75"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

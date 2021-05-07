@@ -19,11 +19,7 @@ class MyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "내 정보"
-        if let nickname = keychain.get(Keys.nickname) {
-            self.name = nickname
-        } else {
-            // 서버에서 호출
-        }
+        
         setupUI()
         
         tableView.dataSource = self
@@ -52,7 +48,8 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
             cell.mainLabel.text = "닉네임 수정"
-            cell.subLabel.text = self.name
+            let nickname = keychain.get(Keys.nickname)
+            cell.subLabel.text = nickname
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
@@ -92,6 +89,8 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             self.present(vc, animated: true, completion: nil)
         case 3:
             print("탈퇴하기")
+            let vc = LeaveViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             print()
         }
@@ -106,6 +105,17 @@ extension MyInfoViewController: ChangeRootDelegate {
     }
 }
 
+extension MyInfoViewController: ReloadNicknameDelegate {
+    func reloadNicknameRow() {
+        let index = IndexPath(row: 0, section: 0)
+        tableView.reloadRows(at: [index], with: .none)
+    }
+}
+
 protocol ChangeRootDelegate {
     func goToLoginVC()
+}
+
+protocol ReloadNicknameDelegate {
+    func reloadNicknameRow()
 }

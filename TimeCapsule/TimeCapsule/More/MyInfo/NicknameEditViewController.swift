@@ -13,6 +13,7 @@ class NicknameEditViewController: UIViewController {
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = MyInfoDataManager()
     var nickname: String?
+    var delegate: ReloadNicknameDelegate?
     
     lazy var completeButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(completeButtonPressed(_:)))
@@ -57,6 +58,7 @@ class NicknameEditViewController: UIViewController {
     @objc private func completeButtonPressed(_ sender: Any) {
         guard let name = self.nickname else { return }
         dataManager.patchNickname(nickname: name, viewController: self)
+        delegate?.reloadNicknameRow()
     }
     
     func didRetreiveData() {

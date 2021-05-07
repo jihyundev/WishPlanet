@@ -13,6 +13,7 @@ class MyInfoDataManager {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
+    // 닉네임 수정
     func patchNickname(nickname: String, viewController: NicknameEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userNickname.makeURL
@@ -28,6 +29,22 @@ class MyInfoDataManager {
                 viewController.didRetreiveData()
             case .failure(let error):
                 print(response)
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // 회원탈퇴
+    func deleteUser(reason: String, viewController: LeaveConfirmViewController) {
+        guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.userDelete.makeURL + "?reason=\(reason)"
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).validate().responseString { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+                viewController.didRetrieveData()
+            case .failure(let error):
                 print(error.localizedDescription)
             }
         }

@@ -21,6 +21,10 @@ class MoreDataManager {
         AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: GetMoreInfoResponse.self) { response in
             switch response.result {
             case .success(let response):
+                let nickname = response.nickName
+                let loginType = response.socialType
+                self.keychain.set(nickname, forKey: Keys.nickname)
+                self.keychain.set(loginType, forKey: Keys.loginType)
                 viewController.didRetrieveData(data: response)
             case .failure(let error):
                 print(error.localizedDescription)

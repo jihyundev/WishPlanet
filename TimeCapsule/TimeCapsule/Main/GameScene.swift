@@ -54,7 +54,7 @@ class GameScene: SKScene {
             y += (bodySize * 2)
         }
 
-        let tile = SKSpriteNode(imageNamed: "dol_\(index+1)")
+        let tile = SKSpriteNode(imageNamed: "dol_\(index)")
         tile.position = .init(x: x, y: y)
         tile.physicsBody = SKPhysicsBody(circleOfRadius: bodySize)
         tile.physicsBody?.isDynamic = true

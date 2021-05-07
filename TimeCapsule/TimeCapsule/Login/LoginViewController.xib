@@ -15,6 +15,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="appIcon" destination="feI-pL-6pa" id="RaF-cU-hhL"/>
+                <outlet property="appleLoginButton" destination="OVa-g7-hEo" id="gOk-fR-jUR"/>
+                <outlet property="descLabel" destination="TlR-Gx-zwS" id="sLG-qs-4B4"/>
+                <outlet property="kakaoLoginButton" destination="BgE-Ml-KSd" id="Ns0-O3-wDJ"/>
+                <outlet property="rocketIcon" destination="eYz-YK-Q2a" id="aCj-Aj-T9k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

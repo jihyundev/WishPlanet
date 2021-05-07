@@ -41,6 +41,19 @@
 		595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B807F264427CA00B4866D /* LogoutViewController.xib */; };
 		595B80852644362B00B4866D /* MoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B80842644362B00B4866D /* MoreDataManager.swift */; };
 		595B808A264439FF00B4866D /* GetMoreInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B8089264439FF00B4866D /* GetMoreInfoResponse.swift */; };
+		595B808F2644CEE100B4866D /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B808D2644CEE100B4866D /* LeaveViewController.swift */; };
+		595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B808E2644CEE100B4866D /* LeaveViewController.xib */; };
+		595B80942644DB7500B4866D /* LeaveConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B80922644DB7500B4866D /* LeaveConfirmViewController.swift */; };
+		595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B80932644DB7500B4866D /* LeaveConfirmViewController.xib */; };
+		595B809A26455AE600B4866D /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B809826455AE600B4866D /* IntroViewController.swift */; };
+		595B809B26455AE600B4866D /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B809926455AE600B4866D /* IntroViewController.xib */; };
+		5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997196C26456C8E008E88EA /* GuideViewController.swift */; };
+		5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997196D26456C8E008E88EA /* GuideViewController.xib */; };
+		5997197226457AB0008E88EA /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197126457AB0008E88EA /* UILabel.swift */; };
+		5997197626458370008E88EA /* RocketNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197426458370008E88EA /* RocketNameViewController.swift */; };
+		5997197726458371008E88EA /* RocketNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997197526458370008E88EA /* RocketNameViewController.xib */; };
+		5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197926458380008E88EA /* RocketDateViewController.swift */; };
+		5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997197A26458380008E88EA /* RocketDateViewController.xib */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
 		59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */; };
@@ -136,6 +149,19 @@
 		595B807F264427CA00B4866D /* LogoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutViewController.xib; sourceTree = "<group>"; };
 		595B80842644362B00B4866D /* MoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDataManager.swift; sourceTree = "<group>"; };
 		595B8089264439FF00B4866D /* GetMoreInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoreInfoResponse.swift; sourceTree = "<group>"; };
+		595B808D2644CEE100B4866D /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
+		595B808E2644CEE100B4866D /* LeaveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveViewController.xib; sourceTree = "<group>"; };
+		595B80922644DB7500B4866D /* LeaveConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveConfirmViewController.swift; sourceTree = "<group>"; };
+		595B80932644DB7500B4866D /* LeaveConfirmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveConfirmViewController.xib; sourceTree = "<group>"; };
+		595B809826455AE600B4866D /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		595B809926455AE600B4866D /* IntroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
+		5997196C26456C8E008E88EA /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		5997196D26456C8E008E88EA /* GuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideViewController.xib; sourceTree = "<group>"; };
+		5997197126457AB0008E88EA /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		5997197426458370008E88EA /* RocketNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketNameViewController.swift; sourceTree = "<group>"; };
+		5997197526458370008E88EA /* RocketNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketNameViewController.xib; sourceTree = "<group>"; };
+		5997197926458380008E88EA /* RocketDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDateViewController.swift; sourceTree = "<group>"; };
+		5997197A26458380008E88EA /* RocketDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketDateViewController.xib; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
 		59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketViewController.xib; sourceTree = "<group>"; };
@@ -300,6 +326,21 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		595B809D26455D3C00B4866D /* Intro+MakeRocket */ = {
+			isa = PBXGroup;
+			children = (
+				595B809826455AE600B4866D /* IntroViewController.swift */,
+				595B809926455AE600B4866D /* IntroViewController.xib */,
+				5997196C26456C8E008E88EA /* GuideViewController.swift */,
+				5997196D26456C8E008E88EA /* GuideViewController.xib */,
+				5997197426458370008E88EA /* RocketNameViewController.swift */,
+				5997197526458370008E88EA /* RocketNameViewController.xib */,
+				5997197926458380008E88EA /* RocketDateViewController.swift */,
+				5997197A26458380008E88EA /* RocketDateViewController.xib */,
+			);
+			path = "Intro+MakeRocket";
+			sourceTree = "<group>";
+		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +391,10 @@
 				595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */,
 				595B807E264427CA00B4866D /* LogoutViewController.swift */,
 				595B807F264427CA00B4866D /* LogoutViewController.xib */,
+				595B808D2644CEE100B4866D /* LeaveViewController.swift */,
+				595B808E2644CEE100B4866D /* LeaveViewController.xib */,
+				595B80922644DB7500B4866D /* LeaveConfirmViewController.swift */,
+				595B80932644DB7500B4866D /* LeaveConfirmViewController.xib */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -450,6 +495,7 @@
 				59E971CE25FB003B008A7EF9 /* Color.swift */,
 				59C686792642E9F0006D9F3B /* CALayer.swift */,
 				59C686A62644155D006D9F3B /* UITextField.swift */,
+				5997197126457AB0008E88EA /* UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -495,6 +541,7 @@
 		59E971F225FB0483008A7EF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59BD602F262C6AD8009B4DE6 /* Entity */,
 				59BD6030262C6ADF009B4DE6 /* DataManager */,
 				2516E83E25FB855200ADD135 /* GameScene.swift */,
@@ -632,6 +679,7 @@
 				59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */,
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				2520770325FB5235004366E4 /* CapsuleNameViewController.xib in Resources */,
+				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
 				59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */,
@@ -639,6 +687,7 @@
 				59E971B925FB000C008A7EF9 /* LaunchScreen.storyboard in Resources */,
 				59C686A02643F746006D9F3B /* NicknameEditViewController.xib in Resources */,
 				5921F99325FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf in Resources */,
+				595B809B26455AE600B4866D /* IntroViewController.xib in Resources */,
 				59BD6043262C6D06009B4DE6 /* CompletedListViewController.xib in Resources */,
 				59E971B625FB000C008A7EF9 /* Assets.xcassets in Resources */,
 				59E971B425FB0007008A7EF9 /* Main.storyboard in Resources */,
@@ -651,11 +700,14 @@
 				59E9725425FB72D2008A7EF9 /* FocusView.xib in Resources */,
 				59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */,
 				595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */,
+				595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */,
 				59C6867F2642EAEB006D9F3B /* MyInfoViewController.xib in Resources */,
 				59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */,
 				252076FA25FB44E0004366E4 /* TagCollectionViewCell.xib in Resources */,
+				5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */,
 				59C686892642EB6A006D9F3B /* WishplanetViewController.xib in Resources */,
 				5921F98A25FBC7D700D097B4 /* Gaegu-Light.ttf in Resources */,
+				5997197726458371008E88EA /* RocketNameViewController.xib in Resources */,
 				59E9725125FB7180008A7EF9 /* MenuCell.xib in Resources */,
 				5921F98825FBC7D700D097B4 /* Gaegu-Regular.ttf in Resources */,
 				59C686842642EB4D006D9F3B /* MyRocketViewController.xib in Resources */,
@@ -664,6 +716,7 @@
 				5921F99925FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				5921F99625FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf in Resources */,
 				5921F98D25FBC80200D097B4 /* Spoqa Han Sans Neo Bold.otf in Resources */,
+				5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */,
 				59E9726125FB7793008A7EF9 /* FinishedListViewController.xib in Resources */,
 				59E971E525FB003B008A7EF9 /* NotoSansCJKkr-Bold.otf in Resources */,
 			);
@@ -729,20 +782,25 @@
 				59E1B03A25FC556D00B46A4A /* WishList.swift in Sources */,
 				59C686882642EB6A006D9F3B /* WishplanetViewController.swift in Sources */,
 				59E971AD25FB0007008A7EF9 /* AppDelegate.swift in Sources */,
+				595B808F2644CEE100B4866D /* LeaveViewController.swift in Sources */,
 				252076F925FB44E0004366E4 /* TagCollectionViewCell.swift in Sources */,
+				5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */,
 				59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */,
 				59E971DF25FB003B008A7EF9 /* UINavigationBar.swift in Sources */,
 				59C6869F2643F746006D9F3B /* NicknameEditViewController.swift in Sources */,
 				59C6867A2642E9F0006D9F3B /* CALayer.swift in Sources */,
 				595B80852644362B00B4866D /* MoreDataManager.swift in Sources */,
+				595B809A26455AE600B4866D /* IntroViewController.swift in Sources */,
 				59E9723425FB4CE6008A7EF9 /* UserModel.swift in Sources */,
 				59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
 				59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */,
 				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,
+				5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */,
 				595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */,
 				59E971DA25FB003B008A7EF9 /* Date.swift in Sources */,
+				595B80942644DB7500B4866D /* LeaveConfirmViewController.swift in Sources */,
 				2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */,
 				59E971DD25FB003B008A7EF9 /* UIButton.swift in Sources */,
 				25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */,
@@ -763,6 +821,7 @@
 				595B808A264439FF00B4866D /* GetMoreInfoResponse.swift in Sources */,
 				59E9722025FB1B4B008A7EF9 /* ListViewController.swift in Sources */,
 				59E971D725FB003B008A7EF9 /* Constant.swift in Sources */,
+				5997197626458370008E88EA /* RocketNameViewController.swift in Sources */,
 				59E971E625FB003B008A7EF9 /* BaseViewController.swift in Sources */,
 				2516E84225FB890E00ADD135 /* URLType.swift in Sources */,
 				59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */,
@@ -770,6 +829,7 @@
 				592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */,
 				2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */,
 				2520770225FB5235004366E4 /* CapsuleNameViewController.swift in Sources */,
+				5997197226457AB0008E88EA /* UILabel.swift in Sources */,
 				25437B6E25FC425000F3C8EF /* CapsuleInfo.swift in Sources */,
 				59E9721525FB1581008A7EF9 /* MainViewController.swift in Sources */,
 			);

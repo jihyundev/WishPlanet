@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="guideButton" destination="yHD-Qe-KtV" id="g1p-Q4-ouN"/>
+                <outlet property="mainLabel" destination="cVX-Ib-SOY" id="han-bA-VwR"/>
+                <outlet property="makeRocketButton" destination="5k6-dt-jaR" id="1ks-yc-lDD"/>
+                <outlet property="subLabel" destination="zR6-HS-6zU" id="v4c-EZ-t4S"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="czf-Hy-1Zg">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="B29-nX-aws">
+                    <rect key="frame" x="0.0" y="696" width="414" height="200"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시플래닛에" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-Ib-SOY">
+                    <rect key="frame" x="25" y="88" width="135" height="30.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시플래닛이 처음이신가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zR6-HS-6zU">
+                    <rect key="frame" x="25" y="130.5" width="190" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHD-Qe-KtV">
+                    <rect key="frame" x="320" y="129" width="78" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="78" id="07I-Yl-u1E"/>
+                        <constraint firstAttribute="height" constant="24" id="xA0-g4-Glh"/>
+                    </constraints>
+                    <state key="normal" title="가이드보기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="guideButtonTapped:" destination="-1" eventType="touchUpInside" id="pm0-uE-z3c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-CI-MeV">
+                    <rect key="frame" x="360" y="44" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="Zad-7g-rsk"/>
+                        <constraint firstAttribute="height" constant="44" id="uyk-Ga-k1T"/>
+                    </constraints>
+                    <state key="normal" image="icon more"/>
+                    <connections>
+                        <action selector="moreButtonTapped:" destination="-1" eventType="touchUpInside" id="26l-z8-zpH"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalldol_1" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-fz-QCj">
+                    <rect key="frame" x="185" y="376" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="EPc-PX-4lF"/>
+                        <constraint firstAttribute="height" constant="44" id="uhl-zY-mf0"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 우주선이 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-GU-EIm">
+                    <rect key="frame" x="153" y="436" width="108.5" height="16"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="13"/>
+                    <color key="textColor" red="0.93333959580000003" green="0.93332213159999999" blue="0.93333393340000004" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5k6-dt-jaR">
+                    <rect key="frame" x="127" y="473" width="160" height="48"/>
+                    <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="0oN-55-jBG"/>
+                        <constraint firstAttribute="width" constant="160" id="6wR-Rp-POc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
+                    <state key="normal" title="우주선 만들기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="makeRocketButtonTapped:" destination="-1" eventType="touchUpInside" id="OqA-aW-Qhz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yHD-Qe-KtV" firstAttribute="centerY" secondItem="zR6-HS-6zU" secondAttribute="centerY" id="0ay-Pq-3NS"/>
+                <constraint firstItem="zR6-HS-6zU" firstAttribute="top" secondItem="cVX-Ib-SOY" secondAttribute="bottom" constant="12" id="EwF-1B-qpE"/>
+                <constraint firstItem="tT0-fz-QCj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FKs-Sa-Scd"/>
+                <constraint firstItem="bPD-GU-EIm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hee-a6-YBD"/>
+                <constraint firstItem="cVX-Ib-SOY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="44" id="PbH-O8-4X3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="czf-Hy-1Zg" secondAttribute="trailing" id="Png-7f-4Qy"/>
+                <constraint firstAttribute="bottom" secondItem="B29-nX-aws" secondAttribute="bottom" id="Qsf-Ng-s3z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B29-nX-aws" secondAttribute="trailing" id="RaU-Jf-15P"/>
+                <constraint firstItem="zR6-HS-6zU" firstAttribute="leading" secondItem="cVX-Ib-SOY" secondAttribute="leading" id="Re4-M5-xLk"/>
+                <constraint firstItem="cVX-Ib-SOY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Rkr-Ld-WDA"/>
+                <constraint firstAttribute="bottom" secondItem="czf-Hy-1Zg" secondAttribute="bottom" id="SA4-Dh-GOy"/>
+                <constraint firstItem="B29-nX-aws" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SHT-Ef-Aap"/>
+                <constraint firstItem="bPD-GU-EIm" firstAttribute="top" secondItem="tT0-fz-QCj" secondAttribute="bottom" constant="16" id="Yic-VW-fy4"/>
+                <constraint firstItem="tT0-fz-QCj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="ZjX-8U-KFN"/>
+                <constraint firstItem="ZPj-CI-MeV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bl1-t9-u7G"/>
+                <constraint firstItem="czf-Hy-1Zg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="btz-VX-MvN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yHD-Qe-KtV" secondAttribute="trailing" constant="16" id="dk0-L8-6iB"/>
+                <constraint firstItem="czf-Hy-1Zg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h23-9A-cKG"/>
+                <constraint firstItem="5k6-dt-jaR" firstAttribute="top" secondItem="bPD-GU-EIm" secondAttribute="bottom" constant="21" id="rdM-jX-J5g"/>
+                <constraint firstItem="5k6-dt-jaR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wwe-qC-D36"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZPj-CI-MeV" secondAttribute="trailing" constant="10" id="xMF-3v-dxo"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="66.964285714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="375" height="812"/>
+        <image name="ground" width="375" height="200"/>
+        <image name="icon more" width="44" height="44"/>
+        <image name="smalldol_1" width="44" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

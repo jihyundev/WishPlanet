@@ -27,11 +27,8 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = keychain.get(Keys.nickname) {
-            self.nameLabel.text = name
-        } else {
-            dataManager.getMoreInfo(viewController: self)
-        }
+        
+        dataManager.getMoreInfo(viewController: self)
         
         let infoTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToMyinfoVC))
         let rocketTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToRocketVC))
@@ -72,6 +69,19 @@ class MyPageViewController: UIViewController {
         
         let barButtonAppearance = UIBarButtonItem.appearance()
         barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -30), for: .default)
+        
+        if let name = keychain.get(Keys.nickname) {
+            self.nameLabel.text = name
+        } else {
+            self.nameLabel.text = ""
+        }
+        if let socialType = keychain.get(Keys.loginType) {
+            self.loginTypeLabel.text = socialType
+        } else {
+            self.loginTypeLabel.text = ""
+        }
+        rocketCountLabel.text = ""
+        versionLabel.text = ""
     }
     
     fileprivate func setNavBar() {
@@ -93,6 +103,8 @@ class MyPageViewController: UIViewController {
     
     @objc fileprivate func moveToMyinfoVC() {
         let vc = MyInfoViewController()
+        let name = keychain.get(Keys.nickname)
+        vc.name = name
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

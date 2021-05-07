@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuideViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="t42-tQ-GXt" id="RIG-AP-zuA"/>
+                <outlet property="descLabel" destination="Y10-u4-2W3" id="0m5-70-7eZ"/>
+                <outlet property="makeRocketButton" destination="NdL-bG-SLv" id="VJW-8Q-v6Y"/>
+                <outlet property="scrollView" destination="N9e-hu-ys8" id="3ii-Jw-Wci"/>
+                <outlet property="secondLabel" destination="EfX-cf-FmX" id="ZZr-Xq-Jjz"/>
+                <outlet property="thirdLabel" destination="GEV-cB-g22" id="Nhr-sD-5kc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9e-hu-ys8">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t42-tQ-GXt">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="934"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U8r-s6-4gj">
+                                    <rect key="frame" x="182" y="65" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="VD8-m1-K2G"/>
+                                        <constraint firstAttribute="width" constant="50" id="WO6-3R-W8r"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시플래닛 가이드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkD-3N-tTd">
+                                    <rect key="frame" x="119.5" y="139" width="175" height="28"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="23"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소원을 이뤄준다는 행성 위시플래닛!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y10-u4-2W3">
+                                    <rect key="frame" x="22" y="191" width="370" height="17"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU1-ZN-kBi">
+                                    <rect key="frame" x="22" y="280" width="9" height="17"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선과 발사하는 날을 만들어요. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egr-uX-Y3c">
+                                    <rect key="frame" x="22" y="310" width="253" height="22"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P87-Eg-Qwh">
+                                    <rect key="frame" x="22" y="396" width="9" height="17"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하고 싶은 일, 이루고 싶은 소원들을" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfX-cf-FmX">
+                                    <rect key="frame" x="22" y="426" width="256" height="22"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-QO-Yul">
+                                    <rect key="frame" x="22" y="512" width="9" height="17"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기다리던 그날이 되면," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEV-cB-g22">
+                                    <rect key="frame" x="22" y="542" width="161" height="22"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundFade" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-1M-a15">
+                                    <rect key="frame" x="0.0" y="571" width="414" height="363"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="363" id="PRi-3e-uxW"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그럼, 바로 시작해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sua-le-NDl">
+                                    <rect key="frame" x="124" y="776" width="166" height="20"/>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdL-bG-SLv">
+                                    <rect key="frame" x="127" y="816" width="160" height="48"/>
+                                    <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="160" id="17d-bB-Ops"/>
+                                        <constraint firstAttribute="height" constant="48" id="DMX-KZ-Ag3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
+                                    <state key="normal" title="우주선 만들기">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="makeRocketButtonTapped:" destination="-1" eventType="touchUpInside" id="bfr-vn-1P1"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstItem="egr-uX-Y3c" firstAttribute="top" secondItem="GU1-ZN-kBi" secondAttribute="bottom" constant="13" id="1QA-yt-DGw"/>
+                                <constraint firstItem="NdL-bG-SLv" firstAttribute="centerX" secondItem="t42-tQ-GXt" secondAttribute="centerX" id="5aa-TH-cHT"/>
+                                <constraint firstItem="zGf-1M-a15" firstAttribute="top" secondItem="GEV-cB-g22" secondAttribute="bottom" constant="7" id="7dL-1z-mt4"/>
+                                <constraint firstItem="zGf-1M-a15" firstAttribute="leading" secondItem="t42-tQ-GXt" secondAttribute="leading" id="BVY-x7-3WK"/>
+                                <constraint firstItem="GU1-ZN-kBi" firstAttribute="top" secondItem="Y10-u4-2W3" secondAttribute="bottom" constant="72" id="Che-sX-XjU"/>
+                                <constraint firstItem="U8r-s6-4gj" firstAttribute="centerX" secondItem="t42-tQ-GXt" secondAttribute="centerX" id="FOQ-tL-W8x"/>
+                                <constraint firstItem="Y10-u4-2W3" firstAttribute="leading" secondItem="t42-tQ-GXt" secondAttribute="leading" constant="22" id="FZF-Tf-kzX"/>
+                                <constraint firstItem="GEV-cB-g22" firstAttribute="top" secondItem="0Qj-QO-Yul" secondAttribute="bottom" constant="13" id="Mcm-Ri-9Gl"/>
+                                <constraint firstItem="P87-Eg-Qwh" firstAttribute="top" secondItem="egr-uX-Y3c" secondAttribute="bottom" constant="64" id="Rir-QB-hxd"/>
+                                <constraint firstItem="NdL-bG-SLv" firstAttribute="top" secondItem="sua-le-NDl" secondAttribute="bottom" constant="20" id="URB-3L-Wf3"/>
+                                <constraint firstAttribute="trailing" secondItem="Y10-u4-2W3" secondAttribute="trailing" constant="22" id="Wby-TB-Xok"/>
+                                <constraint firstItem="GU1-ZN-kBi" firstAttribute="leading" secondItem="t42-tQ-GXt" secondAttribute="leading" constant="22" id="X2N-HI-gKi"/>
+                                <constraint firstItem="0Qj-QO-Yul" firstAttribute="top" secondItem="EfX-cf-FmX" secondAttribute="bottom" constant="64" id="Y3l-ag-ZhV"/>
+                                <constraint firstItem="U8r-s6-4gj" firstAttribute="top" secondItem="t42-tQ-GXt" secondAttribute="top" constant="65" id="brh-wX-MkZ"/>
+                                <constraint firstItem="XkD-3N-tTd" firstAttribute="top" secondItem="U8r-s6-4gj" secondAttribute="bottom" constant="24" id="fUs-UY-wMQ"/>
+                                <constraint firstItem="EfX-cf-FmX" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="hlX-zw-mLq"/>
+                                <constraint firstItem="P87-Eg-Qwh" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="mdD-ww-uyC"/>
+                                <constraint firstItem="egr-uX-Y3c" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="nCS-Tx-jCH"/>
+                                <constraint firstItem="GEV-cB-g22" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="nM9-Tu-GAD"/>
+                                <constraint firstAttribute="bottom" secondItem="NdL-bG-SLv" secondAttribute="bottom" constant="70" id="nhg-Ij-xK9"/>
+                                <constraint firstItem="Y10-u4-2W3" firstAttribute="top" secondItem="XkD-3N-tTd" secondAttribute="bottom" constant="24" id="pr5-3D-87u"/>
+                                <constraint firstAttribute="bottom" secondItem="zGf-1M-a15" secondAttribute="bottom" id="rqF-Hr-9vk"/>
+                                <constraint firstAttribute="trailing" secondItem="zGf-1M-a15" secondAttribute="trailing" id="tBH-aj-rSb"/>
+                                <constraint firstItem="0Qj-QO-Yul" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="uQV-ai-sJH"/>
+                                <constraint firstItem="sua-le-NDl" firstAttribute="centerX" secondItem="t42-tQ-GXt" secondAttribute="centerX" id="wqA-Ub-zGD"/>
+                                <constraint firstItem="EfX-cf-FmX" firstAttribute="top" secondItem="P87-Eg-Qwh" secondAttribute="bottom" constant="13" id="zb7-3g-ZaP"/>
+                                <constraint firstItem="XkD-3N-tTd" firstAttribute="centerX" secondItem="t42-tQ-GXt" secondAttribute="centerX" id="zw2-s7-U7S"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="t42-tQ-GXt" firstAttribute="leading" secondItem="lz3-hC-2X2" secondAttribute="leading" id="0Du-zw-HQv"/>
+                        <constraint firstItem="t42-tQ-GXt" firstAttribute="top" secondItem="lz3-hC-2X2" secondAttribute="top" id="BQ0-Ab-9UC"/>
+                        <constraint firstItem="t42-tQ-GXt" firstAttribute="trailing" secondItem="lz3-hC-2X2" secondAttribute="trailing" id="NHu-n3-z2I"/>
+                        <constraint firstItem="t42-tQ-GXt" firstAttribute="width" secondItem="Wsv-m7-AHG" secondAttribute="width" id="hbZ-If-qbc"/>
+                        <constraint firstItem="t42-tQ-GXt" firstAttribute="bottom" secondItem="lz3-hC-2X2" secondAttribute="bottom" id="kA0-dH-pQX"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="lz3-hC-2X2"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="Wsv-m7-AHG"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="N9e-hu-ys8" secondAttribute="bottom" id="0xf-yX-cjS"/>
+                <constraint firstItem="N9e-hu-ys8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Eii-es-Ul1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="N9e-hu-ys8" secondAttribute="trailing" id="SZc-IJ-ph7"/>
+                <constraint firstItem="N9e-hu-ys8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xuL-vI-i9K"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="66.964285714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="app_icon" width="80" height="80"/>
+        <image name="backgroundFade" width="375" height="363"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

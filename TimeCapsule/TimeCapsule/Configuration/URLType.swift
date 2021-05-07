@@ -47,7 +47,7 @@ enum URLType {
         case .userNickname:
             return "\(baseURL)/v1/users/nicknames"
         case .userSignup:
-            return "\(baseURL)/v1/users/signup"
+            return "\(baseURL)/v1/users/signUp"
         case .userMore:
             return "\(baseURL)/v1/users/more-informations"
         case .userRockets:

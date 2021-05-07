@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RocketNameViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="clearButton" destination="AnL-z2-yzn" id="wol-Sw-gzU"/>
+                <outlet property="completeButton" destination="8eQ-HM-N7M" id="My8-cj-XZw"/>
+                <outlet property="containerView" destination="QRd-qM-MDK" id="vq9-xC-Aqk"/>
+                <outlet property="countLabel" destination="Thv-ke-xg8" id="HJw-A8-u95"/>
+                <outlet property="descLabel" destination="qgV-a0-sf2" id="QIQ-Z4-zQo"/>
+                <outlet property="textField" destination="BDo-0T-Yl4" id="bgd-Aa-DaI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="TWe-ZY-9k6">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRd-qM-MDK">
+                    <rect key="frame" x="47" y="340" width="320" height="216.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eQ-HM-N7M">
+                            <rect key="frame" x="129" y="163.5" width="62" height="36"/>
+                            <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="4YX-tI-3CO"/>
+                                <constraint firstAttribute="width" constant="62" id="9qv-1f-oUn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="15"/>
+                            <state key="normal" title="완료">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="우주선 이름을 입력해주세요. " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BDo-0T-Yl4">
+                            <rect key="frame" x="19" y="111.5" width="282" height="40"/>
+                            <color key="backgroundColor" red="0.93333959580000003" green="0.93332213159999999" blue="0.93333393340000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ajm-cA-eSv"/>
+                            </constraints>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선을 만들어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzD-06-HWV">
+                            <rect key="frame" x="24" y="20" width="151" height="19.5"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okf-lK-4SV">
+                            <rect key="frame" x="272" y="4" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="Iz7-Fm-IAD"/>
+                                <constraint firstAttribute="height" constant="44" id="ROq-Sa-951"/>
+                            </constraints>
+                            <state key="normal" image="icon_delete_grey"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/10)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thv-ke-xg8">
+                            <rect key="frame" x="260" y="125.5" width="29" height="12"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="10"/>
+                            <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-z2-yzn">
+                            <rect key="frame" x="220" y="111.5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="AnL-z2-yzn" secondAttribute="height" multiplier="1:1" id="CJd-kM-dAm"/>
+                            </constraints>
+                            <state key="normal" image="icon_text_delete_grey"/>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c36-dw-cUQ">
+                            <rect key="frame" x="26" y="51.5" width="188" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqs-Vq-dhc">
+                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="hLo-mF-e7Q"/>
+                                        <constraint firstAttribute="height" constant="44" id="keO-Bd-M3K"/>
+                                    </constraints>
+                                    <state key="normal" image="icon rocket"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-J9-O3c">
+                                    <rect key="frame" x="48" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Ox6-rs-iR4"/>
+                                        <constraint firstAttribute="width" constant="44" id="oLk-iN-k1S"/>
+                                    </constraints>
+                                    <state key="normal" image="icon rocket"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6k-VO-u32">
+                                    <rect key="frame" x="96" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="HgW-Ph-0sT"/>
+                                        <constraint firstAttribute="height" constant="44" id="zcn-PH-9Q5"/>
+                                    </constraints>
+                                    <state key="normal" image="icon rocket"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awV-25-uR8">
+                                    <rect key="frame" x="144" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="3L7-vI-ANd"/>
+                                        <constraint firstAttribute="height" constant="44" id="gq0-dG-1oP"/>
+                                    </constraints>
+                                    <state key="normal" image="icon rocket"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Thv-ke-xg8" secondAttribute="trailing" constant="31" id="0lu-pK-Aon"/>
+                        <constraint firstItem="Thv-ke-xg8" firstAttribute="centerY" secondItem="BDo-0T-Yl4" secondAttribute="centerY" id="4H4-aA-uu4"/>
+                        <constraint firstAttribute="trailing" secondItem="Okf-lK-4SV" secondAttribute="trailing" constant="4" id="HAl-lW-Yjq"/>
+                        <constraint firstItem="8eQ-HM-N7M" firstAttribute="centerX" secondItem="QRd-qM-MDK" secondAttribute="centerX" id="MLf-1S-u80"/>
+                        <constraint firstItem="AnL-z2-yzn" firstAttribute="top" secondItem="BDo-0T-Yl4" secondAttribute="top" id="OxV-se-8OU"/>
+                        <constraint firstItem="Thv-ke-xg8" firstAttribute="leading" secondItem="AnL-z2-yzn" secondAttribute="trailing" id="SAn-Uv-11y"/>
+                        <constraint firstItem="AnL-z2-yzn" firstAttribute="centerY" secondItem="BDo-0T-Yl4" secondAttribute="centerY" id="Wce-nh-qRY"/>
+                        <constraint firstItem="wzD-06-HWV" firstAttribute="top" secondItem="QRd-qM-MDK" secondAttribute="top" constant="20" id="YXz-I6-Py1"/>
+                        <constraint firstAttribute="bottom" secondItem="8eQ-HM-N7M" secondAttribute="bottom" constant="17" id="awF-bc-9cg"/>
+                        <constraint firstItem="c36-dw-cUQ" firstAttribute="leading" secondItem="QRd-qM-MDK" secondAttribute="leading" constant="26" id="bx1-m1-zsY"/>
+                        <constraint firstAttribute="trailing" secondItem="BDo-0T-Yl4" secondAttribute="trailing" constant="19" id="cVF-2A-LS9"/>
+                        <constraint firstItem="8eQ-HM-N7M" firstAttribute="top" secondItem="AnL-z2-yzn" secondAttribute="bottom" constant="12" id="dZp-Xs-YAO"/>
+                        <constraint firstItem="wzD-06-HWV" firstAttribute="leading" secondItem="QRd-qM-MDK" secondAttribute="leading" constant="24" id="foF-2Z-05m"/>
+                        <constraint firstItem="c36-dw-cUQ" firstAttribute="top" secondItem="wzD-06-HWV" secondAttribute="bottom" constant="12" id="gcO-rD-IKv"/>
+                        <constraint firstItem="Okf-lK-4SV" firstAttribute="top" secondItem="QRd-qM-MDK" secondAttribute="top" constant="4" id="hQl-6s-YIF"/>
+                        <constraint firstItem="8eQ-HM-N7M" firstAttribute="top" secondItem="BDo-0T-Yl4" secondAttribute="bottom" constant="12" id="kag-A5-ksn"/>
+                        <constraint firstItem="BDo-0T-Yl4" firstAttribute="top" secondItem="c36-dw-cUQ" secondAttribute="bottom" constant="16" id="m4Z-Bx-gjr"/>
+                        <constraint firstItem="AnL-z2-yzn" firstAttribute="bottom" secondItem="BDo-0T-Yl4" secondAttribute="bottom" id="nKe-7L-yau"/>
+                        <constraint firstItem="BDo-0T-Yl4" firstAttribute="leading" secondItem="QRd-qM-MDK" secondAttribute="leading" constant="19" id="zHn-dS-cyh"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선은 한 기간동안 1대만 가능합니다. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-a0-sf2">
+                    <rect key="frame" x="66" y="566.5" width="183.5" height="13.5"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="qgV-a0-sf2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="66" id="2Uw-8Y-Ujr"/>
+                <constraint firstItem="qgV-a0-sf2" firstAttribute="top" secondItem="QRd-qM-MDK" secondAttribute="bottom" constant="10" id="9rV-7V-1ya"/>
+                <constraint firstItem="TWe-ZY-9k6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="COd-yW-YlG"/>
+                <constraint firstItem="QRd-qM-MDK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Dgw-Ox-e2n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TWe-ZY-9k6" secondAttribute="trailing" id="GzQ-xk-Suw"/>
+                <constraint firstItem="TWe-ZY-9k6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZSb-PO-vDn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QRd-qM-MDK" secondAttribute="trailing" constant="47" id="omX-qr-mAe"/>
+                <constraint firstAttribute="bottom" secondItem="TWe-ZY-9k6" secondAttribute="bottom" id="rca-jX-WOe"/>
+                <constraint firstItem="QRd-qM-MDK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="zCO-qi-egE"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="66.964285714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="375" height="812"/>
+        <image name="icon rocket" width="44" height="44"/>
+        <image name="icon_delete_grey" width="44" height="44"/>
+        <image name="icon_text_delete_grey" width="40" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

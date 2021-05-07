@@ -70,7 +70,7 @@ class UserDataManager {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .get, headers: headers).validate().responseString { response in
+        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let response):
                 if response == "true" {
@@ -84,6 +84,9 @@ class UserDataManager {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
+                }
             }
         }
     }
@@ -93,13 +96,11 @@ class UserDataManager {
         print("login() called")
         let url = URLType.userLogin.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .post, headers: headers).validate().responseString { response in
+        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let response):
                 let jwtToken = response
                 print("token: \(jwtToken)")
-                //let ud = UserDefaults.standard
-                //ud.setValue(jwtToken, forKey: "loginJWTToken")
                 
                 print("login type: kakao")
                 self.keychain.set(jwtToken, forKey: Keys.token)
@@ -109,42 +110,29 @@ class UserDataManager {
                 viewController.userExisted()
             case .failure(let error):
                 print(error.localizedDescription)
-            }
-        }
-    }
-    
-    // 닉네임 수정
-    func setNickname(nickname: String, viewController: NicknameViewController) {
-        guard let token = keychain.get(Keys.token) else { return }
-        let url = URLType.userNickname.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "nicknameDto": nickname]
-        AF.request(url, method: .patch, headers: headers).validate().responseString { response in
-            switch response.result {
-            case .success( _):
-                print("닉네임 수정 성공")
-                viewController.didRetreiveData()
-            case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
+                }
             }
         }
     }
     
     // 회원가입
-    func join(nickname: String, token: String, viewController: NicknameViewController) {
+    func kakaoSignup(nickname: String, token: String, viewController: NicknameViewController) {
         let url = URLType.userSignup.makeURL
         let parameters: [String: Any] = [
-            "nickname" : nickname
+            "nickname" : nickname,
+            "socialType": "KAKAO"
         ]
-        let headers: HTTPHeaders = ["social-token": token]
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseString { response in
+        let headers: HTTPHeaders = ["social-token": token, "Content-Type": "application/json"]
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let response):
                 let jwtToken = response
-                //let ud = UserDefaults.standard
-                //ud.setValue(jwtToken, forKey: "loginJWTToken")
                 
                 self.keychain.set(jwtToken, forKey: Keys.token)
                 self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                self.keychain.set(nickname, forKey: Keys.nickname)
                 
                 print("token: \(jwtToken)")
                 print("login type: kakao")
@@ -153,6 +141,9 @@ class UserDataManager {
                 viewController.didRetreiveData()
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
+                }
             }
         }
     }
