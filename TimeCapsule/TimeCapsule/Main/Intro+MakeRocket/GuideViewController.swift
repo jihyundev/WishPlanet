@@ -8,6 +8,8 @@
 import UIKit
 
 class GuideViewController: UIViewController {
+    
+    var delegate: MovetoRocketNameVCDelegate?
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
@@ -22,7 +24,7 @@ class GuideViewController: UIViewController {
     }
     
     fileprivate func setupUI() {
-        //scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         containerView.backgroundColor = .mainPurple
         scrollView.backgroundColor = .mainPurple
         descLabel.setLineSpace(spacing: 4)
@@ -36,12 +38,10 @@ class GuideViewController: UIViewController {
     }
     
     @IBAction func makeRocketButtonTapped(_ sender: Any) {
-        guard let pvc = self.presentingViewController else { return }
-        let rocketVC = RocketNameViewController()
-        rocketVC.modalPresentationStyle = .fullScreen
         self.dismiss(animated: true) {
-            pvc.present(rocketVC, animated: true, completion: nil)
+            self.delegate?.moveToRocketNameVC()
         }
+        
     }
     
 

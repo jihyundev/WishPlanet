@@ -18,9 +18,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="dolImageView" destination="tT0-fz-QCj" id="pWK-Ty-VHz"/>
                 <outlet property="guideButton" destination="yHD-Qe-KtV" id="g1p-Q4-ouN"/>
                 <outlet property="mainLabel" destination="cVX-Ib-SOY" id="han-bA-VwR"/>
                 <outlet property="makeRocketButton" destination="5k6-dt-jaR" id="1ks-yc-lDD"/>
+                <outlet property="moreButton" destination="ZPj-CI-MeV" id="X9d-W4-lo9"/>
+                <outlet property="rocketDescLabel" destination="bPD-GU-EIm" id="EIN-cx-46m"/>
                 <outlet property="subLabel" destination="zR6-HS-6zU" id="v4c-EZ-t4S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -80,7 +83,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 우주선이 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-GU-EIm">
-                    <rect key="frame" x="153" y="436" width="108.5" height="16"/>
+                    <rect key="frame" x="150.5" y="436" width="113.5" height="16"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="13"/>
                     <color key="textColor" red="0.93333959580000003" green="0.93332213159999999" blue="0.93333393340000004" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
