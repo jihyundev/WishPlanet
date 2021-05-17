@@ -35,7 +35,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9e-hu-ys8">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="N9e-hu-ys8">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t42-tQ-GXt">
@@ -158,7 +158,6 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="t42-tQ-GXt" firstAttribute="leading" secondItem="lz3-hC-2X2" secondAttribute="leading" id="0Du-zw-HQv"/>
-                        <constraint firstAttribute="bottom" secondItem="t42-tQ-GXt" secondAttribute="bottom" id="6M0-XM-aWQ"/>
                         <constraint firstItem="t42-tQ-GXt" firstAttribute="top" secondItem="lz3-hC-2X2" secondAttribute="top" id="BQ0-Ab-9UC"/>
                         <constraint firstItem="t42-tQ-GXt" firstAttribute="trailing" secondItem="lz3-hC-2X2" secondAttribute="trailing" id="NHu-n3-z2I"/>
                         <constraint firstItem="t42-tQ-GXt" firstAttribute="width" secondItem="Wsv-m7-AHG" secondAttribute="width" id="hbZ-If-qbc"/>

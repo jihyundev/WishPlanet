@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
         vc.accessToken = token
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
     }
     

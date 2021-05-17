@@ -11,10 +11,10 @@ import Alamofire
 
 class CreateRocketDataManager {
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
-    func postRocket(launchDate: String, rocketColor: Int, rocketName: String) {
+    func postRocket(launchDate: String, rocketColor: Int, rocketName: String, viewController: RocketDateViewController) {
         print(#function)
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]
         let url = URLType.rocket.makeURL
         let parameters: [String: Any] = [
             "launchDate" : launchDate,
@@ -24,10 +24,12 @@ class CreateRocketDataManager {
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let response):
-                self.keychain.set(true, forKey: Keys.rocketExists)
                 debugPrint(response)
+                self.keychain.set(true, forKey: Keys.rocketExists)
+                viewController.didSuccessToPost()
             case .failure(let error):
                 debugPrint(error.localizedDescription)
+                viewController.failedToPost()
             }
         }
     }

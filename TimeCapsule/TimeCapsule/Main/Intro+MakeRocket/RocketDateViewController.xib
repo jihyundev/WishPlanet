@@ -18,9 +18,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RocketDateViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="centerY" destination="cgT-2k-OEe" id="G0h-hA-hh7"/>
                 <outlet property="completeButton" destination="3J3-KI-4nr" id="9er-RV-UBn"/>
                 <outlet property="containerView" destination="qGB-sS-s4u" id="qY7-Is-fDt"/>
-                <outlet property="datePicker" destination="HgD-Mc-OuY" id="h5z-5M-QBN"/>
+                <outlet property="textField" destination="BCG-P6-bwy" id="aPu-Qm-l5L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,14 +31,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGB-sS-s4u">
-                    <rect key="frame" x="47" y="325.5" width="320" height="245.5"/>
+                    <rect key="frame" x="47" y="359.5" width="320" height="177"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="언제 발사할까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbZ-Nu-K7N">
-                            <rect key="frame" x="24" y="20" width="115" height="19.5"/>
+                            <rect key="frame" x="24" y="20" width="115" height="19"/>
                             <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCG-P6-bwy">
+                            <rect key="frame" x="24" y="63" width="272" height="50"/>
+                            <color key="backgroundColor" red="0.93333959580000003" green="0.93332213159999999" blue="0.93333393340000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="q2U-VY-aD4"/>
+                            </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kon-bR-maZ">
                             <rect key="frame" x="272" y="4" width="44" height="44"/>
                             <constraints>
@@ -49,18 +60,19 @@
                                 <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="6RM-DO-B8s"/>
                             </connections>
                         </button>
-                        <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="HgD-Mc-OuY">
-                            <rect key="frame" x="0.0" y="42.5" width="320" height="135"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8J-mm-7WP">
+                            <rect key="frame" x="248" y="66" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="135" id="LzJ-dQ-dsK"/>
+                                <constraint firstAttribute="height" constant="44" id="GQW-fS-0zg"/>
+                                <constraint firstAttribute="width" constant="44" id="nPm-EK-3rg"/>
                             </constraints>
-                            <locale key="locale" localeIdentifier="ko_KR"/>
+                            <state key="normal" image="polygon"/>
                             <connections>
-                                <action selector="datePickerChanged:" destination="-1" eventType="valueChanged" id="0d5-N0-sGW"/>
+                                <action selector="datePickerButtonTapped:" destination="-1" eventType="touchUpInside" id="fFV-qR-31a"/>
                             </connections>
-                        </datePicker>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3J3-KI-4nr">
-                            <rect key="frame" x="129" y="193.5" width="62" height="36"/>
+                            <rect key="frame" x="129" y="125" width="62" height="36"/>
                             <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="62" id="3eG-mH-99s"/>
@@ -77,20 +89,22 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="BCG-P6-bwy" firstAttribute="leading" secondItem="qGB-sS-s4u" secondAttribute="leading" constant="24" id="3sg-IG-8G4"/>
+                        <constraint firstAttribute="trailing" secondItem="J8J-mm-7WP" secondAttribute="trailing" constant="28" id="41n-nD-tZU"/>
                         <constraint firstItem="jbZ-Nu-K7N" firstAttribute="leading" secondItem="qGB-sS-s4u" secondAttribute="leading" constant="24" id="7rD-58-GKW"/>
+                        <constraint firstItem="J8J-mm-7WP" firstAttribute="centerY" secondItem="BCG-P6-bwy" secondAttribute="centerY" id="MLh-Vf-6Hv"/>
                         <constraint firstItem="3J3-KI-4nr" firstAttribute="centerX" secondItem="qGB-sS-s4u" secondAttribute="centerX" id="SCU-BK-FoW"/>
-                        <constraint firstAttribute="trailing" secondItem="HgD-Mc-OuY" secondAttribute="trailing" id="TrF-gZ-gFc"/>
-                        <constraint firstItem="3J3-KI-4nr" firstAttribute="top" secondItem="HgD-Mc-OuY" secondAttribute="bottom" constant="16" id="WLF-5h-s1T"/>
-                        <constraint firstItem="HgD-Mc-OuY" firstAttribute="top" secondItem="jbZ-Nu-K7N" secondAttribute="bottom" constant="3" id="YdE-uP-ZhE"/>
-                        <constraint firstItem="HgD-Mc-OuY" firstAttribute="leading" secondItem="qGB-sS-s4u" secondAttribute="leading" id="eqv-Vh-fIM"/>
+                        <constraint firstItem="3J3-KI-4nr" firstAttribute="top" secondItem="BCG-P6-bwy" secondAttribute="bottom" constant="12" id="bt5-bQ-FXb"/>
                         <constraint firstItem="kon-bR-maZ" firstAttribute="top" secondItem="qGB-sS-s4u" secondAttribute="top" constant="4" id="f1j-Ff-y9V"/>
                         <constraint firstAttribute="bottom" secondItem="3J3-KI-4nr" secondAttribute="bottom" constant="16" id="m7r-yc-bo8"/>
+                        <constraint firstItem="BCG-P6-bwy" firstAttribute="top" secondItem="jbZ-Nu-K7N" secondAttribute="bottom" constant="24" id="o5f-Oo-5tG"/>
                         <constraint firstItem="jbZ-Nu-K7N" firstAttribute="top" secondItem="qGB-sS-s4u" secondAttribute="top" constant="20" id="pIn-Rj-L0u"/>
                         <constraint firstAttribute="trailing" secondItem="kon-bR-maZ" secondAttribute="trailing" constant="4" id="qft-Jm-QCV"/>
+                        <constraint firstAttribute="trailing" secondItem="BCG-P6-bwy" secondAttribute="trailing" constant="24" id="yJp-Kv-ElJ"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발사일 이전까지는 소원석 확인이 불가능합니다. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvj-A4-U2F">
-                    <rect key="frame" x="60" y="581" width="218" height="14"/>
+                    <rect key="frame" x="60" y="546.5" width="217.5" height="13"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="11"/>
                     <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -110,6 +124,7 @@
     </objects>
     <resources>
         <image name="icon_delete_grey" width="44" height="44"/>
+        <image name="polygon" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

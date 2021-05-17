@@ -26,6 +26,7 @@ class IntroViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isTransparent = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        NotificationCenter.default.addObserver(self, selector: #selector(fadein), name: Notification.Name("FadeInIntroVC"), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,11 +71,11 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
     
     func moveToRocketNameVC() {
         self.fadeout()
-        let vc = RocketNameViewController()
-        vc.delegate = self
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true, completion: nil)
+        let nameVC = RocketNameViewController()
+        nameVC.delegate = self
+        nameVC.modalPresentationStyle = .overCurrentContext
+        nameVC.modalTransitionStyle = .crossDissolve
+        self.present(nameVC, animated: true, completion: nil)
     }
     
     func fadeout() {
@@ -89,6 +90,7 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
         }.startAnimation()
     }
     
+    @objc
     func fadein() {
         UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
             self.mainLabel.alpha = 1

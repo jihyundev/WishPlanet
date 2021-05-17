@@ -92,6 +92,40 @@ class RocketNameViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction func redRocketTapped(_ sender: Any) {
+        redButton.setImage(UIImage(named: "icon_check_rocket_0"), for: .normal)
+        
+        yellowButton.setImage(UIImage(named: "icon rocket_1"), for: .normal)
+        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+        currentRocket = 0
+    }
+    @IBAction func yellowRocketTapped(_ sender: Any) {
+        yellowButton.setImage(UIImage(named: "icon_check_rocket_1"), for: .normal)
+        
+        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+        currentRocket = 1
+    }
+    @IBAction func purpleRocketTapped(_ sender: Any) {
+        purpleButton.setImage(UIImage(named: "icon_check_rocket_4"), for: .normal)
+        
+        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+        yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
+        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+        currentRocket = 4
+    }
+    @IBAction func blueRocketTapped(_ sender: Any) {
+        blueButton.setImage(UIImage(named: "icon_check_rocket_3"), for: .normal)
+        
+        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+        yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
+        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+        currentRocket = 3
+    }
+    
+    
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismissView()
     }
