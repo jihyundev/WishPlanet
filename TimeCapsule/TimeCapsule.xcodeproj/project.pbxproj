@@ -12,8 +12,6 @@
 		2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E84425FB8A9400ADD135 /* NetworkService.swift */; };
 		252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252076EC25FB3A8D004366E4 /* AddWishViewController.swift */; };
 		252076EF25FB3A8D004366E4 /* AddWishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252076ED25FB3A8D004366E4 /* AddWishViewController.xib */; };
-		252076F925FB44E0004366E4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252076F725FB44E0004366E4 /* TagCollectionViewCell.swift */; };
-		252076FA25FB44E0004366E4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252076F825FB44E0004366E4 /* TagCollectionViewCell.xib */; };
 		2520770225FB5235004366E4 /* CapsuleNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520770025FB5235004366E4 /* CapsuleNameViewController.swift */; };
 		2520770325FB5235004366E4 /* CapsuleNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770125FB5235004366E4 /* CapsuleNameViewController.xib */; };
 		2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520770825FB5E55004366E4 /* NicknameViewController.swift */; };
@@ -78,6 +76,7 @@
 		59E1B03A25FC556D00B46A4A /* WishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1B03925FC556D00B46A4A /* WishList.swift */; };
 		59E1B03D25FC55B800B46A4A /* WishlistDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1B03C25FC55B800B46A4A /* WishlistDataManager.swift */; };
 		59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */; };
+		59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D3A02652A60700A67DB1 /* MainDataManager.swift */; };
 		59E971AD25FB0007008A7EF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971AC25FB0007008A7EF9 /* AppDelegate.swift */; };
 		59E971AF25FB0007008A7EF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */; };
 		59E971B425FB0007008A7EF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E971B225FB0007008A7EF9 /* Main.storyboard */; };
@@ -122,8 +121,6 @@
 		2516E84425FB8A9400ADD135 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		252076EC25FB3A8D004366E4 /* AddWishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishViewController.swift; sourceTree = "<group>"; };
 		252076ED25FB3A8D004366E4 /* AddWishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWishViewController.xib; sourceTree = "<group>"; };
-		252076F725FB44E0004366E4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
-		252076F825FB44E0004366E4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		2520770025FB5235004366E4 /* CapsuleNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleNameViewController.swift; sourceTree = "<group>"; };
 		2520770125FB5235004366E4 /* CapsuleNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CapsuleNameViewController.xib; sourceTree = "<group>"; };
 		2520770825FB5E55004366E4 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +185,7 @@
 		59E1B03925FC556D00B46A4A /* WishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
 		59E1B03C25FC55B800B46A4A /* WishlistDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistDataManager.swift; sourceTree = "<group>"; };
 		59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRocketDataManager.swift; sourceTree = "<group>"; };
+		59E5D3A02652A60700A67DB1 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
 		59E971A925FB0007008A7EF9 /* TimeCapsule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeCapsule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E971AC25FB0007008A7EF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,15 +249,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		252076F625FB44CC004366E4 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				252076F725FB44E0004366E4 /* TagCollectionViewCell.swift */,
-				252076F825FB44E0004366E4 /* TagCollectionViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		252076FE25FB51F1004366E4 /* CapsuleNameEdit */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +261,6 @@
 		252076FF25FB5203004366E4 /* AddWish */ = {
 			isa = PBXGroup;
 			children = (
-				252076F625FB44CC004366E4 /* Cell */,
 				252076EC25FB3A8D004366E4 /* AddWishViewController.swift */,
 				252076ED25FB3A8D004366E4 /* AddWishViewController.xib */,
 			);
@@ -360,6 +348,7 @@
 		59BD6030262C6ADF009B4DE6 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				59E5D3A02652A60700A67DB1 /* MainDataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -717,7 +706,6 @@
 				595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */,
 				59C6867F2642EAEB006D9F3B /* MyInfoViewController.xib in Resources */,
 				59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */,
-				252076FA25FB44E0004366E4 /* TagCollectionViewCell.xib in Resources */,
 				5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */,
 				59C686892642EB6A006D9F3B /* WishplanetViewController.xib in Resources */,
 				5921F98A25FBC7D700D097B4 /* Gaegu-Light.ttf in Resources */,
@@ -798,7 +786,6 @@
 				59C686882642EB6A006D9F3B /* WishplanetViewController.swift in Sources */,
 				59E971AD25FB0007008A7EF9 /* AppDelegate.swift in Sources */,
 				595B808F2644CEE100B4866D /* LeaveViewController.swift in Sources */,
-				252076F925FB44E0004366E4 /* TagCollectionViewCell.swift in Sources */,
 				5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */,
 				59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */,
 				59E971DF25FB003B008A7EF9 /* UINavigationBar.swift in Sources */,
@@ -827,6 +814,7 @@
 				59E1B03D25FC55B800B46A4A /* WishlistDataManager.swift in Sources */,
 				59E9725B25FB777D008A7EF9 /* WishlistViewController.swift in Sources */,
 				59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */,
+				59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */,
 				59C686832642EB4D006D9F3B /* MyRocketViewController.swift in Sources */,
 				59E971E125FB003B008A7EF9 /* Color.swift in Sources */,
 				59E971E025FB003B008A7EF9 /* UIFont.swift in Sources */,

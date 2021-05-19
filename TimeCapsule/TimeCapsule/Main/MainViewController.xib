@@ -23,7 +23,6 @@
                 <outlet property="editCapsuleNameButton" destination="lmL-WM-Tpj" id="78Z-4x-dIL"/>
                 <outlet property="gameView" destination="sEq-He-Vo3" id="yv1-Aa-FGK"/>
                 <outlet property="listButton" destination="gQV-3l-bCN" id="M2E-Uu-KD7"/>
-                <outlet property="lockImageView" destination="j2j-vV-vEa" id="bc8-g8-oXv"/>
                 <outlet property="nameLabel" destination="BxY-LE-dtE" id="Zgo-a8-exZ"/>
                 <outlet property="shadowView" destination="CEI-v2-WMa" id="60g-CW-SXr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -54,7 +53,7 @@
                         <constraint firstAttribute="width" constant="210" id="ZAJ-I8-chc"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWP-Yp-vn4">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWP-Yp-vn4">
                     <rect key="frame" x="25" y="56" width="68" height="27"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="68" id="N9Y-rY-vZH"/>
@@ -99,20 +98,13 @@
                         <constraint firstAttribute="height" constant="44" id="ORp-SB-y9T"/>
                         <constraint firstAttribute="width" constant="44" id="QN1-ct-sQr"/>
                     </constraints>
-                    <state key="normal" image="icon rocket">
+                    <state key="normal" image="icon_fire_locked">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="listButtonTapped:" destination="-1" eventType="touchUpInside" id="vaY-JE-UWE"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon Lock" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-vV-vEa">
-                    <rect key="frame" x="310" y="44" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="9an-e8-sYl"/>
-                        <constraint firstAttribute="width" constant="44" id="Aus-QT-GF3"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
                     <rect key="frame" x="268" y="746" width="122" height="72"/>
                     <state key="normal" image="add"/>
@@ -130,12 +122,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="j2j-vV-vEa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="0nh-8H-EmW"/>
+                <constraint firstItem="1xx-d1-ngR" firstAttribute="centerX" secondItem="gQV-3l-bCN" secondAttribute="centerX" id="14I-Xe-goL"/>
                 <constraint firstItem="gQV-3l-bCN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="53T-JP-ThE"/>
                 <constraint firstItem="BxY-LE-dtE" firstAttribute="top" secondItem="CWP-Yp-vn4" secondAttribute="bottom" constant="8" id="5J4-2p-FJE"/>
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="5Vt-kI-3ye"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="7Vw-QF-C3K"/>
-                <constraint firstItem="1xx-d1-ngR" firstAttribute="centerX" secondItem="j2j-vV-vEa" secondAttribute="centerX" id="9Uw-Wy-jfg"/>
                 <constraint firstAttribute="bottom" secondItem="UBf-zc-Kd0" secondAttribute="bottom" id="AGg-OU-R5x"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CZX-UQ-rgn"/>
                 <constraint firstItem="CEI-v2-WMa" firstAttribute="top" secondItem="sEq-He-Vo3" secondAttribute="bottom" constant="141" id="Dhx-XY-mfH"/>
@@ -144,7 +135,6 @@
                 <constraint firstAttribute="bottom" secondItem="hF7-fI-Qcf" secondAttribute="bottom" id="I1a-Xe-gYT"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IXI-Wb-kaZ"/>
                 <constraint firstItem="lmL-WM-Tpj" firstAttribute="centerY" secondItem="BxY-LE-dtE" secondAttribute="centerY" id="Jue-ze-38j"/>
-                <constraint firstItem="Gjs-br-YEJ" firstAttribute="leading" secondItem="j2j-vV-vEa" secondAttribute="trailing" constant="6" id="P88-0D-54P"/>
                 <constraint firstItem="CEI-v2-WMa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="RD5-ku-DMw"/>
                 <constraint firstItem="hF7-fI-Qcf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WU3-fI-RFk"/>
                 <constraint firstItem="sEq-He-Vo3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="30" id="Yas-nr-dpE"/>
@@ -167,9 +157,8 @@
         <image name="add" width="122" height="72"/>
         <image name="background" width="375" height="812"/>
         <image name="ground" width="375" height="200"/>
-        <image name="icon Lock" width="44" height="44"/>
         <image name="icon more" width="44" height="44"/>
-        <image name="icon rocket" width="44" height="44"/>
+        <image name="icon_fire_locked" width="44" height="44"/>
         <image name="icon_revise" width="30" height="30"/>
         <image name="shadow" width="331" height="160"/>
         <systemColor name="systemBackgroundColor">

@@ -27,6 +27,7 @@ extension UIColor {
     
     class var mainGrey: UIColor { UIColor(hex: 0xEFEFEF)}
     class var mainBlack: UIColor { UIColor(hex: 0x2C2C2C)}
+    class var enabledGrey: UIColor {UIColor(red: 0.867, green: 0.867, blue: 0.867, alpha: 1)}
 }
 
 let mainColorSet: [UIColor] = [UIColor(hex: 0xFF5858),

@@ -26,14 +26,13 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var capsuleConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var lockImageView: UIImageView!
-    
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
     var currentItems: Int = 21
     var index: Int = 0
     var marbles: [Int] = []
     var rocketLaunchFlag = false
+    var remainDate: String?
     
     lazy var rocketImageView: UIImageView = {
        let view = UIImageView(image: UIImage(named: "rocket"))
@@ -105,8 +104,7 @@ class MainViewController: UIViewController {
     func setupUI() {
         self.navigationItem.title = ""
         shadowView.isHidden = true
-        listButton.layer.zPosition = 9
-        lockImageView.layer.zPosition = 10
+        //listButton.layer.zPosition = 9
         dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
         countLabel.layer.masksToBounds = true
@@ -146,6 +144,15 @@ class MainViewController: UIViewController {
         skView.presentScene(scene)
     }
     
+    func didRetrieveData() {
+        print(#function)
+    }
+    
+    func failedToRequest(message: String) {
+        print(#function)
+        self.presentAlert(title: message)
+    }
+    
     func getRocket() {
         guard let token = keychain.get(Keys.token) else { return }
         print("test token: \(Constant.testToken)")
@@ -182,7 +189,7 @@ class MainViewController: UIViewController {
     func isCapsuleOpen() {
         if self.rocketLaunchFlag == true {
             self.listButton.isEnabled = true
-            self.lockImageView.isHidden = true
+            self.listButton.setImage(UIImage(named: "icon_fire"), for: .normal)
             self.addButton.isHidden = true
             let nextVC = EndPopUpViewController()
             nextVC.delegate = self
@@ -190,7 +197,7 @@ class MainViewController: UIViewController {
             self.present(nextVC, animated: true, completion: nil)
         } else {
             self.listButton.isEnabled = false
-            self.lockImageView.isHidden = false
+            self.listButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
             self.addButton.isHidden = false
         }
     }
