@@ -42,6 +42,11 @@ class LoginViewController: UIViewController {
     }
     
     func userExisted() {
+        let mainVC = MainViewController()
+        let vc = UINavigationController(rootViewController: mainVC)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        /*
         if let _ = keychain.get(Keys.rocketExists) {
             let mainVC = MainViewController()
             let vc = UINavigationController(rootViewController: mainVC)
@@ -53,7 +58,7 @@ class LoginViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
-        
+        */
     }
     
     fileprivate func fadeoutAnimate() {

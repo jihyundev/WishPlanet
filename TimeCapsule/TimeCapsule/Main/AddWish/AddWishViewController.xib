@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,8 +21,8 @@
                 <outlet property="centerY" destination="dKt-cx-Qdj" id="a7r-X1-kKy"/>
                 <outlet property="completionButton" destination="xcb-x4-Z4N" id="oKo-Wt-TAa"/>
                 <outlet property="containerView" destination="bNa-TC-qJm" id="5Cu-zR-h7E"/>
-                <outlet property="textCount" destination="TRG-yh-xrt" id="7Wi-xJ-6yl"/>
-                <outlet property="textCountLabel" destination="4cp-7m-eni" id="R5q-Co-cht"/>
+                <outlet property="stoneCountLabel" destination="4cp-7m-eni" id="6Cq-ud-HGi"/>
+                <outlet property="textCountLabel" destination="TRG-yh-xrt" id="Hlp-IA-ASb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wishTextView" destination="FZn-dJ-ng2" id="esR-xD-nrz"/>
             </connections>
@@ -159,7 +159,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="bNa-TC-qJm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AAR-eP-Tk7"/>
                 <constraint firstItem="bNa-TC-qJm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="dKt-cx-Qdj"/>

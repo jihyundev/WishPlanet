@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var shadowView: UIImageView!
     
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var editCapsuleNameButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var dayCountLabel: UILabel!
     
@@ -27,12 +26,21 @@ class MainViewController: UIViewController {
     @IBOutlet weak var capsuleConstraint: NSLayoutConstraint!
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
+    let dataManager = MainDataManager()
+    let dateformatter: DateFormatter = {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        return dateformatter
+    }()
     
     var currentItems: Int = 21
     var index: Int = 0
-    var marbles: [Int] = []
+    var stones: [Int] = []
     var rocketLaunchFlag = false
-    var remainDate: String?
+    
+    var rocketID: Int?
+    var rocketColor: Int?
+    var daysLeft: Double?
     
     lazy var rocketImageView: UIImageView = {
        let view = UIImageView(image: UIImage(named: "rocket"))
@@ -54,10 +62,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataManager.getRocket(viewController: self)
         backImageView.contentMode = .scaleAspectFill
         prepareRocket()
         setupUI()
-        getRocket()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,13 +78,6 @@ class MainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    @IBAction func editCapsuleButtonTapped(_ sender: Any) {
-        let nextVC = CapsuleNameViewController()
-        nextVC.delegate = self
-        nextVC.modalPresentationStyle = .overCurrentContext
-        present(nextVC, animated: true, completion: nil)
     }
     
     @IBAction func listButtonTapped(_ sender: Any) {
@@ -92,8 +93,10 @@ class MainViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         let nextVC = AddWishViewController()
         nextVC.delegate = self
+        nextVC.rocketID = self.rocketID
         nextVC.count = currentItems
         nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true) { [weak self] in
             guard let self = self else { return}
             let view = self.gameView as! SKView
@@ -115,7 +118,6 @@ class MainViewController: UIViewController {
         addButton.layer.zPosition = 10
         
         nameLabel.layer.zPosition = 9
-        editCapsuleNameButton.layer.zPosition = 9
         
     }
     func prepareRocket() {
@@ -136,7 +138,7 @@ class MainViewController: UIViewController {
         let skView = self.gameView as! SKView
         scene.currentItemCount = currentItems
         scene.index = index
-        scene.marbles = marbles
+        scene.marbles = stones
         
         scene.backgroundColor = .clear
         skView.ignoresSiblingOrder = true
@@ -144,46 +146,25 @@ class MainViewController: UIViewController {
         skView.presentScene(scene)
     }
     
-    func didRetrieveData() {
-        print(#function)
+    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int]) {
+        self.nameLabel.text = rocketName
+        self.stones = stones
+        self.rocketID = rocketID
+        self.rocketColor = rocketColor
+        self.currentItems = self.stones.count
+        self.makeGameScene()
+        self.countLabel.text = "\(self.stones.count) / 21"
+        // 남은 날짜 계산하기
+        let today = Date()
+        let launch = dateformatter.date(from: launchDate)
+        if let dateLaunch = launch {
+            daysLeft = today.distance(to: dateLaunch) / 86400
+            self.dayCountLabel.text = "D-\(Int(daysLeft ?? 0))"
+        }
     }
     
     func failedToRequest(message: String) {
-        print(#function)
         self.presentAlert(title: message)
-    }
-    
-    func getRocket() {
-        guard let token = keychain.get(Keys.token) else { return }
-        print("test token: \(Constant.testToken)")
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        let url = URLType.rocket.makeURL + "?scope=AWAITING&stoneColorCount=true"
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
-            print("getRocket() called")
-            switch response.result {
-            case .success(let response):
-                print(response)
-                let rocket = response[0]
-                if rocket.rocketName == "" {
-                    self.nameLabel.text = "로켓 이름"
-                } else {
-                    self.nameLabel.text = rocket.rocketName
-                }
-                self.marbles = []
-                for i in 0..<rocket.stoneColorCount.count {
-                    for _ in 0..<rocket.stoneColorCount[i].stoneCount {
-                        self.marbles.append(rocket.stoneColorCount[i].stoneColor)
-                    }
-                }
-                self.currentItems = self.marbles.count
-                self.makeGameScene()
-                self.countLabel.text = ("\(self.marbles.count) / 21")
-                print(self.currentItems)
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ")
-            }
-        }
     }
     
     func isCapsuleOpen() {
@@ -208,7 +189,7 @@ extension MainViewController: ReloadDelegate {
     func reloadView() {
         let skView = self.gameView as! SKView
         skView.scene?.removeFromParent()
-        getRocket()
+        dataManager.getRocket(viewController: self)
         isCapsuleOpen()
     }
      

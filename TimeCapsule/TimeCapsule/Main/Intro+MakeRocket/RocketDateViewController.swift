@@ -13,7 +13,7 @@ class RocketDateViewController: UIViewController {
     let datePicker = UIDatePicker()
     let dateformatter: DateFormatter = {
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "YYYY-MM-dd"
+        dateformatter.dateFormat = "yyyy-MM-dd"
         return dateformatter
     }()
     

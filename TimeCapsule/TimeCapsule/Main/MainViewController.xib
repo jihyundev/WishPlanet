@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,6 @@
                 <outlet property="capsuleConstraint" destination="Yas-nr-dpE" id="T95-nm-TjY"/>
                 <outlet property="countLabel" destination="CWP-Yp-vn4" id="1wE-kb-Qp7"/>
                 <outlet property="dayCountLabel" destination="1xx-d1-ngR" id="y6G-dE-qpr"/>
-                <outlet property="editCapsuleNameButton" destination="lmL-WM-Tpj" id="78Z-4x-dIL"/>
                 <outlet property="gameView" destination="sEq-He-Vo3" id="yv1-Aa-FGK"/>
                 <outlet property="listButton" destination="gQV-3l-bCN" id="M2E-Uu-KD7"/>
                 <outlet property="nameLabel" destination="BxY-LE-dtE" id="Zgo-a8-exZ"/>
@@ -69,17 +68,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmL-WM-Tpj">
-                    <rect key="frame" x="131.5" y="89" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="DKl-r2-sax"/>
-                        <constraint firstAttribute="height" constant="30" id="p4G-0G-FfI"/>
-                    </constraints>
-                    <state key="normal" image="icon_revise"/>
-                    <connections>
-                        <action selector="editCapsuleButtonTapped:" destination="-1" eventType="touchUpInside" id="nGN-z9-JSg"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjs-br-YEJ">
                     <rect key="frame" x="360" y="44" width="44" height="44"/>
                     <constraints>
@@ -134,7 +122,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uDH-8X-hzq" secondAttribute="bottom" constant="44" id="GL2-0y-iTd"/>
                 <constraint firstAttribute="bottom" secondItem="hF7-fI-Qcf" secondAttribute="bottom" id="I1a-Xe-gYT"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IXI-Wb-kaZ"/>
-                <constraint firstItem="lmL-WM-Tpj" firstAttribute="centerY" secondItem="BxY-LE-dtE" secondAttribute="centerY" id="Jue-ze-38j"/>
                 <constraint firstItem="CEI-v2-WMa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="RD5-ku-DMw"/>
                 <constraint firstItem="hF7-fI-Qcf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WU3-fI-RFk"/>
                 <constraint firstItem="sEq-He-Vo3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="30" id="Yas-nr-dpE"/>
@@ -146,7 +133,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uDH-8X-hzq" secondAttribute="trailing" constant="24" id="fot-Zj-Wce"/>
                 <constraint firstItem="sEq-He-Vo3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="5" id="o6Z-Vd-fyR"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q5b-1t-Hfi"/>
-                <constraint firstItem="lmL-WM-Tpj" firstAttribute="leading" secondItem="BxY-LE-dtE" secondAttribute="trailing" id="rWm-g4-nQw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gjs-br-YEJ" secondAttribute="trailing" constant="10" id="yE8-WV-vE3"/>
                 <constraint firstItem="1xx-d1-ngR" firstAttribute="top" secondItem="gQV-3l-bCN" secondAttribute="bottom" constant="4" id="yqf-Wa-Jgj"/>
             </constraints>
@@ -159,7 +145,6 @@
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>
         <image name="icon_fire_locked" width="44" height="44"/>
-        <image name="icon_revise" width="30" height="30"/>
         <image name="shadow" width="331" height="160"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

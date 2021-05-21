@@ -27,3 +27,4 @@ struct GetRocketsResponse: Codable {
 struct StoneColorCount: Codable {
     let stoneColor, stoneCount: Int
 }
+

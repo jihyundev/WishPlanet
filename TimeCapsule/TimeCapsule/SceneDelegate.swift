@@ -24,6 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)
             
             print("token: \(token)")
+            
+            // 테스트용
+            //self.keychain.set(true, forKey: Keys.rocketExists)
+            
             if let _ = keychain.get(Keys.rocketExists) {
                 // 토큰 있고 우주선 있을 경우 메인 VC로 이동
                 self.window = UIWindow(windowScene: scene)

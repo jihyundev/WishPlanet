@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import KeychainSwift
 
 class CapsuleNameViewController: UIViewController {
 
@@ -19,6 +20,8 @@ class CapsuleNameViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var centerY: NSLayoutConstraint!
+    
+    let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     var name: String = ""
     var delegate: ReloadDelegate?
     
@@ -83,8 +86,9 @@ class CapsuleNameViewController: UIViewController {
     }
 
     func editcapsuleName(content: String) {
+        guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.capsuleName.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.testToken]
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let params = ["capsuleName": content]
         AF.request(url, method: .patch, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
             .response { [weak self] response in
