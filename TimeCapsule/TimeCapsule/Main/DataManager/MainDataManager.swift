@@ -35,7 +35,6 @@ class MainDataManager {
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
             }
-            
         }
     }
 }

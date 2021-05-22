@@ -54,6 +54,6 @@ extension UIFont {
         
     }
     static func SpoqaHanSansNeo(_ type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
-        return UIFont(name: "Spoqa Han Sans Neo \(type.rawValue)", size: size) ?? UIFont(name: "Spoqa Han Sans Neo Medium", size: 16)!
+        return UIFont(name: "Spoqa Han Sans Neo \(type.rawValue)", size: size) ?? UIFont.systemFont(ofSize: 15)
     }
 }

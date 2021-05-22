@@ -23,8 +23,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var capsuleConstraint: NSLayoutConstraint!
-    
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = MainDataManager()
     let dateformatter: DateFormatter = {
@@ -43,19 +41,19 @@ class MainViewController: UIViewController {
     var daysLeft: Double?
     
     lazy var rocketImageView: UIImageView = {
-       let view = UIImageView(image: UIImage(named: "rocket"))
-        view.frame.size.width = 300
-        view.frame.size.height = 745
-        view.contentMode = .scaleToFill
+       let view = UIImageView(image: UIImage(named: "rocket_top_1"))
+        //view.frame.size.width = 331
+        //view.frame.size.height = 752
+        //view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var rocketBottomImageView: UIImageView = {
        let view = UIImageView(image: UIImage(named: "rocket_bottom"))
-        view.frame.size.width = 213.55
-        view.frame.size.height = 205.51
-        view.contentMode = .scaleToFill
+        //view.frame.size.width = 331
+        //view.frame.size.height = 220
+        //view.contentMode = .scaleToFill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -115,22 +113,41 @@ class MainViewController: UIViewController {
         countLabel.layer.zPosition = 9
         
         addButton.layer.cornerRadius = 26
+        addButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
+        addButton.layer.shadowOpacity = 1.0
+        addButton.layer.shadowRadius = 10
+        addButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         addButton.layer.zPosition = 10
         
         nameLabel.layer.zPosition = 9
         
     }
     func prepareRocket() {
+        
         view.addSubview(rocketImageView)
+        rocketImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
+        rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
+        
         rocketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 30).isActive = true
+        rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        rocketImageView.contentMode = .scaleAspectFit
         print(rocketImageView.frame.size)
         rocketImageView.layer.zPosition = 2
-        gameView.layer.zPosition = 1
+        
         view.addSubview(rocketBottomImageView)
-        rocketBottomImageView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor, constant: 47.85).isActive = true
-        rocketBottomImageView.bottomAnchor.constraint(equalTo: rocketImageView.bottomAnchor, constant: -266.42).isActive = true
+        rocketBottomImageView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor).isActive = true
+        rocketBottomImageView.trailingAnchor.constraint(equalTo: rocketImageView.trailingAnchor).isActive = true
+        rocketBottomImageView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 0.2926).isActive = true
+        rocketBottomImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        rocketBottomImageView.contentMode = .scaleAspectFit
         rocketBottomImageView.layer.zPosition = 0
+        
+        gameView.translatesAutoresizingMaskIntoConstraints = false
+        gameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        gameView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        gameView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 218/752).isActive = true
+        gameView.widthAnchor.constraint(equalTo: gameView.heightAnchor, multiplier: 20/21).isActive = true
+        gameView.layer.zPosition = 1
     }
     
     func makeGameScene() {
