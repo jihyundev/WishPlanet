@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var shadowView: UIImageView!
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
@@ -34,26 +33,38 @@ class MainViewController: UIViewController {
     var currentItems: Int = 21
     var index: Int = 0
     var stones: [Int] = []
-    var rocketLaunchFlag = false
+    var rocketLaunchFlag = false {
+        didSet {
+            if rocketLaunchFlag == true {
+                listButton.setImage(UIImage(named: "icon_fire"), for: .normal)
+                listButton.addTarget(self, action: #selector(fireRocket), for: .touchUpInside)
+                addButton.isHidden = true
+            } else {
+                listButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
+                listButton.addTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
+                addButton.isHidden = false
+            }
+        }
+    }
     
     var rocketID: Int?
     var rocketColor: Int?
     var daysLeft: Double?
     
     lazy var rocketImageView: UIImageView = {
-       let view = UIImageView(image: UIImage(named: "rocket_top_1"))
-        //view.frame.size.width = 331
-        //view.frame.size.height = 752
-        //view.contentMode = .scaleToFill
+        let view = UIImageView(image: UIImage(named: "rocket_top_\(self.rocketColor ?? 0)"))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var rocketBottomImageView: UIImageView = {
        let view = UIImageView(image: UIImage(named: "rocket_bottom"))
-        //view.frame.size.width = 331
-        //view.frame.size.height = 220
-        //view.contentMode = .scaleToFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var shadowView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "shadow"))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -70,17 +81,11 @@ class MainViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isTransparent = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        isCapsuleOpen()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    @IBAction func listButtonTapped(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ListViewController") as! ListViewController
-        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func myPageButtonTapped(_ sender: Any) {
@@ -104,7 +109,6 @@ class MainViewController: UIViewController {
     
     func setupUI() {
         self.navigationItem.title = ""
-        shadowView.isHidden = true
         //listButton.layer.zPosition = 9
         dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
@@ -122,6 +126,7 @@ class MainViewController: UIViewController {
         nameLabel.layer.zPosition = 9
         
     }
+    
     func prepareRocket() {
         
         view.addSubview(rocketImageView)
@@ -148,6 +153,14 @@ class MainViewController: UIViewController {
         gameView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 218/752).isActive = true
         gameView.widthAnchor.constraint(equalTo: gameView.heightAnchor, multiplier: 20/21).isActive = true
         gameView.layer.zPosition = 1
+        
+        view.addSubview(shadowView)
+        shadowView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        shadowView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor).isActive = true
+        shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        shadowView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 160/752).isActive = true
+        shadowView.contentMode = .scaleAspectFit
+        shadowView.layer.zPosition = 1
     }
     
     func makeGameScene() {
@@ -176,7 +189,13 @@ class MainViewController: UIViewController {
         let launch = dateformatter.date(from: launchDate)
         if let dateLaunch = launch {
             daysLeft = today.distance(to: dateLaunch) / 86400
-            self.dayCountLabel.text = "D-\(Int(daysLeft ?? 0))"
+            if daysLeft == 0.0 {
+                rocketLaunchFlag = true
+                self.dayCountLabel.text = "D-DAY"
+            } else {
+                rocketLaunchFlag = false
+                self.dayCountLabel.text = "D-\(Int(daysLeft ?? 0))"
+            }
         }
     }
     
@@ -184,30 +203,38 @@ class MainViewController: UIViewController {
         self.presentAlert(title: message)
     }
     
-    func isCapsuleOpen() {
-        if self.rocketLaunchFlag == true {
-            self.listButton.isEnabled = true
-            self.listButton.setImage(UIImage(named: "icon_fire"), for: .normal)
-            self.addButton.isHidden = true
-            let nextVC = EndPopUpViewController()
-            nextVC.delegate = self
-            nextVC.modalPresentationStyle = .overCurrentContext
-            self.present(nextVC, animated: true, completion: nil)
-        } else {
-            self.listButton.isEnabled = false
-            self.listButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
-            self.addButton.isHidden = false
-        }
+    @objc fileprivate func rocketIsNotReady() {
+        guard let image = UIImage(named: "icon_rocket") else { return }
+        self.presentBottomAlert(image: image, message: "아직은 발사할 수 없어요")
     }
+    
+    @objc fileprivate func fireRocket() {
+        let nextVC = EndPopUpViewController()
+        nextVC.delegate = self
+        nextVC.modalPresentationStyle = .overCurrentContext
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func showToast(_ sender: Any) {
+        guard let image = UIImage(named: "icon_success") else { return }
+        let stoneLeft = 21 - self.stones.count
+        self.presentBottomAlert(image: image, message: "소원석 추가 성공!", desc: "\(stoneLeft)개 남음")
+    }
+    
 
 }
 
 extension MainViewController: ReloadDelegate {
+    func showToast() {
+        guard let image = UIImage(named: "icon_success") else { return }
+        let stoneLeft = 21 - self.stones.count
+        self.presentBottomAlert(image: image, message: "소원석 추가 성공!", desc: "\(stoneLeft)개 남음")
+    }
+    
     func reloadView() {
         let skView = self.gameView as! SKView
         skView.scene?.removeFromParent()
         dataManager.getRocket(viewController: self)
-        isCapsuleOpen()
     }
      
     func endGame() {
@@ -229,4 +256,5 @@ extension MainViewController: ReloadDelegate {
 protocol ReloadDelegate {
     func reloadView()
     func endGame()
+    func showToast()
 }

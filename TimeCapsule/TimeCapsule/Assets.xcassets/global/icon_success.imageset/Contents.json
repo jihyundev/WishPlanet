@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_rocket.png",
+      "filename" : "icon_success.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_rocket2x.png",
+      "filename" : "icon_success2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_rocket3x.png",
+      "filename" : "icon_success3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

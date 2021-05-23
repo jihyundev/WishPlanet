@@ -22,7 +22,6 @@
                 <outlet property="gameView" destination="sEq-He-Vo3" id="yv1-Aa-FGK"/>
                 <outlet property="listButton" destination="gQV-3l-bCN" id="M2E-Uu-KD7"/>
                 <outlet property="nameLabel" destination="BxY-LE-dtE" id="Zgo-a8-exZ"/>
-                <outlet property="shadowView" destination="CEI-v2-WMa" id="60g-CW-SXr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,9 +39,6 @@
                         <constraint firstAttribute="height" constant="190" id="GC5-h8-YC9"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="CEI-v2-WMa">
-                    <rect key="frame" x="24" y="700" width="366" height="160"/>
-                </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEq-He-Vo3" customClass="SKView">
                     <rect key="frame" x="88" y="323" width="238" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,9 +54,9 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxY-LE-dtE">
-                    <rect key="frame" x="25" y="91" width="106.5" height="26"/>
-                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxY-LE-dtE">
+                    <rect key="frame" x="25" y="119" width="66.5" height="29"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="24"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -85,9 +81,6 @@
                     <state key="normal" image="icon_fire_locked">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <connections>
-                        <action selector="listButtonTapped:" destination="-1" eventType="touchUpInside" id="vaY-JE-UWE"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
                     <rect key="frame" x="268" y="746" width="122" height="72"/>
@@ -96,36 +89,45 @@
                         <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="Hvz-Od-XgA"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D - 10234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-d1-ngR">
-                    <rect key="frame" x="309.5" y="92" width="45" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-d1-ngR">
+                    <rect key="frame" x="325" y="92" width="14.5" height="12"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUD-Oh-z8F">
+                    <rect key="frame" x="20" y="818" width="198" height="36"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                    <state key="normal" title="PresentBottomAlert">
+                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showToast:" destination="-1" eventType="touchUpInside" id="rUj-06-wbo"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="1xx-d1-ngR" firstAttribute="centerX" secondItem="gQV-3l-bCN" secondAttribute="centerX" id="14I-Xe-goL"/>
                 <constraint firstItem="gQV-3l-bCN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="53T-JP-ThE"/>
-                <constraint firstItem="BxY-LE-dtE" firstAttribute="top" secondItem="CWP-Yp-vn4" secondAttribute="bottom" constant="8" id="5J4-2p-FJE"/>
+                <constraint firstItem="BxY-LE-dtE" firstAttribute="top" secondItem="CWP-Yp-vn4" secondAttribute="bottom" constant="36" id="5J4-2p-FJE"/>
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="5Vt-kI-3ye"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="7Vw-QF-C3K"/>
                 <constraint firstAttribute="bottom" secondItem="UBf-zc-Kd0" secondAttribute="bottom" id="AGg-OU-R5x"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CZX-UQ-rgn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CEI-v2-WMa" secondAttribute="trailing" constant="24" id="Dre-Lg-dpY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uDH-8X-hzq" secondAttribute="bottom" constant="44" id="GL2-0y-iTd"/>
                 <constraint firstAttribute="bottom" secondItem="hF7-fI-Qcf" secondAttribute="bottom" id="I1a-Xe-gYT"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IXI-Wb-kaZ"/>
-                <constraint firstItem="CEI-v2-WMa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="RD5-ku-DMw"/>
                 <constraint firstItem="hF7-fI-Qcf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WU3-fI-RFk"/>
                 <constraint firstItem="BxY-LE-dtE" firstAttribute="leading" secondItem="CWP-Yp-vn4" secondAttribute="leading" id="ZQG-5q-qgA"/>
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="leading" secondItem="gQV-3l-bCN" secondAttribute="trailing" constant="6" id="aAM-es-817"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uUD-Oh-z8F" secondAttribute="bottom" constant="8" id="aG4-zA-vIF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hF7-fI-Qcf" secondAttribute="trailing" id="bCY-C6-5Pd"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="bDL-Rv-Fqz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CEI-v2-WMa" secondAttribute="bottom" constant="2" id="ewf-A0-rfY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uDH-8X-hzq" secondAttribute="trailing" constant="24" id="fot-Zj-Wce"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q5b-1t-Hfi"/>
+                <constraint firstItem="uUD-Oh-z8F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rcL-lA-lTc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gjs-br-YEJ" secondAttribute="trailing" constant="10" id="yE8-WV-vE3"/>
                 <constraint firstItem="1xx-d1-ngR" firstAttribute="top" secondItem="gQV-3l-bCN" secondAttribute="bottom" constant="4" id="yqf-Wa-Jgj"/>
             </constraints>
@@ -138,7 +140,6 @@
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>
         <image name="icon_fire_locked" width="44" height="44"/>
-        <image name="shadow" width="331" height="160"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

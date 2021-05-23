@@ -102,7 +102,9 @@ class AddWishViewController: UIViewController{
     
     func didSuccessToPost() {
         self.delegate?.reloadView()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.showToast()
+        }
     }
     
     func failedToPost(message: String) {
@@ -151,5 +153,13 @@ extension AddWishViewController: UITextViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         wishTextView.resignFirstResponder()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty == true {
+            isActivated = false
+        } else {
+            isActivated = true
+        }
     }
 }
