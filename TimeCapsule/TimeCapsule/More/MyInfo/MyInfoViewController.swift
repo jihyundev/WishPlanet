@@ -86,6 +86,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             let vc = LogoutViewController()
             vc.delegate = self
             vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         case 3:
             print("탈퇴하기")

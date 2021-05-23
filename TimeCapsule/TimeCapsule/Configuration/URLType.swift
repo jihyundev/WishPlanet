@@ -16,6 +16,7 @@ enum URLType {
     case userMore // 더보기 메인화면 정보
     case userRockets //내 우주선 관리
     case userDelete // 회원탈퇴
+    case userDeleteReasons // 탈퇴사유 등록
     
     // rocket-controller
     case rocket // 우주선 리스트(GET), 만들기(POST)
@@ -54,6 +55,8 @@ enum URLType {
             return "\(baseURL)/v1/users/rockets"
         case .userDelete:
             return "\(baseURL)/v1/users"
+        case .userDeleteReasons:
+            return "\(baseURL)/v1/reasons"
             
         case .rocket:
             return "\(baseURL)/v1/rockets"
