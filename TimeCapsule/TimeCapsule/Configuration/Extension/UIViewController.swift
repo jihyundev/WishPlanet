@@ -64,7 +64,7 @@ extension UIViewController {
     }
     
     // MARK: 커스텀 하단 경고창
-    func presentBottomAlert(image: UIImage, message: String, desc: String? = "", target: ConstraintRelatableTarget? = nil) {
+    func presentBottomAlert(image: UIImage, message: String, desc: String? = "") {
         let alertSuperview = UIView()
         alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         alertSuperview.layer.cornerRadius = 22
@@ -91,8 +91,8 @@ extension UIViewController {
         self.view.addSubview(alertSuperview)
         alertSuperview.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.leading.equalTo(target ?? self.view.safeAreaLayoutGuide).offset(22)
-            make.bottom.equalTo(target ?? self.view.safeAreaLayoutGuide).offset(-23)
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(22)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-23)
             make.height.equalTo(44)
         }
         

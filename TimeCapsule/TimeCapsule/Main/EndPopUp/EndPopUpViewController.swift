@@ -10,13 +10,15 @@ import UIKit
 class EndPopUpViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var ddayLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var completionButton: UIButton!
     
     var delegate: ReloadDelegate?
+    var dateString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
     }
     @IBAction func exitButtonTapped(_ sender: Any) {
@@ -26,21 +28,29 @@ class EndPopUpViewController: UIViewController {
     @IBAction func completionButtonTapped(_ sender: Any) {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
-            //코로나 종식 퍼모먼스 레쓰기릿
+            // 로켓발사 퍼포먼스
             self.delegate?.endGame()
         }
     }
     
     func setupUI() {
-        containerView.layer.cornerRadius = 30
-        containerView.borderWidth = 5
+        containerView.layer.cornerRadius = 24
+        containerView.borderWidth = 4
         containerView.borderColor = .black
         
-        completionButton.layer.cornerRadius = 8
-        completionButton.backgroundColor = UIColor.mainBlack
-        completionButton.setTitle("완료", for: .normal)
+        ddayLabel.textColor = UIColor.mainPurple
+        ddayLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 12)
+        
+        if let date = self.dateString {
+            dateLabel.text = date
+            dateLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 14)
+        }
+        
+        completionButton.layer.cornerRadius = 12
+        completionButton.backgroundColor = UIColor.mainPurple
+        completionButton.setTitle("발사하기", for: .normal)
         completionButton.setTitleColor(.white, for: .normal)
-        completionButton.setTitleColor(.white, for: .selected)
+        completionButton.titleLabel?.font = UIFont.SpoqaHanSansNeo(.bold, size: 15)
  
     }
 

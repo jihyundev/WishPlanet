@@ -53,6 +53,8 @@
 		5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197926458380008E88EA /* RocketDateViewController.swift */; };
 		5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997197A26458380008E88EA /* RocketDateViewController.xib */; };
 		599C945E2650A3B200986DE6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C945D2650A3B200986DE6 /* DateHelper.swift */; };
+		59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6B265D1AF3003A29B9 /* fire.json */; };
+		59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6D265D1AFD003A29B9 /* smoke.json */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
 		59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */; };
@@ -162,6 +164,8 @@
 		5997197926458380008E88EA /* RocketDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDateViewController.swift; sourceTree = "<group>"; };
 		5997197A26458380008E88EA /* RocketDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketDateViewController.xib; sourceTree = "<group>"; };
 		599C945D2650A3B200986DE6 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		59AA3C6B265D1AF3003A29B9 /* fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fire.json; sourceTree = "<group>"; };
+		59AA3C6D265D1AFD003A29B9 /* smoke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
 		59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketViewController.xib; sourceTree = "<group>"; };
@@ -552,6 +556,8 @@
 		59E971F225FB0483008A7EF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				59AA3C6B265D1AF3003A29B9 /* fire.json */,
+				59AA3C6D265D1AFD003A29B9 /* smoke.json */,
 				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59BD602F262C6AD8009B4DE6 /* Entity */,
 				59BD6030262C6ADF009B4DE6 /* DataManager */,
@@ -712,6 +718,7 @@
 				59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */,
 				595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */,
 				595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */,
+				59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */,
 				59C6867F2642EAEB006D9F3B /* MyInfoViewController.xib in Resources */,
 				59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */,
 				5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */,
@@ -723,6 +730,7 @@
 				59C686842642EB4D006D9F3B /* MyRocketViewController.xib in Resources */,
 				59E971E325FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf in Resources */,
 				59E9725C25FB777D008A7EF9 /* WishlistViewController.xib in Resources */,
+				59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */,
 				5921F99925FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				5921F99625FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf in Resources */,
 				5921F98D25FBC80200D097B4 /* Spoqa Han Sans Neo Bold.otf in Resources */,

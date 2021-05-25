@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Spoqa Han Sans Neo Medium.otf">
-            <string>SpoqaHanSansNeo-Medium</string>
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EndPopUpViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
-                <outlet property="completionButton" destination="cks-VT-iiI" id="NGg-gc-Xyo"/>
+                <outlet property="completionButton" destination="1jC-sg-iTQ" id="0CX-BC-OAS"/>
                 <outlet property="containerView" destination="YC6-uk-yMU" id="wB9-95-54S"/>
+                <outlet property="dateLabel" destination="K6C-gG-4Qy" id="3Dw-Hp-8qx"/>
+                <outlet property="ddayLabel" destination="yNs-aQ-56R" id="NGh-jv-U8a"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,58 +28,77 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-uk-yMU">
-                    <rect key="frame" x="51" y="379.5" width="312" height="137"/>
+                    <rect key="frame" x="47" y="369" width="320" height="158"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="코로나가 종식되었습니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr8-o6-GZY">
-                            <rect key="frame" x="66.5" y="36" width="179" height="24.5"/>
-                            <fontDescription key="fontDescription" name="SinhalaSangamMN-Bold" family="Sinhala Sangam MN" pointSize="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="발사 준비 완료!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr8-o6-GZY">
+                            <rect key="frame" x="109" y="24" width="102" height="20"/>
+                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-BK-i8V">
-                            <rect key="frame" x="256" y="26" width="30" height="30"/>
-                            <state key="normal" image="icon_black_delete"/>
+                            <rect key="frame" x="272" y="4" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="2AN-W6-vok"/>
+                                <constraint firstAttribute="width" constant="44" id="5q6-VQ-igm"/>
+                            </constraints>
+                            <state key="normal" image="icon_delete_grey"/>
                             <connections>
                                 <action selector="exitButtonTapped:" destination="-1" eventType="touchUpInside" id="Rv2-EP-QjN"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cks-VT-iiI">
-                            <rect key="frame" x="22" y="73" width="268" height="44"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D - DAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNs-aQ-56R">
+                            <rect key="frame" x="137.5" y="56" width="45" height="15"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023 - 01 - 07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6C-gG-4Qy">
+                            <rect key="frame" x="115" y="74" width="90" height="17"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jC-sg-iTQ">
+                            <rect key="frame" x="114" y="105" width="92" height="36"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="Q4i-lx-SPa"/>
-                                <constraint firstAttribute="width" constant="268" id="jaa-9G-Chi"/>
+                                <constraint firstAttribute="height" constant="36" id="PYK-39-FKr"/>
+                                <constraint firstAttribute="width" constant="92" id="TFa-ZX-g1g"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
-                            <state key="normal" title="캡슐 열기"/>
+                            <state key="normal" title="발사하기"/>
                             <connections>
-                                <action selector="completionButtonTapped:" destination="-1" eventType="touchUpInside" id="dyM-b5-eiU"/>
+                                <action selector="completionButtonTapped:" destination="-1" eventType="touchUpInside" id="1fh-WJ-DpH"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="cks-VT-iiI" secondAttribute="trailing" constant="22" id="H3f-jt-ZJ8"/>
-                        <constraint firstItem="vr8-o6-GZY" firstAttribute="centerX" secondItem="YC6-uk-yMU" secondAttribute="centerX" id="WO3-gH-WFq"/>
-                        <constraint firstAttribute="height" constant="137" id="ZN8-vm-bbY"/>
-                        <constraint firstAttribute="width" constant="312" id="bU6-zS-vNp"/>
-                        <constraint firstItem="XA2-BK-i8V" firstAttribute="top" secondItem="YC6-uk-yMU" secondAttribute="top" constant="26" id="grQ-Tx-2Wg"/>
-                        <constraint firstAttribute="trailing" secondItem="XA2-BK-i8V" secondAttribute="trailing" constant="26" id="iNv-o7-arx"/>
-                        <constraint firstAttribute="bottom" secondItem="cks-VT-iiI" secondAttribute="bottom" constant="20" id="iV3-eS-khZ"/>
-                        <constraint firstItem="vr8-o6-GZY" firstAttribute="top" secondItem="YC6-uk-yMU" secondAttribute="top" constant="36" id="jpQ-Mu-lqf"/>
+                        <constraint firstItem="yNs-aQ-56R" firstAttribute="centerX" secondItem="YC6-uk-yMU" secondAttribute="centerX" id="3G5-f9-KoG"/>
+                        <constraint firstAttribute="height" constant="158" id="F9p-6O-Lbm"/>
+                        <constraint firstItem="vr8-o6-GZY" firstAttribute="centerX" secondItem="YC6-uk-yMU" secondAttribute="centerX" id="Ged-tH-IpW"/>
+                        <constraint firstItem="K6C-gG-4Qy" firstAttribute="top" secondItem="yNs-aQ-56R" secondAttribute="bottom" constant="3" id="JIs-PX-odN"/>
+                        <constraint firstItem="yNs-aQ-56R" firstAttribute="top" secondItem="vr8-o6-GZY" secondAttribute="bottom" constant="12" id="MHL-0e-Wbg"/>
+                        <constraint firstItem="vr8-o6-GZY" firstAttribute="top" secondItem="YC6-uk-yMU" secondAttribute="top" constant="24" id="NEA-ey-4nl"/>
+                        <constraint firstAttribute="trailing" secondItem="XA2-BK-i8V" secondAttribute="trailing" constant="4" id="bQl-D4-f1N"/>
+                        <constraint firstItem="1jC-sg-iTQ" firstAttribute="centerX" secondItem="YC6-uk-yMU" secondAttribute="centerX" id="bWc-4q-ISf"/>
+                        <constraint firstItem="XA2-BK-i8V" firstAttribute="top" secondItem="YC6-uk-yMU" secondAttribute="top" constant="4" id="k3s-un-yxs"/>
+                        <constraint firstItem="K6C-gG-4Qy" firstAttribute="centerX" secondItem="YC6-uk-yMU" secondAttribute="centerX" id="oPI-D4-mI7"/>
+                        <constraint firstAttribute="bottom" secondItem="1jC-sg-iTQ" secondAttribute="bottom" constant="17" id="x3O-gJ-mNQ"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="YC6-uk-yMU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GPB-P4-LuM"/>
-                <constraint firstItem="YC6-uk-yMU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Krb-Ji-h4R"/>
+                <constraint firstItem="YC6-uk-yMU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="EPg-Pt-nUd"/>
+                <constraint firstItem="YC6-uk-yMU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="YmS-dR-lwi"/>
+                <constraint firstItem="YC6-uk-yMU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fH9-gt-i0A"/>
             </constraints>
             <point key="canvasLocation" x="63.768115942028992" y="130.58035714285714"/>
         </view>
     </objects>
     <resources>
-        <image name="icon_black_delete" width="30" height="30"/>
+        <image name="icon_delete_grey" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
