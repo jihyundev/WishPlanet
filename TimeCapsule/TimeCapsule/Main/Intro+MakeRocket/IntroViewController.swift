@@ -9,6 +9,7 @@ import UIKit
 
 class IntroViewController: UIViewController {
 
+    
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
     @IBOutlet weak var guideButton: UIButton!
@@ -17,9 +18,16 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var rocketDescLabel: UILabel!
     @IBOutlet weak var makeRocketButton: UIButton!
     
+    @IBOutlet weak var rocketListButton: UIButton!
+    @IBOutlet weak var rocketListToast: UIImageView!
+    
+    var flag: Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        verifyFlag()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +56,20 @@ class IntroViewController: UIViewController {
         
         makeRocketButton.layer.cornerRadius = makeRocketButton.frame.height / 2
         makeRocketButton.backgroundColor = .mainPurple
+    }
+    
+    fileprivate func verifyFlag() {
+        if flag == 0 {
+            rocketListToast.isHidden = true
+            rocketListButton.isHidden = true
+        } else {
+            mainLabel.isHidden = true
+            subLabel.isHidden = true
+            guideButton.isHidden = true
+            UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
+                self.rocketListToast.alpha = 0
+            }.startAnimation(afterDelay: 5)
+        }
     }
     
     @IBAction func guideButtonTapped(_ sender: Any) {
@@ -87,6 +109,8 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
             self.dolImageView.alpha = 0
             self.rocketDescLabel.alpha = 0
             self.makeRocketButton.alpha = 0
+            
+            self.rocketListButton.alpha = 0
         }.startAnimation()
     }
     
@@ -100,6 +124,8 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
             self.dolImageView.alpha = 1
             self.rocketDescLabel.alpha = 1
             self.makeRocketButton.alpha = 1
+            
+            self.rocketListButton.alpha = 1
         }.startAnimation()
     }
 }

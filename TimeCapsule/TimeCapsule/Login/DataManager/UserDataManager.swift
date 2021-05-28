@@ -10,6 +10,7 @@ import Alamofire
 import KakaoSDKAuth
 import KakaoSDKUser
 import KeychainSwift
+import AuthenticationServices
 
 class UserDataManager {
     

@@ -11,7 +11,8 @@ class CompletedRocketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .mainPurple
+        self.title = "발사 완료 후 리스트 화면"
         // Do any additional setup after loading the view.
     }
 

@@ -86,6 +86,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
             let vc = LogoutViewController()
             vc.delegate = self
             vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
         case 3:
             print("탈퇴하기")
@@ -107,8 +108,12 @@ extension MyInfoViewController: ChangeRootDelegate {
 
 extension MyInfoViewController: ReloadNicknameDelegate {
     func reloadNicknameRow() {
+        print("MyInfoViewController - reloadNicknameRow() called")
         let index = IndexPath(row: 0, section: 0)
         tableView.reloadRows(at: [index], with: .none)
+        
+        //let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
+        //cell.subLabel.text = "updated!"
     }
 }
 

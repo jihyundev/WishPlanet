@@ -64,32 +64,61 @@ extension UIViewController {
     }
     
     // MARK: 커스텀 하단 경고창
-    func presentBottomAlert(message: String, target: ConstraintRelatableTarget? = nil, offset: Double? = -12) {
+    func presentBottomAlert(image: UIImage, message: String, desc: String? = "") {
         let alertSuperview = UIView()
-        alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        alertSuperview.layer.cornerRadius = 10
+        alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        alertSuperview.layer.cornerRadius = 22
         alertSuperview.isHidden = true
+        
+        let imageView: UIImageView = {
+            let view = UIImageView()
+            view.image = image
+            return view
+        }()
     
         let alertLabel = UILabel()
-        alertLabel.font = .NotoSans(.regular, size: 15)
+        alertLabel.font = UIFont.SpoqaHanSansNeo(.medium, size: 15)
         alertLabel.textColor = .white
+        
+        let descLabel: UILabel = {
+            let label = UILabel()
+            label.text = desc
+            label.font = UIFont.SpoqaHanSansNeo(.regular, size: 12)
+            label.textColor = .init(white: 1.0, alpha: 0.6)
+            return label
+        }()
         
         self.view.addSubview(alertSuperview)
         alertSuperview.snp.makeConstraints { make in
-            make.bottom.equalTo(target ?? self.view.safeAreaLayoutGuide).offset(-12)
             make.centerX.equalToSuperview()
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(22)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-23)
+            make.height.equalTo(44)
+        }
+        
+        alertSuperview.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.leading.equalTo(24)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(44)
+            make.height.equalTo(44)
         }
         
         alertSuperview.addSubview(alertLabel)
         alertLabel.snp.makeConstraints { make in
-            make.top.equalTo(6)
-            make.bottom.equalTo(-6)
-            make.leading.equalTo(12)
-            make.trailing.equalTo(-12)
+            make.leading.equalTo(72)
+            make.centerY.equalToSuperview()
+        }
+        
+        alertSuperview.addSubview(descLabel)
+        descLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(-24)
+            make.centerY.equalToSuperview()
         }
         
         alertLabel.text = message
         alertSuperview.alpha = 1.0
+        alertSuperview.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
         alertSuperview.isHidden = false
         UIView.animate(
             withDuration: 2.0,

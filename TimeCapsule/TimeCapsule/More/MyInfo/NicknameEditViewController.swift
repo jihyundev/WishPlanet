@@ -58,11 +58,11 @@ class NicknameEditViewController: UIViewController {
     @objc private func completeButtonPressed(_ sender: Any) {
         guard let name = self.nickname else { return }
         dataManager.patchNickname(nickname: name, viewController: self)
-        delegate?.reloadNicknameRow()
     }
     
     func didRetreiveData() {
         self.presentAlert(title: "닉네임 변경에 성공하였습니다. ") {_ in
+            self.delegate?.reloadNicknameRow()
             self.navigationController?.popViewController(animated: true)
         }
     }

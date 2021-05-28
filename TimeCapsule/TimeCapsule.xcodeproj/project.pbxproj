@@ -53,6 +53,8 @@
 		5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197926458380008E88EA /* RocketDateViewController.swift */; };
 		5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997197A26458380008E88EA /* RocketDateViewController.xib */; };
 		599C945E2650A3B200986DE6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C945D2650A3B200986DE6 /* DateHelper.swift */; };
+		59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6B265D1AF3003A29B9 /* fire.json */; };
+		59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6D265D1AFD003A29B9 /* smoke.json */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
 		59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */; };
@@ -96,7 +98,6 @@
 		59E971E325FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 59E971D225FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf */; };
 		59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 59E971D325FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf */; };
 		59E971E525FB003B008A7EF9 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 59E971D425FB003B008A7EF9 /* NotoSansCJKkr-Bold.otf */; };
-		59E971E625FB003B008A7EF9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971D625FB003B008A7EF9 /* BaseViewController.swift */; };
 		59E971F525FB0512008A7EF9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971F425FB0512008A7EF9 /* UIViewController.swift */; };
 		59E9720825FB0722008A7EF9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9720625FB0722008A7EF9 /* LoginViewController.swift */; };
 		59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9720725FB0722008A7EF9 /* LoginViewController.xib */; };
@@ -163,6 +164,8 @@
 		5997197926458380008E88EA /* RocketDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDateViewController.swift; sourceTree = "<group>"; };
 		5997197A26458380008E88EA /* RocketDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketDateViewController.xib; sourceTree = "<group>"; };
 		599C945D2650A3B200986DE6 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		59AA3C6B265D1AF3003A29B9 /* fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fire.json; sourceTree = "<group>"; };
+		59AA3C6D265D1AFD003A29B9 /* smoke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
 		59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketViewController.xib; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 		59C6869E2643F746006D9F3B /* NicknameEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameEditViewController.xib; sourceTree = "<group>"; };
 		59C686A326441168006D9F3B /* MyInfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager.swift; sourceTree = "<group>"; };
 		59C686A62644155D006D9F3B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		59C86CDA266064C100C98A38 /* TimeCapsule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeCapsule.entitlements; sourceTree = "<group>"; };
 		59D5474125FBB5FF004763B4 /* FinishedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedListCell.swift; sourceTree = "<group>"; };
 		59D5474225FBB5FF004763B4 /* FinishedListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishedListCell.xib; sourceTree = "<group>"; };
 		59E1B03925FC556D00B46A4A /* WishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
@@ -208,7 +212,6 @@
 		59E971D225FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		59E971D325FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		59E971D425FB003B008A7EF9 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		59E971D625FB003B008A7EF9 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		59E971F425FB0512008A7EF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		59E9720625FB0722008A7EF9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		59E9720725FB0722008A7EF9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 		59E971AB25FB0007008A7EF9 /* TimeCapsule */ = {
 			isa = PBXGroup;
 			children = (
+				59C86CDA266064C100C98A38 /* TimeCapsule.entitlements */,
 				59E971C125FB003B008A7EF9 /* Configuration */,
 				59E971E825FB0047008A7EF9 /* Login */,
 				59E971F225FB0483008A7EF9 /* Main */,
@@ -535,7 +539,6 @@
 		59E971D525FB003B008A7EF9 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				59E971D625FB003B008A7EF9 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -555,6 +558,8 @@
 		59E971F225FB0483008A7EF9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				59AA3C6B265D1AF3003A29B9 /* fire.json */,
+				59AA3C6D265D1AFD003A29B9 /* smoke.json */,
 				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59BD602F262C6AD8009B4DE6 /* Entity */,
 				59BD6030262C6ADF009B4DE6 /* DataManager */,
@@ -715,6 +720,7 @@
 				59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */,
 				595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */,
 				595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */,
+				59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */,
 				59C6867F2642EAEB006D9F3B /* MyInfoViewController.xib in Resources */,
 				59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */,
 				5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */,
@@ -726,6 +732,7 @@
 				59C686842642EB4D006D9F3B /* MyRocketViewController.xib in Resources */,
 				59E971E325FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf in Resources */,
 				59E9725C25FB777D008A7EF9 /* WishlistViewController.xib in Resources */,
+				59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */,
 				5921F99925FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf in Resources */,
 				5921F99625FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf in Resources */,
 				5921F98D25FBC80200D097B4 /* Spoqa Han Sans Neo Bold.otf in Resources */,
@@ -838,7 +845,6 @@
 				59E9722025FB1B4B008A7EF9 /* ListViewController.swift in Sources */,
 				59E971D725FB003B008A7EF9 /* Constant.swift in Sources */,
 				5997197626458370008E88EA /* RocketNameViewController.swift in Sources */,
-				59E971E625FB003B008A7EF9 /* BaseViewController.swift in Sources */,
 				2516E84225FB890E00ADD135 /* URLType.swift in Sources */,
 				59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */,
 				25437B6F25FC425000F3C8EF /* Marbles.swift in Sources */,
@@ -995,6 +1001,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeCapsule/TimeCapsule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = TimeCapsule/Info.plist;
@@ -1015,6 +1022,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeCapsule/TimeCapsule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = TimeCapsule/Info.plist;

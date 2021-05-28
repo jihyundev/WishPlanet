@@ -26,15 +26,6 @@ import Foundation
 import UIKit
 
 extension UIFont {
-    public enum NotoSansType: String {
-        case bold = "Bold"
-        case medium = "Medium"
-        case regular = "Regular"
-    }
-
-    static func NotoSans(_ type: NotoSansType, size: CGFloat) -> UIFont {
-        return UIFont(name: "NotoSansCJKkr-\(type.rawValue)", size: size)!
-    }
     
     public enum GaeguType: String {
         case bold = "Bold"
@@ -54,6 +45,6 @@ extension UIFont {
         
     }
     static func SpoqaHanSansNeo(_ type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
-        return UIFont(name: "Spoqa Han Sans Neo \(type.rawValue)", size: size) ?? UIFont(name: "Spoqa Han Sans Neo Medium", size: 16)!
+        return UIFont(name: "Spoqa Han Sans Neo \(type.rawValue)", size: size) ?? UIFont.systemFont(ofSize: 15)
     }
 }

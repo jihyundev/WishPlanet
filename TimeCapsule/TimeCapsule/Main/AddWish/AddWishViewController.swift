@@ -13,6 +13,13 @@ class AddWishViewController: UIViewController{
     
     @IBOutlet weak var textCountLabel: UILabel!
     @IBOutlet weak var stoneCountLabel: UILabel!
+    
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var purpleButton: UIButton!
+    
     @IBOutlet weak var wishTextView: UITextView!
     @IBOutlet weak var completionButton: UIButton!
     @IBOutlet weak var containerView: UIView!
@@ -100,9 +107,49 @@ class AddWishViewController: UIViewController{
         isActivated = false
     }
     
+    fileprivate func setDefaultImage() {
+        redButton.setImage(UIImage(named: "stone_0"), for: .normal)
+        yellowButton.setImage(UIImage(named: "stone_1"), for: .normal)
+        greenButton.setImage(UIImage(named: "stone_2"), for: .normal)
+        blueButton.setImage(UIImage(named: "stone_3"), for: .normal)
+        purpleButton.setImage(UIImage(named: "stone_4"), for: .normal)
+    }
+    
+    @IBAction func redButtonTapped(_ sender: Any) {
+        setDefaultImage()
+        redButton.setImage(UIImage(named: "icon_check_0"), for: .normal)
+        stoneColor = 0
+    }
+    
+    @IBAction func yellowButtonTapped(_ sender: Any) {
+        setDefaultImage()
+        yellowButton.setImage(UIImage(named: "icon_check_1"), for: .normal)
+        stoneColor = 1
+    }
+    
+    @IBAction func greenButtonTapped(_ sender: Any) {
+        setDefaultImage()
+        greenButton.setImage(UIImage(named: "icon_check_2"), for: .normal)
+        stoneColor = 2
+    }
+    
+    @IBAction func blueButtonTapped(_ sender: Any) {
+        setDefaultImage()
+        blueButton.setImage(UIImage(named: "icon_check_3"), for: .normal)
+        stoneColor = 3
+    }
+    @IBAction func purpleButtonTapped(_ sender: Any) {
+        setDefaultImage()
+        purpleButton.setImage(UIImage(named: "icon_check_4"), for: .normal)
+        stoneColor = 4
+    }
+    
+    
     func didSuccessToPost() {
         self.delegate?.reloadView()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.showToast()
+        }
     }
     
     func failedToPost(message: String) {
@@ -151,5 +198,13 @@ extension AddWishViewController: UITextViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         wishTextView.resignFirstResponder()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.isEmpty == true {
+            isActivated = false
+        } else {
+            isActivated = true
+        }
     }
 }

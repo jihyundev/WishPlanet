@@ -66,6 +66,10 @@ class LeaveConfirmViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    func failedToDelete() {
+        self.presentAlert(title: "탈퇴에 실패하였습니다. ", isCancelActionIncluded: false)
+    }
+    
 }
 extension LeaveConfirmViewController: UITextViewDelegate {
     

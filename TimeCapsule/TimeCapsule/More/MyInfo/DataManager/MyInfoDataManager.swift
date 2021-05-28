@@ -37,15 +37,43 @@ class MyInfoDataManager {
     // 회원탈퇴
     func deleteUser(reason: String, viewController: LeaveConfirmViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let url = URLType.userDelete.makeURL + "?reason=\(reason)"
+        let url = URLType.userDelete.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).validate().responseString { response in
+        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
+            switch response.result {
+            case .success(let result):
+                if result == "true" {
+                    self.postReasons(reason: reason, viewController: viewController)
+                } else {
+                    viewController.failedToDelete()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                viewController.failedToDelete()
+            }
+        }
+    }
+    
+    // 탈퇴 사유 등록
+    func postReasons(reason: String, viewController: LeaveConfirmViewController) {
+        guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.userDeleteReasons.makeURL
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let param: [String: Any] = [
+            "reason" : reason
+        ]
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let result):
                 print(result)
-                viewController.didRetrieveData()
+                if result == "true" {
+                    viewController.didRetrieveData()
+                } else {
+                    viewController.failedToDelete()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                viewController.failedToDelete()
             }
         }
     }
