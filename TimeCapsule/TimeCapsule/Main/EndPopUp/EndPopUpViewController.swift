@@ -16,6 +16,8 @@ class EndPopUpViewController: UIViewController {
     
     var delegate: ReloadDelegate?
     var dateString: String?
+    var rocketID: Int?
+    let dataManager = MainDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +28,8 @@ class EndPopUpViewController: UIViewController {
     }
     
     @IBAction func completionButtonTapped(_ sender: Any) {
-        dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            // 로켓발사 퍼포먼스
-            self.delegate?.endGame()
-        }
+        guard let id = rocketID else { return }
+        dataManager.patchRocketLaunch(rocketID: id, viewController: self)
     }
     
     func setupUI() {
@@ -52,6 +51,18 @@ class EndPopUpViewController: UIViewController {
         completionButton.setTitleColor(.white, for: .normal)
         completionButton.titleLabel?.font = UIFont.SpoqaHanSansNeo(.bold, size: 15)
  
+    }
+    
+    func successToPatch() {
+        dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            // 로켓발사 퍼포먼스
+            self.delegate?.endGame()
+        }
+    }
+    
+    func failedToRequest(message: String) {
+        self.presentAlert(title: message)
     }
 
 }

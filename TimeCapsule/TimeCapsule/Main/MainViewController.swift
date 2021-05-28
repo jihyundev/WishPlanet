@@ -216,10 +216,10 @@ class MainViewController: UIViewController {
             daysLeft = today.distance(to: dateLaunch) / 86400
             
             // 테스트용
-            rocketLaunchFlag = true
-            self.dayCountLabel.text = "D-DAY"
+            //rocketLaunchFlag = true
+            //self.dayCountLabel.text = "D-DAY"
             
-            /*
+            
             if daysLeft ?? 0 < 1.0 {
                 rocketLaunchFlag = true
                 self.dayCountLabel.text = "D-DAY"
@@ -227,7 +227,7 @@ class MainViewController: UIViewController {
                 rocketLaunchFlag = false
                 self.dayCountLabel.text = "D-\(Int(daysLeft ?? 0))"
             }
-            */
+            
         }
     }
     
@@ -250,8 +250,10 @@ class MainViewController: UIViewController {
         
         let nextVC = EndPopUpViewController()
         nextVC.delegate = self
-        nextVC.dateString = targetDate
+        nextVC.dateString = self.targetDate
+        nextVC.rocketID = self.rocketID
         nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
         self.present(nextVC, animated: true, completion: nil)
     }
     
@@ -290,7 +292,21 @@ extension MainViewController: ReloadDelegate {
             self.gameView.removeFromSuperview()
             self.groundView.removeFromSuperview()
             self.shadowView.removeFromSuperview()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                let introVC = IntroViewController()
+                introVC.flag = 1
+                self.navigationController?.changeRootViewController(introVC)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
+    }
+    
+    func moveToIntroVC() {
+        let introVC = IntroViewController()
+        introVC.flag = 1
+        self.navigationController?.changeRootViewController(introVC)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

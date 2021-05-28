@@ -108,8 +108,12 @@ extension MyInfoViewController: ChangeRootDelegate {
 
 extension MyInfoViewController: ReloadNicknameDelegate {
     func reloadNicknameRow() {
+        print("MyInfoViewController - reloadNicknameRow() called")
         let index = IndexPath(row: 0, section: 0)
         tableView.reloadRows(at: [index], with: .none)
+        
+        //let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
+        //cell.subLabel.text = "updated!"
     }
 }
 

@@ -12,21 +12,20 @@ import KeychainSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let ud = UserDefaults.standard
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
+        // 테스트용
+        //self.keychain.clear()
+        //self.keychain.set(true, forKey: Keys.rocketExists)
         
         if let token = keychain.get(Keys.token) {
             // 키체인에 토큰이 존재할 경우
             // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)
             
             print("token: \(token)")
-            
-            // 테스트용
-            //self.keychain.set(true, forKey: Keys.rocketExists)
             
             if let _ = keychain.get(Keys.rocketExists) {
                 // 토큰 있고 우주선 있을 경우 메인 VC로 이동
