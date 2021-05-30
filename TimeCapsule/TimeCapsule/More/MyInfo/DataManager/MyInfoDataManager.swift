@@ -36,6 +36,7 @@ class MyInfoDataManager {
     
     // 회원탈퇴
     func deleteUser(reason: String, viewController: LeaveConfirmViewController) {
+        print(#function)
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDelete.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
@@ -45,35 +46,37 @@ class MyInfoDataManager {
                 if result == "true" {
                     self.postReasons(reason: reason, viewController: viewController)
                 } else {
-                    viewController.failedToDelete()
+                    viewController.failedToDelete(message: "탈퇴에 실패하였습니다. ")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                viewController.failedToDelete()
+                viewController.failedToDelete(message: "서버와의 연결이 원활하지 않습니다. ")
             }
         }
     }
     
     // 탈퇴 사유 등록
     func postReasons(reason: String, viewController: LeaveConfirmViewController) {
+        print(#function)
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDeleteReasons.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]
         let param: [String: Any] = [
             "reason" : reason
         ]
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseString { response in
             switch response.result {
             case .success(let result):
                 print(result)
+                self.keychain.clear()
                 if result == "true" {
                     viewController.didRetrieveData()
                 } else {
-                    viewController.failedToDelete()
+                    viewController.failedToDelete(message: "탈퇴사유 등록에 실패하였습니다. ")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                viewController.failedToDelete()
+                viewController.failedToDelete(message: "서버와의 연결이 원활하지 않습니다. ")
             }
         }
     }

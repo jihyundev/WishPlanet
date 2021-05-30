@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
     }
     
     func userExisted(rocketStatus: Int) {
-        
         switch rocketStatus {
         case 1:
             // 로켓이 하나도 없는 상태 (신규회원)

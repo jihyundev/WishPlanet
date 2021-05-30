@@ -60,14 +60,14 @@ class LeaveConfirmViewController: UIViewController {
     }
     
     func didRetrieveData() {
-        keychain.clear()
+        print(#function)
         let loginVC = LoginViewController()
         self.navigationController?.changeRootViewController(loginVC)
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func failedToDelete() {
-        self.presentAlert(title: "탈퇴에 실패하였습니다. ", isCancelActionIncluded: false)
+    func failedToDelete(message: String) {
+        self.presentAlert(title: message, isCancelActionIncluded: false)
     }
     
 }
