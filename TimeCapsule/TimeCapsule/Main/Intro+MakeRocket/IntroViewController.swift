@@ -8,7 +8,19 @@
 import UIKit
 
 class IntroViewController: UIViewController {
-
+    
+    private var flag: Int // 소개화면: 0, 우주선 재생성 화면: 1
+    
+    init(flag: Int) {
+        self.flag = flag
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
@@ -20,9 +32,6 @@ class IntroViewController: UIViewController {
     
     @IBOutlet weak var rocketListButton: UIButton!
     @IBOutlet weak var rocketListToast: UIImageView!
-    
-    var flag: Int = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

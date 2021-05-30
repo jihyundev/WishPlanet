@@ -50,24 +50,33 @@ class LoginViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func userExisted() {
-        let mainVC = MainViewController()
-        let vc = UINavigationController(rootViewController: mainVC)
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-        /*
-        if let _ = keychain.get(Keys.rocketExists) {
+    func userExisted(rocketStatus: Int) {
+        
+        switch rocketStatus {
+        case 1:
+            // 로켓이 하나도 없는 상태 (신규회원)
+            print("로켓이 하나도 없는 상태 (신규회원)")
+            let introVC = IntroViewController(flag: 0)
+            let vc = UINavigationController(rootViewController: introVC)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        case 2:
+            // 로켓 존재, 발사되지 않은 상태
+            print("로켓 존재, 발사되지 않은 상태")
             let mainVC = MainViewController()
             let vc = UINavigationController(rootViewController: mainVC)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
-        } else {
-            let introVC = IntroViewController()
+        case 3:
+            // 로켓 존재, 발사된 상태
+            print("로켓 존재, 발사된 상태")
+            let introVC = IntroViewController(flag: 1)
             let vc = UINavigationController(rootViewController: introVC)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
+        default:
+            return
         }
-        */
     }
     
     fileprivate func fadeoutAnimate() {

@@ -27,20 +27,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             print("token: \(token)")
             
-            if let _ = keychain.get(Keys.rocketExists) {
-                // 토큰 있고 우주선 있을 경우 메인 VC로 이동
-                self.window = UIWindow(windowScene: scene)
-                let mainVC = MainViewController()
-                let vc = UINavigationController(rootViewController: mainVC)
-                window?.rootViewController = vc
-                window?.makeKeyAndVisible()
-                window?.overrideUserInterfaceStyle = .light
+            if let rocketStatus = keychain.get(Keys.rocketStatus) {
+                switch rocketStatus {
+                case "1":
+                    print("로켓이 하나도 없는 상태 (신규회원)")
+                    self.window = UIWindow(windowScene: scene)
+                    let introVC = IntroViewController(flag: 0) // 인트로 소개화면
+                    let vc = UINavigationController(rootViewController: introVC)
+                    window?.rootViewController = vc
+                    window?.makeKeyAndVisible()
+                    window?.overrideUserInterfaceStyle = .light
+                case "2":
+                    print("로켓 존재, 발사되지 않은 상태")
+                    self.window = UIWindow(windowScene: scene)
+                    let mainVC = MainViewController()
+                    let vc = UINavigationController(rootViewController: mainVC)
+                    window?.rootViewController = vc
+                    window?.makeKeyAndVisible()
+                    window?.overrideUserInterfaceStyle = .light
+                case "3":
+                    print("로켓 존재, 발사된 상태")
+                    self.window = UIWindow(windowScene: scene)
+                    let introVC = IntroViewController(flag: 1) // 인트로 소개화면
+                    let vc = UINavigationController(rootViewController: introVC)
+                    window?.rootViewController = vc
+                    window?.makeKeyAndVisible()
+                    window?.overrideUserInterfaceStyle = .light
+                default:
+                    self.window = UIWindow(windowScene: scene)
+                    let introVC = IntroViewController(flag: 0) // 인트로 소개화면
+                    let vc = UINavigationController(rootViewController: introVC)
+                    window?.rootViewController = vc
+                    window?.makeKeyAndVisible()
+                    window?.overrideUserInterfaceStyle = .light
+                }
             } else {
-                // 토큰 있고 우주선 없을 경우 인트로 VC로 이동
                 self.window = UIWindow(windowScene: scene)
-                let introVC = IntroViewController()
-                let vc = UINavigationController(rootViewController: introVC)
-                window?.rootViewController = vc
+                window?.rootViewController = LoginViewController()
                 window?.makeKeyAndVisible()
                 window?.overrideUserInterfaceStyle = .light
             }

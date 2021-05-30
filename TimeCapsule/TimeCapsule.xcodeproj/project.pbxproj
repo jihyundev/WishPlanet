@@ -12,8 +12,6 @@
 		2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E84425FB8A9400ADD135 /* NetworkService.swift */; };
 		252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252076EC25FB3A8D004366E4 /* AddWishViewController.swift */; };
 		252076EF25FB3A8D004366E4 /* AddWishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252076ED25FB3A8D004366E4 /* AddWishViewController.xib */; };
-		2520770225FB5235004366E4 /* CapsuleNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520770025FB5235004366E4 /* CapsuleNameViewController.swift */; };
-		2520770325FB5235004366E4 /* CapsuleNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770125FB5235004366E4 /* CapsuleNameViewController.xib */; };
 		2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520770825FB5E55004366E4 /* NicknameViewController.swift */; };
 		2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770925FB5E55004366E4 /* NicknameViewController.xib */; };
 		25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */; };
@@ -56,6 +54,7 @@
 		59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6B265D1AF3003A29B9 /* fire.json */; };
 		59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6D265D1AFD003A29B9 /* smoke.json */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
+		59B930EC2663118D00AD8564 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B930EB2663118D00AD8564 /* LoginResponse.swift */; };
 		59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */; };
 		59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */; };
 		59BD6042262C6D06009B4DE6 /* CompletedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BD6040262C6D06009B4DE6 /* CompletedListViewController.swift */; };
@@ -105,7 +104,7 @@
 		59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9721425FB1581008A7EF9 /* MainViewController.xib */; };
 		59E9722025FB1B4B008A7EF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9721F25FB1B4B008A7EF9 /* ListViewController.swift */; };
 		59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9722E25FB4377008A7EF9 /* UserDataManager.swift */; };
-		59E9723425FB4CE6008A7EF9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9723325FB4CE6008A7EF9 /* UserModel.swift */; };
+		59E9723425FB4CE6008A7EF9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9723325FB4CE6008A7EF9 /* Keys.swift */; };
 		59E9725125FB7180008A7EF9 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9725025FB7180008A7EF9 /* MenuCell.xib */; };
 		59E9725425FB72D2008A7EF9 /* FocusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9725325FB72D2008A7EF9 /* FocusView.xib */; };
 		59E9725B25FB777D008A7EF9 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9725925FB777D008A7EF9 /* WishlistViewController.swift */; };
@@ -123,8 +122,6 @@
 		2516E84425FB8A9400ADD135 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		252076EC25FB3A8D004366E4 /* AddWishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishViewController.swift; sourceTree = "<group>"; };
 		252076ED25FB3A8D004366E4 /* AddWishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWishViewController.xib; sourceTree = "<group>"; };
-		2520770025FB5235004366E4 /* CapsuleNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleNameViewController.swift; sourceTree = "<group>"; };
-		2520770125FB5235004366E4 /* CapsuleNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CapsuleNameViewController.xib; sourceTree = "<group>"; };
 		2520770825FB5E55004366E4 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		2520770925FB5E55004366E4 /* NicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameViewController.xib; sourceTree = "<group>"; };
 		25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPopUpViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +164,7 @@
 		59AA3C6B265D1AF3003A29B9 /* fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fire.json; sourceTree = "<group>"; };
 		59AA3C6D265D1AFD003A29B9 /* smoke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		59B930EB2663118D00AD8564 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketViewController.swift; sourceTree = "<group>"; };
 		59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketViewController.xib; sourceTree = "<group>"; };
 		59BD6040262C6D06009B4DE6 /* CompletedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedListViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +217,7 @@
 		59E9721425FB1581008A7EF9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		59E9721F25FB1B4B008A7EF9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		59E9722E25FB4377008A7EF9 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
-		59E9723325FB4CE6008A7EF9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		59E9723325FB4CE6008A7EF9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		59E9725025FB7180008A7EF9 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		59E9725325FB72D2008A7EF9 /* FocusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusView.xib; sourceTree = "<group>"; };
 		59E9725925FB777D008A7EF9 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
@@ -252,15 +250,6 @@
 				B49921E902CEC8BEA144F303 /* Pods-TimeCapsule.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		252076FE25FB51F1004366E4 /* CapsuleNameEdit */ = {
-			isa = PBXGroup;
-			children = (
-				2520770025FB5235004366E4 /* CapsuleNameViewController.swift */,
-				2520770125FB5235004366E4 /* CapsuleNameViewController.xib */,
-			);
-			path = CapsuleNameEdit;
 			sourceTree = "<group>";
 		};
 		252076FF25FB5203004366E4 /* AddWish */ = {
@@ -483,9 +472,9 @@
 				59E971C325FB003B008A7EF9 /* CommonClass */,
 				59E971C625FB003B008A7EF9 /* Extension */,
 				59E971D125FB003B008A7EF9 /* Font */,
-				59E971D525FB003B008A7EF9 /* Base */,
 				2516E84125FB890E00ADD135 /* URLType.swift */,
 				2516E84425FB8A9400ADD135 /* NetworkService.swift */,
+				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -536,13 +525,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		59E971D525FB003B008A7EF9 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		59E971E825FB0047008A7EF9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,7 +550,6 @@
 				59E9721325FB1581008A7EF9 /* MainViewController.swift */,
 				59E9721425FB1581008A7EF9 /* MainViewController.xib */,
 				252076FF25FB5203004366E4 /* AddWish */,
-				252076FE25FB51F1004366E4 /* CapsuleNameEdit */,
 				25437B6625FC424A00F3C8EF /* EndPopUp */,
 			);
 			path = Main;
@@ -601,7 +582,7 @@
 		59E971FA25FB0598008A7EF9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				59E9723325FB4CE6008A7EF9 /* UserModel.swift */,
+				59B930EB2663118D00AD8564 /* LoginResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -697,7 +678,6 @@
 			files = (
 				59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */,
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
-				2520770325FB5235004366E4 /* CapsuleNameViewController.xib in Resources */,
 				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
 				59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
@@ -812,7 +792,7 @@
 				59C6867A2642E9F0006D9F3B /* CALayer.swift in Sources */,
 				595B80852644362B00B4866D /* MoreDataManager.swift in Sources */,
 				595B809A26455AE600B4866D /* IntroViewController.swift in Sources */,
-				59E9723425FB4CE6008A7EF9 /* UserModel.swift in Sources */,
+				59E9723425FB4CE6008A7EF9 /* Keys.swift in Sources */,
 				59BD6035262C6CF3009B4DE6 /* CompletedRocketViewController.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
@@ -845,12 +825,12 @@
 				59E9722025FB1B4B008A7EF9 /* ListViewController.swift in Sources */,
 				59E971D725FB003B008A7EF9 /* Constant.swift in Sources */,
 				5997197626458370008E88EA /* RocketNameViewController.swift in Sources */,
+				59B930EC2663118D00AD8564 /* LoginResponse.swift in Sources */,
 				2516E84225FB890E00ADD135 /* URLType.swift in Sources */,
 				59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */,
 				25437B6F25FC425000F3C8EF /* Marbles.swift in Sources */,
 				592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */,
 				2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */,
-				2520770225FB5235004366E4 /* CapsuleNameViewController.swift in Sources */,
 				5997197226457AB0008E88EA /* UILabel.swift in Sources */,
 				25437B6E25FC425000F3C8EF /* CapsuleInfo.swift in Sources */,
 				59E9721525FB1581008A7EF9 /* MainViewController.swift in Sources */,

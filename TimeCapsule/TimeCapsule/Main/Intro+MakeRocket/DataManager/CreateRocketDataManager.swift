@@ -25,7 +25,7 @@ class CreateRocketDataManager {
             switch response.result {
             case .success(let response):
                 debugPrint(response)
-                self.keychain.set(true, forKey: Keys.rocketExists)
+                self.keychain.set("2", forKey: Keys.rocketStatus) // 로켓 생성 완료
                 viewController.didSuccessToPost()
             case .failure(let error):
                 debugPrint(error.localizedDescription)

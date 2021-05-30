@@ -111,7 +111,7 @@ class NicknameViewController: UIViewController {
     
     func didRetreiveData() {
         guard let pvc = self.presentingViewController else { return }
-        let nextVC = IntroViewController()
+        let nextVC = IntroViewController(flag: 0)
         let vc = UINavigationController(rootViewController: nextVC)
         vc.modalPresentationStyle = .overCurrentContext
         self.dismiss(animated: true) {

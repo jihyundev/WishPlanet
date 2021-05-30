@@ -30,7 +30,7 @@ class MainDataManager {
                         stones.append(rocket.stoneColorCount[i].stoneColor)
                     }
                 }
-                viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones)
+                viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount)
             case .failure(let error):
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
@@ -48,7 +48,7 @@ class MainDataManager {
             case .success(let result):
                 print("patchRocketLaunch() - result: ", result)
                 viewController.successToPatch()
-                self.keychain.set(true, forKey: Keys.rocketLaunched)
+                self.keychain.set("3", forKey: Keys.rocketStatus) // 로켓 생성 후 발사 완료
             case .failure(let error):
                 if let data = response.data {
                     print("Failure Data: \(data)")

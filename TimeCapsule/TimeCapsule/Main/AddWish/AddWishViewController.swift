@@ -30,8 +30,6 @@ class AddWishViewController: UIViewController{
     let dataManager = AddWishDataManager()
     
     var delegate: ReloadDelegate?
-    var rocketID: Int?
-    var count: Int?
     var stoneColor: Int = 0
     
     var isActivated: Bool = false {
@@ -44,6 +42,20 @@ class AddWishViewController: UIViewController{
                 completionButton.backgroundColor = .mainPurple
             }
         }
+    }
+    
+    private var rocketID: Int
+    private var count: Int
+    
+    init(rocketID: Int, count: Int) {
+        self.rocketID = rocketID
+        self.count = count
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -60,7 +72,8 @@ class AddWishViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc private func adjustInputView(noti: Notification) {        guard let userInfo = noti.userInfo else { return }
+    @objc private func adjustInputView(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         if noti.name == UIResponder.keyboardWillShowNotification{
@@ -77,8 +90,8 @@ class AddWishViewController: UIViewController{
     }
     
     @IBAction func completionButtonTapped(_ sender: Any) {
-        guard let id = self.rocketID, let content = wishTextView.text else { return }
-        dataManager.postStone(rocketID: id, content: content, stoneColor: self.stoneColor, viewController: self)
+        guard let content = wishTextView.text else { return }
+        dataManager.postStone(rocketID: self.rocketID, content: content, stoneColor: self.stoneColor, viewController: self)
     }
     
     @IBAction func exitButtonTapped(_ sender: Any) {
@@ -91,7 +104,7 @@ class AddWishViewController: UIViewController{
         wishTextView.textColor = .enabledGrey
         wishTextView.returnKeyType = .done
         
-        stoneCountLabel.text = "\(count ?? 0 + 1) / 21"
+        stoneCountLabel.text = "\(count + 1) / 21"
         containerView.layer.cornerRadius = 24
         containerView.borderWidth = 5
         containerView.borderColor = .black

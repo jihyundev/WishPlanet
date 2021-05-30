@@ -97,18 +97,19 @@ class UserDataManager {
         print("login() called")
         let url = URLType.userLogin.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
+        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: LoginResponse.self) { response in
             switch response.result {
             case .success(let response):
-                let jwtToken = response
+                let jwtToken = response.jwtToken
                 print("token: \(jwtToken)")
-                
-                print("login type: kakao")
+                let rocketStatus = response.rocketStatus
                 self.keychain.set(jwtToken, forKey: Keys.token)
+                let rocketStatusString = String(rocketStatus)
+                self.keychain.set(rocketStatusString, forKey: Keys.rocketStatus)
                 self.keychain.set("카카오 로그인", forKey: Keys.loginType)
                 
                 // 메인으로 넘어가기
-                viewController.userExisted()
+                viewController.userExisted(rocketStatus: rocketStatus)
             case .failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
@@ -134,6 +135,7 @@ class UserDataManager {
                 self.keychain.set(jwtToken, forKey: Keys.token)
                 self.keychain.set("카카오 로그인", forKey: Keys.loginType)
                 self.keychain.set(nickname, forKey: Keys.nickname)
+                self.keychain.set("1", forKey: Keys.rocketStatus)
                 
                 print("token: \(jwtToken)")
                 print("login type: kakao")

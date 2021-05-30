@@ -19,10 +19,11 @@
                 <outlet property="backImageView" destination="UBf-zc-Kd0" id="kc9-4R-iIe"/>
                 <outlet property="countLabel" destination="CWP-Yp-vn4" id="1wE-kb-Qp7"/>
                 <outlet property="dayCountLabel" destination="1xx-d1-ngR" id="y6G-dE-qpr"/>
+                <outlet property="fireButton" destination="gQV-3l-bCN" id="6D5-3Y-jXh"/>
                 <outlet property="gameView" destination="sEq-He-Vo3" id="yv1-Aa-FGK"/>
                 <outlet property="groundView" destination="hF7-fI-Qcf" id="7pr-Yz-nVz"/>
-                <outlet property="listButton" destination="gQV-3l-bCN" id="M2E-Uu-KD7"/>
                 <outlet property="nameLabel" destination="BxY-LE-dtE" id="Zgo-a8-exZ"/>
+                <outlet property="rocketListButton" destination="Y9o-lh-RU0" id="Jv9-b7-KTn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -96,6 +97,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9o-lh-RU0">
+                    <rect key="frame" x="25" y="748" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="8ZZ-BX-STd"/>
+                        <constraint firstAttribute="width" constant="65" id="EW8-LZ-IIX"/>
+                    </constraints>
+                    <state key="normal" image="earth"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -106,6 +115,7 @@
                 <constraint firstItem="BxY-LE-dtE" firstAttribute="top" secondItem="CWP-Yp-vn4" secondAttribute="bottom" constant="36" id="5J4-2p-FJE"/>
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="5Vt-kI-3ye"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="7Vw-QF-C3K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y9o-lh-RU0" secondAttribute="bottom" constant="49" id="AD4-mI-Cjl"/>
                 <constraint firstAttribute="bottom" secondItem="UBf-zc-Kd0" secondAttribute="bottom" id="AGg-OU-R5x"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CZX-UQ-rgn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uDH-8X-hzq" secondAttribute="bottom" constant="44" id="GL2-0y-iTd"/>
@@ -115,6 +125,7 @@
                 <constraint firstItem="BxY-LE-dtE" firstAttribute="leading" secondItem="CWP-Yp-vn4" secondAttribute="leading" id="ZQG-5q-qgA"/>
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="leading" secondItem="gQV-3l-bCN" secondAttribute="trailing" constant="6" id="aAM-es-817"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hF7-fI-Qcf" secondAttribute="trailing" id="bCY-C6-5Pd"/>
+                <constraint firstItem="Y9o-lh-RU0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="d0H-kn-JrF"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uDH-8X-hzq" secondAttribute="trailing" constant="24" id="fot-Zj-Wce"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q5b-1t-Hfi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gjs-br-YEJ" secondAttribute="trailing" constant="10" id="yE8-WV-vE3"/>
@@ -126,6 +137,7 @@
     <resources>
         <image name="add" width="122" height="72"/>
         <image name="background" width="375" height="812"/>
+        <image name="earth" width="76" height="76"/>
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>
         <image name="icon_fire_locked" width="44" height="44"/>

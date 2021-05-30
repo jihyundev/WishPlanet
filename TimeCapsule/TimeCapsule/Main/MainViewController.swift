@@ -2,8 +2,6 @@
 //  MainViewController.swift
 //  TimeCapsule
 //
-//  Created by Beomcheol Kwon on 2021/03/12.
-//
 
 import UIKit
 import SpriteKit
@@ -18,8 +16,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var gameView: UIView!
     
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var fireButton: UIButton!
     @IBOutlet weak var dayCountLabel: UILabel!
+    @IBOutlet weak var rocketListButton: UIButton!
     
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,19 +32,29 @@ class MainViewController: UIViewController {
         return dateformatter
     }()
     
-    var currentItems: Int = 21
+    var currentItems: Int = 0
     var index: Int = 0
     var stones: [Int] = []
     var rocketLaunchFlag = false { // 로켓 발사 여부 flag
         didSet {
             if rocketLaunchFlag == true {
-                listButton.setImage(UIImage(named: "icon_fire"), for: .normal)
-                listButton.addTarget(self, action: #selector(fireRocket), for: .touchUpInside)
+                fireButton.setImage(UIImage(named: "icon_fire"), for: .normal)
+                fireButton.addTarget(self, action: #selector(fireRocket), for: .touchUpInside)
                 addButton.isHidden = true
             } else {
-                listButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
-                listButton.addTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
+                fireButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
+                fireButton.addTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
                 addButton.isHidden = false
+            }
+        }
+    }
+    
+    var rocketListFlag = false { // 로켓 리스트 버튼 화면에 띄우기 여부 flag
+        didSet {
+            if rocketListFlag == true {
+                rocketListButton.isHidden = false
+            } else {
+                rocketListButton.isHidden = true
             }
         }
     }
@@ -76,6 +85,13 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    // 애니메이션 이미지 - 불꽃
+    lazy var fireView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "graphic_fire"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // 애니메이션 - 연기
     lazy var smokeAnimationView: AnimationView = {
         let animView = AnimationView(name: "smoke")
@@ -84,14 +100,7 @@ class MainViewController: UIViewController {
         return animView
     }()
     
-    // 애니메이션 - 불꽃
-    lazy var fireAnimationView: AnimationView = {
-        let animView = AnimationView(name: "fire")
-        animView.translatesAutoresizingMaskIntoConstraints = false
-        animView.contentMode = .scaleAspectFit
-        return animView
-    }()
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,10 +127,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        let nextVC = AddWishViewController()
+        guard let id = self.rocketID else { return }
+        let nextVC = AddWishViewController(rocketID: id, count: currentItems)
         nextVC.delegate = self
-        nextVC.rocketID = self.rocketID
-        nextVC.count = currentItems
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true) { [weak self] in
@@ -132,6 +140,9 @@ class MainViewController: UIViewController {
     }
     
     func setupUI() {
+        rocketLaunchFlag = false
+        rocketListFlag = false
+        
         self.navigationItem.title = ""
         //listButton.layer.zPosition = 9
         dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
@@ -146,6 +157,8 @@ class MainViewController: UIViewController {
         addButton.layer.shadowRadius = 10
         addButton.layer.shadowOffset = CGSize(width: 0, height: 4)
         addButton.layer.zPosition = 10
+        
+        rocketListButton.layer.zPosition = 10
         
         nameLabel.layer.zPosition = 9
         
@@ -185,6 +198,11 @@ class MainViewController: UIViewController {
         shadowView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 160/752).isActive = true
         shadowView.contentMode = .scaleAspectFit
         shadowView.layer.zPosition = 1
+        
+        rocketImageView.isHidden = true
+        rocketBottomImageView.isHidden = true
+        gameView.isHidden = true
+        shadowView.isHidden = true
     }
     
     func makeGameScene() {
@@ -200,32 +218,47 @@ class MainViewController: UIViewController {
         skView.presentScene(scene)
     }
     
-    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int]) {
+    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int) {
+        rocketImageView.isHidden = false
+        rocketBottomImageView.isHidden = false
+        gameView.isHidden = false
+        shadowView.isHidden = false
+        
         self.nameLabel.text = rocketName
         self.stones = stones
         self.rocketID = rocketID
         self.rocketColor = rocketColor
+        self.rocketImageView.image = UIImage(named: "rocket_top_\(self.rocketColor ?? 0)")
         self.targetDate = launchDate
         self.currentItems = self.stones.count
         self.makeGameScene()
         self.countLabel.text = "\(self.stones.count) / 21"
+        if rocketCount > 1 {
+            rocketListFlag = true
+        } else {
+            rocketListFlag = false
+        }
         // 남은 날짜 계산하기
         let today = Date()
         let launch = dateformatter.date(from: launchDate)
         if let dateLaunch = launch {
             daysLeft = today.distance(to: dateLaunch) / 86400
             
+            let daysLeftInt = Int(daysLeft?.rounded(.up) ?? 0) // 소수점 올림 처리
+            //print("daysLeft: \(daysLeft ?? 0.0)")
+            //print("daysLeftInt: \(daysLeftInt)")
+            
             // 테스트용
             //rocketLaunchFlag = true
             //self.dayCountLabel.text = "D-DAY"
             
             
-            if daysLeft ?? 0 < 1.0 {
+            if daysLeftInt == 0 {
                 rocketLaunchFlag = true
                 self.dayCountLabel.text = "D-DAY"
             } else {
                 rocketLaunchFlag = false
-                self.dayCountLabel.text = "D-\(Int(daysLeft ?? 0))"
+                self.dayCountLabel.text = "D-\(daysLeftInt)"
             }
             
         }
@@ -236,7 +269,7 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func rocketIsNotReady() {
-        guard let image = UIImage(named: "icon_rocket") else { return }
+        guard let image = UIImage(named: "icon rocket") else { return }
         self.presentBottomAlert(image: image, message: "아직은 발사할 수 없어요")
     }
     
@@ -247,6 +280,14 @@ class MainViewController: UIViewController {
         self.smokeAnimationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7).isActive = true
         self.smokeAnimationView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         self.smokeAnimationView.isHidden = true
+        
+        self.view.addSubview(self.fireView)
+        self.fireView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.fireView.topAnchor.constraint(equalTo: self.rocketImageView.bottomAnchor, constant: -109).isActive = true
+        self.fireView.leadingAnchor.constraint(equalTo: self.rocketImageView.leadingAnchor, constant: 90.5).isActive = true
+        self.fireView.heightAnchor.constraint(equalToConstant: 317.17).isActive = true
+        self.fireView.layer.zPosition = 1
+        self.fireView.isHidden = true
         
         let nextVC = EndPopUpViewController()
         nextVC.delegate = self
@@ -275,37 +316,43 @@ extension MainViewController: ReloadDelegate {
      
     func endGame() {
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
+            self.countLabel.alpha = 0
+            self.dayCountLabel.alpha = 0
+            self.nameLabel.alpha = 0
+            self.fireButton.alpha = 0
+            
             self.rocketImageView.frame.origin = CGPoint(x: self.rocketImageView.frame.origin.x, y: -self.rocketImageView.frame.height)
             self.gameView.frame.origin = CGPoint(x: self.gameView.frame.origin.x, y: -(self.rocketImageView.frame.height/2 + self.gameView.frame.height/2))
             self.rocketBottomImageView.frame.origin = CGPoint(x: self.rocketBottomImageView.frame.origin.x, y: -(self.rocketImageView.frame.height/2 + self.rocketBottomImageView.frame.height/2))
             self.groundView.frame.origin.y += self.groundView.frame.height
             self.shadowView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            self.fireView.isHidden = false
+            self.fireView.frame.origin = CGPoint(x: self.fireView.frame.origin.x, y: -109)
+            
             self.smokeAnimationView.isHidden = false
             self.smokeAnimationView.play { (finish) in
                 self.smokeAnimationView.removeFromSuperview()
             }
             
-        } completion: { result in
+        } completion: { [weak self] result in
             print(result.description)
-            self.rocketImageView.removeFromSuperview()
-            self.rocketBottomImageView.removeFromSuperview()
-            self.gameView.removeFromSuperview()
-            self.groundView.removeFromSuperview()
-            self.shadowView.removeFromSuperview()
+            self?.rocketImageView.removeFromSuperview()
+            self?.rocketBottomImageView.removeFromSuperview()
+            self?.gameView.removeFromSuperview()
+            self?.groundView.removeFromSuperview()
+            self?.shadowView.removeFromSuperview()
+            self?.fireView.removeFromSuperview()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                let introVC = IntroViewController()
-                introVC.flag = 1
-                self.navigationController?.changeRootViewController(introVC)
-                self.navigationController?.popToRootViewController(animated: true)
+                self?.moveToIntroVC()
             }
         }
     }
     
     func moveToIntroVC() {
-        let introVC = IntroViewController()
-        introVC.flag = 1
-        self.navigationController?.changeRootViewController(introVC)
+        let introVC = IntroViewController(flag: 1)
+        let vc = UINavigationController(rootViewController: introVC)
+        self.navigationController?.changeRootViewController(vc)
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
