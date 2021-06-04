@@ -28,10 +28,8 @@ class EndPopUpViewController: UIViewController {
     }
     
     @IBAction func completionButtonTapped(_ sender: Any) {
-        //guard let id = rocketID else { return }
-        //dataManager.patchRocketLaunch(rocketID: id, viewController: self)
-        // 테스트 코드
-        successToPatch()
+        guard let id = rocketID else { return }
+        dataManager.patchRocketLaunch(rocketID: id, viewController: self)
     }
     
     func setupUI() {

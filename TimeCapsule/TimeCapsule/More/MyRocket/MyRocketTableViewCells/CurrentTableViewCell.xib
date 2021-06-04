@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+        <array key="Spoqa Han Sans Neo Regular.otf">
+            <string>SpoqaHanSansNeo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrentTableViewCell" rowHeight="87" id="KGk-i7-Jjw" customClass="CurrentTableViewCell" customModule="TimeCapsule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipse" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-PZ-v18">
+                        <rect key="frame" x="22" y="21.5" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="6jj-pl-Awc"/>
+                            <constraint firstAttribute="width" secondItem="zy8-PZ-v18" secondAttribute="height" multiplier="1:1" id="70I-gH-M6p"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="워니의 로케토" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx4-j9-RW2">
+                        <rect key="frame" x="82" y="34" width="92" height="19.5"/>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ 21.10.29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETS-K4-0kS">
+                        <rect key="frame" x="82" y="55.5" width="63" height="16"/>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon rocket_0" translatesAutoresizingMaskIntoConstraints="NO" id="6Rr-vG-9ZU">
+                        <rect key="frame" x="22" y="21.5" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="bdH-8v-xA1"/>
+                            <constraint firstAttribute="width" secondItem="6Rr-vG-9ZU" secondAttribute="height" multiplier="1:1" id="sXL-5J-Cio"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-zb-c2R">
+                        <rect key="frame" x="273" y="33.5" width="38" height="20"/>
+                        <color key="backgroundColor" red="0.55257827039999996" green="0.40028756859999998" blue="0.9529882073" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="6dg-Wm-CXb"/>
+                            <constraint firstAttribute="width" constant="38" id="nJP-CE-Pvw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="11"/>
+                        <state key="normal" title="수정">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="6Rr-vG-9ZU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="8uk-j7-m1U"/>
+                    <constraint firstItem="3lH-zb-c2R" firstAttribute="centerY" secondItem="6Rr-vG-9ZU" secondAttribute="centerY" id="9WC-n3-6V2"/>
+                    <constraint firstItem="Nx4-j9-RW2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ad0-NM-Ql4"/>
+                    <constraint firstAttribute="trailing" secondItem="3lH-zb-c2R" secondAttribute="trailing" constant="16" id="bWf-wT-66H"/>
+                    <constraint firstItem="ETS-K4-0kS" firstAttribute="leading" secondItem="Nx4-j9-RW2" secondAttribute="leading" id="d6X-BY-BHL"/>
+                    <constraint firstItem="6Rr-vG-9ZU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dql-zY-gdU"/>
+                    <constraint firstItem="zy8-PZ-v18" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="eDg-mk-Fiu"/>
+                    <constraint firstItem="Nx4-j9-RW2" firstAttribute="leading" secondItem="zy8-PZ-v18" secondAttribute="trailing" constant="16" id="eSn-eb-rdY"/>
+                    <constraint firstItem="zy8-PZ-v18" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l6x-4r-cBf"/>
+                    <constraint firstItem="ETS-K4-0kS" firstAttribute="top" secondItem="Nx4-j9-RW2" secondAttribute="bottom" constant="2" id="ugs-Hb-OGI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="editButton" destination="3lH-zb-c2R" id="5fd-br-h6m"/>
+                <outlet property="nameLabel" destination="Nx4-j9-RW2" id="9MD-h3-tD5"/>
+                <outlet property="periodLabel" destination="ETS-K4-0kS" id="VBV-Pc-yFV"/>
+                <outlet property="rocketImageView" destination="6Rr-vG-9ZU" id="VW9-43-xAR"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="102.12053571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Ellipse" width="44" height="44"/>
+        <image name="icon rocket_0" width="44" height="44"/>
+    </resources>
+</document>

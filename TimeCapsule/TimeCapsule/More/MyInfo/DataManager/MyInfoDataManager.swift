@@ -36,7 +36,6 @@ class MyInfoDataManager {
     
     // 회원탈퇴
     func deleteUser(reason: String, viewController: LeaveConfirmViewController) {
-        print(#function)
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDelete.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
@@ -57,7 +56,6 @@ class MyInfoDataManager {
     
     // 탈퇴 사유 등록
     func postReasons(reason: String, viewController: LeaveConfirmViewController) {
-        print(#function)
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDeleteReasons.makeURL
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]

@@ -39,10 +39,12 @@ class MainViewController: UIViewController {
         didSet {
             if rocketLaunchFlag == true {
                 fireButton.setImage(UIImage(named: "icon_fire"), for: .normal)
+                fireButton.removeTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
                 fireButton.addTarget(self, action: #selector(fireRocket), for: .touchUpInside)
                 addButton.isHidden = true
             } else {
                 fireButton.setImage(UIImage(named: "icon_fire_locked"), for: .normal)
+                fireButton.removeTarget(self, action: #selector(fireRocket), for: .touchUpInside)
                 fireButton.addTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
                 addButton.isHidden = false
             }
@@ -59,7 +61,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    var rocketID: Int?
+    var rocketID: Int? // 로켓 아이디
     var rocketColor: Int? // 로켓 색상
     var daysLeft: Double? // 남은 날짜
     var targetDate: String? // 목표 날짜
@@ -144,7 +146,6 @@ class MainViewController: UIViewController {
         rocketListFlag = false
         
         self.navigationItem.title = ""
-        //listButton.layer.zPosition = 9
         dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
         countLabel.layer.masksToBounds = true
@@ -159,6 +160,7 @@ class MainViewController: UIViewController {
         addButton.layer.zPosition = 10
         
         rocketListButton.layer.zPosition = 10
+        rocketListButton.addTarget(self, action: #selector(rocketListButtonTapped), for: .touchUpInside)
         
         nameLabel.layer.zPosition = 9
         
@@ -233,11 +235,17 @@ class MainViewController: UIViewController {
         self.currentItems = self.stones.count
         self.makeGameScene()
         self.countLabel.text = "\(self.stones.count) / 21"
+        
+        // 테스트
+        rocketListFlag = true
+        /*
         if rocketCount > 1 {
             rocketListFlag = true
         } else {
             rocketListFlag = false
         }
+        */
+        
         // 남은 날짜 계산하기
         let today = Date()
         let launch = dateformatter.date(from: launchDate)
@@ -256,6 +264,9 @@ class MainViewController: UIViewController {
             if daysLeftInt == 0 {
                 rocketLaunchFlag = true
                 self.dayCountLabel.text = "D-DAY"
+            } else if daysLeftInt < 0 {
+                rocketLaunchFlag = true
+                self.dayCountLabel.text = "D+\(-daysLeftInt)"
             } else {
                 rocketLaunchFlag = false
                 self.dayCountLabel.text = "D-\(daysLeftInt)"
@@ -296,6 +307,11 @@ class MainViewController: UIViewController {
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func rocketListButtonTapped() {
+        let vc = CompletedRocketViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

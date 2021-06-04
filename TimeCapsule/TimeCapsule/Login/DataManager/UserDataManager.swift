@@ -100,8 +100,8 @@ class UserDataManager {
         AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: LoginResponse.self) { response in
             switch response.result {
             case .success(let response):
+                print(response)
                 let jwtToken = response.jwtToken
-                print("token: \(jwtToken)")
                 let rocketStatus = response.rocketStatus
                 self.keychain.set(jwtToken, forKey: Keys.token)
                 let rocketStatusString = String(rocketStatus)

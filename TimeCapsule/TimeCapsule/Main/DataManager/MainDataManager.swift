@@ -23,14 +23,19 @@ class MainDataManager {
             switch response.result {
             case .success(let response):
                 print(response)
-                let rocket = response[0]
-                var stones: [Int] = []
-                for i in 0..<rocket.stoneColorCount.count {
-                    for _ in 0..<rocket.stoneColorCount[i].stoneCount {
-                        stones.append(rocket.stoneColorCount[i].stoneColor)
+                if response.count > 0 {
+                    let rocket = response[0]
+                    var stones: [Int] = []
+                    for i in 0..<rocket.stoneColorCount.count {
+                        for _ in 0..<rocket.stoneColorCount[i].stoneCount {
+                            stones.append(rocket.stoneColorCount[i].stoneColor)
+                        }
                     }
+                    viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount)
+                } else {
+                    viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
                 }
-                viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount)
+                
             case .failure(let error):
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")

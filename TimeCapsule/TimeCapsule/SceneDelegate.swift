@@ -27,6 +27,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             print("token: \(token)")
             
+            // 테스트용
+            //self.keychain.set("2", forKey: Keys.rocketStatus)
+            
             if let rocketStatus = keychain.get(Keys.rocketStatus) {
                 switch rocketStatus {
                 case "1":

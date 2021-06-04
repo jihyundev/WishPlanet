@@ -12,6 +12,9 @@ class MyPageViewController: UIViewController {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = MoreDataManager()
+    
+    var currentRocket: MyRocket?
+    var launchedRockets: [MyRocket]?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginTypeLabel: UILabel!
@@ -29,6 +32,7 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         dataManager.getMoreInfo(viewController: self)
+        dataManager.getRocket(viewController: self)
         
         let infoTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToMyinfoVC))
         let rocketTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToRocketVC))
@@ -110,6 +114,8 @@ class MyPageViewController: UIViewController {
     
     @objc fileprivate func moveToRocketVC() {
         let vc = MyRocketViewController()
+        vc.currentRocket = self.currentRocket ?? MyRocket(name: "", period: "", color: 0)
+        vc.launchedRockets = self.launchedRockets ?? []
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -123,6 +129,15 @@ class MyPageViewController: UIViewController {
         self.loginTypeLabel.text = data.socialType
         self.rocketCountLabel.text = data.rocketCount
         self.versionLabel.text = "버전정보 \(data.version)"
+    }
+    
+    func didRetrieveRocketData(current: MyRocket, launched: [MyRocket]) {
+        self.currentRocket = current
+        self.launchedRockets = launched
+    }
+    
+    func failedToRequest(message: String) {
+        self.presentAlert(title: message)
     }
     
 }
