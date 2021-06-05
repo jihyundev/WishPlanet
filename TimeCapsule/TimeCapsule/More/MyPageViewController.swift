@@ -19,6 +19,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginTypeLabel: UILabel!
     @IBOutlet weak var loginTypeStackView: UIStackView!
+    @IBOutlet weak var firstFooterView: UIView!
     
     @IBOutlet weak var rocketView: UIView!
     @IBOutlet weak var rocketLabel: UILabel!
@@ -26,6 +27,7 @@ class MyPageViewController: UIViewController {
     
     @IBOutlet weak var wishplanetView: UIView!
     @IBOutlet weak var wishplanetLabel: UILabel!
+    @IBOutlet weak var secondFooterView: UIView!
     @IBOutlet weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
@@ -86,6 +88,8 @@ class MyPageViewController: UIViewController {
         }
         rocketCountLabel.text = ""
         versionLabel.text = ""
+        firstFooterView.backgroundColor = UIColor.init(hex: 0x743EE9)
+        secondFooterView.backgroundColor = UIColor.init(hex: 0x743EE9)
     }
     
     fileprivate func setNavBar() {

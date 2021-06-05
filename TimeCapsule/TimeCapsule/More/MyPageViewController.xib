@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyPageViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="firstFooterView" destination="eLr-Xo-atR" id="RpG-ux-tKW"/>
                 <outlet property="loginTypeLabel" destination="gwQ-My-4zU" id="c84-MU-6eZ"/>
                 <outlet property="loginTypeStackView" destination="g3e-pN-pVm" id="UQP-57-7r6"/>
                 <outlet property="nameLabel" destination="45N-97-AIO" id="JqQ-22-wUJ"/>
                 <outlet property="rocketCountLabel" destination="bgK-bh-pMq" id="d4J-N6-zkQ"/>
                 <outlet property="rocketLabel" destination="9nP-3p-DcT" id="gIT-wH-ORS"/>
                 <outlet property="rocketView" destination="0BX-hq-dIp" id="jPw-KF-BKN"/>
+                <outlet property="secondFooterView" destination="2ET-mr-DEv" id="rAM-xA-nGa"/>
                 <outlet property="versionLabel" destination="AjE-WI-BFi" id="P0X-Px-Ikt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wishplanetLabel" destination="zbi-TB-DHe" id="iNk-TO-FQd"/>

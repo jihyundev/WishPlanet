@@ -10,6 +10,7 @@ import UIKit
 class CurrentTableViewCell: UITableViewCell {
     
     let cellID = "CurrentTableViewCell"
+    var delegate: MovetoEditRocketDelegate?
 
     @IBOutlet weak var rocketImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,10 +21,15 @@ class CurrentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.contentView.backgroundColor = .mainPurple
         editButton.layer.cornerRadius = editButton.layer.frame.height / 2
+        editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func editButtonTapped() {
+        delegate?.moveToEditVC(title: "진행 중")
     }
     
 }

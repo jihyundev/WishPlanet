@@ -9,12 +9,8 @@ import UIKit
 
 class MyRocketViewController: UIViewController {
     
-    // UI 테스트용
-    var currentRocket = MyRocket(name: "워니의 로케토", period: "21.10.29", color: 0)
-    var launchedRockets = [
-        MyRocket(name: "꽃향기를 맡으면 붕붕붕", period: "20.11.08", color: 1),
-        MyRocket(name: "뤰보르-파퓨아뉴기니", period: "19.12.25", color: 3)
-    ]
+    var currentRocket: MyRocket?
+    var launchedRockets: [MyRocket] = []
     
     let currentCell = CurrentTableViewCell()
     let launchedCell = LaunchedTableViewCell()
@@ -44,20 +40,31 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
+        if currentRocket == nil {
+            tableView.setEmptyRocketView()
+            return 0
         } else {
-            return launchedRockets.count
+            tableView.restoreWithLine()
+            if section == 0 {
+                return 1
+            } else {
+                return launchedRockets.count
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as! CurrentTableViewCell
-            cell.rocketImageView.image = UIImage(named: "icon rocket_\(currentRocket.color)")
-            cell.nameLabel.text = currentRocket.name
-            cell.periodLabel.text = "~\(currentRocket.period)"
-            return cell
+            if let rocket = currentRocket {
+                let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as! CurrentTableViewCell
+                cell.delegate = self
+                cell.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
+                cell.nameLabel.text = rocket.name
+                cell.periodLabel.text = "~\(rocket.period)"
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: launchedCell.cellID) as! LaunchedTableViewCell
             let rocket = launchedRockets[indexPath.row]
@@ -68,19 +75,35 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 30
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            self.moveToEditVC(title: "진행 중")
         } else {
-            return 44
+            self.moveToEditVC(title: "발사 완료")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if currentRocket == nil {
+            return 0
+        } else {
+            if section == 0 {
+                return 30
+            } else {
+                return 44
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 12
-        } else {
+        if currentRocket == nil {
             return 0
+        } else {
+            if section == 0 {
+                return 12
+            } else {
+                return 0
+            }
         }
     }
     
@@ -119,7 +142,18 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.4958559275, green: 0.1930817962, blue: 0.9492445588, alpha: 1)
+        view.backgroundColor = UIColor.init(hex: 0x743EE9)
         return view
     }
+}
+
+extension MyRocketViewController: MovetoEditRocketDelegate {
+    func moveToEditVC(title: String) {
+        let vc = MyRocketEditViewController(titleString: title)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+protocol MovetoEditRocketDelegate {
+    func moveToEditVC(title: String)
 }
