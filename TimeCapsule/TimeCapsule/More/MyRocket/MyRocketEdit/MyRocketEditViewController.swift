@@ -9,7 +9,8 @@ import UIKit
 
 class MyRocketEditViewController: UIViewController {
     
-    private let titleString: String?
+    private let titleString: String
+    private let rocketID: Int // 로켓 아이디
     
     let datePicker = UIDatePicker()
     let dateformatter: DateFormatter = {
@@ -17,14 +18,31 @@ class MyRocketEditViewController: UIViewController {
         dateformatter.dateFormat = "yyyy-MM-dd"
         return dateformatter
     }()
+    let dataManager = MyRocketEditDataManager()
     
-    var rocketColor: Int? // 우주선 색
-    var rocketName: String? // 로켓 이름
-    var originalDate: String? // 기존 발사일
+    // 우주선 색
+    var rocketColor: Int = 0 {
+        didSet { iconImageView.image = UIImage(named: "icon rocket_\(self.rocketColor )") }
+    }
+    // 로켓 이름
+    var rocketName: String = "" {
+        didSet { nameTextField.text = rocketName }
+    }
+    
+    var originalDate: String // 기존 발사일
     var selectedDate: String? // 수정한 발사일
+    var delegate: ReloadRocketDetailDelegate?
     
-    init(titleString: String) {
+    lazy var completeButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(completeButtonPressed(_:)))
+        button.setTitleTextAttributes([.font: UIFont.SpoqaHanSansNeo(.medium, size: 15)], for: .normal)
+        return button
+    }()
+    
+    init(titleString: String, rocketID: Int, originalDate: String) {
         self.titleString = titleString
+        self.rocketID = rocketID
+        self.originalDate = originalDate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,10 +58,14 @@ class MyRocketEditViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var textCountLabel: UILabel!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var datePickerButton: UIButton!
+    @IBOutlet weak var editedLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("rocketID:\(self.rocketID)")
+        dataManager.getRocketDetails(rocketID: rocketID, viewController: self)
         setupUI()
         createDatePicker()
         prepareKeyboard()
@@ -55,7 +77,9 @@ class MyRocketEditViewController: UIViewController {
     fileprivate func setupUI() {
         self.view.backgroundColor = .mainPurple
         self.title = titleString
-        iconImageView.image = UIImage(named: "icon rocket_\(self.rocketColor ?? 0)")
+        datePickerButton.isHidden = true
+        editedLabel.isHidden = true
+        iconImageView.image = UIImage(named: "icon rocket_\(self.rocketColor )")
         nameTextField.layer.backgroundColor = UIColor.init(hex: 0x743EE9).cgColor
         nameTextField.textColor = .white
         nameTextField.text = rocketName
@@ -71,11 +95,18 @@ class MyRocketEditViewController: UIViewController {
         clearButton.isHidden = true
         textCountLabel.isHidden = true
         footerView.backgroundColor = UIColor.init(hex: 0x743EE9)
+        
+        self.navigationItem.rightBarButtonItem = self.completeButton
     }
     
     func prepareKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc private func adjustInputView(noti: Notification) {
@@ -101,6 +132,7 @@ class MyRocketEditViewController: UIViewController {
     
     func createDatePicker() {
         datePicker.date = Date()
+        datePicker.date = dateformatter.date(from: originalDate) ?? Date()
         let minDate = Date(timeIntervalSinceNow: 86400)
         let maxDate = DateHelper.dateAfter(years: 10, from: Date())
         datePicker.minimumDate = minDate
@@ -139,6 +171,39 @@ class MyRocketEditViewController: UIViewController {
         selectedDate = date
         dateTextField.text = date
         print("selectedDate: ", selectedDate ?? "")
+    }
+    
+    // 우주선 수정 완료 버튼 Handler
+    @objc private func completeButtonPressed(_ sender: Any) {
+        if let name = nameTextField.text, let date = dateTextField.text {
+            dataManager.patchRocketDetails(rocketID: rocketID, name: name, date: date, viewController: self)
+        }
+    }
+    
+    func didRetrieveData(rocketColor: Int, name: String, date: String, canPatch: Bool) {
+        self.rocketColor = rocketColor
+        self.rocketName = name
+        dateTextField.text = date
+        if canPatch == false {
+            // 버튼 가리기 + 텍스트필드 수정 불가능 + 수정됨 Label 생성
+            datePickerButton.isHidden = true
+            dateTextField.isUserInteractionEnabled = false
+            editedLabel.isHidden = false
+        } else {
+            datePickerButton.isHidden = false
+            dateTextField.isUserInteractionEnabled = true
+            editedLabel.isHidden = true
+        }
+    }
+    
+    func successToPatch() {
+        // 데이터 업데이트 후 pop
+        delegate?.reloadData()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func failedToRequest(message: String) {
+        self.presentAlert(title: message)
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {

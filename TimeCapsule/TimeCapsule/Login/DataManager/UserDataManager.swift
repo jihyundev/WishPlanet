@@ -71,7 +71,7 @@ class UserDataManager {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
+        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseString { response in
             switch response.result {
             case .success(let response):
                 if response == "true" {
@@ -97,7 +97,7 @@ class UserDataManager {
         print("login() called")
         let url = URLType.userLogin.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: LoginResponse.self) { response in
+        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: LoginResponse.self) { response in
             switch response.result {
             case .success(let response):
                 print(response)

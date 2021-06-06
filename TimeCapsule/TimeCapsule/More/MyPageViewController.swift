@@ -118,7 +118,7 @@ class MyPageViewController: UIViewController {
     
     @objc fileprivate func moveToRocketVC() {
         let vc = MyRocketViewController()
-        vc.currentRocket = self.currentRocket ?? MyRocket(name: "", period: "", color: 0)
+        vc.currentRocket = self.currentRocket ?? MyRocket(rocketID: 0, name: "", period: "", color: 0)
         vc.launchedRockets = self.launchedRockets ?? []
         self.navigationController?.pushViewController(vc, animated: true)
     }

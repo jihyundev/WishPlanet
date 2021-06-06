@@ -1,40 +1,20 @@
 //
-//  MoreDataManager.swift
+//  MyRocketDataManager.swift
 //  TimeCapsule
 //
-//  Created by 정지현 on 2021/05/06.
+//  Created by 정지현 on 2021/06/06.
 //
 
 import Foundation
 import Alamofire
 import KeychainSwift
 
-class MoreDataManager {
+class MyRocketDataManager {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
-    // 더보기 정보 GET
-    func getMoreInfo(viewController: MyPageViewController) {
-        guard let token = keychain.get(Keys.token) else { return }
-        let url = URLType.userMore.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: GetMoreInfoResponse.self) { response in
-            switch response.result {
-            case .success(let response):
-                let nickname = response.nickName
-                let loginType = response.socialType
-                self.keychain.set(nickname, forKey: Keys.nickname)
-                self.keychain.set(loginType, forKey: Keys.loginType)
-                viewController.didRetrieveData(data: response)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-    }
-    
     // 우주선 관리 - 우주선 리스트 GET
-    func getRocket(viewController: MyPageViewController) {
+    func getRocket(viewController: MyRocketViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let url = URLType.rocket.makeURL + "?scope=TOTAL&stoneColorCount=false"
@@ -67,5 +47,4 @@ class MoreDataManager {
             }
         }
     }
-    
 }

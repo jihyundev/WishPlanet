@@ -14,6 +14,13 @@ class MyRocketViewController: UIViewController {
     
     let currentCell = CurrentTableViewCell()
     let launchedCell = LaunchedTableViewCell()
+    
+    let dataManager = MyRocketDataManager()
+    let dateformatter: DateFormatter = {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        return dateformatter
+    }()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,6 +37,16 @@ class MyRocketViewController: UIViewController {
         tableView.rowHeight = 100
         tableView.backgroundColor = .mainPurple
         tableView.tableFooterView = UIView()
+    }
+    
+    func didRetrieveRocketData(current: MyRocket, launched: [MyRocket]) {
+        self.currentRocket = current
+        self.launchedRockets = launched
+        tableView.reloadData()
+    }
+    
+    func failedToRequest(message: String) {
+        self.presentAlert(title: message)
     }
 
 }
@@ -57,6 +74,8 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             if let rocket = currentRocket {
                 let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as! CurrentTableViewCell
+                cell.rocketID = currentRocket?.rocketID
+                cell.date = currentRocket?.period
                 cell.delegate = self
                 cell.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
                 cell.nameLabel.text = rocket.name
@@ -77,9 +96,16 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            self.moveToEditVC(title: "진행 중")
+            if let date = currentRocket?.period {
+                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+            } else {
+                let date = dateformatter.string(from: Date())
+                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+            }
+            
         } else {
-            self.moveToEditVC(title: "발사 완료")
+            self.presentAlert(title: "발사 완료된 우주선입니다. ")
+            //self.moveToEditVC(title: "발사 완료", rocketID: launchedRockets[indexPath.row].rocketID)
         }
     }
     
@@ -148,12 +174,23 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension MyRocketViewController: MovetoEditRocketDelegate {
-    func moveToEditVC(title: String) {
-        let vc = MyRocketEditViewController(titleString: title)
+    func moveToEditVC(title: String, rocketID: Int, date: String) {
+        let vc = MyRocketEditViewController(titleString: title, rocketID: rocketID, originalDate: date)
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+extension MyRocketViewController: ReloadRocketDetailDelegate {
+    func reloadData() {
+        dataManager.getRocket(viewController: self)
+    }
+}
+
 protocol MovetoEditRocketDelegate {
-    func moveToEditVC(title: String)
+    func moveToEditVC(title: String, rocketID: Int, date: String)
+}
+
+protocol ReloadRocketDetailDelegate {
+    func reloadData()
 }

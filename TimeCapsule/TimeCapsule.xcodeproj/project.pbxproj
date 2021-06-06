@@ -51,6 +51,8 @@
 		596A1CE12669C94100328E8B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CE02669C94100328E8B /* UITableView.swift */; };
 		596A1CE42669D46B00328E8B /* MyRocketEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CE22669D46B00328E8B /* MyRocketEditViewController.swift */; };
 		596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */; };
+		596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */; };
+		596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF4266C632500328E8B /* MyRocketDataManager.swift */; };
 		5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997196C26456C8E008E88EA /* GuideViewController.swift */; };
 		5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997196D26456C8E008E88EA /* GuideViewController.xib */; };
 		5997197226457AB0008E88EA /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197126457AB0008E88EA /* UILabel.swift */; };
@@ -169,6 +171,8 @@
 		596A1CE02669C94100328E8B /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		596A1CE22669D46B00328E8B /* MyRocketEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketEditViewController.swift; sourceTree = "<group>"; };
 		596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRocketEditViewController.xib; sourceTree = "<group>"; };
+		596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketEditDataManager.swift; sourceTree = "<group>"; };
+		596A1CF4266C632500328E8B /* MyRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketDataManager.swift; sourceTree = "<group>"; };
 		5997196C26456C8E008E88EA /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		5997196D26456C8E008E88EA /* GuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideViewController.xib; sourceTree = "<group>"; };
 		5997197126457AB0008E88EA /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 		593D806D266681E2002DE3D8 /* MyRocket */ = {
 			isa = PBXGroup;
 			children = (
+				596A1CF3266C630800328E8B /* DataManager */,
 				593D807726668560002DE3D8 /* Entity */,
 				593D806E2666820B002DE3D8 /* MyRocketTableViewCells */,
 				596A1CE62669DBCF00328E8B /* MyRocketEdit */,
@@ -378,10 +383,27 @@
 		596A1CE62669DBCF00328E8B /* MyRocketEdit */ = {
 			isa = PBXGroup;
 			children = (
+				596A1CF0266C515D00328E8B /* DataManager */,
 				596A1CE22669D46B00328E8B /* MyRocketEditViewController.swift */,
 				596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */,
 			);
 			path = MyRocketEdit;
+			sourceTree = "<group>";
+		};
+		596A1CF0266C515D00328E8B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		596A1CF3266C630800328E8B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				596A1CF4266C632500328E8B /* MyRocketDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {
@@ -833,6 +855,7 @@
 				596A1CE42669D46B00328E8B /* MyRocketEditViewController.swift in Sources */,
 				59E9720825FB0722008A7EF9 /* LoginViewController.swift in Sources */,
 				59C686A72644155D006D9F3B /* UITextField.swift in Sources */,
+				596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */,
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */,
 				2516E83F25FB855200ADD135 /* GameScene.swift in Sources */,
@@ -880,6 +903,7 @@
 				59C686832642EB4D006D9F3B /* MyRocketViewController.swift in Sources */,
 				59E971E125FB003B008A7EF9 /* Color.swift in Sources */,
 				59E971E025FB003B008A7EF9 /* UIFont.swift in Sources */,
+				596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */,
 				59E9726025FB7793008A7EF9 /* FinishedListViewController.swift in Sources */,
 				59C6867E2642EAEB006D9F3B /* MyInfoViewController.swift in Sources */,
 				596A1CE12669C94100328E8B /* UITableView.swift in Sources */,

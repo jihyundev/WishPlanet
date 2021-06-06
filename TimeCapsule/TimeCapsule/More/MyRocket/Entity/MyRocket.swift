@@ -8,11 +8,13 @@
 import Foundation
 
 class MyRocket {
+    var rocketID: Int
     var name: String
     var period: String
     var color: Int
     
-    init(name: String, period: String, color: Int) {
+    init(rocketID: Int, name: String, period: String, color: Int) {
+        self.rocketID = rocketID
         self.name = name
         self.period = period
         self.color = color

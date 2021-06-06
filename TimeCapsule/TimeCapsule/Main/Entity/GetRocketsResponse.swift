@@ -14,7 +14,7 @@ struct GetRocketsResponse: Codable {
     let allowedStoneCount, usedCount: Int
     let launched: Bool
     let createdAt, launchDate: String
-    let stoneColorCount: [StoneColorCount]
+    let stoneColorCount: [StoneColorCount]?
     let totalRocketCount, launchDateModifiedCount: Int
 
     enum CodingKeys: String, CodingKey {

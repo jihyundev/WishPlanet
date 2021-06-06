@@ -10,6 +10,8 @@ import UIKit
 class CurrentTableViewCell: UITableViewCell {
     
     let cellID = "CurrentTableViewCell"
+    var rocketID: Int?
+    var date: String?
     var delegate: MovetoEditRocketDelegate?
 
     @IBOutlet weak var rocketImageView: UIImageView!
@@ -29,7 +31,10 @@ class CurrentTableViewCell: UITableViewCell {
     }
     
     @objc func editButtonTapped() {
-        delegate?.moveToEditVC(title: "진행 중")
+        if let dateString = date {
+            delegate?.moveToEditVC(title: "진행 중", rocketID: rocketID ?? 0, date: dateString)
+        }
+        
     }
     
 }

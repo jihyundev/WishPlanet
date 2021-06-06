@@ -17,7 +17,7 @@ class MainDataManager {
         guard let token = keychain.get(Keys.token) else { return }
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let url = URLType.rocket.makeURL + "?scope=AWAITING&stoneColorCount=true"
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
             
             switch response.result {
@@ -26,11 +26,14 @@ class MainDataManager {
                 if response.count > 0 {
                     let rocket = response[0]
                     var stones: [Int] = []
-                    for i in 0..<rocket.stoneColorCount.count {
-                        for _ in 0..<rocket.stoneColorCount[i].stoneCount {
-                            stones.append(rocket.stoneColorCount[i].stoneColor)
+                    if let stoneList = rocket.stoneColorCount {
+                        for i in 0..<stoneList.count {
+                            for _ in 0..<stoneList[i].stoneCount {
+                                stones.append(stoneList[i].stoneColor)
+                            }
                         }
                     }
+                    
                     viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount)
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
@@ -48,7 +51,7 @@ class MainDataManager {
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let url = URLType.rocketLaunch(rocketID).makeURL
         print("rocketID: \(rocketID)")
-        AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseJSON { response in
+        AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseJSON { response in
             switch response.result {
             case .success(let result):
                 print("patchRocketLaunch() - result: ", result)

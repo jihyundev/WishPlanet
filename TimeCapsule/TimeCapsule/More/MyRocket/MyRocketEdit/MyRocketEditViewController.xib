@@ -19,7 +19,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRocketEditViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
                 <outlet property="clearButton" destination="daY-86-4n2" id="6TV-X6-01O"/>
+                <outlet property="datePickerButton" destination="JDZ-VM-U1h" id="6V6-Er-7nh"/>
                 <outlet property="dateTextField" destination="zNV-2z-ocH" id="3NF-GY-UlA"/>
+                <outlet property="editedLabel" destination="PLC-Kh-FsA" id="aLv-u9-q6h"/>
                 <outlet property="footerView" destination="Quh-eP-ePY" id="qCe-Kt-qN0"/>
                 <outlet property="iconImageView" destination="ZdO-jL-PAX" id="Fbv-fo-NMR"/>
                 <outlet property="iconStarImageView" destination="j0D-GG-yER" id="5sC-Dw-gBd"/>
@@ -123,6 +125,12 @@
                         <action selector="datePickerButtonTapped:" destination="-1" eventType="touchUpInside" id="3sD-09-4Tw"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수정됨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLC-Kh-FsA">
+                    <rect key="frame" x="342" y="350.5" width="34" height="15"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <color key="textColor" red="0.72941176470588232" green="0.62352941176470589" blue="0.95686274509803915" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -137,6 +145,7 @@
                 <constraint firstItem="j0D-GG-yER" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PQz-Ix-p0s"/>
                 <constraint firstItem="bIi-Sx-42v" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="RLR-zu-SX0"/>
                 <constraint firstItem="opf-QK-ywY" firstAttribute="leading" secondItem="daY-86-4n2" secondAttribute="trailing" constant="4" id="TG3-9n-UN5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PLC-Kh-FsA" secondAttribute="trailing" constant="38" id="U5I-Ds-WZ8"/>
                 <constraint firstItem="Quh-eP-ePY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WcT-PC-oKd"/>
                 <constraint firstItem="j0D-GG-yER" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="22" id="X6g-wY-PWO"/>
                 <constraint firstItem="5dX-jp-ixC" firstAttribute="top" secondItem="jyv-h4-IUV" secondAttribute="bottom" constant="40" id="ZB7-F3-ZEh"/>
@@ -149,6 +158,7 @@
                 <constraint firstItem="JDZ-VM-U1h" firstAttribute="centerY" secondItem="zNV-2z-ocH" secondAttribute="centerY" id="ina-uq-ZKf"/>
                 <constraint firstItem="jyv-h4-IUV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="keS-YN-52o"/>
                 <constraint firstItem="zNV-2z-ocH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rtQ-dL-rib"/>
+                <constraint firstItem="PLC-Kh-FsA" firstAttribute="centerY" secondItem="zNV-2z-ocH" secondAttribute="centerY" id="vwt-z6-VfV"/>
                 <constraint firstItem="daY-86-4n2" firstAttribute="centerY" secondItem="jyv-h4-IUV" secondAttribute="centerY" id="wx0-1u-Drb"/>
                 <constraint firstItem="5dX-jp-ixC" firstAttribute="leading" secondItem="ojz-Du-kZ4" secondAttribute="leading" id="xhX-oQ-Cxl"/>
                 <constraint firstItem="Quh-eP-ePY" firstAttribute="top" secondItem="j0D-GG-yER" secondAttribute="bottom" constant="33" id="y4D-MV-3Sc"/>
