@@ -14,7 +14,7 @@ class EndPopUpViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var completionButton: UIButton!
     
-    var delegate: ReloadDelegate?
+    weak var delegate: ReloadDelegate?
     var dateString: String?
     var rocketID: Int?
     let dataManager = MainDataManager()

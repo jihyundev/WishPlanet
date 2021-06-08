@@ -9,7 +9,7 @@ import UIKit
 
 class RocketNameViewController: UIViewController {
     
-    var delegate: IntroFadeAnimationDelegate?
+    weak var delegate: IntroFadeAnimationDelegate?
     var currentRocket = 0
     var isActivate: Bool = false {
         didSet {

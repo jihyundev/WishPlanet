@@ -29,7 +29,7 @@ class AddWishViewController: UIViewController{
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = AddWishDataManager()
     
-    var delegate: ReloadDelegate?
+    weak var delegate: ReloadDelegate?
     var stoneColor: Int = 0
     
     var isActivated: Bool = false {

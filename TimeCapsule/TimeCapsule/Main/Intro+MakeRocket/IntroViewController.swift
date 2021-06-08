@@ -139,10 +139,10 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
     }
 }
 
-protocol IntroFadeAnimationDelegate {
+protocol IntroFadeAnimationDelegate: AnyObject {
     func fadeout()
     func fadein()
 }
-protocol MovetoRocketNameVCDelegate {
+protocol MovetoRocketNameVCDelegate: AnyObject {
     func moveToRocketNameVC()
 }

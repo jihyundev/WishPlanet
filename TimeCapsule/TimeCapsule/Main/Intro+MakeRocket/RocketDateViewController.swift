@@ -17,7 +17,7 @@ class RocketDateViewController: UIViewController {
         return dateformatter
     }()
     
-    var delegate: IntroFadeAnimationDelegate?
+    weak var delegate: IntroFadeAnimationDelegate?
     var selectedDate: String?
     var rocketColor: Int?
     var rocketName: String?

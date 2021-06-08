@@ -12,7 +12,7 @@ class CurrentTableViewCell: UITableViewCell {
     let cellID = "CurrentTableViewCell"
     var rocketID: Int?
     var date: String?
-    var delegate: MovetoEditRocketDelegate?
+    weak var delegate: MovetoEditRocketDelegate?
 
     @IBOutlet weak var rocketImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

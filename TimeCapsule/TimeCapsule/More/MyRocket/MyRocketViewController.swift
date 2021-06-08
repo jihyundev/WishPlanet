@@ -187,10 +187,10 @@ extension MyRocketViewController: ReloadRocketDetailDelegate {
     }
 }
 
-protocol MovetoEditRocketDelegate {
+protocol MovetoEditRocketDelegate: AnyObject {
     func moveToEditVC(title: String, rocketID: Int, date: String)
 }
 
-protocol ReloadRocketDetailDelegate {
+protocol ReloadRocketDetailDelegate: AnyObject {
     func reloadData()
 }

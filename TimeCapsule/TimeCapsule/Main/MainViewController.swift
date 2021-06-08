@@ -237,14 +237,13 @@ class MainViewController: UIViewController {
         self.countLabel.text = "\(self.stones.count) / 21"
         
         // 테스트
-        rocketListFlag = true
-        /*
+        //rocketListFlag = true
+        
         if rocketCount > 1 {
             rocketListFlag = true
         } else {
             rocketListFlag = false
         }
-        */
         
         // 남은 날짜 계산하기
         let today = Date()
@@ -373,7 +372,7 @@ extension MainViewController: ReloadDelegate {
     }
 }
 
-protocol ReloadDelegate {
+protocol ReloadDelegate: AnyObject {
     func reloadView()
     func showToast()
     func endGame()

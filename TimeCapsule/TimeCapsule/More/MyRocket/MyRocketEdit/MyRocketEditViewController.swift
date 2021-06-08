@@ -31,7 +31,7 @@ class MyRocketEditViewController: UIViewController {
     
     var originalDate: String // 기존 발사일
     var selectedDate: String? // 수정한 발사일
-    var delegate: ReloadRocketDetailDelegate?
+    weak var delegate: ReloadRocketDetailDelegate?
     
     lazy var completeButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(completeButtonPressed(_:)))
@@ -176,6 +176,7 @@ class MyRocketEditViewController: UIViewController {
     // 우주선 수정 완료 버튼 Handler
     @objc private func completeButtonPressed(_ sender: Any) {
         if let name = nameTextField.text, let date = dateTextField.text {
+            print("name: \(name), date: \(date)")
             dataManager.patchRocketDetails(rocketID: rocketID, name: name, date: date, viewController: self)
         }
     }

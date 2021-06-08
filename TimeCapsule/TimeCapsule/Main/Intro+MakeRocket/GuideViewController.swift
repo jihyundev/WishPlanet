@@ -9,7 +9,7 @@ import UIKit
 
 class GuideViewController: UIViewController {
     
-    var delegate: MovetoRocketNameVCDelegate?
+    weak var delegate: MovetoRocketNameVCDelegate?
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
