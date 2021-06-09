@@ -11,19 +11,17 @@ class WishplanetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = ""
-        self.view.backgroundColor = .mainPurple
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isTransparent = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    fileprivate func setupUI() {
+        self.title = ""
+        self.view.backgroundColor = .mainPurple
     }
 
 }
