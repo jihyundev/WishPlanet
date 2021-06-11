@@ -26,6 +26,8 @@
 		5921F99325FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99225FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf */; };
 		5921F99625FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99525FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf */; };
 		5921F99925FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F99825FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf */; };
+		59236AA82672F35000BA855C /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59236AA62672F35000BA855C /* OpenSourceViewController.swift */; };
+		59236AA92672F35000BA855C /* OpenSourceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59236AA72672F35000BA855C /* OpenSourceViewController.xib */; };
 		592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A0955263C39E900BA3926 /* MyPageViewController.swift */; };
 		592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A0956263C39E900BA3926 /* MyPageViewController.xib */; };
 		592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A095B263C474700BA3926 /* GetRocketsResponse.swift */; };
@@ -146,6 +148,8 @@
 		5921F99225FBC81700D097B4 /* Spoqa Han Sans Neo Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Medium.otf"; sourceTree = "<group>"; };
 		5921F99525FBC82000D097B4 /* Spoqa Han Sans Neo Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Regular.otf"; sourceTree = "<group>"; };
 		5921F99825FBC82800D097B4 /* Spoqa Han Sans Neo Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoqa Han Sans Neo Thin.otf"; sourceTree = "<group>"; };
+		59236AA62672F35000BA855C /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		59236AA72672F35000BA855C /* OpenSourceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenSourceViewController.xib; sourceTree = "<group>"; };
 		592A0955263C39E900BA3926 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		592A0956263C39E900BA3926 /* MyPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageViewController.xib; sourceTree = "<group>"; };
 		592A095B263C474700BA3926 /* GetRocketsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRocketsResponse.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 				592A0956263C39E900BA3926 /* MyPageViewController.xib */,
 				59C686862642EB6A006D9F3B /* WishplanetViewController.swift */,
 				59C686872642EB6A006D9F3B /* WishplanetViewController.xib */,
+				59236AA62672F35000BA855C /* OpenSourceViewController.swift */,
+				59236AA72672F35000BA855C /* OpenSourceViewController.xib */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -773,6 +779,7 @@
 				59BD6036262C6CF3009B4DE6 /* CompletedRocketViewController.xib in Resources */,
 				5921F99025FBC80F00D097B4 /* Spoqa Han Sans Neo Light.otf in Resources */,
 				252076EF25FB3A8D004366E4 /* AddWishViewController.xib in Resources */,
+				59236AA92672F35000BA855C /* OpenSourceViewController.xib in Resources */,
 				595B807C2644275B00B4866D /* PrivacyPolicyViewController.xib in Resources */,
 				25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */,
 				59E9725425FB72D2008A7EF9 /* FocusView.xib in Resources */,
@@ -885,6 +892,7 @@
 				5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */,
 				595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */,
 				593D80732666823E002DE3D8 /* LaunchedTableViewCell.swift in Sources */,
+				59236AA82672F35000BA855C /* OpenSourceViewController.swift in Sources */,
 				59E971DA25FB003B008A7EF9 /* Date.swift in Sources */,
 				595B80942644DB7500B4866D /* LeaveConfirmViewController.swift in Sources */,
 				2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */,

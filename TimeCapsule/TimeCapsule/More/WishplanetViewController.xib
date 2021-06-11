@@ -11,6 +11,9 @@
         <array key="Spoqa Han Sans Neo Bold.otf">
             <string>SpoqaHanSansNeo-Bold</string>
         </array>
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
         <array key="Spoqa Han Sans Neo Regular.otf">
             <string>SpoqaHanSansNeo-Regular</string>
         </array>
@@ -18,19 +21,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishplanetViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="container1" destination="cy2-zP-oag" id="WJ8-Wu-ES1"/>
+                <outlet property="container2" destination="PkR-Uv-Qbo" id="Lri-lb-usp"/>
+                <outlet property="container3" destination="KvV-oC-1dS" id="gBq-3e-kHS"/>
+                <outlet property="container4" destination="yhN-yZ-PHi" id="6Yn-8J-exM"/>
+                <outlet property="container5" destination="K2d-rI-ZZo" id="skQ-o6-TRR"/>
+                <outlet property="descLabel" destination="orZ-8J-iYq" id="lQ3-sn-5ux"/>
+                <outlet property="opensourceView" destination="vBP-Xa-YQu" id="03m-cF-Eej"/>
+                <outlet property="subLabel" destination="43q-Sm-gnx" id="uuh-1Z-J7T"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="1107"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="1231"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-ej-04z">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="1107"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1231"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9e-04-dFs">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1176"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishplanetbackground" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-T7-vdF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="588"/>
@@ -76,67 +87,199 @@
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy2-zP-oag">
                                     <rect key="frame" x="0.0" y="686" width="414" height="80"/>
-                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="80" id="EXl-ew-GYW"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-Uv-Qbo">
-                                    <rect key="frame" x="0.0" y="766" width="414" height="80"/>
-                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="80" id="r79-0o-3qh"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBP-Xa-YQu">
-                                    <rect key="frame" x="0.0" y="846" width="414" height="60"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-i1-5am">
-                                            <rect key="frame" x="22" y="20.5" width="116" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="워니  •  Designer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-LO-y0z">
+                                            <rect key="frame" x="22" y="20" width="117" height="20"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kjw980808@naver.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnl-zA-TBN">
+                                            <rect key="frame" x="22" y="44" width="155" height="17"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="B0p-i1-5am" firstAttribute="centerY" secondItem="vBP-Xa-YQu" secondAttribute="centerY" id="1G4-1L-8Qe"/>
-                                        <constraint firstAttribute="height" constant="60" id="Teu-QQ-RaA"/>
+                                        <constraint firstItem="eDW-LO-y0z" firstAttribute="leading" secondItem="cy2-zP-oag" secondAttribute="leading" constant="22" id="5Vd-jG-SqN"/>
+                                        <constraint firstAttribute="height" constant="80" id="EXl-ew-GYW"/>
+                                        <constraint firstItem="jnl-zA-TBN" firstAttribute="top" secondItem="eDW-LO-y0z" secondAttribute="bottom" constant="4" id="Rsa-1x-8t0"/>
+                                        <constraint firstItem="eDW-LO-y0z" firstAttribute="centerY" secondItem="cy2-zP-oag" secondAttribute="centerY" constant="-10" id="e2b-eE-22o"/>
+                                        <constraint firstItem="jnl-zA-TBN" firstAttribute="leading" secondItem="eDW-LO-y0z" secondAttribute="leading" id="vnW-At-P4W"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-Uv-Qbo">
+                                    <rect key="frame" x="0.0" y="766" width="414" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="헤일  •  iOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M7-tX-NV0">
+                                            <rect key="frame" x="22" y="20" width="75.5" height="20"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aawlgus12@naver.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suc-C1-UXr">
+                                            <rect key="frame" x="22" y="44" width="152.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="0M7-tX-NV0" firstAttribute="leading" secondItem="PkR-Uv-Qbo" secondAttribute="leading" constant="22" id="3oA-Mh-qS8"/>
+                                        <constraint firstItem="Suc-C1-UXr" firstAttribute="leading" secondItem="0M7-tX-NV0" secondAttribute="leading" id="6l6-Bx-Kap"/>
+                                        <constraint firstItem="0M7-tX-NV0" firstAttribute="centerY" secondItem="PkR-Uv-Qbo" secondAttribute="centerY" constant="-10" id="G3K-Zx-Snz"/>
+                                        <constraint firstItem="Suc-C1-UXr" firstAttribute="top" secondItem="0M7-tX-NV0" secondAttribute="bottom" constant="4" id="aAg-PI-vuy"/>
+                                        <constraint firstAttribute="height" constant="80" id="r79-0o-3qh"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvV-oC-1dS">
+                                    <rect key="frame" x="0.0" y="846" width="414" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="래디  •  Android" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BD-fT-nhf">
+                                            <rect key="frame" x="22" y="20" width="110" height="20"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hain1218@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zES-eM-ucB">
+                                            <rect key="frame" x="22" y="44" width="143" height="17"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="2BD-fT-nhf" firstAttribute="centerY" secondItem="KvV-oC-1dS" secondAttribute="centerY" constant="-10" id="5Bi-p7-MGS"/>
+                                        <constraint firstItem="2BD-fT-nhf" firstAttribute="leading" secondItem="KvV-oC-1dS" secondAttribute="leading" constant="22" id="5c9-mi-zj0"/>
+                                        <constraint firstItem="zES-eM-ucB" firstAttribute="top" secondItem="2BD-fT-nhf" secondAttribute="bottom" constant="4" id="AO0-mO-1OZ"/>
+                                        <constraint firstItem="zES-eM-ucB" firstAttribute="leading" secondItem="2BD-fT-nhf" secondAttribute="leading" id="Hk6-rc-brL"/>
+                                        <constraint firstItem="zES-eM-ucB" firstAttribute="leading" secondItem="KvV-oC-1dS" secondAttribute="leading" constant="22" id="Qrp-Qe-krU"/>
+                                        <constraint firstAttribute="height" constant="80" id="X9C-35-F2t"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBP-Xa-YQu">
+                                    <rect key="frame" x="0.0" y="1086" width="414" height="90"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈소스 라이선스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-i1-5am">
+                                            <rect key="frame" x="22" y="30.5" width="121.5" height="19"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWa-xK-y18">
+                                            <rect key="frame" x="382" y="29" width="16" height="22"/>
+                                            <state key="normal" image="icon_goto"/>
+                                            <connections>
+                                                <action selector="opensourceButtonTapped:" destination="-1" eventType="touchUpInside" id="HpP-PR-afw"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="B0p-i1-5am" firstAttribute="centerY" secondItem="vBP-Xa-YQu" secondAttribute="centerY" constant="-5" id="1G4-1L-8Qe"/>
+                                        <constraint firstItem="lWa-xK-y18" firstAttribute="centerY" secondItem="vBP-Xa-YQu" secondAttribute="centerY" constant="-5" id="4W4-PG-tBf"/>
+                                        <constraint firstAttribute="trailing" secondItem="lWa-xK-y18" secondAttribute="trailing" constant="16" id="PTp-13-bei"/>
+                                        <constraint firstAttribute="height" constant="90" id="Teu-QQ-RaA"/>
                                         <constraint firstItem="B0p-i1-5am" firstAttribute="leading" secondItem="vBP-Xa-YQu" secondAttribute="leading" constant="22" id="qi1-0E-oZh"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhN-yZ-PHi">
+                                    <rect key="frame" x="0.0" y="926" width="414" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비비  •  Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PV3-PT-Lbx">
+                                            <rect key="frame" x="22" y="20" width="99" height="20"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sksms304@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5f-kU-Nr3">
+                                            <rect key="frame" x="22" y="44" width="146.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="D5f-kU-Nr3" firstAttribute="top" secondItem="PV3-PT-Lbx" secondAttribute="bottom" constant="4" id="0B7-hS-xhO"/>
+                                        <constraint firstAttribute="height" constant="80" id="8Dq-Tg-LAQ"/>
+                                        <constraint firstItem="D5f-kU-Nr3" firstAttribute="leading" secondItem="PV3-PT-Lbx" secondAttribute="leading" id="IG7-UN-hNr"/>
+                                        <constraint firstItem="PV3-PT-Lbx" firstAttribute="leading" secondItem="yhN-yZ-PHi" secondAttribute="leading" constant="22" id="KB1-We-RfC"/>
+                                        <constraint firstItem="PV3-PT-Lbx" firstAttribute="centerY" secondItem="yhN-yZ-PHi" secondAttribute="centerY" constant="-10" id="OPb-z3-f3n"/>
+                                        <constraint firstItem="D5f-kU-Nr3" firstAttribute="leading" secondItem="yhN-yZ-PHi" secondAttribute="leading" constant="22" id="oUM-nQ-72u"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-rI-ZZo">
+                                    <rect key="frame" x="0.0" y="1006" width="414" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시영  •  Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odv-8x-KWY">
+                                            <rect key="frame" x="22" y="20" width="99" height="20"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minamcra@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcm-xC-2kR">
+                                            <rect key="frame" x="22" y="44" width="147.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.52994632720000001" green="0.1475645304" blue="0.99613434079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="Odv-8x-KWY" firstAttribute="leading" secondItem="K2d-rI-ZZo" secondAttribute="leading" constant="22" id="Fjz-p7-7Te"/>
+                                        <constraint firstItem="mcm-xC-2kR" firstAttribute="leading" secondItem="K2d-rI-ZZo" secondAttribute="leading" constant="22" id="GRp-l4-xvy"/>
+                                        <constraint firstItem="mcm-xC-2kR" firstAttribute="leading" secondItem="Odv-8x-KWY" secondAttribute="leading" id="age-ya-KwN"/>
+                                        <constraint firstItem="mcm-xC-2kR" firstAttribute="top" secondItem="Odv-8x-KWY" secondAttribute="bottom" constant="4" id="fP2-EJ-iwE"/>
+                                        <constraint firstAttribute="height" constant="80" id="pf4-Bi-vXZ"/>
+                                        <constraint firstItem="Odv-8x-KWY" firstAttribute="centerY" secondItem="K2d-rI-ZZo" secondAttribute="centerY" constant="-10" id="yoT-Uw-juG"/>
+                                    </constraints>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="cy2-zP-oag" secondAttribute="trailing" id="0GC-SC-D0C"/>
                                 <constraint firstItem="Rom-i9-OQo" firstAttribute="top" secondItem="cM7-T7-vdF" secondAttribute="bottom" id="2hf-VU-SaW"/>
+                                <constraint firstAttribute="trailing" secondItem="K2d-rI-ZZo" secondAttribute="trailing" id="5Fz-yk-a6U"/>
                                 <constraint firstItem="vhT-f2-Ubz" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" constant="28" id="6vI-2I-Ixf"/>
                                 <constraint firstAttribute="trailing" secondItem="PkR-Uv-Qbo" secondAttribute="trailing" id="7uD-MH-dIK"/>
                                 <constraint firstItem="PkR-Uv-Qbo" firstAttribute="top" secondItem="cy2-zP-oag" secondAttribute="bottom" id="9P7-bb-oz5"/>
                                 <constraint firstItem="cM7-T7-vdF" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="BAb-1W-0O4"/>
                                 <constraint firstItem="aqS-Qd-24T" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" constant="47" id="Dbd-Sd-UFx"/>
                                 <constraint firstItem="orZ-8J-iYq" firstAttribute="leading" secondItem="vhT-f2-Ubz" secondAttribute="leading" id="FdK-mw-zWZ"/>
-                                <constraint firstAttribute="bottom" secondItem="vBP-Xa-YQu" secondAttribute="bottom" constant="44" id="GUW-2d-AbL"/>
                                 <constraint firstItem="cy2-zP-oag" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="Hrt-z0-8wS"/>
                                 <constraint firstItem="tcI-rA-4I3" firstAttribute="top" secondItem="Rom-i9-OQo" secondAttribute="bottom" constant="48" id="Hu5-Tn-2Rs"/>
                                 <constraint firstItem="tcI-rA-4I3" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" constant="22" id="Izn-ul-vBH"/>
                                 <constraint firstItem="aqS-Qd-24T" firstAttribute="centerX" secondItem="K9e-04-dFs" secondAttribute="centerX" id="J41-nc-8B6"/>
+                                <constraint firstAttribute="bottom" secondItem="vBP-Xa-YQu" secondAttribute="bottom" id="LV4-yU-rdC"/>
                                 <constraint firstItem="43q-Sm-gnx" firstAttribute="leading" secondItem="orZ-8J-iYq" secondAttribute="leading" id="M90-24-84X"/>
                                 <constraint firstItem="PkR-Uv-Qbo" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="Q1N-Vx-F1h"/>
                                 <constraint firstAttribute="trailing" secondItem="Rom-i9-OQo" secondAttribute="trailing" id="QJ7-LV-tNf"/>
+                                <constraint firstAttribute="trailing" secondItem="vBP-Xa-YQu" secondAttribute="trailing" id="R35-Ze-zM7"/>
                                 <constraint firstItem="43q-Sm-gnx" firstAttribute="trailing" secondItem="orZ-8J-iYq" secondAttribute="trailing" id="R87-Cv-gfY"/>
                                 <constraint firstAttribute="trailing" secondItem="cM7-T7-vdF" secondAttribute="trailing" id="S0C-3h-3fo"/>
                                 <constraint firstItem="cM7-T7-vdF" firstAttribute="top" secondItem="K9e-04-dFs" secondAttribute="top" id="Tdi-xW-i0Q"/>
                                 <constraint firstItem="orZ-8J-iYq" firstAttribute="top" secondItem="vhT-f2-Ubz" secondAttribute="bottom" constant="40" id="V4x-Gy-Phn"/>
-                                <constraint firstItem="vBP-Xa-YQu" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="XCm-lb-u75"/>
-                                <constraint firstItem="vBP-Xa-YQu" firstAttribute="top" secondItem="PkR-Uv-Qbo" secondAttribute="bottom" id="ZlS-hD-MwI"/>
+                                <constraint firstItem="yhN-yZ-PHi" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="WVA-Ev-16y"/>
+                                <constraint firstItem="yhN-yZ-PHi" firstAttribute="top" secondItem="KvV-oC-1dS" secondAttribute="bottom" id="WlQ-On-pls"/>
+                                <constraint firstItem="vBP-Xa-YQu" firstAttribute="top" secondItem="K2d-rI-ZZo" secondAttribute="bottom" id="aPL-Ae-z8u"/>
+                                <constraint firstAttribute="trailing" secondItem="yhN-yZ-PHi" secondAttribute="trailing" id="bWe-Ch-x4l"/>
                                 <constraint firstAttribute="trailing" secondItem="orZ-8J-iYq" secondAttribute="trailing" constant="16" id="f05-tE-GNQ"/>
+                                <constraint firstAttribute="trailing" secondItem="KvV-oC-1dS" secondAttribute="trailing" id="hWT-bH-mgn"/>
+                                <constraint firstItem="vBP-Xa-YQu" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="hg3-6I-Ykz"/>
                                 <constraint firstItem="43q-Sm-gnx" firstAttribute="top" secondItem="orZ-8J-iYq" secondAttribute="bottom" constant="36" id="jYN-2d-kFS"/>
+                                <constraint firstItem="KvV-oC-1dS" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="jh0-Tj-dRR"/>
                                 <constraint firstItem="aqS-Qd-24T" firstAttribute="top" secondItem="K9e-04-dFs" secondAttribute="top" constant="110" id="o9W-FN-hdg"/>
+                                <constraint firstItem="KvV-oC-1dS" firstAttribute="top" secondItem="PkR-Uv-Qbo" secondAttribute="bottom" id="pku-c3-odf"/>
+                                <constraint firstItem="K2d-rI-ZZo" firstAttribute="top" secondItem="yhN-yZ-PHi" secondAttribute="bottom" id="qex-xL-vkk"/>
                                 <constraint firstItem="Rom-i9-OQo" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="sUJ-Xf-bfl"/>
+                                <constraint firstItem="K2d-rI-ZZo" firstAttribute="leading" secondItem="K9e-04-dFs" secondAttribute="leading" id="t2H-aZ-A1O"/>
                                 <constraint firstItem="vhT-f2-Ubz" firstAttribute="top" secondItem="aqS-Qd-24T" secondAttribute="bottom" constant="88" id="tEV-Vl-y6U"/>
                                 <constraint firstItem="cy2-zP-oag" firstAttribute="top" secondItem="tcI-rA-4I3" secondAttribute="bottom" constant="16" id="wKa-yk-Seo"/>
-                                <constraint firstAttribute="trailing" secondItem="vBP-Xa-YQu" secondAttribute="trailing" id="yEL-dx-AIF"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -160,10 +303,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cZV-ej-04z" secondAttribute="trailing" id="q37-vO-rtb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="8.6956521739130448" y="126.22767857142857"/>
+            <point key="canvasLocation" x="8.6956521739130448" y="167.74553571428569"/>
         </view>
     </objects>
     <resources>
+        <image name="icon_goto" width="16" height="16"/>
         <image name="logo" width="280" height="135.5"/>
         <image name="wishplanetbackground" width="375" height="588"/>
         <systemColor name="systemBackgroundColor">
