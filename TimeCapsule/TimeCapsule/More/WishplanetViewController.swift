@@ -9,6 +9,8 @@ import UIKit
 
 class WishplanetViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
     @IBOutlet weak var container1: UIView!
@@ -21,6 +23,7 @@ class WishplanetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         setupUI()
     }
     
@@ -55,4 +58,9 @@ class WishplanetViewController: UIViewController {
     }
     
 
+}
+extension WishplanetViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.bounces = scrollView.contentOffset.y > 0
+    }
 }

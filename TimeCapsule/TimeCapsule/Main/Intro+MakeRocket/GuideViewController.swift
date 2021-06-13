@@ -21,6 +21,7 @@ class GuideViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        scrollView.delegate = self
     }
     
     fileprivate func setupUI() {
@@ -43,6 +44,10 @@ class GuideViewController: UIViewController {
         }
         
     }
-    
+}
 
+extension GuideViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.bounces = scrollView.contentOffset.y > 0
+    }
 }

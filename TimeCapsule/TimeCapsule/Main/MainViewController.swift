@@ -299,10 +299,8 @@ class MainViewController: UIViewController {
         self.fireView.layer.zPosition = 1
         self.fireView.isHidden = true
         
-        let nextVC = EndPopUpViewController()
+        let nextVC = EndPopUpViewController(dday: self.dayCountLabel.text ?? "D-DAY", dateString: self.targetDate ?? "", rocketID: self.rocketID ?? 0)
         nextVC.delegate = self
-        nextVC.dateString = self.targetDate
-        nextVC.rocketID = self.rocketID
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         self.present(nextVC, animated: true, completion: nil)

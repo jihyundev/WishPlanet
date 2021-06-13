@@ -28,6 +28,7 @@
                 <outlet property="container5" destination="K2d-rI-ZZo" id="skQ-o6-TRR"/>
                 <outlet property="descLabel" destination="orZ-8J-iYq" id="lQ3-sn-5ux"/>
                 <outlet property="opensourceView" destination="vBP-Xa-YQu" id="03m-cF-Eej"/>
+                <outlet property="scrollView" destination="cZV-ej-04z" id="YXo-nn-MoR"/>
                 <outlet property="subLabel" destination="43q-Sm-gnx" id="uuh-1Z-J7T"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

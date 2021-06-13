@@ -8,16 +8,31 @@
 import UIKit
 
 class EndPopUpViewController: UIViewController {
+    
+    let dataManager = MainDataManager()
+    let dday: String
+    let dateString: String
+    let rocketID: Int
+    
+    weak var delegate: ReloadDelegate?
+    
+    init(dday: String, dateString: String, rocketID: Int) {
+        self.dday = dday
+        self.dateString = dateString
+        self.rocketID = rocketID
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var ddayLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var completionButton: UIButton!
     
-    weak var delegate: ReloadDelegate?
-    var dateString: String?
-    var rocketID: Int?
-    let dataManager = MainDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +43,7 @@ class EndPopUpViewController: UIViewController {
     }
     
     @IBAction func completionButtonTapped(_ sender: Any) {
-        guard let id = rocketID else { return }
-        dataManager.patchRocketLaunch(rocketID: id, viewController: self)
+        dataManager.patchRocketLaunch(rocketID: rocketID, viewController: self)
     }
     
     func setupUI() {
@@ -37,13 +51,12 @@ class EndPopUpViewController: UIViewController {
         containerView.borderWidth = 4
         containerView.borderColor = .black
         
+        ddayLabel.text = dday
         ddayLabel.textColor = UIColor.mainPurple
         ddayLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 12)
         
-        if let date = self.dateString {
-            dateLabel.text = date
-            dateLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 14)
-        }
+        dateLabel.text = dateString
+        dateLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 14)
         
         completionButton.layer.cornerRadius = 12
         completionButton.backgroundColor = UIColor.mainPurple
