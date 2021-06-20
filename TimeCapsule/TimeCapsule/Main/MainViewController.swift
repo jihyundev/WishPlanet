@@ -102,8 +102,7 @@ class MainViewController: UIViewController {
         return animView
     }()
     
-        
-    
+    // MARK: -생명주기 관리
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.getRocket(viewController: self)
@@ -123,6 +122,7 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    // MARK: -IBAction 메소드
     @IBAction func myPageButtonTapped(_ sender: Any) {
         let mypageVC = MyPageViewController()
         self.navigationController?.pushViewController(mypageVC, animated: true)
@@ -141,6 +141,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: -UI 셋업 관련 메소드
     func setupUI() {
         rocketLaunchFlag = false
         rocketListFlag = false
@@ -167,7 +168,6 @@ class MainViewController: UIViewController {
     }
     
     func prepareRocket() {
-        
         view.addSubview(rocketImageView)
         rocketImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
@@ -220,6 +220,7 @@ class MainViewController: UIViewController {
         skView.presentScene(scene)
     }
     
+    // MARK: -데이터 관리
     func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int) {
         rocketImageView.isHidden = false
         rocketBottomImageView.isHidden = false
@@ -307,7 +308,7 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func rocketListButtonTapped() {
-        let vc = CompletedRocketViewController()
+        let vc = CompletedRocketsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

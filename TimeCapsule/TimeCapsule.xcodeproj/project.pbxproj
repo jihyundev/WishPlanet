@@ -16,8 +16,6 @@
 		2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770925FB5E55004366E4 /* NicknameViewController.xib */; };
 		25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */; };
 		25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */; };
-		25437B6E25FC425000F3C8EF /* CapsuleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6C25FC425000F3C8EF /* CapsuleInfo.swift */; };
-		25437B6F25FC425000F3C8EF /* Marbles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6D25FC425000F3C8EF /* Marbles.swift */; };
 		5921F98825FBC7D700D097B4 /* Gaegu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */; };
 		5921F98925FBC7D700D097B4 /* Gaegu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */; };
 		5921F98A25FBC7D700D097B4 /* Gaegu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98725FBC7D700D097B4 /* Gaegu-Light.ttf */; };
@@ -55,6 +53,10 @@
 		596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */; };
 		596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */; };
 		596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF4266C632500328E8B /* MyRocketDataManager.swift */; };
+		5990E2AE267ED7D500178E8C /* CompletedRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */; };
+		5990E2AF267ED7D500178E8C /* CompletedRocketsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */; };
+		5990E2B1267ED94100178E8C /* RocketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */; };
+		5990E2B5267F85EA00178E8C /* CompletedRocketsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2B4267F85EA00178E8C /* CompletedRocketsDataManager.swift */; };
 		5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997196C26456C8E008E88EA /* GuideViewController.swift */; };
 		5997196F26456C8E008E88EA /* GuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997196D26456C8E008E88EA /* GuideViewController.xib */; };
 		5997197226457AB0008E88EA /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197126457AB0008E88EA /* UILabel.swift */; };
@@ -138,8 +140,6 @@
 		2520770925FB5E55004366E4 /* NicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameViewController.xib; sourceTree = "<group>"; };
 		25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPopUpViewController.swift; sourceTree = "<group>"; };
 		25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndPopUpViewController.xib; sourceTree = "<group>"; };
-		25437B6C25FC425000F3C8EF /* CapsuleInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleInfo.swift; sourceTree = "<group>"; };
-		25437B6D25FC425000F3C8EF /* Marbles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marbles.swift; sourceTree = "<group>"; };
 		5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Regular.ttf"; sourceTree = "<group>"; };
 		5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Bold.ttf"; sourceTree = "<group>"; };
 		5921F98725FBC7D700D097B4 /* Gaegu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Light.ttf"; sourceTree = "<group>"; };
@@ -177,6 +177,10 @@
 		596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRocketEditViewController.xib; sourceTree = "<group>"; };
 		596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketEditDataManager.swift; sourceTree = "<group>"; };
 		596A1CF4266C632500328E8B /* MyRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketDataManager.swift; sourceTree = "<group>"; };
+		5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketsViewController.swift; sourceTree = "<group>"; };
+		5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketsViewController.xib; sourceTree = "<group>"; };
+		5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCollectionViewCell.swift; sourceTree = "<group>"; };
+		5990E2B4267F85EA00178E8C /* CompletedRocketsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketsDataManager.swift; sourceTree = "<group>"; };
 		5997196C26456C8E008E88EA /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		5997196D26456C8E008E88EA /* GuideViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideViewController.xib; sourceTree = "<group>"; };
 		5997197126457AB0008E88EA /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -412,11 +416,28 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		5990E2B2267EDC5000178E8C /* CompletedRockets */ = {
+			isa = PBXGroup;
+			children = (
+				5990E2B3267F85C800178E8C /* DataManager */,
+				5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */,
+				5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */,
+				5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */,
+			);
+			path = CompletedRockets;
+			sourceTree = "<group>";
+		};
+		5990E2B3267F85C800178E8C /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				5990E2B4267F85EA00178E8C /* CompletedRocketsDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				25437B6C25FC425000F3C8EF /* CapsuleInfo.swift */,
-				25437B6D25FC425000F3C8EF /* Marbles.swift */,
 				592A095B263C474700BA3926 /* GetRocketsResponse.swift */,
 				592A095E263C489600BA3926 /* GetStonesResponse.swift */,
 			);
@@ -434,6 +455,7 @@
 		59BD6032262C6B7F009B4DE6 /* Completed */ = {
 			isa = PBXGroup;
 			children = (
+				5990E2B2267EDC5000178E8C /* CompletedRockets */,
 				59BD6033262C6CF3009B4DE6 /* CompletedRocketViewController.swift */,
 				59BD6034262C6CF3009B4DE6 /* CompletedRocketViewController.xib */,
 				59BD6040262C6D06009B4DE6 /* CompletedListViewController.swift */,
@@ -762,6 +784,7 @@
 			files = (
 				596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */,
 				59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */,
+				5990E2AF267ED7D500178E8C /* CompletedRocketsViewController.xib in Resources */,
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
 				59D5474425FBB5FF004763B4 /* FinishedListCell.xib in Resources */,
@@ -888,6 +911,7 @@
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
 				59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */,
+				5990E2B1267ED94100178E8C /* RocketCollectionViewCell.swift in Sources */,
 				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,
 				5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */,
 				595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */,
@@ -905,6 +929,7 @@
 				59D5474325FBB5FF004763B4 /* FinishedListCell.swift in Sources */,
 				59E1B03D25FC55B800B46A4A /* WishlistDataManager.swift in Sources */,
 				59E9725B25FB777D008A7EF9 /* WishlistViewController.swift in Sources */,
+				5990E2AE267ED7D500178E8C /* CompletedRocketsViewController.swift in Sources */,
 				593D807926668577002DE3D8 /* MyRocket.swift in Sources */,
 				59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */,
 				59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */,
@@ -924,11 +949,10 @@
 				59B930EC2663118D00AD8564 /* LoginResponse.swift in Sources */,
 				2516E84225FB890E00ADD135 /* URLType.swift in Sources */,
 				59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */,
-				25437B6F25FC425000F3C8EF /* Marbles.swift in Sources */,
+				5990E2B5267F85EA00178E8C /* CompletedRocketsDataManager.swift in Sources */,
 				592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */,
 				2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */,
 				5997197226457AB0008E88EA /* UILabel.swift in Sources */,
-				25437B6E25FC425000F3C8EF /* CapsuleInfo.swift in Sources */,
 				59E9721525FB1581008A7EF9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

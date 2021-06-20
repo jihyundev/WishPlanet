@@ -28,3 +28,8 @@ struct StoneColorCount: Codable {
     let stoneColor, stoneCount: Int
 }
 
+enum RocketScope: String {
+    case AWAITING = "AWAITING"
+    case LAUNCHED = "LAUNCHED"
+    case TOTAL = "TOTAL"
+}
