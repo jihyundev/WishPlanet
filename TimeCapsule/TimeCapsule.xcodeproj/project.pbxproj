@@ -419,6 +419,7 @@
 		5990E2B2267EDC5000178E8C /* CompletedRockets */ = {
 			isa = PBXGroup;
 			children = (
+				5990E2B6267F8A7700178E8C /* Entity */,
 				5990E2B3267F85C800178E8C /* DataManager */,
 				5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */,
 				5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */,
@@ -433,6 +434,13 @@
 				5990E2B4267F85EA00178E8C /* CompletedRocketsDataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		5990E2B6267F8A7700178E8C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		59BD602F262C6AD8009B4DE6 /* Entity */ = {

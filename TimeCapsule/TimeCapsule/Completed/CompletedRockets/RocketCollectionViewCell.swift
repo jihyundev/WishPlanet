@@ -9,14 +9,29 @@ import UIKit
 
 class RocketCollectionViewCell: UICollectionViewCell {
     
-    var color: Int?
+    var color: Int = 0
     
+    // 로켓 top 이미지
     lazy var rocketImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "rocket_top_0"))
+        let imageView = UIImageView(image: UIImage(named: "rocket_top_fire_\(color)"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    // 로켓 바닥 이미지
+    let rocketBottomImageView: UIImageView = {
+       let view = UIImageView(image: UIImage(named: "rocket_bottom"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    // 로켓 그림자 이미지
+    let shadowView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "shadow"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -27,18 +42,33 @@ class RocketCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        let topImageContainerView = UIView()
-        addSubview(topImageContainerView)
-        topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-        topImageContainerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        topImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        topImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        topImageContainerView.addSubview(rocketImageView)
+        contentView.addSubview(rocketImageView)
+        rocketImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 22).isActive = true
+        rocketImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        rocketImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        rocketImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        rocketImageView.contentMode = .scaleAspectFit
+        print(rocketImageView.frame.size)
+        rocketImageView.layer.zPosition = 2
         
-        rocketImageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
-        rocketImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
-        rocketImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
+        contentView.addSubview(rocketBottomImageView)
+        rocketBottomImageView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor).isActive = true
+        rocketBottomImageView.trailingAnchor.constraint(equalTo: rocketImageView.trailingAnchor).isActive = true
+        rocketBottomImageView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 0.2926).isActive = true
+        rocketBottomImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        rocketBottomImageView.contentMode = .scaleAspectFit
+        rocketBottomImageView.layer.zPosition = 0
         
-        topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        contentView.addSubview(shadowView)
+        shadowView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        shadowView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor).isActive = true
+        shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        shadowView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 160/752).isActive = true
+        shadowView.contentMode = .scaleAspectFit
+        shadowView.layer.zPosition = 1
+    }
+    
+    func configure(color: Int) {
+        rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
     }
 }

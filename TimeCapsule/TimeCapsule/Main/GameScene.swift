@@ -9,6 +9,9 @@ import SpriteKit
 import CoreMotion
 
 class GameScene: SKScene {
+    
+    static var sharedInstance = GameScene()
+    
     struct PhysicsCategory {
         static let none: UInt32 = 0
         static let all: UInt32 = UInt32.max
@@ -16,16 +19,19 @@ class GameScene: SKScene {
         static let tile: UInt32 = 0b10 // 2
     }
     
+    let manager = CMMotionManager()
+    let bodySize: CGFloat = 15
+    
     var index: Int = 0
     var currentItemCount: Int = 0
     var marbles: [Int] = []
-    let manager = CMMotionManager()
-    let bodySize: CGFloat = 15
+    var actionFlag: Bool = true
+    
     lazy var x: CGFloat = (-bodySize * 2)
     lazy var y: CGFloat = bodySize * 2
     
     override func didMove(to view: SKView) {
-        print(currentItemCount, marbles)
+        //print(currentItemCount, marbles)
         if currentItemCount>0 {
             for i in 0..<currentItemCount {
                 createTile(count: i, index: marbles[i])
@@ -42,7 +48,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-     
+        
     }
     
     
@@ -69,7 +75,6 @@ class GameScene: SKScene {
         tile.physicsBody?.usesPreciseCollisionDetection = true
         
         addChild(tile)
-        
     }
     
     func createWall() {

@@ -7,10 +7,17 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompletedRocketsViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="yFe-F4-opw" id="olb-If-Kmd"/>
+                <outlet property="periodLabel" destination="iUL-YD-ES5" id="tfm-is-Aba"/>
+                <outlet property="rocketLabel" destination="1si-Oh-wb2" id="ZyA-bm-vIM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +33,7 @@
                     </constraints>
                 </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-F4-opw">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vY6-3j-t7T">
@@ -36,16 +43,32 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.01.08 ~ 2022.01.07 365일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUL-YD-ES5">
+                    <rect key="frame" x="22" y="97" width="190" height="16"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시님의 우주선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1si-Oh-wb2">
+                    <rect key="frame" x="22" y="117" width="161" height="29"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="yFe-F4-opw" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="15x-P9-ZT9"/>
-                <constraint firstItem="yFe-F4-opw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ikf-5i-Xei"/>
+                <constraint firstItem="iUL-YD-ES5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="1Uq-x7-Bsr"/>
+                <constraint firstItem="iUL-YD-ES5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="7XY-Dk-gNe"/>
+                <constraint firstItem="yFe-F4-opw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ikf-5i-Xei"/>
+                <constraint firstItem="1si-Oh-wb2" firstAttribute="leading" secondItem="iUL-YD-ES5" secondAttribute="leading" id="N03-3B-AgV"/>
                 <constraint firstItem="2ax-8g-Ze1" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="VLo-Eq-kxe"/>
                 <constraint firstItem="2ax-8g-Ze1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dtA-dL-HS5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yFe-F4-opw" secondAttribute="trailing" id="g0x-x4-jLQ"/>
                 <constraint firstItem="yFe-F4-opw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gkG-wi-zda"/>
+                <constraint firstItem="1si-Oh-wb2" firstAttribute="top" secondItem="iUL-YD-ES5" secondAttribute="bottom" constant="4" id="wzw-mB-mJO"/>
                 <constraint firstItem="2ax-8g-Ze1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xBi-mF-UkD"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

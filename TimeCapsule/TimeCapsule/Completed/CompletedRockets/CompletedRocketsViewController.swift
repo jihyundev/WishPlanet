@@ -10,21 +10,55 @@ import UIKit
 class CompletedRocketsViewController: UIViewController {
     
     private let cellIdentifier = "RocketCollectionViewCell"
-    private var rockets: [GetRocketsResponse]? = []
+    let dataManager = CompletedRocketsDataManager()
+    var rockets: [GetRocketsResponse]? = []
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var periodLabel: UILabel!
+    @IBOutlet weak var rocketLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .clear
-        collectionView.isPagingEnabled = true
+        dataManager.getCompletedRockets(viewController: self)
+        setupUI()
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(RocketCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
     
-    func didRetrieveData() {
+    override func viewWillAppear(_ animated: Bool) {
+        setNavBar()
+    }
+    
+    private func setNavBar() {
+        self.navigationController?.navigationBar.isTransparent = true
+        self.navigationController?.navigationBar.tintColor = .white
         
+        let backButtonBackgroundImage = UIImage(named: "navigation_bar")
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonBackgroundImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+        
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButton
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = UIColor(hex: 0x7DB1FF)
+        collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
+        let barButtonAppearance = UIBarButtonItem.appearance()
+        barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -30), for: .default)
+        
+        periodLabel.text = ""
+        rocketLabel.text = ""
+    }
+    
+    func didRetrieveData(rockets: [GetRocketsResponse]) {
+        self.rockets = rockets
+        collectionView.reloadData()
+        periodLabel.text = "\(rockets[0].createdAt) ~ \(rockets[0].launchDate)"
+        rocketLabel.text = rockets[0].rocketName
     }
     
     func failedToRequest(message: String) {
@@ -34,22 +68,33 @@ class CompletedRocketsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension CompletedRocketsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-        //return rockets?.count ?? 0
+        return rockets?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(#function)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        cell.backgroundColor = .clear
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? RocketCollectionViewCell
+        if let rocket = rockets?[indexPath.item] {
+            cell?.configure(color: rocket.rocketColor)
+        }
+        cell?.backgroundColor = .clear
+        
+        return cell ?? UICollectionViewCell()
     }
+    
 }
 
 // MARK: UICollectionViewDelegate
 extension CompletedRocketsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("LOG - current index: \(indexPath.item)")
+    }
+    
+    // 스크롤할 때 해당 collection view의 인덱스 도출, label 변경
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
+        let periodText = "\(rockets?[pageIndex].createdAt ?? "") ~ \(rockets?[pageIndex].launchDate ?? "")"
+        periodLabel.text = periodText
+        rocketLabel.text = rockets?[pageIndex].rocketName
     }
 }
 

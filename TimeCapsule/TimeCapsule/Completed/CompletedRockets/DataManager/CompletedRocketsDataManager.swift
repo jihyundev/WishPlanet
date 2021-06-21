@@ -20,20 +20,11 @@ class CompletedRocketsDataManager {
         let url = URLType.rocket.makeURL + "?scope=LAUNCHED&stoneColorCount=true"
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
-            
             switch response.result {
             case .success(let response):
                 print(response)
                 if response.count > 0 {
-                    let rocket = response[0]
-                    var stones: [Int] = []
-                    if let stoneList = rocket.stoneColorCount {
-                        for i in 0..<stoneList.count {
-                            for _ in 0..<stoneList[i].stoneCount {
-                                stones.append(stoneList[i].stoneColor)
-                            }
-                        }
-                    }
+                    viewController.didRetrieveData(rockets: response)
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
                 }

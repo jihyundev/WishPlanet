@@ -106,7 +106,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.getRocket(viewController: self)
-        backImageView.contentMode = .scaleAspectFill
         prepareRocket()
         setupUI()
     }
@@ -115,11 +114,19 @@ class MainViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isTransparent = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        if let view = self.gameView as? SKView {
+            view.scene?.isPaused = false
+            print("LOG - Unpausing the SKScene...")
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        if let view = self.gameView as? SKView {
+            view.scene?.isPaused = true
+            print("LOG - Pausing the SKScene...")
+        }
     }
     
     // MARK: -IBAction 메소드
@@ -164,7 +171,7 @@ class MainViewController: UIViewController {
         rocketListButton.addTarget(self, action: #selector(rocketListButtonTapped), for: .touchUpInside)
         
         nameLabel.layer.zPosition = 9
-        
+        backImageView.contentMode = .scaleAspectFill
     }
     
     func prepareRocket() {
@@ -234,6 +241,7 @@ class MainViewController: UIViewController {
         self.rocketImageView.image = UIImage(named: "rocket_top_\(self.rocketColor ?? 0)")
         self.targetDate = launchDate
         self.currentItems = self.stones.count
+        
         self.makeGameScene()
         self.countLabel.text = "\(self.stones.count) / 21"
         
@@ -323,8 +331,8 @@ extension MainViewController: ReloadDelegate {
     }
     
     func reloadView() {
-        let skView = self.gameView as! SKView
-        skView.scene?.removeFromParent()
+        //let skView = self.gameView as! SKView
+        //skView.scene?.removeFromParent()
         dataManager.getRocket(viewController: self)
     }
      
