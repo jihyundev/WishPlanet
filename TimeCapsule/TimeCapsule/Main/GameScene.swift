@@ -22,7 +22,7 @@ class GameScene: SKScene {
     let manager = CMMotionManager()
     let bodySize: CGFloat = 15
     
-    var index: Int = 0
+    //var index: Int = 0
     var currentItemCount: Int = 0
     var marbles: [Int] = []
     var actionFlag: Bool = true

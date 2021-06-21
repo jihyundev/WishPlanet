@@ -115,7 +115,6 @@ class CompletedRocketViewController: UIViewController {
         let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView!
         scene.currentItemCount = currentItems
-        scene.index = index
         scene.marbles = stones
         
         scene.backgroundColor = .clear

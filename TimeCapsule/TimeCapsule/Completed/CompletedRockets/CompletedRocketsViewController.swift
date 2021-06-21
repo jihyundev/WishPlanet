@@ -74,7 +74,15 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? RocketCollectionViewCell
         if let rocket = rockets?[indexPath.item] {
-            cell?.configure(color: rocket.rocketColor)
+            var stones: [Int] = []
+            if let stoneList = rocket.stoneColorCount {
+                for i in 0..<stoneList.count {
+                    for _ in 0..<stoneList[i].stoneCount {
+                        stones.append(stoneList[i].stoneColor)
+                    }
+                }
+            }
+            cell?.configure(color: rocket.rocketColor, currentItems: stones.count, stones: stones)
         }
         cell?.backgroundColor = .clear
         

@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import SpriteKit
 
 class RocketCollectionViewCell: UICollectionViewCell {
     
-    var color: Int = 0
+    var rocketColor: Int = 0 // 로켓 색상
+    var currentItems: Int = 0 // 소원석 개수
+    var stones: [Int] = []
     
     // 로켓 top 이미지
     lazy var rocketImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "rocket_top_fire_\(color)"))
+        let imageView = UIImageView(image: UIImage(named: "rocket_top_fire_\(rocketColor)"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -28,6 +31,14 @@ class RocketCollectionViewCell: UICollectionViewCell {
     // 로켓 그림자 이미지
     let shadowView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "shadow"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    // 로켓 내부 Game View
+    let gameView: SKView = {
+        let view = SKView()
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -66,9 +77,31 @@ class RocketCollectionViewCell: UICollectionViewCell {
         shadowView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 160/752).isActive = true
         shadowView.contentMode = .scaleAspectFit
         shadowView.layer.zPosition = 1
+        
+        contentView.addSubview(gameView)
+        gameView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        gameView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        gameView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 218/752).isActive = true
+        gameView.widthAnchor.constraint(equalTo: gameView.heightAnchor, multiplier: 20/21).isActive = true
+        gameView.layer.zPosition = 1
     }
     
-    func configure(color: Int) {
+    func makeGameScene() {
+        let scene = GameScene(size: self.gameView.bounds.size)
+        let skView = self.gameView as SKView
+        scene.currentItemCount = currentItems
+        scene.marbles = stones
+        
+        scene.backgroundColor = .clear
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .aspectFit
+        skView.presentScene(scene)
+    }
+    
+    func configure(color: Int, currentItems: Int, stones: [Int]) {
         rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
+        self.currentItems = currentItems
+        self.stones = stones
+        makeGameScene()
     }
 }

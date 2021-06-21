@@ -32,8 +32,7 @@ class MainViewController: UIViewController {
         return dateformatter
     }()
     
-    var currentItems: Int = 0
-    var index: Int = 0
+    var currentItems: Int = 0 // stone 개수
     var stones: [Int] = []
     var rocketLaunchFlag = false { // 로켓 발사 여부 flag
         didSet {
@@ -218,7 +217,6 @@ class MainViewController: UIViewController {
         let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as! SKView
         scene.currentItemCount = currentItems
-        scene.index = index
         scene.marbles = stones
         
         scene.backgroundColor = .clear

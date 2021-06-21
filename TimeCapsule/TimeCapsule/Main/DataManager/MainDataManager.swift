@@ -22,7 +22,6 @@ class MainDataManager {
             
             switch response.result {
             case .success(let response):
-                print(response)
                 if response.count > 0 {
                     let rocket = response[0]
                     var stones: [Int] = []
