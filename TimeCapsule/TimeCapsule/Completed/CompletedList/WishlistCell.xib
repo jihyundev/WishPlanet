@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,16 +20,20 @@
                         <rect key="frame" x="21" y="4" width="297" height="90"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_dol_1" translatesAutoresizingMaskIntoConstraints="NO" id="f4n-gJ-4Wd">
-                                <rect key="frame" x="19.5" y="20" width="50" height="50"/>
+                                <rect key="frame" x="8" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HCN-yY-TPT"/>
+                                    <constraint firstAttribute="width" constant="50" id="K6I-wt-5bd"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.3.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZq-ru-P1B">
-                                <rect key="frame" x="80" y="13" width="54.5" height="14.5"/>
+                                <rect key="frame" x="62" y="18" width="54.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="워터파크 가고싶다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-eW-jKY">
-                                <rect key="frame" x="80" y="37.5" width="129.5" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="워터파크 가고싶다" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-eW-jKY">
+                                <rect key="frame" x="62" y="32.5" width="225" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,12 +41,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93726116420000005" green="0.93724352119999998" blue="0.93725550170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="f4n-gJ-4Wd" firstAttribute="leading" secondItem="sVG-Ed-b2s" secondAttribute="leading" constant="19.300000000000001" id="4Bs-Gx-xhA"/>
-                            <constraint firstItem="hgp-eW-jKY" firstAttribute="top" secondItem="XZq-ru-P1B" secondAttribute="bottom" constant="10" id="69w-hB-2yc"/>
-                            <constraint firstItem="XZq-ru-P1B" firstAttribute="leading" secondItem="sVG-Ed-b2s" secondAttribute="leading" constant="80" id="WHd-cl-Ebz"/>
+                            <constraint firstItem="XZq-ru-P1B" firstAttribute="leading" secondItem="f4n-gJ-4Wd" secondAttribute="trailing" constant="4" id="0yb-bI-K0E"/>
+                            <constraint firstItem="hgp-eW-jKY" firstAttribute="top" secondItem="XZq-ru-P1B" secondAttribute="bottom" id="69w-hB-2yc"/>
+                            <constraint firstItem="f4n-gJ-4Wd" firstAttribute="leading" secondItem="sVG-Ed-b2s" secondAttribute="leading" constant="8" id="QLh-Jn-hXE"/>
                             <constraint firstItem="f4n-gJ-4Wd" firstAttribute="centerY" secondItem="sVG-Ed-b2s" secondAttribute="centerY" id="bqs-xt-rRj"/>
+                            <constraint firstAttribute="trailing" secondItem="hgp-eW-jKY" secondAttribute="trailing" constant="10" id="eNG-iK-Fwb"/>
                             <constraint firstItem="hgp-eW-jKY" firstAttribute="leading" secondItem="XZq-ru-P1B" secondAttribute="leading" id="v27-d5-kyz"/>
-                            <constraint firstItem="XZq-ru-P1B" firstAttribute="top" secondItem="sVG-Ed-b2s" secondAttribute="top" constant="13" id="v6S-Th-TRN"/>
+                            <constraint firstItem="XZq-ru-P1B" firstAttribute="top" secondItem="sVG-Ed-b2s" secondAttribute="top" constant="18" id="v6S-Th-TRN"/>
                         </constraints>
                     </view>
                 </subviews>

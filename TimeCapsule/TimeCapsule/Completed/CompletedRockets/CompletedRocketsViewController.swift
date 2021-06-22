@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PanModal
 
 class CompletedRocketsViewController: UIViewController {
     
@@ -95,6 +96,10 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
 extension CompletedRocketsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("LOG - current index: \(indexPath.item)")
+        print("LOG - rocketID: \(rockets?[indexPath.item].rocketID ?? 0)")
+        let listVC = CompletedListViewController(rocketID: rockets?[indexPath.item].rocketID ?? 0)
+        self.presentPanModal(listVC)
+        //self.present(listVC, animated: true, completion: nil)
     }
     
     // 스크롤할 때 해당 collection view의 인덱스 도출, label 변경

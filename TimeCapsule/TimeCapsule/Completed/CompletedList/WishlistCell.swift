@@ -18,13 +18,13 @@ class WishlistCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = #colorLiteral(red: 0.4529297948, green: 0.2904702425, blue: 1, alpha: 1)
-        mainBackgroundView.layer.cornerRadius = 8
+        self.backgroundColor = .mainPurple
+        mainBackgroundView.layer.cornerRadius = 16
         mainBackgroundView.layer.borderColor = UIColor.black.cgColor
         mainBackgroundView.layer.borderWidth = 3
         
-        dateLabel.font = .SpoqaHanSansNeo(.regular, size: 12)
-        wishLabel.font = .SpoqaHanSansNeo(.bold, size: 18)
+        dateLabel.font = .SpoqaHanSansNeo(.medium, size: 11)
+        wishLabel.font = .SpoqaHanSansNeo(.bold, size: 16)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
