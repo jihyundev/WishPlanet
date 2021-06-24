@@ -87,6 +87,7 @@ class RocketCollectionViewCell: UICollectionViewCell {
     }
     
     func makeGameScene() {
+        print("RocketCollectionViewCell - makeGameScene() called")
         let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as SKView
         scene.currentItemCount = currentItems
@@ -99,6 +100,7 @@ class RocketCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(color: Int, currentItems: Int, stones: [Int]) {
+        print("RocketCollectionViewCell - configure() called")
         rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
         self.currentItems = currentItems
         self.stones = stones

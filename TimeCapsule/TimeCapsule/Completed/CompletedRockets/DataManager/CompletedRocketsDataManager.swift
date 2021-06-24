@@ -36,8 +36,4 @@ class CompletedRocketsDataManager {
         }
     }
     
-    // 소원석 목록 조회
-    func getRocketStones() {
-        
-    }
 }

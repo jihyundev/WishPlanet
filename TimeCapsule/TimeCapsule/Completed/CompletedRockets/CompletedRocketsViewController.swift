@@ -99,7 +99,6 @@ extension CompletedRocketsViewController: UICollectionViewDelegate {
         print("LOG - rocketID: \(rockets?[indexPath.item].rocketID ?? 0)")
         let listVC = CompletedListViewController(rocketID: rockets?[indexPath.item].rocketID ?? 0)
         self.presentPanModal(listVC)
-        //self.present(listVC, animated: true, completion: nil)
     }
     
     // 스크롤할 때 해당 collection view의 인덱스 도출, label 변경

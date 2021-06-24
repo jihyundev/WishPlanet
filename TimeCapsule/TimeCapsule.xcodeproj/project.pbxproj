@@ -30,6 +30,8 @@
 		592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A0956263C39E900BA3926 /* MyPageViewController.xib */; };
 		592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A095B263C474700BA3926 /* GetRocketsResponse.swift */; };
 		592A095F263C489600BA3926 /* GetStonesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A095E263C489600BA3926 /* GetStonesResponse.swift */; };
+		5931039E26833CD9005F2232 /* UncheckedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5931039C26833CD9005F2232 /* UncheckedListCell.swift */; };
+		5931039F26833CD9005F2232 /* UncheckedListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5931039D26833CD9005F2232 /* UncheckedListCell.xib */; };
 		593D80732666823E002DE3D8 /* LaunchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593D806F2666823E002DE3D8 /* LaunchedTableViewCell.swift */; };
 		593D80742666823E002DE3D8 /* CurrentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593D80702666823E002DE3D8 /* CurrentTableViewCell.swift */; };
 		593D80752666823E002DE3D8 /* CurrentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593D80712666823E002DE3D8 /* CurrentTableViewCell.xib */; };
@@ -86,6 +88,8 @@
 		59C686A72644155D006D9F3B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686A62644155D006D9F3B /* UITextField.swift */; };
 		59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */; };
 		59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D3A02652A60700A67DB1 /* MainDataManager.swift */; };
+		59E80A6B268420A800C63BDA /* CheckedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E80A69268420A800C63BDA /* CheckedListCell.swift */; };
+		59E80A6C268420A800C63BDA /* CheckedListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E80A6A268420A800C63BDA /* CheckedListCell.xib */; };
 		59E971AD25FB0007008A7EF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971AC25FB0007008A7EF9 /* AppDelegate.swift */; };
 		59E971AF25FB0007008A7EF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */; };
 		59E971B625FB000C008A7EF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E971B525FB000C008A7EF9 /* Assets.xcassets */; };
@@ -110,8 +114,6 @@
 		59E9721625FB1581008A7EF9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9721425FB1581008A7EF9 /* MainViewController.xib */; };
 		59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9722E25FB4377008A7EF9 /* UserDataManager.swift */; };
 		59E9723425FB4CE6008A7EF9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9723325FB4CE6008A7EF9 /* Keys.swift */; };
-		59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9726325FB7B13008A7EF9 /* WishlistCell.swift */; };
-		59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E9726425FB7B13008A7EF9 /* WishlistCell.xib */; };
 		59FED10526817E92004659A6 /* ListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FED10426817E92004659A6 /* ListDataManager.swift */; };
 		F0E0C21CF00377B604A32779 /* Pods_TimeCapsule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2289D2F06BEABFE9B4FBB6 /* Pods_TimeCapsule.framework */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,8 @@
 		592A0956263C39E900BA3926 /* MyPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageViewController.xib; sourceTree = "<group>"; };
 		592A095B263C474700BA3926 /* GetRocketsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRocketsResponse.swift; sourceTree = "<group>"; };
 		592A095E263C489600BA3926 /* GetStonesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStonesResponse.swift; sourceTree = "<group>"; };
+		5931039C26833CD9005F2232 /* UncheckedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncheckedListCell.swift; sourceTree = "<group>"; };
+		5931039D26833CD9005F2232 /* UncheckedListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UncheckedListCell.xib; sourceTree = "<group>"; };
 		593D806F2666823E002DE3D8 /* LaunchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchedTableViewCell.swift; sourceTree = "<group>"; };
 		593D80702666823E002DE3D8 /* CurrentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTableViewCell.swift; sourceTree = "<group>"; };
 		593D80712666823E002DE3D8 /* CurrentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentTableViewCell.xib; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 		59C86CDA266064C100C98A38 /* TimeCapsule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeCapsule.entitlements; sourceTree = "<group>"; };
 		59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRocketDataManager.swift; sourceTree = "<group>"; };
 		59E5D3A02652A60700A67DB1 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
+		59E80A69268420A800C63BDA /* CheckedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedListCell.swift; sourceTree = "<group>"; };
+		59E80A6A268420A800C63BDA /* CheckedListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckedListCell.xib; sourceTree = "<group>"; };
 		59E971A925FB0007008A7EF9 /* TimeCapsule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeCapsule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E971AC25FB0007008A7EF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,8 +229,6 @@
 		59E9721425FB1581008A7EF9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		59E9722E25FB4377008A7EF9 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		59E9723325FB4CE6008A7EF9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		59E9726325FB7B13008A7EF9 /* WishlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCell.swift; sourceTree = "<group>"; };
-		59E9726425FB7B13008A7EF9 /* WishlistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistCell.xib; sourceTree = "<group>"; };
 		59FED10426817E92004659A6 /* ListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataManager.swift; sourceTree = "<group>"; };
 		93F7264C0501EC697F9620A9 /* Pods-TimeCapsule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCapsule.debug.xcconfig"; path = "Target Support Files/Pods-TimeCapsule/Pods-TimeCapsule.debug.xcconfig"; sourceTree = "<group>"; };
 		B49921E902CEC8BEA144F303 /* Pods-TimeCapsule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeCapsule.release.xcconfig"; path = "Target Support Files/Pods-TimeCapsule/Pods-TimeCapsule.release.xcconfig"; sourceTree = "<group>"; };
@@ -651,8 +655,10 @@
 				59FED10326817E64004659A6 /* DataManager */,
 				59BD6040262C6D06009B4DE6 /* CompletedListViewController.swift */,
 				59BD6041262C6D06009B4DE6 /* CompletedListViewController.xib */,
-				59E9726325FB7B13008A7EF9 /* WishlistCell.swift */,
-				59E9726425FB7B13008A7EF9 /* WishlistCell.xib */,
+				5931039C26833CD9005F2232 /* UncheckedListCell.swift */,
+				5931039D26833CD9005F2232 /* UncheckedListCell.xib */,
+				59E80A69268420A800C63BDA /* CheckedListCell.swift */,
+				59E80A6A268420A800C63BDA /* CheckedListCell.xib */,
 			);
 			path = CompletedList;
 			sourceTree = "<group>";
@@ -752,7 +758,7 @@
 				59236AA92672F35000BA855C /* OpenSourceViewController.xib in Resources */,
 				595B807C2644275B00B4866D /* PrivacyPolicyViewController.xib in Resources */,
 				25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */,
-				59E9726625FB7B13008A7EF9 /* WishlistCell.xib in Resources */,
+				5931039F26833CD9005F2232 /* UncheckedListCell.xib in Resources */,
 				595B8081264427CA00B4866D /* LogoutViewController.xib in Resources */,
 				595B80902644CEE100B4866D /* LeaveViewController.xib in Resources */,
 				59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */,
@@ -773,6 +779,7 @@
 				5921F98D25FBC80200D097B4 /* Spoqa Han Sans Neo Bold.otf in Resources */,
 				5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */,
 				59E971E525FB003B008A7EF9 /* NotoSansCJKkr-Bold.otf in Resources */,
+				59E80A6C268420A800C63BDA /* CheckedListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +839,7 @@
 				596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */,
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */,
+				59E80A6B268420A800C63BDA /* CheckedListCell.swift in Sources */,
 				2516E83F25FB855200ADD135 /* GameScene.swift in Sources */,
 				59E971DB25FB003B008A7EF9 /* UIView.swift in Sources */,
 				252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */,
@@ -849,8 +857,8 @@
 				595B80852644362B00B4866D /* MoreDataManager.swift in Sources */,
 				595B809A26455AE600B4866D /* IntroViewController.swift in Sources */,
 				59E9723425FB4CE6008A7EF9 /* Keys.swift in Sources */,
+				5931039E26833CD9005F2232 /* UncheckedListCell.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
-				59E9726525FB7B13008A7EF9 /* WishlistCell.swift in Sources */,
 				59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */,
 				5990E2B1267ED94100178E8C /* RocketCollectionViewCell.swift in Sources */,
 				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,

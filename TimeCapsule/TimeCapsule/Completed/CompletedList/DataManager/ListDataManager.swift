@@ -13,6 +13,7 @@ class ListDataManager {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
+    // 소원석 리스트 GET
     func getStones(rocketID: Int, viewController: CompletedListViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
@@ -27,5 +28,23 @@ class ListDataManager {
             }
             
         }
+    }
+    
+    // 소원석 체크 PATCH
+    func patchStoneCheck(rocketID: Int, stoneID: Int, viewController: CompletedListViewController) {
+        guard let token = keychain.get(Keys.token) else { return }
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let url = URLType.stoneCheck(rocketID, stoneID).makeURL
+        AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate().responseString { response in
+                switch response.result {
+                case .success:
+                    print("success")
+                    viewController.successToCheckStone()
+                case .failure(let error):
+                    print(error)
+                    viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
+                }
+            }
     }
 }
