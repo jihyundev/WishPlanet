@@ -131,6 +131,47 @@ extension UIViewController {
         )
     }
     
+    // MARK: 커스텀 중앙 토스트 경고창
+    func presentCenterAlert(message: String) {
+        let alertSuperview = UIView()
+        alertSuperview.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        alertSuperview.layer.cornerRadius = 20
+        alertSuperview.isHidden = true
+        
+        let alertLabel = UILabel()
+        alertLabel.font = UIFont.SpoqaHanSansNeo(.medium, size: 12)
+        alertLabel.textColor = .white
+        
+        self.view.addSubview(alertSuperview)
+        alertSuperview.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(166)
+            make.height.equalTo(44)
+        }
+        
+        alertSuperview.addSubview(alertLabel)
+        alertLabel.snp.makeConstraints { make in
+            make.leading.equalTo(13)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        alertLabel.text = message
+        alertSuperview.alpha = 1.0
+        alertSuperview.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
+        alertSuperview.isHidden = false
+        UIView.animate(
+            withDuration: 2.0,
+            delay: 1.0,
+            options: .curveEaseIn,
+            animations: { alertSuperview.alpha = 0 },
+            completion: { _ in
+                alertSuperview.removeFromSuperview()
+            }
+        )
+    }
+    
     // MARK: 인디케이터 표시
     func showIndicator() {
         IndicatorView.shared.show()

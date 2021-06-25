@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompletedRocketsViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="yFe-F4-opw" id="olb-If-Kmd"/>
+                <outlet property="pageLabel" destination="2dd-0r-SKw" id="lQE-Xp-c8X"/>
                 <outlet property="periodLabel" destination="iUL-YD-ES5" id="tfm-is-Aba"/>
                 <outlet property="rocketLabel" destination="1si-Oh-wb2" id="ZyA-bm-vIM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -55,10 +56,22 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-0r-SKw">
+                    <rect key="frame" x="187" y="790" width="40" height="24"/>
+                    <color key="backgroundColor" red="0.70588235294117641" green="0.79346829649999995" blue="0.94903963800000002" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="bja-Fk-vgU"/>
+                        <constraint firstAttribute="width" constant="40" id="l3T-fB-v2L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="2dd-0r-SKw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0Ko-3I-EIY"/>
                 <constraint firstItem="yFe-F4-opw" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="15x-P9-ZT9"/>
                 <constraint firstItem="iUL-YD-ES5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="1Uq-x7-Bsr"/>
                 <constraint firstItem="iUL-YD-ES5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="7XY-Dk-gNe"/>
@@ -68,6 +81,7 @@
                 <constraint firstItem="2ax-8g-Ze1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dtA-dL-HS5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yFe-F4-opw" secondAttribute="trailing" id="g0x-x4-jLQ"/>
                 <constraint firstItem="yFe-F4-opw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gkG-wi-zda"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2dd-0r-SKw" secondAttribute="bottom" constant="48" id="wmW-YK-Y8D"/>
                 <constraint firstItem="1si-Oh-wb2" firstAttribute="top" secondItem="iUL-YD-ES5" secondAttribute="bottom" constant="4" id="wzw-mB-mJO"/>
                 <constraint firstItem="2ax-8g-Ze1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xBi-mF-UkD"/>
             </constraints>

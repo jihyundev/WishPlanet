@@ -11,12 +11,13 @@ import PanModal
 class CompletedRocketsViewController: UIViewController {
     
     private let cellIdentifier = "RocketCollectionViewCell"
-    let dataManager = CompletedRocketsDataManager()
+    private let dataManager = CompletedRocketsDataManager()
     var rockets: [GetRocketsResponse]? = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var rocketLabel: UILabel!
+    @IBOutlet weak var pageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,9 @@ class CompletedRocketsViewController: UIViewController {
         
         periodLabel.text = ""
         rocketLabel.text = ""
+        pageLabel.text = "1/1"
+        pageLabel.layer.masksToBounds = true
+        pageLabel.layer.cornerRadius = 12
     }
     
     func didRetrieveData(rockets: [GetRocketsResponse]) {
@@ -60,6 +64,8 @@ class CompletedRocketsViewController: UIViewController {
         collectionView.reloadData()
         periodLabel.text = "\(rockets[0].createdAt) ~ \(rockets[0].launchDate)"
         rocketLabel.text = rockets[0].rocketName
+        pageLabel.text = "1/\(rockets.count)"
+        self.presentCenterAlert(message: "누르면 내역을 볼 수 있어요!")
     }
     
     func failedToRequest(message: String) {
@@ -107,6 +113,7 @@ extension CompletedRocketsViewController: UICollectionViewDelegate {
         let periodText = "\(rockets?[pageIndex].createdAt ?? "") ~ \(rockets?[pageIndex].launchDate ?? "")"
         periodLabel.text = periodText
         rocketLabel.text = rockets?[pageIndex].rocketName
+        pageLabel.text = "\(pageIndex + 1)/\(rockets?.count ?? 1)"
     }
 }
 
