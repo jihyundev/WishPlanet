@@ -16,9 +16,12 @@ class CompletedRocketsDataManager {
     // 완료화면 우주선 리스트 조회
     func getCompletedRockets(viewController: CompletedRocketsViewController) {
         guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.rocket.makeURL
+        let parameters = ["scope": "LAUNCHED", "stoneColorCount": "true"]
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        let url = URLType.rocket.makeURL + "?scope=LAUNCHED&stoneColorCount=true"
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
             switch response.result {
             case .success(let response):

@@ -79,12 +79,10 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func fadeoutAnimate() {
-        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
-            self.rocketIcon.alpha = 0
-            self.appIcon.alpha = 0
-            self.descLabel.alpha = 0
-            self.appleLoginButton.alpha = 0
-            self.kakaoLoginButton.alpha = 0
+        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [weak self] in
+            [self?.rocketIcon, self?.appIcon, self?.descLabel, self?.appleLoginButton, self?.kakaoLoginButton].forEach {
+                $0?.alpha = 0
+            }
         }.startAnimation()
     }
 }
@@ -135,12 +133,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 
 extension LoginViewController: BacktoLoginDelegate {
     func fadeinAnimate() {
-        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
-            self.rocketIcon.alpha = 1
-            self.appIcon.alpha = 1
-            self.descLabel.alpha = 1
-            self.appleLoginButton.alpha = 1
-            self.kakaoLoginButton.alpha = 1
+        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [weak self] in
+            [self?.rocketIcon, self?.appIcon, self?.descLabel, self?.appleLoginButton, self?.kakaoLoginButton].forEach {
+                $0?.alpha = 1
+            }
         }.startAnimation()
     }
 }

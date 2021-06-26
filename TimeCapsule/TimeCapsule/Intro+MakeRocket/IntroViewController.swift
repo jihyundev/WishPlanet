@@ -49,19 +49,21 @@ class IntroViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        NotificationCenter.default
+            .removeObserver(self, name: Notification.Name("FadeInIntroVC"), object: nil)
     }
     
     fileprivate func setupUI() {
         self.navigationItem.title = ""
         mainLabel.setLineSpace(spacing: 5)
         mainLabel.text = "위시플래닛에 \n오신 걸 환영합니다!"
-        mainLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 26)
-        subLabel.font = UIFont.SpoqaHanSansNeo(.medium, size: 16)
+        mainLabel.font = .SpoqaHanSansNeo(.bold, size: 26)
+        subLabel.font = .SpoqaHanSansNeo(.medium, size: 16)
         guideButton.layer.cornerRadius = 12
-        guideButton.backgroundColor = UIColor.graphic.withAlphaComponent(0.5)
+        guideButton.backgroundColor = .graphic.withAlphaComponent(0.5)
         guideButton.setTitle("가이드보기", for: .normal)
         guideButton.setTitleColor(.white, for: .normal)
-        guideButton.titleLabel?.font = UIFont.SpoqaHanSansNeo(.bold, size: 12)
+        guideButton.titleLabel?.font = .SpoqaHanSansNeo(.bold, size: 12)
         
         makeRocketButton.layer.cornerRadius = makeRocketButton.frame.height / 2
         makeRocketButton.backgroundColor = .mainPurple
@@ -110,31 +112,19 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
     }
     
     func fadeout() {
-        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
-            self.mainLabel.alpha = 0
-            self.subLabel.alpha = 0
-            self.guideButton.alpha = 0
-            self.moreButton.alpha = 0
-            self.dolImageView.alpha = 0
-            self.rocketDescLabel.alpha = 0
-            self.makeRocketButton.alpha = 0
-            
-            self.rocketListButton.alpha = 0
+        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [weak self] in
+            [self?.mainLabel, self?.subLabel, self?.guideButton, self?.moreButton, self?.dolImageView, self?.rocketDescLabel, self?.makeRocketButton, self?.rocketListButton].forEach {
+                $0?.alpha = 0
+            }
         }.startAnimation()
     }
     
     @objc
     func fadein() {
-        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
-            self.mainLabel.alpha = 1
-            self.subLabel.alpha = 1
-            self.guideButton.alpha = 1
-            self.moreButton.alpha = 1
-            self.dolImageView.alpha = 1
-            self.rocketDescLabel.alpha = 1
-            self.makeRocketButton.alpha = 1
-            
-            self.rocketListButton.alpha = 1
+        UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [weak self] in
+            [self?.mainLabel, self?.subLabel, self?.guideButton, self?.moreButton, self?.dolImageView, self?.rocketDescLabel, self?.makeRocketButton, self?.rocketListButton].forEach {
+                $0?.alpha = 1
+            }
         }.startAnimation()
     }
 }

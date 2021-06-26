@@ -12,12 +12,20 @@ import Alamofire
 class MainDataManager {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
+    let dateformatter: DateFormatter = {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        return dateformatter
+    }()
     
     func getRocket(viewController: MainViewController) {
         guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.rocket.makeURL
+        let parameters = ["scope": "AWAITING", "stoneColorCount": "true"]
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        let url = URLType.rocket.makeURL + "?scope=AWAITING&stoneColorCount=true"
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
             
             switch response.result {
@@ -32,12 +40,11 @@ class MainDataManager {
                             }
                         }
                     }
-                    
-                    viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount)
+                    let daysLeft: Int = self.calculateDaysLeft(launchDate: rocket.launchDate)
+                    viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount, daysLeft: daysLeft)
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
                 }
-                
             case .failure(let error):
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
@@ -50,7 +57,9 @@ class MainDataManager {
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
         let url = URLType.rocketLaunch(rocketID).makeURL
         print("rocketID: \(rocketID)")
-        AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseJSON { response in
+        AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseJSON { response in
             switch response.result {
             case .success(let result):
                 print("patchRocketLaunch() - result: ", result)
@@ -65,6 +74,22 @@ class MainDataManager {
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
             }
+        }
+    }
+    
+    // 현재날로부터 목표일까지 남은 날짜 계산
+    func calculateDaysLeft(launchDate: String) -> Int {
+        let today = Date()
+        let launch = dateformatter.date(from: launchDate)
+        var daysLeft: Double?
+        if let dateLaunch = launch {
+            daysLeft = today.distance(to: dateLaunch) / 86400
+            
+            return Int(daysLeft?.rounded(.up) ?? 0) // 소수점 올림 처리
+            //print("daysLeft: \(daysLeft ?? 0.0)")
+            //print("daysLeftInt: \(daysLeftInt)")
+        } else {
+            return 0
         }
     }
 }

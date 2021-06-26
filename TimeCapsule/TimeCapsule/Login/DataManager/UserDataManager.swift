@@ -71,7 +71,9 @@ class UserDataManager {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseString { response in
+        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseString { response in
             switch response.result {
             case .success(let response):
                 if response == "true" {
@@ -97,7 +99,9 @@ class UserDataManager {
         print("login() called")
         let url = URLType.userLogin.makeURL
         let headers: HTTPHeaders = ["social-token": accessToken]
-        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: LoginResponse.self) { response in
+        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: LoginResponse.self) { response in
             switch response.result {
             case .success(let response):
                 print(response)
@@ -127,7 +131,9 @@ class UserDataManager {
             "socialType": "KAKAO"
         ]
         let headers: HTTPHeaders = ["social-token": token, "Content-Type": "application/json"]
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 })
+            .validate()
+            .responseString { response in
             switch response.result {
             case .success(let response):
                 let jwtToken = response

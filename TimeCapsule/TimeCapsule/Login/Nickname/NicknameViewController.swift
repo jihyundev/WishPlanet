@@ -14,12 +14,12 @@ class NicknameViewController: UIViewController {
     var delegate: BacktoLoginDelegate?
     var isActivated: Bool = false {
         didSet {
-            if isActivated == false {
-                completionButton.isEnabled = false
-                completionButton.backgroundColor = UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 1.0)
-            } else {
+            if isActivated {
                 completionButton.isEnabled = true
                 completionButton.backgroundColor = .mainPurple
+            } else {
+                completionButton.isEnabled = false
+                completionButton.backgroundColor = UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 1.0)
             }
         }
     }

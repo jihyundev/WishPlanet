@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2516E83F25FB855200ADD135 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E83E25FB855200ADD135 /* GameScene.swift */; };
 		2516E84225FB890E00ADD135 /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E84125FB890E00ADD135 /* URLType.swift */; };
-		2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2516E84425FB8A9400ADD135 /* NetworkService.swift */; };
 		252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252076EC25FB3A8D004366E4 /* AddWishViewController.swift */; };
 		252076EF25FB3A8D004366E4 /* AddWishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252076ED25FB3A8D004366E4 /* AddWishViewController.xib */; };
 		2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520770825FB5E55004366E4 /* NicknameViewController.swift */; };
@@ -121,7 +120,6 @@
 /* Begin PBXFileReference section */
 		2516E83E25FB855200ADD135 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		2516E84125FB890E00ADD135 /* URLType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
-		2516E84425FB8A9400ADD135 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		252076EC25FB3A8D004366E4 /* AddWishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishViewController.swift; sourceTree = "<group>"; };
 		252076ED25FB3A8D004366E4 /* AddWishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddWishViewController.xib; sourceTree = "<group>"; };
 		2520770825FB5E55004366E4 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
@@ -529,6 +527,7 @@
 				59C86CDA266064C100C98A38 /* TimeCapsule.entitlements */,
 				59E971C125FB003B008A7EF9 /* Configuration */,
 				59E971E825FB0047008A7EF9 /* Login */,
+				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59E971F225FB0483008A7EF9 /* Main */,
 				59BD6032262C6B7F009B4DE6 /* Completed */,
 				592A0954263C39C500BA3926 /* More */,
@@ -549,7 +548,6 @@
 				59E971C625FB003B008A7EF9 /* Extension */,
 				59E971D125FB003B008A7EF9 /* Font */,
 				2516E84125FB890E00ADD135 /* URLType.swift */,
-				2516E84425FB8A9400ADD135 /* NetworkService.swift */,
 				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
 			);
 			path = Configuration;
@@ -619,7 +617,6 @@
 			children = (
 				59AA3C6B265D1AF3003A29B9 /* fire.json */,
 				59AA3C6D265D1AFD003A29B9 /* smoke.json */,
-				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59BD602F262C6AD8009B4DE6 /* Entity */,
 				59BD6030262C6ADF009B4DE6 /* DataManager */,
 				2516E83E25FB855200ADD135 /* GameScene.swift */,
@@ -895,7 +892,6 @@
 				59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */,
 				5990E2B5267F85EA00178E8C /* CompletedRocketsDataManager.swift in Sources */,
 				592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */,
-				2516E84525FB8A9400ADD135 /* NetworkService.swift in Sources */,
 				5997197226457AB0008E88EA /* UILabel.swift in Sources */,
 				59E9721525FB1581008A7EF9 /* MainViewController.swift in Sources */,
 			);

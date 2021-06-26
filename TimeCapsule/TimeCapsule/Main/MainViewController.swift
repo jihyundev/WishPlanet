@@ -7,7 +7,6 @@ import UIKit
 import SpriteKit
 import Lottie
 import Alamofire
-import KeychainSwift
 
 class MainViewController: UIViewController {
 
@@ -23,20 +22,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
-    let dataManager = MainDataManager()
-    
-    let dateformatter: DateFormatter = {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
-        return dateformatter
-    }()
+    private let dataManager = MainDataManager()
     
     var currentItems: Int = 0 // stone 개수
     var stones: [Int] = []
     var rocketLaunchFlag = false { // 로켓 발사 여부 flag
         didSet {
-            if rocketLaunchFlag == true {
+            if rocketLaunchFlag {
                 fireButton.setImage(UIImage(named: "icon_fire"), for: .normal)
                 fireButton.removeTarget(self, action: #selector(rocketIsNotReady), for: .touchUpInside)
                 fireButton.addTarget(self, action: #selector(fireRocket), for: .touchUpInside)
@@ -52,7 +44,7 @@ class MainViewController: UIViewController {
     
     var rocketListFlag = false { // 로켓 리스트 버튼 화면에 띄우기 여부 flag
         didSet {
-            if rocketListFlag == true {
+            if rocketListFlag {
                 rocketListButton.isHidden = false
             } else {
                 rocketListButton.isHidden = true
@@ -62,7 +54,7 @@ class MainViewController: UIViewController {
     
     var rocketID: Int? // 로켓 아이디
     var rocketColor: Int? // 로켓 색상
-    var daysLeft: Double? // 남은 날짜
+    //var daysLeft: Double? // 남은 날짜
     var targetDate: String? // 목표 날짜
     
     // 로켓 top 이미지
@@ -147,13 +139,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    // MARK: -UI 셋업 관련 메소드
+    // MARK: -UI 셋업 메소드
     func setupUI() {
         rocketLaunchFlag = false
         rocketListFlag = false
         
         self.navigationItem.title = ""
-        dayCountLabel.font = UIFont.SpoqaHanSansNeo(.bold, size: 10)
+        dayCountLabel.font = .SpoqaHanSansNeo(.bold, size: 10)
         countLabel.layer.cornerRadius = 13.5
         countLabel.layer.masksToBounds = true
         countLabel.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
@@ -226,7 +218,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: -데이터 관리
-    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int) {
+    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int, daysLeft: Int) {
         rocketImageView.isHidden = false
         rocketBottomImageView.isHidden = false
         gameView.isHidden = false
@@ -252,33 +244,17 @@ class MainViewController: UIViewController {
             rocketListFlag = false
         }
         
-        // 남은 날짜 계산하기
-        let today = Date()
-        let launch = dateformatter.date(from: launchDate)
-        if let dateLaunch = launch {
-            daysLeft = today.distance(to: dateLaunch) / 86400
-            
-            let daysLeftInt = Int(daysLeft?.rounded(.up) ?? 0) // 소수점 올림 처리
-            //print("daysLeft: \(daysLeft ?? 0.0)")
-            //print("daysLeftInt: \(daysLeftInt)")
-            
-            // 테스트용
-            //rocketLaunchFlag = true
-            //self.dayCountLabel.text = "D-DAY"
-            
-            
-            if daysLeftInt == 0 {
-                rocketLaunchFlag = true
-                self.dayCountLabel.text = "D-DAY"
-            } else if daysLeftInt < 0 {
-                rocketLaunchFlag = true
-                self.dayCountLabel.text = "D+\(-daysLeftInt)"
-            } else {
-                rocketLaunchFlag = false
-                self.dayCountLabel.text = "D-\(daysLeftInt)"
-            }
-            
+        if daysLeft == 0 {
+            rocketLaunchFlag = true
+            self.dayCountLabel.text = "D-DAY"
+        } else if daysLeft < 0 {
+            rocketLaunchFlag = true
+            self.dayCountLabel.text = "D+\(-daysLeft)"
+        } else {
+            rocketLaunchFlag = false
+            self.dayCountLabel.text = "D-\(daysLeft)"
         }
+        
     }
     
     func failedToRequest(message: String) {
@@ -291,6 +267,22 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func fireRocket() {
+        // 지연저장 프로퍼티인 애니메이션 뷰들을 생성
+        addAnimationAsSubview()
+        // 엔딩 팝업 뷰 present
+        let nextVC = EndPopUpViewController(dday: self.dayCountLabel.text ?? "D-DAY", dateString: self.targetDate ?? "", rocketID: self.rocketID ?? 0)
+        nextVC.delegate = self
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func rocketListButtonTapped() {
+        let vc = CompletedRocketsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func addAnimationAsSubview() {
         self.view.addSubview(self.smokeAnimationView)
         self.smokeAnimationView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         self.smokeAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -305,17 +297,6 @@ class MainViewController: UIViewController {
         self.fireView.heightAnchor.constraint(equalToConstant: 317.17).isActive = true
         self.fireView.layer.zPosition = 1
         self.fireView.isHidden = true
-        
-        let nextVC = EndPopUpViewController(dday: self.dayCountLabel.text ?? "D-DAY", dateString: self.targetDate ?? "", rocketID: self.rocketID ?? 0)
-        nextVC.delegate = self
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        self.present(nextVC, animated: true, completion: nil)
-    }
-    
-    @objc fileprivate func rocketListButtonTapped() {
-        let vc = CompletedRocketsViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

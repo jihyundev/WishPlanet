@@ -2,15 +2,12 @@
 //  GameScene.swift
 //  TimeCapsule
 //
-//  Created by Beomcheol Kwon on 2021/03/12.
 //
 
 import SpriteKit
 import CoreMotion
 
 class GameScene: SKScene {
-    
-    static var sharedInstance = GameScene()
     
     struct PhysicsCategory {
         static let none: UInt32 = 0

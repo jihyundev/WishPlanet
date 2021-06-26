@@ -13,7 +13,7 @@ class RocketNameViewController: UIViewController {
     var currentRocket = 0
     var isActivate: Bool = false {
         didSet {
-            if isActivate == true {
+            if isActivate {
                 completeButton.isEnabled = true
                 completeButton.backgroundColor = .mainPurple
             } else {
