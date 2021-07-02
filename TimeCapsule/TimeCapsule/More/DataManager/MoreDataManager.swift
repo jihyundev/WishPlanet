@@ -17,7 +17,7 @@ class MoreDataManager {
     func getMoreInfo(viewController: MyPageViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userMore.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: GetMoreInfoResponse.self) { response in
             switch response.result {
             case .success(let response):
@@ -36,7 +36,7 @@ class MoreDataManager {
     // 우주선 관리 - 우주선 리스트 GET
     func getRocket(viewController: MyPageViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.rocket.makeURL + "?scope=TOTAL&stoneColorCount=false"
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")

@@ -21,8 +21,8 @@ class MainDataManager {
     func getRocket(viewController: MainViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.rocket.makeURL
-        let parameters = ["scope": "AWAITING", "stoneColorCount": "true"]
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let parameters = ["scope": Scope.AWAITING.rawValue, "stoneColorCount": "true"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseDecodable(of: [GetRocketsResponse].self) { (response) in
@@ -54,7 +54,7 @@ class MainDataManager {
     
     func patchRocketLaunch(rocketID: Int, viewController: EndPopUpViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.rocketLaunch(rocketID).makeURL
         print("rocketID: \(rocketID)")
         AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 })

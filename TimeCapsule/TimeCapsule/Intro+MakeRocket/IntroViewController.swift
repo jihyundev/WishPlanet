@@ -97,6 +97,10 @@ class IntroViewController: UIViewController {
         let mypageVC = MyPageViewController()
         self.navigationController?.pushViewController(mypageVC, animated: true)
     }
+    @IBAction func rocketListButtonTapped(_ sender: Any) {
+        let vc = CompletedRocketsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
@@ -113,7 +117,8 @@ extension IntroViewController: IntroFadeAnimationDelegate, MovetoRocketNameVCDel
     
     func fadeout() {
         UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) { [weak self] in
-            [self?.mainLabel, self?.subLabel, self?.guideButton, self?.moreButton, self?.dolImageView, self?.rocketDescLabel, self?.makeRocketButton, self?.rocketListButton].forEach {
+            [self?.mainLabel, self?.subLabel, self?.guideButton, self?.moreButton, self?.dolImageView, self?.rocketDescLabel, self?.makeRocketButton, self?.rocketListButton]
+                .forEach {
                 $0?.alpha = 0
             }
         }.startAnimation()

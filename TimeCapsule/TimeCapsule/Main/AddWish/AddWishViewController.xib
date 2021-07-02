@@ -98,60 +98,45 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="MjB-ii-LbM">
                             <rect key="frame" x="12" y="37" width="228" height="44"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4c-wu-vBA">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4c-wu-vBA">
                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="gm3-Mr-biz"/>
                                         <constraint firstAttribute="height" constant="44" id="zUQ-6z-OcP"/>
                                     </constraints>
                                     <state key="normal" image="icon_check_0"/>
-                                    <connections>
-                                        <action selector="redButtonTapped:" destination="-1" eventType="touchUpInside" id="WxQ-1n-888"/>
-                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izr-hB-g9V">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izr-hB-g9V">
                                     <rect key="frame" x="46" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="ZZn-rd-73I"/>
                                         <constraint firstAttribute="width" constant="44" id="cYZ-YX-TUS"/>
                                     </constraints>
                                     <state key="normal" image="stone_1"/>
-                                    <connections>
-                                        <action selector="yellowButtonTapped:" destination="-1" eventType="touchUpInside" id="zdI-Yo-qUP"/>
-                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teY-Ll-29U">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teY-Ll-29U">
                                     <rect key="frame" x="92" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="F1u-OT-qaF"/>
                                         <constraint firstAttribute="width" constant="44" id="cTx-Lf-aZj"/>
                                     </constraints>
                                     <state key="normal" image="stone_2"/>
-                                    <connections>
-                                        <action selector="greenButtonTapped:" destination="-1" eventType="touchUpInside" id="L4n-2h-0uv"/>
-                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCa-2P-Ex8">
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCa-2P-Ex8">
                                     <rect key="frame" x="138" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="WaV-nR-13x"/>
                                         <constraint firstAttribute="width" constant="44" id="oUA-W9-jO6"/>
                                     </constraints>
                                     <state key="normal" image="stone_3"/>
-                                    <connections>
-                                        <action selector="blueButtonTapped:" destination="-1" eventType="touchUpInside" id="GIU-v6-taH"/>
-                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQn-fN-Rtr">
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQn-fN-Rtr">
                                     <rect key="frame" x="184" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="Ucz-vh-rK5"/>
                                         <constraint firstAttribute="width" constant="44" id="pxM-GF-g18"/>
                                     </constraints>
                                     <state key="normal" image="stone_4"/>
-                                    <connections>
-                                        <action selector="purpleButtonTapped:" destination="-1" eventType="touchUpInside" id="86b-Dh-1v2"/>
-                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

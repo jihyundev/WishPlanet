@@ -10,7 +10,6 @@ import PanModal
 
 class CompletedRocketsViewController: UIViewController {
     
-    private let cellIdentifier = "RocketCollectionViewCell"
     private let dataManager = CompletedRocketsDataManager()
     var rockets: [GetRocketsResponse]? = []
     
@@ -26,7 +25,7 @@ class CompletedRocketsViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(RocketCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(RocketCollectionViewCell.self, forCellWithReuseIdentifier: RocketCollectionViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +78,7 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? RocketCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketCollectionViewCell.identifier, for: indexPath) as? RocketCollectionViewCell
         if let rocket = rockets?[indexPath.item] {
             var stones: [Int] = []
             if let stoneList = rocket.stoneColorCount {
@@ -89,7 +88,10 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
                     }
                 }
             }
+            print("LOG - stones: \(stones)")
             cell?.configure(color: rocket.rocketColor, currentItems: stones.count, stones: stones)
+        } else {
+            self.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ")
         }
         cell?.backgroundColor = .clear
         

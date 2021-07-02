@@ -10,9 +10,11 @@ import SpriteKit
 
 class RocketCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "RocketCollectionViewCell"
+    
     var rocketColor: Int = 0 // 로켓 색상
-    var currentItems: Int = 0 // 소원석 개수
-    var stones: [Int] = []
+    //var currentItems: Int = 0 // 소원석 개수
+    //var stones: [Int] = []
     
     // 로켓 top 이미지
     lazy var rocketImageView: UIImageView = {
@@ -59,7 +61,7 @@ class RocketCollectionViewCell: UICollectionViewCell {
         rocketImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         rocketImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         rocketImageView.contentMode = .scaleAspectFit
-        print(rocketImageView.frame.size)
+        //print(rocketImageView.frame.size)
         rocketImageView.layer.zPosition = 2
         
         contentView.addSubview(rocketBottomImageView)
@@ -86,8 +88,7 @@ class RocketCollectionViewCell: UICollectionViewCell {
         gameView.layer.zPosition = 1
     }
     
-    func makeGameScene() {
-        print("RocketCollectionViewCell - makeGameScene() called")
+    func makeGameScene(currentItems: Int, stones: [Int]) {
         let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as SKView
         scene.currentItemCount = currentItems
@@ -97,12 +98,13 @@ class RocketCollectionViewCell: UICollectionViewCell {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
+        print("RocketCollectionViewCell - makeGameScene() finished")
     }
     
     func configure(color: Int, currentItems: Int, stones: [Int]) {
         rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
-        self.currentItems = currentItems
-        self.stones = stones
-        makeGameScene()
+        //self.currentItems = currentItems
+        //self.stones = stones
+        makeGameScene(currentItems: currentItems, stones: stones)
     }
 }

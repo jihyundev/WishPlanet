@@ -8,6 +8,8 @@
 import UIKit
 
 class CheckedListCell: UITableViewCell {
+    
+    static let identifier = "CheckedListCell"
 
     @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var stoneImageView: UIImageView!
@@ -32,10 +34,10 @@ class CheckedListCell: UITableViewCell {
         wishLabel.attributedText = attrubuteString
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(color: Int, date: String, wish: String) {
+        stoneImageView.image = UIImage(named: "small_dol_\(color + 1)")
+        dateLabel.text = date
+        wishLabel.text = wish
     }
     
 }

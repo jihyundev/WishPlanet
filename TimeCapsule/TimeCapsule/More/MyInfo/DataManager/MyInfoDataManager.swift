@@ -17,7 +17,7 @@ class MyInfoDataManager {
     func patchNickname(nickname: String, viewController: NicknameEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userNickname.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token, RequestHeader.contentType: "application/json"]
         let parameters: [String: Any] = [
             "nickName" : nickname
         ]
@@ -38,7 +38,7 @@ class MyInfoDataManager {
     func deleteUser(reason: String, viewController: LeaveConfirmViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDelete.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 }).validate().responseString { response in
             switch response.result {
             case .success(let result):
@@ -58,7 +58,7 @@ class MyInfoDataManager {
     func postReasons(reason: String, viewController: LeaveConfirmViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.userDeleteReasons.makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token, RequestHeader.contentType: "application/json"]
         let param: [String: Any] = [
             "reason" : reason
         ]

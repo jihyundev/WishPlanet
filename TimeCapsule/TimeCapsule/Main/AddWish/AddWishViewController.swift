@@ -2,8 +2,6 @@
 //  AddWishViewController.swift
 //  TimeCapsule
 //
-//  Created by Beomcheol Kwon on 2021/03/12.
-//
 
 import UIKit
 import Alamofire
@@ -63,6 +61,7 @@ class AddWishViewController: UIViewController{
         super.viewDidLoad()
         wishTextView.delegate = self
         setupUI()
+        setupButton()
         prepareKeyboard()
         self.dismissKeyboardWhenTappedAround()
     }
@@ -98,7 +97,8 @@ class AddWishViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    func setupUI() {
+    // MARK:- UI 셋업
+    private func setupUI() {
         wishTextView.contentInset = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
         wishTextView.text = "소원을 입력해주세요"
         wishTextView.textColor = .enabledGrey
@@ -120,7 +120,22 @@ class AddWishViewController: UIViewController{
         isActivated = false
     }
     
-    fileprivate func setDefaultImage() {
+    // MARK:- 버튼 태그, 액션 관련 셋업
+    private func setupButton() {
+        redButton.tag = 1
+        yellowButton.tag = 2
+        greenButton.tag = 3
+        blueButton.tag = 4
+        purpleButton.tag = 5
+        
+        redButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        yellowButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        greenButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        blueButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        purpleButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+    }
+    
+    private func setDefaultImage() {
         redButton.setImage(UIImage(named: "stone_0"), for: .normal)
         yellowButton.setImage(UIImage(named: "stone_1"), for: .normal)
         greenButton.setImage(UIImage(named: "stone_2"), for: .normal)
@@ -128,35 +143,36 @@ class AddWishViewController: UIViewController{
         purpleButton.setImage(UIImage(named: "stone_4"), for: .normal)
     }
     
-    @IBAction func redButtonTapped(_ sender: Any) {
+    @objc private func buttonClicked(sender:UIButton) {
         setDefaultImage()
-        redButton.setImage(UIImage(named: "icon_check_0"), for: .normal)
-        stoneColor = 0
+        switch sender.tag {
+        case 1:
+            redButton.setImage(UIImage(named: "icon_check_0"), for: .normal)
+            stoneColor = 0
+            print("red button tapped")
+            break
+        case 2:
+            yellowButton.setImage(UIImage(named: "icon_check_1"), for: .normal)
+            stoneColor = 1
+            print("yellow button tapped")
+            break
+        case 3:
+            greenButton.setImage(UIImage(named: "icon_check_2"), for: .normal)
+            stoneColor = 2
+            print("green button tapped")
+            break
+        case 4:
+            blueButton.setImage(UIImage(named: "icon_check_3"), for: .normal)
+            stoneColor = 3
+            print("blue button tapped")
+        case 5:
+            purpleButton.setImage(UIImage(named: "icon_check_4"), for: .normal)
+            stoneColor = 4
+            print("purple button tapped")
+        default:
+            print("Failed to select color button")
+        }
     }
-    
-    @IBAction func yellowButtonTapped(_ sender: Any) {
-        setDefaultImage()
-        yellowButton.setImage(UIImage(named: "icon_check_1"), for: .normal)
-        stoneColor = 1
-    }
-    
-    @IBAction func greenButtonTapped(_ sender: Any) {
-        setDefaultImage()
-        greenButton.setImage(UIImage(named: "icon_check_2"), for: .normal)
-        stoneColor = 2
-    }
-    
-    @IBAction func blueButtonTapped(_ sender: Any) {
-        setDefaultImage()
-        blueButton.setImage(UIImage(named: "icon_check_3"), for: .normal)
-        stoneColor = 3
-    }
-    @IBAction func purpleButtonTapped(_ sender: Any) {
-        setDefaultImage()
-        purpleButton.setImage(UIImage(named: "icon_check_4"), for: .normal)
-        stoneColor = 4
-    }
-    
     
     func didSuccessToPost() {
         self.delegate?.reloadView()

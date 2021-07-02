@@ -16,15 +16,16 @@ class MyRocketDataManager {
     // 우주선 관리 - 우주선 리스트 GET
     func getRocket(viewController: MyRocketViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
-        let url = URLType.rocket.makeURL + "?scope=TOTAL&stoneColorCount=false"
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: [GetRocketsResponse].self) { (response) in
+        let url = URLType.rocket.makeURL
+        let parameters = ["scope": Scope.TOTAL.rawValue, "stoneColorCount": "false"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: [GetRocketsResponse].self) { (response) in
             print("getRocket() called")
             
             switch response.result {
             case .success(let response):
-                print(response)
-                
                 var currentRocket: MyRocket = MyRocket(rocketID: 0, name: "", period: "", color: 0)
                 var launchedRockets: [MyRocket] = []
                 

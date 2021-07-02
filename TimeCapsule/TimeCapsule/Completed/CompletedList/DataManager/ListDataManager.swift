@@ -16,7 +16,7 @@ class ListDataManager {
     // 소원석 리스트 GET
     func getStones(rocketID: Int, viewController: CompletedListViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.stone(rocketID).makeURL
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: GetStonesResponse.self) { response in
             switch response.result {
@@ -33,7 +33,7 @@ class ListDataManager {
     // 소원석 체크 PATCH
     func patchStoneCheck(rocketID: Int, stoneID: Int, viewController: CompletedListViewController) {
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.stoneCheck(rocketID, stoneID).makeURL
         AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate().responseString { response in

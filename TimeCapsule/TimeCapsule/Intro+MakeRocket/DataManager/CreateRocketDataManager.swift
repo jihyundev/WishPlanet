@@ -14,7 +14,7 @@ class CreateRocketDataManager {
     func postRocket(launchDate: String, rocketColor: Int, rocketName: String, viewController: RocketDateViewController) {
         print(#function)
         guard let token = keychain.get(Keys.token) else { return }
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token, "Content-Type": "application/json"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token, RequestHeader.contentType: "application/json"]
         let url = URLType.rocket.makeURL
         let parameters: [String: Any] = [
             "launchDate" : launchDate,

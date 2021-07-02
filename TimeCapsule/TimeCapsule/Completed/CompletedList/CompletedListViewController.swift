@@ -11,8 +11,6 @@ import PanModal
 class CompletedListViewController: UIViewController {
     
     private let rocketID: Int
-    private let uncheckedCellID = "UncheckedListCell"
-    private let checkedCellID = "CheckedListCell"
     private let dataManager = ListDataManager()
     
     var stoneCount: Int = 0
@@ -36,8 +34,8 @@ class CompletedListViewController: UIViewController {
         dataManager.getStones(rocketID: rocketID, viewController: self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "UncheckedListCell", bundle: nil), forCellReuseIdentifier: uncheckedCellID)
-        tableView.register(UINib(nibName: "CheckedListCell", bundle: nil), forCellReuseIdentifier: checkedCellID)
+        tableView.register(UINib(nibName: UncheckedListCell.identifier, bundle: nil), forCellReuseIdentifier: UncheckedListCell.identifier)
+        tableView.register(UINib(nibName: CheckedListCell.identifier, bundle: nil), forCellReuseIdentifier: CheckedListCell.identifier)
     }
     
     private func setupUI() {
@@ -57,10 +55,14 @@ class CompletedListViewController: UIViewController {
     
     // 소원석 체크 성공
     func successToCheckStone() {
+        self.dismissIndicator()
+        self.presentAlert(title: "소원석 체크가 완료되었습니다. ")
         dataManager.getStones(rocketID: rocketID, viewController: self)
     }
     
     func failedToRequest(message: String) {
+        self.dismissIndicator()
+        self.presentAlert(title: "소원석 체크에 실패하였습니다. ")
         self.presentAlert(title: message)
     }
 
@@ -75,16 +77,12 @@ extension CompletedListViewController: UITableViewDataSource, UITableViewDelegat
         let stone = stoneList[indexPath.row]
         switch stone.wishChecked {
         case true:
-            let cell = tableView.dequeueReusableCell(withIdentifier: checkedCellID) as? CheckedListCell
-            cell?.stoneImageView.image = UIImage(named: "small_dol_\(stone.stoneColor + 1)")
-            cell?.dateLabel.text = stone.createdAt
-            cell?.wishLabel.text = stone.content
+            let cell = tableView.dequeueReusableCell(withIdentifier: CheckedListCell.identifier) as? CheckedListCell
+            cell?.configure(color: stone.stoneColor, date: stone.createdAt, wish: stone.content)
             return cell ?? UITableViewCell()
         case false:
-            let cell = tableView.dequeueReusableCell(withIdentifier: uncheckedCellID) as? UncheckedListCell
-            cell?.stoneImageView.image = UIImage(named: "small_dol_\(stone.stoneColor + 1)")
-            cell?.dateLabel.text = stone.createdAt
-            cell?.wishLabel.text = stone.content
+            let cell = tableView.dequeueReusableCell(withIdentifier: UncheckedListCell.identifier) as? UncheckedListCell
+            cell?.configure(color: stone.stoneColor, date: stone.createdAt, wish: stone.content)
             return cell ?? UITableViewCell()
         }
     }
@@ -93,6 +91,7 @@ extension CompletedListViewController: UITableViewDataSource, UITableViewDelegat
         let stone = stoneList[indexPath.row]
         print("stone ID: \(stone.stoneID)")
         dataManager.patchStoneCheck(rocketID: self.rocketID, stoneID: stone.stoneID, viewController: self)
+        self.showIndicator()
     }
     
 }

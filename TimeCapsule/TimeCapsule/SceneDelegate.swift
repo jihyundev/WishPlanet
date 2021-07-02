@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let token = keychain.get(Keys.token) {
             // 키체인에 토큰이 존재할 경우
             // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)
-            
+            self.window = UIWindow(windowScene: scene)
             print("token: \(token)")
             
             // 테스트용
@@ -34,49 +34,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 switch rocketStatus {
                 case "1":
                     print("로켓이 하나도 없는 상태 (신규회원)")
-                    self.window = UIWindow(windowScene: scene)
                     let introVC = IntroViewController(flag: 0) // 인트로 소개화면
                     let vc = UINavigationController(rootViewController: introVC)
-                    window?.rootViewController = vc
-                    window?.makeKeyAndVisible()
-                    window?.overrideUserInterfaceStyle = .light
+                    setupWindow(viewController: vc)
                 case "2":
                     print("로켓 존재, 발사되지 않은 상태")
-                    self.window = UIWindow(windowScene: scene)
                     let mainVC = MainViewController()
                     let vc = UINavigationController(rootViewController: mainVC)
-                    window?.rootViewController = vc
-                    window?.makeKeyAndVisible()
-                    window?.overrideUserInterfaceStyle = .light
+                    setupWindow(viewController: vc)
                 case "3":
                     print("로켓 존재, 발사된 상태")
-                    self.window = UIWindow(windowScene: scene)
                     let introVC = IntroViewController(flag: 1) // 인트로 소개화면
                     let vc = UINavigationController(rootViewController: introVC)
-                    window?.rootViewController = vc
-                    window?.makeKeyAndVisible()
-                    window?.overrideUserInterfaceStyle = .light
+                    setupWindow(viewController: vc)
                 default:
-                    self.window = UIWindow(windowScene: scene)
                     let introVC = IntroViewController(flag: 0) // 인트로 소개화면
                     let vc = UINavigationController(rootViewController: introVC)
-                    window?.rootViewController = vc
-                    window?.makeKeyAndVisible()
-                    window?.overrideUserInterfaceStyle = .light
+                    setupWindow(viewController: vc)
                 }
             } else {
-                self.window = UIWindow(windowScene: scene)
-                window?.rootViewController = LoginViewController()
-                window?.makeKeyAndVisible()
-                window?.overrideUserInterfaceStyle = .light
+                setupWindow(viewController: LoginViewController())
             }
         } else {
             // 로그인 처리가 필요한 경우
             self.window = UIWindow(windowScene: scene)
-            window?.rootViewController = LoginViewController()
-            window?.makeKeyAndVisible()
-            window?.overrideUserInterfaceStyle = .light
+            setupWindow(viewController: LoginViewController())
         }
+    }
+    
+    private func setupWindow(viewController: UIViewController) {
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+        window?.overrideUserInterfaceStyle = .light
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

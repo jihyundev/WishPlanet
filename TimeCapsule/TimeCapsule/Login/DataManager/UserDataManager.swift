@@ -70,7 +70,7 @@ class UserDataManager {
     func verifyUser(accessToken: String, viewController: LoginViewController) {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
-        let headers: HTTPHeaders = ["social-token": accessToken]
+        let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken]
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseString { response in
@@ -98,7 +98,7 @@ class UserDataManager {
     func login(accessToken: String, viewController: LoginViewController) {
         print("login() called")
         let url = URLType.userLogin.makeURL
-        let headers: HTTPHeaders = ["social-token": accessToken]
+        let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken]
         AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseDecodable(of: LoginResponse.self) { response in
@@ -130,7 +130,7 @@ class UserDataManager {
             "nickname" : nickname,
             "socialType": "KAKAO"
         ]
-        let headers: HTTPHeaders = ["social-token": token, "Content-Type": "application/json"]
+        let headers: HTTPHeaders = [RequestHeader.socialToken: token, RequestHeader.contentType: "application/json"]
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 })
             .validate()
             .responseString { response in

@@ -15,6 +15,7 @@
 		2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770925FB5E55004366E4 /* NicknameViewController.xib */; };
 		25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */; };
 		25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */; };
+		591BDBFE268809F000178E85 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BDBFD268809F000178E85 /* Parameters.swift */; };
 		5921F98825FBC7D700D097B4 /* Gaegu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */; };
 		5921F98925FBC7D700D097B4 /* Gaegu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */; };
 		5921F98A25FBC7D700D097B4 /* Gaegu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98725FBC7D700D097B4 /* Gaegu-Light.ttf */; };
@@ -126,6 +127,7 @@
 		2520770925FB5E55004366E4 /* NicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameViewController.xib; sourceTree = "<group>"; };
 		25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPopUpViewController.swift; sourceTree = "<group>"; };
 		25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndPopUpViewController.xib; sourceTree = "<group>"; };
+		591BDBFD268809F000178E85 /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Regular.ttf"; sourceTree = "<group>"; };
 		5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Bold.ttf"; sourceTree = "<group>"; };
 		5921F98725FBC7D700D097B4 /* Gaegu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Light.ttf"; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				59E971D125FB003B008A7EF9 /* Font */,
 				2516E84125FB890E00ADD135 /* URLType.swift */,
 				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
+				591BDBFD268809F000178E85 /* Parameters.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				592A095C263C474700BA3926 /* GetRocketsResponse.swift in Sources */,
 				5997197226457AB0008E88EA /* UILabel.swift in Sources */,
 				59E9721525FB1581008A7EF9 /* MainViewController.swift in Sources */,
+				591BDBFE268809F000178E85 /* Parameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

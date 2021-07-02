@@ -17,8 +17,8 @@ class CompletedRocketsDataManager {
     func getCompletedRockets(viewController: CompletedRocketsViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.rocket.makeURL
-        let parameters = ["scope": "LAUNCHED", "stoneColorCount": "true"]
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let parameters = ["scope": Scope.LAUNCHED.rawValue, "stoneColorCount": "true"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseDecodable(of: [GetRocketsResponse].self) { (response) in

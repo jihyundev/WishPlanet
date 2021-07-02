@@ -173,7 +173,7 @@ class MainViewController: UIViewController {
         rocketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         rocketImageView.contentMode = .scaleAspectFit
-        print(rocketImageView.frame.size)
+        //print(rocketImageView.frame.size)
         rocketImageView.layer.zPosition = 2
         
         view.addSubview(rocketBottomImageView)
@@ -199,10 +199,9 @@ class MainViewController: UIViewController {
         shadowView.contentMode = .scaleAspectFit
         shadowView.layer.zPosition = 1
         
-        rocketImageView.isHidden = true
-        rocketBottomImageView.isHidden = true
-        gameView.isHidden = true
-        shadowView.isHidden = true
+        [rocketImageView, rocketBottomImageView, gameView, shadowView].forEach {
+            $0?.isHidden = true
+        }
     }
     
     func makeGameScene() {
@@ -219,10 +218,9 @@ class MainViewController: UIViewController {
     
     // MARK: -데이터 관리
     func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int, daysLeft: Int) {
-        rocketImageView.isHidden = false
-        rocketBottomImageView.isHidden = false
-        gameView.isHidden = false
-        shadowView.isHidden = false
+        [rocketImageView, rocketBottomImageView, gameView, shadowView].forEach {
+            $0?.isHidden = false
+        }
         
         self.nameLabel.text = rocketName
         self.stones = stones
@@ -317,10 +315,10 @@ extension MainViewController: ReloadDelegate {
      
     func endGame() {
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
-            self.countLabel.alpha = 0
-            self.dayCountLabel.alpha = 0
-            self.nameLabel.alpha = 0
-            self.fireButton.alpha = 0
+            [self.countLabel, self.dayCountLabel, self.nameLabel, self.fireButton]
+                .forEach {
+                $0?.alpha = 0
+            }
             
             self.rocketImageView.frame.origin = CGPoint(x: self.rocketImageView.frame.origin.x, y: -self.rocketImageView.frame.height)
             self.gameView.frame.origin = CGPoint(x: self.gameView.frame.origin.x, y: -(self.rocketImageView.frame.height/2 + self.gameView.frame.height/2))
@@ -337,12 +335,9 @@ extension MainViewController: ReloadDelegate {
             
         } completion: { [weak self] result in
             print(result.description)
-            self?.rocketImageView.removeFromSuperview()
-            self?.rocketBottomImageView.removeFromSuperview()
-            self?.gameView.removeFromSuperview()
-            self?.groundView.removeFromSuperview()
-            self?.shadowView.removeFromSuperview()
-            self?.fireView.removeFromSuperview()
+            [self?.rocketImageView, self?.rocketBottomImageView, self?.gameView, self?.groundView, self?.shadowView, self?.fireView].forEach {
+                $0?.removeFromSuperview()
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self?.moveToIntroVC()

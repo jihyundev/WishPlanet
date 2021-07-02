@@ -16,7 +16,7 @@ class MyRocketEditDataManager {
     func getRocketDetails(rocketID: Int, viewController: MyRocketEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.rocketEdit(rocketID).makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: GetRocketsResponse.self) { response in
             switch response.result {
             case .success(let res):
@@ -40,7 +40,7 @@ class MyRocketEditDataManager {
     func patchRocketDetails(rocketID: Int, name: String, date: String, viewController: MyRocketEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.rocketEdit(rocketID).makeURL
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": token]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let parameters: [String: Any] = [
             "launchDate": date,
             "rocketName": name

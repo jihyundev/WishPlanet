@@ -112,6 +112,9 @@
                         <constraint firstAttribute="width" constant="60" id="eSq-Y9-NZj"/>
                     </constraints>
                     <state key="normal" image="earth"/>
+                    <connections>
+                        <action selector="rocketListButtonTapped:" destination="-1" eventType="touchUpInside" id="M7y-82-nVH"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earthToast" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-mQ-jyC">
                     <rect key="frame" x="19" y="712" width="170" height="50"/>

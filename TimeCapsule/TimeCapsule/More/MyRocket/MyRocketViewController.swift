@@ -104,8 +104,10 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
         } else {
-            self.presentAlert(title: "발사 완료된 우주선입니다. ")
-            //self.moveToEditVC(title: "발사 완료", rocketID: launchedRockets[indexPath.row].rocketID)
+            self.navigationController?.popToRootViewController(animated: true)
+            
+            // delegate 통해 해당 우주선 스크롤뷰 위치로 이동하기
+            //
         }
     }
     

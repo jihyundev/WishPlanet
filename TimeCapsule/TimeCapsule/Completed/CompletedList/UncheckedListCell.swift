@@ -8,6 +8,8 @@
 import UIKit
 
 class UncheckedListCell: UITableViewCell {
+    
+    static let identifier = "UncheckedListCell"
 
     @IBOutlet weak var mainBackgroundView: UIView!
     @IBOutlet weak var stoneImageView: UIImageView!
@@ -24,11 +26,11 @@ class UncheckedListCell: UITableViewCell {
         dateLabel.font = .SpoqaHanSansNeo(.medium, size: 11)
         wishLabel.font = .SpoqaHanSansNeo(.bold, size: 16)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configure(color: Int, date: String, wish: String) {
+        stoneImageView.image = UIImage(named: "small_dol_\(color + 1)")
+        dateLabel.text = date
+        wishLabel.text = wish
     }
     
 }
