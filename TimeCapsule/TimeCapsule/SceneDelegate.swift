@@ -7,6 +7,7 @@
 
 import UIKit
 import KakaoSDKAuth
+import AuthenticationServices
 import KeychainSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,18 +18,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
-        // 테스트용
-        //self.keychain.clear()
-        //self.keychain.set(true, forKey: Keys.rocketExists)
         
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: Keys.userIdentifier) { credentialState, error in
+            switch credentialState {
+            case .authorized:
+                print("apple credential authorized.")
+            case .revoked, .notFound:
+                print("apple credential revoked / not found.")
+            default:
+                break
+            }
+        }
         if let token = keychain.get(Keys.token) {
             // 키체인에 토큰이 존재할 경우
             // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)
             self.window = UIWindow(windowScene: scene)
             print("token: \(token)")
-            
-            // 테스트용
-            //self.keychain.set("2", forKey: Keys.rocketStatus)
             
             if let rocketStatus = keychain.get(Keys.rocketStatus) {
                 switch rocketStatus {

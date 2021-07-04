@@ -34,7 +34,7 @@ class UserDataManager {
                     // do something
                     _ = oauthToken
                     let accessToken = oauthToken?.accessToken
-                    self.verifyUser(accessToken: accessToken!, viewController: viewController)
+                    self.verifyUser(loginType: .kakao, accessToken: accessToken!, viewController: viewController)
                 }
             }
         } else {
@@ -58,7 +58,7 @@ class UserDataManager {
                             // do something
                             _ = user
                             if user?.id != nil {
-                                self.verifyUser(accessToken: accessToken!, viewController: viewController)
+                                self.verifyUser(loginType: .kakao, accessToken: accessToken!, viewController: viewController)
                             }
                         }
                     }
@@ -67,7 +67,7 @@ class UserDataManager {
         }
     }
     // 가입 회원 여부 검사
-    func verifyUser(accessToken: String, viewController: LoginViewController) {
+    func verifyUser(loginType: LoginType, accessToken: String, viewController: LoginViewController) {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
         let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken]
@@ -79,7 +79,7 @@ class UserDataManager {
                 if response == "true" {
                     // 이미 가입된 회원
                     print("이미 가입된 회원입니다. ")
-                    self.login(accessToken: accessToken, viewController: viewController)
+                    self.login(loginType: loginType, accessToken: accessToken, viewController: viewController)
                     
                 } else {
                     // 회원가입 진행 전 닉네임 설정
@@ -95,11 +95,12 @@ class UserDataManager {
     }
     
     // 로그인 (JWT 토큰 발급)
-    func login(accessToken: String, viewController: LoginViewController) {
+    func login(loginType: LoginType, accessToken: String, viewController: LoginViewController) {
         print("login() called")
         let url = URLType.userLogin.makeURL
-        let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken]
-        AF.request(url, method: .post, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+        let parameters: [String: Any] = ["socialType": loginType.rawValue]
+        let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken, RequestHeader.contentType: "application/json"]
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseDecodable(of: LoginResponse.self) { response in
             switch response.result {

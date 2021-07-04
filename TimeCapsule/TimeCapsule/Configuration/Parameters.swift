@@ -7,11 +7,7 @@
 
 import Foundation
 
-enum Scope: String {
-    case AWAITING = "AWAITING"
-    case LAUNCHED = "LAUNCHED"
-    case TOTAL = "TOTAL"
-}
+
 
 struct RequestHeader {
     static let jwtToken = "X-ACCESS-TOKEN"
@@ -19,3 +15,13 @@ struct RequestHeader {
     static let contentType = "Content-Type"
 }
 
+enum Scope: String {
+    case AWAITING = "AWAITING"
+    case LAUNCHED = "LAUNCHED"
+    case TOTAL = "TOTAL"
+}
+
+enum LoginType: String {
+    case kakao = "KAKAO"
+    case apple = "APPLE"
+}

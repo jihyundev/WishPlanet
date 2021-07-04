@@ -103,6 +103,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
             print("userIdentifier: \(userIdentifier)")
             print("fullName: \(String(describing: fullName))")
             print("email: \(String(describing: email))")
+            keychain.set(userIdentifier, forKey: Keys.userIdentifier)
             
             if let authorizationCode = appleIDCredential.authorizationCode,
                let identityToken = appleIDCredential.identityToken,
@@ -112,6 +113,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                 print("identityToken: \(identityToken)")
                 print("authString: \(authString)")
                 print("tokenString: \(tokenString)")
+                dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
             }
         
         case let passwordCredential as ASPasswordCredential:
