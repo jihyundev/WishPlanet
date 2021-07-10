@@ -2,7 +2,6 @@
 //  NicknameViewController.swift
 //  TimeCapsule
 //
-//  Created by Beomcheol Kwon on 2021/03/12.
 //
 
 import UIKit
@@ -10,7 +9,10 @@ import UIKit
 class NicknameViewController: UIViewController {
     
     let dataManager = UserDataManager()
-    var accessToken: String?
+    
+    private let loginType: LoginType
+    private let accessToken: String
+    
     var delegate: BacktoLoginDelegate?
     var isActivated: Bool = false {
         didSet {
@@ -23,7 +25,17 @@ class NicknameViewController: UIViewController {
             }
         }
     }
-
+    
+    init(loginType: LoginType, accessToken: String) {
+        self.loginType = loginType
+        self.accessToken = accessToken
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var completionButton: UIButton!
@@ -67,7 +79,7 @@ class NicknameViewController: UIViewController {
     
     @IBAction func completionButtonTapped(_ sender: Any) {
         guard let text = nameTextField.text else { return }
-        dataManager.kakaoSignup(nickname: text, token: accessToken!, viewController: self)
+        dataManager.signUp(loginType: loginType, nickname: text, token: accessToken, viewController: self)
     }
     @IBAction func deleteButtonTapped(_ sender: Any) {
         nameTextField.text = ""

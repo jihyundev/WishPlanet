@@ -70,8 +70,9 @@ class UserDataManager {
     func verifyUser(loginType: LoginType, accessToken: String, viewController: LoginViewController) {
         print("verifyUser() called")
         let url = URLType.userExists.makeURL
+        let parameters: [String: String] = ["socialType": loginType.rawValue]
         let headers: HTTPHeaders = [RequestHeader.socialToken: accessToken]
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseString { response in
             switch response.result {
@@ -83,7 +84,7 @@ class UserDataManager {
                     
                 } else {
                     // 회원가입 진행 전 닉네임 설정
-                    viewController.goToNickname(token: accessToken)
+                    viewController.goToNickname(loginType: loginType, token: accessToken)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -125,14 +126,15 @@ class UserDataManager {
     }
     
     // 회원가입
-    func kakaoSignup(nickname: String, token: String, viewController: NicknameViewController) {
+    func signUp(loginType: LoginType, nickname: String, token: String, viewController: NicknameViewController) {
+        print("signUp() called")
         let url = URLType.userSignup.makeURL
         let parameters: [String: Any] = [
             "nickname" : nickname,
-            "socialType": "KAKAO"
+            "socialType": loginType.rawValue
         ]
         let headers: HTTPHeaders = [RequestHeader.socialToken: token, RequestHeader.contentType: "application/json"]
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 5 })
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseString { response in
             switch response.result {

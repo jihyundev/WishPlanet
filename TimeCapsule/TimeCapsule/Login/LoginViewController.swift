@@ -40,10 +40,9 @@ class LoginViewController: UIViewController {
         dataManager.kakaoLogin(viewController: self)
     }
     
-    func goToNickname(token: String) {
+    func goToNickname(loginType: LoginType, token: String) {
         fadeoutAnimate()
-        let vc = NicknameViewController()
-        vc.accessToken = token
+        let vc = NicknameViewController(loginType: loginType, accessToken: token)
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
