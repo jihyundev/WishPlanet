@@ -103,13 +103,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그럼, 바로 시작해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sua-le-NDl">
-                                    <rect key="frame" x="124" y="776" width="166" height="20"/>
+                                    <rect key="frame" x="124" y="756" width="166" height="20"/>
                                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdL-bG-SLv">
-                                    <rect key="frame" x="127" y="816" width="160" height="48"/>
+                                    <rect key="frame" x="127" y="796" width="160" height="48"/>
                                     <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="160" id="17d-bB-Ops"/>
@@ -145,7 +145,7 @@
                                 <constraint firstItem="P87-Eg-Qwh" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="mdD-ww-uyC"/>
                                 <constraint firstItem="egr-uX-Y3c" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="nCS-Tx-jCH"/>
                                 <constraint firstItem="GEV-cB-g22" firstAttribute="leading" secondItem="GU1-ZN-kBi" secondAttribute="leading" id="nM9-Tu-GAD"/>
-                                <constraint firstAttribute="bottom" secondItem="NdL-bG-SLv" secondAttribute="bottom" constant="70" id="nhg-Ij-xK9"/>
+                                <constraint firstAttribute="bottom" secondItem="NdL-bG-SLv" secondAttribute="bottom" constant="90" id="nhg-Ij-xK9"/>
                                 <constraint firstItem="Y10-u4-2W3" firstAttribute="top" secondItem="XkD-3N-tTd" secondAttribute="bottom" constant="24" id="pr5-3D-87u"/>
                                 <constraint firstAttribute="bottom" secondItem="zGf-1M-a15" secondAttribute="bottom" id="rqF-Hr-9vk"/>
                                 <constraint firstAttribute="trailing" secondItem="zGf-1M-a15" secondAttribute="trailing" id="tBH-aj-rSb"/>

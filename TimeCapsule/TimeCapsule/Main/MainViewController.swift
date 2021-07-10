@@ -146,7 +146,7 @@ class MainViewController: UIViewController {
         
         self.navigationItem.title = ""
         dayCountLabel.font = .SpoqaHanSansNeo(.bold, size: 10)
-        countLabel.layer.cornerRadius = 13.5
+        countLabel.layer.cornerRadius = countLabel.frame.height / 2
         countLabel.layer.masksToBounds = true
         countLabel.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
         countLabel.layer.zPosition = 9

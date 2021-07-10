@@ -99,7 +99,7 @@ class AddWishViewController: UIViewController{
     
     // MARK:- UI 셋업
     private func setupUI() {
-        wishTextView.contentInset = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
+        wishTextView.contentInset = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
         wishTextView.text = "소원을 입력해주세요"
         wishTextView.textColor = .enabledGrey
         wishTextView.returnKeyType = .done

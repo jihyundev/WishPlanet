@@ -12,17 +12,6 @@ class LeaveConfirmViewController: UIViewController {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = MyInfoDataManager()
-    var isActivated: Bool = false {
-        didSet {
-            if isActivated == false {
-                leaveButton.isEnabled = false
-                leaveButton.setTitleColor(UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.3), for: .normal)
-            } else {
-                leaveButton.isEnabled = true
-                leaveButton.setTitleColor(.white, for: .normal)
-            }
-        }
-    }
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -52,7 +41,7 @@ class LeaveConfirmViewController: UIViewController {
         leaveButton.layer.cornerRadius = 12
         leaveButton.backgroundColor = #colorLiteral(red: 0.4958559275, green: 0.1930817962, blue: 0.9492445588, alpha: 1)
         leaveButton.titleLabel?.font = UIFont.SpoqaHanSansNeo(.medium, size: 15)
-        isActivated = false
+        leaveButton.setTitleColor(.white, for: .normal)
     }
     
     @IBAction func leaveButtonTapped(_ sender: Any) {
@@ -103,10 +92,7 @@ extension LeaveConfirmViewController: UITextViewDelegate {
         print(#function)
         if textView.text.isEmpty == true {
             textViewSetupView()
-            isActivated = false
-        } else {
-            isActivated = true
-        }
+        } 
     }
     
 }

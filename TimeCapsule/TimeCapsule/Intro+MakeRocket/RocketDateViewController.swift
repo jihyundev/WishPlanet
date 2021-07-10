@@ -152,9 +152,9 @@ class RocketDateViewController: UIViewController {
         }
     }
     
-    func failedToPost() {
+    func failedToPost(message: String) {
         self.dismissIndicator()
-        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
+        self.presentAlert(title: message, isCancelActionIncluded: false)
     }
     
 }

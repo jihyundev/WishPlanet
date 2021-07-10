@@ -24,6 +24,8 @@ enum URLType {
     case stone(Int) // 소원석 목록(GET), 추가(POST)
     case stoneCheck(Int, Int) // 소원석 체크
     
+    case privacyPolicy // 개인정보 처리방침
+    
     var baseURL: String {
         return "http://18.216.19.165"
     }
@@ -57,6 +59,8 @@ enum URLType {
             return "\(baseURL)/v1/rockets/\(id)/stones"
         case .stoneCheck(let rocketId, let stoneId):
             return "\(baseURL)/v1/rockets/\(rocketId)/stones/\(stoneId)/check"
+        case .privacyPolicy:
+            return "https://www.notion.so/fddfa4557d6d441096defe68e5589da1"
         }
     }
 }

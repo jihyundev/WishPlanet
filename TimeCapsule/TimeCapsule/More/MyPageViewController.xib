@@ -34,8 +34,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-pN-pVm">
-                    <rect key="frame" x="289" y="129.5" width="109" height="16"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="g3e-pN-pVm">
+                    <rect key="frame" x="287" y="129.5" width="111" height="16"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카카오 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwQ-My-4zU">
                             <rect key="frame" x="0.0" y="0.0" width="93" height="16"/>
@@ -44,7 +44,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SH-kt-JnB">
-                            <rect key="frame" x="93" y="0.0" width="16" height="16"/>
+                            <rect key="frame" x="95" y="0.0" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="Clh-xu-Aia"/>
                                 <constraint firstAttribute="width" constant="16" id="QaM-mt-ObM"/>
