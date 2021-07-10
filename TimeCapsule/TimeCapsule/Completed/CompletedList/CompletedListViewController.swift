@@ -54,9 +54,9 @@ class CompletedListViewController: UIViewController {
     }
     
     // 소원석 체크 성공
-    func successToCheckStone() {
+    func successToCheckStone(message: String) {
         self.dismissIndicator()
-        self.presentAlert(title: "소원석 체크가 완료되었습니다. ")
+        self.presentAlert(title: message)
         dataManager.getStones(rocketID: rocketID, viewController: self)
     }
     
@@ -90,7 +90,12 @@ extension CompletedListViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let stone = stoneList[indexPath.row]
         print("stone ID: \(stone.stoneID)")
-        dataManager.patchStoneCheck(rocketID: self.rocketID, stoneID: stone.stoneID, viewController: self)
+        switch stone.wishChecked {
+        case true:
+            dataManager.patchStoneCheck(checked: true, rocketID: self.rocketID, stoneID: stone.stoneID, viewController: self)
+        case false:
+            dataManager.patchStoneCheck(checked: false, rocketID: self.rocketID, stoneID: stone.stoneID, viewController: self)
+        }
         self.showIndicator()
     }
     

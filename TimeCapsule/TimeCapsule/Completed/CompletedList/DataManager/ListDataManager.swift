@@ -31,7 +31,7 @@ class ListDataManager {
     }
     
     // 소원석 체크 PATCH
-    func patchStoneCheck(rocketID: Int, stoneID: Int, viewController: CompletedListViewController) {
+    func patchStoneCheck(checked: Bool, rocketID: Int, stoneID: Int, viewController: CompletedListViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.stoneCheck(rocketID, stoneID).makeURL
@@ -40,7 +40,12 @@ class ListDataManager {
                 switch response.result {
                 case .success:
                     print("success")
-                    viewController.successToCheckStone()
+                    switch checked {
+                    case true:
+                        viewController.successToCheckStone(message: "소원석 체크가 해제되었습니다. ")
+                    case false:
+                        viewController.successToCheckStone(message: "소원석 체크가 완료되었습니다. ")
+                    }
                 case .failure(let error):
                     print(error)
                     viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")

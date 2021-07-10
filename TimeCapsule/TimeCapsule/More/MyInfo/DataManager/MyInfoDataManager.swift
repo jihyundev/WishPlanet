@@ -13,6 +13,25 @@ class MyInfoDataManager {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     
+    // 닉네임 불러오기
+    func getNickname(viewController: MyInfoViewController) {
+        print("닉네임 불러오는중...")
+        guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.userMore.makeURL
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
+        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of: GetMoreInfoResponse.self) { response in
+            switch response.result {
+            case .success(let response):
+                let nickname = response.nickName
+                self.keychain.set(nickname, forKey: Keys.nickname)
+                viewController.didRetrieveData(nickname: nickname)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
     // 닉네임 수정
     func patchNickname(nickname: String, viewController: NicknameEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }

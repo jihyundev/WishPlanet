@@ -43,14 +43,14 @@ class IntroViewController: UIViewController {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isTransparent = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        NotificationCenter.default.addObserver(self, selector: #selector(fadein), name: Notification.Name("FadeInIntroVC"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fadein), name: Notification.Name(Notifications.FadeInIntroVC), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         NotificationCenter.default
-            .removeObserver(self, name: Notification.Name("FadeInIntroVC"), object: nil)
+            .removeObserver(self, name: Notification.Name(Notifications.FadeInIntroVC), object: nil)
     }
     
     fileprivate func setupUI() {

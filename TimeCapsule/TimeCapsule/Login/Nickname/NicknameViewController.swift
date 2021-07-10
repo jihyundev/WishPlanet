@@ -81,18 +81,22 @@ class NicknameViewController: UIViewController {
         guard let text = nameTextField.text else { return }
         dataManager.signUp(loginType: loginType, nickname: text, token: accessToken, viewController: self)
     }
+    
     @IBAction func deleteButtonTapped(_ sender: Any) {
         nameTextField.text = ""
         isActivated = false
+        deleteButton.isHidden = true
         textCountLabel.text = "0/10"
     }
     
     @IBAction func nameTextFieldChanged(_ sender: Any) {
         if nameTextField.text?.isEmpty == false {
             deleteButton.isHidden = false
+            textCountLabel.isHidden = false
             isActivated = true
         } else {
             deleteButton.isHidden = true
+            textCountLabel.isHidden = true
             isActivated = false
         }
     }
@@ -144,5 +148,19 @@ extension NicknameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.text?.isEmpty == true {
+            deleteButton.isHidden = true
+            textCountLabel.isHidden = true
+        } else {
+            deleteButton.isHidden = false
+            textCountLabel.isHidden = false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        deleteButton.isHidden = true
     }
 }

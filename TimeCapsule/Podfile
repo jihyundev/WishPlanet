@@ -13,6 +13,7 @@ target 'TimeCapsule' do
   pod 'KakaoSDKUser'
   pod 'lottie-ios'
   pod 'KeychainSwift', '~> 19.0'
+  pod 'SwiftyJSON', '~> 4.0'
   pod 'PanModal'
 
 end

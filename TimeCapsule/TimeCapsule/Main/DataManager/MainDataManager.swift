@@ -41,7 +41,8 @@ class MainDataManager {
                         }
                     }
                     let daysLeft: Int = self.calculateDaysLeft(launchDate: rocket.launchDate)
-                    viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount, daysLeft: daysLeft)
+                    //viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount, daysLeft: daysLeft)
+                    viewController.didRetrieveData(rocketResponse: rocket, stones: stones, daysLeft: daysLeft)
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
                 }

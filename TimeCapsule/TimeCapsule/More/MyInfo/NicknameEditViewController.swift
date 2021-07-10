@@ -23,6 +23,7 @@ class NicknameEditViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var textCountLabel: UILabel!
+    @IBOutlet weak var clearButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,16 @@ class NicknameEditViewController: UIViewController {
         self.textCountLabel.text = "0/10"
     }
     
+    @IBAction func nameTextFieldEditingChanged(_ sender: Any) {
+        if nameTextField.text?.isEmpty == true {
+            clearButton.isHidden = true
+            textCountLabel.isHidden = true
+        } else {
+            clearButton.isHidden = false
+            textCountLabel.isHidden = false
+        }
+    }
+    
     @objc private func completeButtonPressed(_ sender: Any) {
         guard let name = self.nickname else { return }
         dataManager.patchNickname(nickname: name, viewController: self)
@@ -62,7 +73,7 @@ class NicknameEditViewController: UIViewController {
     
     func didRetreiveData() {
         self.presentAlert(title: "닉네임 변경에 성공하였습니다. ") {_ in
-            self.delegate?.reloadNicknameRow()
+            self.delegate?.updateNickname()
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -87,5 +98,17 @@ extension NicknameEditViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let name = self.nameTextField.text else { return }
         self.nickname = name
+        clearButton.isHidden = true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.text?.isEmpty == true {
+            clearButton.isHidden = true
+            textCountLabel.isHidden = true
+        } else {
+            clearButton.isHidden = false
+            textCountLabel.isHidden = false
+        }
+    }
+    
 }

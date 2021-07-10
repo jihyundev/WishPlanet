@@ -89,6 +89,7 @@ class AddWishViewController: UIViewController{
     
     @IBAction func completionButtonTapped(_ sender: Any) {
         guard let content = wishTextView.text else { return }
+        self.view.isUserInteractionEnabled = false
         dataManager.postStone(rocketID: self.rocketID, content: content, stoneColor: self.stoneColor, viewController: self)
     }
     
@@ -174,6 +175,7 @@ class AddWishViewController: UIViewController{
     }
     
     func didSuccessToPost() {
+        self.view.isUserInteractionEnabled = true
         self.delegate?.reloadView()
         self.dismiss(animated: true) {
             self.delegate?.showToast()
@@ -181,6 +183,7 @@ class AddWishViewController: UIViewController{
     }
     
     func failedToPost(message: String) {
+        self.view.isUserInteractionEnabled = true
         self.presentAlert(title: message, isCancelActionIncluded: false)
     }
 }

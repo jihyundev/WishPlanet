@@ -11,6 +11,7 @@ PODS:
   - lottie-ios (3.2.1)
   - PanModal (1.2.7)
   - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - lottie-ios
   - PanModal
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -32,6 +34,7 @@ SPEC REPOS:
     - lottie-ios
     - PanModal
     - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -42,7 +45,8 @@ SPEC CHECKSUMS:
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 0705942683118599b448abd1f832a9741abe5743
+PODFILE CHECKSUM: cbb608689f07be536b5cdd71df53b8eec305a140
 
 COCOAPODS: 1.10.1

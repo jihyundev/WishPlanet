@@ -86,6 +86,7 @@
 		59C686A02643F746006D9F3B /* NicknameEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C6869E2643F746006D9F3B /* NicknameEditViewController.xib */; };
 		59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686A326441168006D9F3B /* MyInfoDataManager.swift */; };
 		59C686A72644155D006D9F3B /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C686A62644155D006D9F3B /* UITextField.swift */; };
+		59CA8AE42699660E0057D3B1 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA8AE32699660E0057D3B1 /* Notifications.swift */; };
 		59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */; };
 		59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D3A02652A60700A67DB1 /* MainDataManager.swift */; };
 		59E80A6B268420A800C63BDA /* CheckedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E80A69268420A800C63BDA /* CheckedListCell.swift */; };
@@ -199,6 +200,7 @@
 		59C686A326441168006D9F3B /* MyInfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoDataManager.swift; sourceTree = "<group>"; };
 		59C686A62644155D006D9F3B /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		59C86CDA266064C100C98A38 /* TimeCapsule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeCapsule.entitlements; sourceTree = "<group>"; };
+		59CA8AE32699660E0057D3B1 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRocketDataManager.swift; sourceTree = "<group>"; };
 		59E5D3A02652A60700A67DB1 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
 		59E80A69268420A800C63BDA /* CheckedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedListCell.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 				2516E84125FB890E00ADD135 /* URLType.swift */,
 				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
 				591BDBFD268809F000178E85 /* Parameters.swift */,
+				59CA8AE32699660E0057D3B1 /* Notifications.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				59C1CB6A2657F47A008929E6 /* AddWishDataManager.swift in Sources */,
 				593D80742666823E002DE3D8 /* CurrentTableViewCell.swift in Sources */,
 				595B808F2644CEE100B4866D /* LeaveViewController.swift in Sources */,
+				59CA8AE42699660E0057D3B1 /* Notifications.swift in Sources */,
 				5997196E26456C8E008E88EA /* GuideViewController.swift in Sources */,
 				59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */,
 				59E971DF25FB003B008A7EF9 /* UINavigationBar.swift in Sources */,

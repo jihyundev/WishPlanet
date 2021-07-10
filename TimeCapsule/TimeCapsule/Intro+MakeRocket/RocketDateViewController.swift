@@ -79,7 +79,7 @@ class RocketDateViewController: UIViewController {
     }
     
     @objc private func dismissView() {
-        NotificationCenter.default.post(name: Notification.Name("FadeInIntroVC"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(Notifications.FadeInIntroVC), object: nil)
         self.dismiss(animated: true, completion: nil)
     }
     

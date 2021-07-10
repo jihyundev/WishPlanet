@@ -52,14 +52,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    var rocketID: Int? // 로켓 아이디
-    var rocketColor: Int? // 로켓 색상
-    //var daysLeft: Double? // 남은 날짜
+    var rocketResponse: GetRocketsResponse? // 메인 화면에 필요한 응답값
     var targetDate: String? // 목표 날짜
     
     // 로켓 top 이미지
     lazy var rocketImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "rocket_top_\(self.rocketColor ?? 0)"))
+        let view = UIImageView(image: UIImage(named: "rocket_top_\(self.rocketResponse?.rocketColor ?? 0)"))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -109,6 +107,7 @@ class MainViewController: UIViewController {
             view.scene?.isPaused = false
             print("LOG - Unpausing the SKScene...")
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateRocket), name: Notification.Name(Notifications.UpdateRocket), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,6 +117,7 @@ class MainViewController: UIViewController {
             view.scene?.isPaused = true
             print("LOG - Pausing the SKScene...")
         }
+        //NotificationCenter.default.removeObserver(self, name: Notification.Name(Notifications.UpdateRocket), object: nil)
     }
     
     // MARK: -IBAction 메소드
@@ -127,7 +127,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        guard let id = self.rocketID else { return }
+        guard let id = self.rocketResponse?.rocketID else { return }
         let nextVC = AddWishViewController(rocketID: id, count: currentItems)
         nextVC.delegate = self
         nextVC.modalPresentationStyle = .overCurrentContext
@@ -217,26 +217,27 @@ class MainViewController: UIViewController {
     }
     
     // MARK: -데이터 관리
-    func didRetrieveData(rocketID: Int, rocketColor: Int, rocketName: String, launchDate: String, stones: [Int], rocketCount: Int, daysLeft: Int) {
+    func didRetrieveData(rocketResponse: GetRocketsResponse, stones: [Int], daysLeft: Int) {
         [rocketImageView, rocketBottomImageView, gameView, shadowView].forEach {
             $0?.isHidden = false
         }
         
-        self.nameLabel.text = rocketName
+        self.nameLabel.text = rocketResponse.rocketName
         self.stones = stones
-        self.rocketID = rocketID
-        self.rocketColor = rocketColor
-        self.rocketImageView.image = UIImage(named: "rocket_top_\(self.rocketColor ?? 0)")
-        self.targetDate = launchDate
+        self.rocketResponse = rocketResponse
+        //self.rocketID = rocketResponse.rocketID
+        //self.rocketColor = rocketResponse.rocketColor
+        self.rocketImageView.image = UIImage(named: "rocket_top_\(self.rocketResponse?.rocketColor ?? 0)")
+        self.targetDate = rocketResponse.launchDate
         self.currentItems = self.stones.count
         
         self.makeGameScene()
-        self.countLabel.text = "\(self.stones.count) / 21"
+        self.countLabel.text = "\(rocketResponse.usedCount) / \(rocketResponse.allowedStoneCount)"
         
         // 테스트
         //rocketListFlag = true
         
-        if rocketCount > 1 {
+        if rocketResponse.totalRocketCount > 1 {
             rocketListFlag = true
         } else {
             rocketListFlag = false
@@ -268,7 +269,7 @@ class MainViewController: UIViewController {
         // 지연저장 프로퍼티인 애니메이션 뷰들을 생성
         addAnimationAsSubview()
         // 엔딩 팝업 뷰 present
-        let nextVC = EndPopUpViewController(dday: self.dayCountLabel.text ?? "D-DAY", dateString: self.targetDate ?? "", rocketID: self.rocketID ?? 0)
+        let nextVC = EndPopUpViewController(dday: self.dayCountLabel.text ?? "D-DAY", dateString: self.targetDate ?? "", rocketID: self.rocketResponse?.rocketID ?? 0)
         nextVC.delegate = self
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
@@ -278,6 +279,10 @@ class MainViewController: UIViewController {
     @objc fileprivate func rocketListButtonTapped() {
         let vc = CompletedRocketsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func updateRocket() {
+        dataManager.getRocket(viewController: self)
     }
     
     private func addAnimationAsSubview() {
@@ -303,13 +308,15 @@ extension MainViewController: ReloadDelegate {
     
     func showToast() {
         guard let image = UIImage(named: "icon_success") else { return }
-        let stoneLeft = 21 - self.stones.count
-        self.presentBottomAlert(image: image, message: "소원석 추가 성공!", desc: "\(stoneLeft)개 남음")
+        if let response = self.rocketResponse {
+            let stoneLeft = response.allowedStoneCount - response.usedCount
+            self.presentBottomAlert(image: image, message: "소원석 추가 성공!", desc: "\(stoneLeft)개 남음")
+        } else {
+            self.presentBottomAlert(image: image, message: "소원석 추가 성공!")
+        }
     }
     
     func reloadView() {
-        //let skView = self.gameView as! SKView
-        //skView.scene?.removeFromParent()
         dataManager.getRocket(viewController: self)
     }
      

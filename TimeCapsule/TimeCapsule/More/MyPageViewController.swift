@@ -113,6 +113,7 @@ class MyPageViewController: UIViewController {
         let vc = MyInfoViewController()
         let name = keychain.get(Keys.nickname)
         vc.name = name
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -144,4 +145,10 @@ class MyPageViewController: UIViewController {
         self.presentAlert(title: message)
     }
     
+}
+extension MyPageViewController: ReloadNicknameDelegate {
+    func updateNickname() {
+        print("MyPageViewController - updateNickname() called")
+        dataManager.getMoreInfo(viewController: self)
+    }
 }

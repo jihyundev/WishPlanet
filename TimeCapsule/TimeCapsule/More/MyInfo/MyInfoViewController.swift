@@ -11,8 +11,11 @@ import KeychainSwift
 class MyInfoViewController: UIViewController {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
+    let dataManager = MyInfoDataManager()
     let infoCell = MyInfoTableViewCell()
+    
     var name: String?
+    var delegate: ReloadNicknameDelegate?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +24,7 @@ class MyInfoViewController: UIViewController {
         self.title = "내 정보"
         
         setupUI()
+        dataManager.getNickname(viewController: self)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,6 +40,11 @@ class MyInfoViewController: UIViewController {
         tableView.backgroundColor = .mainPurple
         tableView.tableFooterView = UIView()
     }
+    
+    func didRetrieveData(nickname: String) {
+        name = nickname
+        tableView.reloadData()
+    }
 }
 
 extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
@@ -48,7 +57,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
             cell.mainLabel.text = "닉네임 수정"
-            let nickname = keychain.get(Keys.nickname)
+            let nickname = self.name
             cell.subLabel.text = nickname
             return cell
         case 1:
@@ -77,6 +86,7 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let vc = NicknameEditViewController()
             vc.title = "닉네임 수정"
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = PrivacyPolicyViewController()
@@ -107,13 +117,12 @@ extension MyInfoViewController: ChangeRootDelegate {
 }
 
 extension MyInfoViewController: ReloadNicknameDelegate {
-    func reloadNicknameRow() {
-        print("MyInfoViewController - reloadNicknameRow() called")
-        let index = IndexPath(row: 0, section: 0)
-        tableView.reloadRows(at: [index], with: .none)
-        
-        //let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
-        //cell.subLabel.text = "updated!"
+    func updateNickname() {
+        print("MyInfoViewController - updateNickname() called")
+        dataManager.getNickname(viewController: self)
+        delegate?.updateNickname()
+        //let index = IndexPath(row: 0, section: 0)
+        //tableView.reloadRows(at: [index], with: .none)
     }
 }
 
@@ -122,5 +131,5 @@ protocol ChangeRootDelegate {
 }
 
 protocol ReloadNicknameDelegate {
-    func reloadNicknameRow()
+    func updateNickname()
 }

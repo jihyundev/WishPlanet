@@ -190,21 +190,28 @@ class MyRocketEditViewController: UIViewController {
             datePickerButton.isHidden = true
             dateTextField.isUserInteractionEnabled = false
             editedLabel.isHidden = false
+            // 완료버튼 가리는 코드 (추후 필요할 경우 사용)
+            //self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
             datePickerButton.isHidden = false
             dateTextField.isUserInteractionEnabled = true
             editedLabel.isHidden = true
+            // 완료버튼 가리는 기능 추가 시 사용
+            //self.navigationItem.rightBarButtonItem = self.completeButton
         }
     }
     
     func successToPatch() {
         // 데이터 업데이트 후 pop
         delegate?.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name(Notifications.UpdateRocket), object: nil, userInfo: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
     func failedToRequest(message: String) {
-        self.presentAlert(title: message)
+        self.presentAlert(title: message, isCancelActionIncluded: false) {_ in
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func clearButtonTapped(_ sender: Any) {
@@ -245,5 +252,19 @@ extension MyRocketEditViewController: UITextFieldDelegate {
         
         textCountLabel.text = "\(min(updatedText.count,10))/10"
         return updatedText.count <= 10
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.text?.isEmpty == true {
+            clearButton.isHidden = true
+            textCountLabel.isHidden = true
+        } else {
+            clearButton.isHidden = false
+            textCountLabel.isHidden = false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        clearButton.isHidden = true
     }
 }
