@@ -25,6 +25,9 @@ class WishplanetViewController: UIViewController {
         super.viewDidLoad()
         scrollView.delegate = self
         setupUI()
+        
+        let opensourceTapGesture = UITapGestureRecognizer(target: self, action: #selector(opensourceTapped))
+        opensourceView.addGestureRecognizer(opensourceTapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +56,11 @@ class WishplanetViewController: UIViewController {
     }
     
     @IBAction func opensourceButtonTapped(_ sender: Any) {
+        let vc = OpenSourceViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func opensourceTapped() {
         let vc = OpenSourceViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
