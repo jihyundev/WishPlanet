@@ -9,9 +9,6 @@ import UIKit
 
 class MyRocketViewController: UIViewController {
     
-    var currentRocket: MyRocket?
-    var launchedRockets: [MyRocket] = []
-    
     let currentCell = CurrentTableViewCell()
     let launchedCell = LaunchedTableViewCell()
     
@@ -21,6 +18,9 @@ class MyRocketViewController: UIViewController {
         dateformatter.dateFormat = "yyyy-MM-dd"
         return dateformatter
     }()
+    
+    var currentRocket: MyRocket?
+    var launchedRockets: [MyRocket] = []
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -100,19 +100,14 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if let date = currentRocket?.period {
-                if ((currentRocket?.name.isEmpty) != nil) {
-                    print("current rocket do not exist")
-                } else {
-                    self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
-                }
+                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
             } else {
-                print("current rocket do not exist")
+                print("current rocket do not exist-2")
             }
         } else {
-            self.navigationController?.popToRootViewController(animated: true)
-            
-            // delegate 통해 해당 우주선 스크롤뷰 위치로 이동하기
-            //
+            let rocket = launchedRockets[indexPath.row]
+            let vc = MyLaunchedRocketViewController(rocketID: rocket.rocketID)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

@@ -10,7 +10,25 @@ import SpriteKit
 
 class MyLaunchedRocketViewController: UIViewController {
     
-    var rocketColor = 0
+    // 지금 우주선 상세정보 조회 api가 발사된 우주선으로는 조회 안 되는 상태 ㅠㅠ
+    
+    let dataManager = MyRocketDataManager()
+    private let rocketID: Int
+    
+    init(rocketID: Int) {
+        self.rocketID = rocketID
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var rocketColor = 0 {
+        didSet {
+            rocketImageView.image = UIImage(named: "rocket_top_fire_\(rocketColor)")
+        }
+    }
     
     lazy var rocketImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "rocket_top_fire_\(rocketColor)"))
@@ -39,23 +57,31 @@ class MyLaunchedRocketViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
+    @IBOutlet weak var rocketLabel: UILabel!
+    @IBOutlet weak var periodLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
-        view.backgroundColor = UIColor(hex: 0x7DB1FF)
-
-        // Do any additional setup after loading the view.
+        print("rocketID: \(rocketID)")
+        setupUI()
+        prepareRocket()
+        dataManager.getLaunchedRocket(rocketID: self.rocketID, viewController: self)
     }
     
-    private func setupLayout() {
+    private func setupUI() {
+        view.backgroundColor = UIColor(hex: 0x7DB1FF)
+        periodLabel.text = ""
+        rocketLabel.text = ""
+    }
+    
+    private func prepareRocket() {
         view.addSubview(rocketImageView)
         rocketImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
         rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
         rocketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         rocketImageView.contentMode = .scaleAspectFit
-        //print(rocketImageView.frame.size)
         rocketImageView.layer.zPosition = 2
         
         view.addSubview(rocketBottomImageView)
@@ -80,10 +106,15 @@ class MyLaunchedRocketViewController: UIViewController {
         gameView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 218/752).isActive = true
         gameView.widthAnchor.constraint(equalTo: gameView.heightAnchor, multiplier: 20/21).isActive = true
         gameView.layer.zPosition = 1
+        
+        [rocketImageView, rocketBottomImageView, gameView, shadowView].forEach {
+            $0?.isHidden = true
+        }
+        
     }
     
     func makeGameScene(currentItems: Int, stones: [Int]) {
-        let scene = LaunchedGameScene(size: self.gameView.bounds.size)
+        let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as SKView
         scene.currentItemCount = currentItems
         scene.marbles = stones
@@ -93,6 +124,23 @@ class MyLaunchedRocketViewController: UIViewController {
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
         print("RocketCollectionViewCell - makeGameScene() finished")
+    }
+    
+    func didRetrieveData(rocketResponse: GetRocketsResponse, stones: [Int]) {
+        [rocketImageView, rocketBottomImageView, gameView, shadowView].forEach {
+            $0?.isHidden = false
+        }
+        self.rocketLabel.text = rocketResponse.rocketName
+        self.periodLabel.text = "\(rocketResponse.createdAt) ~ \(rocketResponse.launchDate)"
+        self.rocketColor = rocketResponse.rocketColor
+        //self.rocketImageView.image = UIImage(named: "rocket_top_fire_\(rocketResponse.rocketColor)")
+        makeGameScene(currentItems: stones.count, stones: stones)
+    }
+    
+    func failedToRequest(message: String) {
+        self.presentAlert(title: message, isCancelActionIncluded: false) {_ in 
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }

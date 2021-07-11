@@ -14,6 +14,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyLaunchedRocketViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
+                <outlet property="periodLabel" destination="iys-cx-dzW" id="har-SY-eNb"/>
+                <outlet property="rocketLabel" destination="lIm-xb-87d" id="HxH-pz-cbK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

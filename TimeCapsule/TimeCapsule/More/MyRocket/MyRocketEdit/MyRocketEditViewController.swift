@@ -80,6 +80,7 @@ class MyRocketEditViewController: UIViewController {
         datePickerButton.isHidden = true
         editedLabel.isHidden = true
         iconImageView.image = UIImage(named: "icon rocket_\(self.rocketColor )")
+        
         nameTextField.layer.backgroundColor = UIColor.init(hex: 0x743EE9).cgColor
         nameTextField.textColor = .white
         nameTextField.text = rocketName
@@ -92,9 +93,11 @@ class MyRocketEditViewController: UIViewController {
         dateTextField.layer.cornerRadius = 12
         dateTextField.addLeftPadding()
         dateTextField.returnKeyType = .done
+        footerView.backgroundColor = UIColor.init(hex: 0x743EE9)
+        
+        iconImageView.isHidden = true
         clearButton.isHidden = true
         textCountLabel.isHidden = true
-        footerView.backgroundColor = UIColor.init(hex: 0x743EE9)
         
         self.navigationItem.rightBarButtonItem = self.completeButton
     }
@@ -184,6 +187,7 @@ class MyRocketEditViewController: UIViewController {
     func didRetrieveData(rocketColor: Int, name: String, date: String, canPatch: Bool) {
         self.rocketColor = rocketColor
         self.rocketName = name
+        iconImageView.isHidden = false
         dateTextField.text = date
         if canPatch == false {
             // 버튼 가리기 + 텍스트필드 수정 불가능 + 수정됨 Label 생성

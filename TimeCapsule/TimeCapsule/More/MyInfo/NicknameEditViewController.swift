@@ -46,6 +46,7 @@ class NicknameEditViewController: UIViewController {
         } else {
             self.textCountLabel.text = "0/10"
         }
+        clearButton.isHidden = true
         
         
         self.navigationItem.rightBarButtonItem = self.completeButton
@@ -53,6 +54,7 @@ class NicknameEditViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         nameTextField.text = ""
+        clearButton.isHidden = true
         self.textCountLabel.text = "0/10"
     }
     

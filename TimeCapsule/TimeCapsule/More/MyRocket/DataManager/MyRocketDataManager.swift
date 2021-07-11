@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import KeychainSwift
+import SwiftyJSON
 
 class MyRocketDataManager {
     
@@ -46,6 +47,33 @@ class MyRocketDataManager {
                 print(error.localizedDescription)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
             }
+        }
+    }
+    
+    func getLaunchedRocket(rocketID: Int, viewController: MyLaunchedRocketViewController) {
+        guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.rocketEdit(rocketID).makeURL
+        let parameters = ["stoneColorCount": "true"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: GetRocketsResponse.self) { response in
+                switch response.result {
+                case .success(let rocket):
+                    print(rocket)
+                    var stones: [Int] = []
+                    if let stoneList = rocket.stoneColorCount {
+                        for i in 0..<stoneList.count {
+                            for _ in 0..<stoneList[i].stoneCount {
+                                stones.append(stoneList[i].stoneColor)
+                            }
+                        }
+                        viewController.didRetrieveData(rocketResponse: rocket, stones: stones)
+                    }
+                case .failure(let error):
+                    print(error)
+                    viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
+                }
         }
     }
 }

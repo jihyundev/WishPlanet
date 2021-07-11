@@ -17,9 +17,12 @@ class MyRocketEditDataManager {
     func getRocketDetails(rocketID: Int, viewController: MyRocketEditViewController) {
         guard let token = keychain.get(Keys.token) else { return }
         let url = URLType.rocketEdit(rocketID).makeURL
+        let parameters = ["stoneColorCount": "false"]
         let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         
-        AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: GetRocketsResponse.self) { response in
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: GetRocketsResponse.self) { response in
             switch response.result {
             case .success(let res):
                 let color = res.rocketColor
