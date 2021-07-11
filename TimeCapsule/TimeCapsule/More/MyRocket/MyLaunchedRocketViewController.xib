@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Bold.otf">
+            <string>SpoqaHanSansNeo-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyLaunchedRocketViewController" customModule="TimeCapsule" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground_green" translatesAutoresizingMaskIntoConstraints="NO" id="C6Q-xc-5lw">
+                    <rect key="frame" x="0.0" y="516" width="414" height="380"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="380" id="xeN-vS-z0F"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시님의 우주선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIm-xb-87d">
+                    <rect key="frame" x="22" y="117" width="161" height="29"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.01.08 ~ 2022.01.07 365일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iys-cx-dzW">
+                    <rect key="frame" x="22" y="97" width="190" height="16"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.49535483120000001" green="0.68810933829999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="C6Q-xc-5lw" secondAttribute="trailing" id="Bgj-oR-tg0"/>
+                <constraint firstItem="C6Q-xc-5lw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DfB-UE-AWL"/>
+                <constraint firstItem="lIm-xb-87d" firstAttribute="leading" secondItem="iys-cx-dzW" secondAttribute="leading" id="RVX-NM-S9P"/>
+                <constraint firstItem="iys-cx-dzW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="S3H-Wq-wNK"/>
+                <constraint firstItem="iys-cx-dzW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="VtE-pf-Qd9"/>
+                <constraint firstItem="lIm-xb-87d" firstAttribute="top" secondItem="iys-cx-dzW" secondAttribute="bottom" constant="4" id="eaQ-7W-vF4"/>
+                <constraint firstAttribute="bottom" secondItem="C6Q-xc-5lw" secondAttribute="bottom" id="xxa-sH-fF8"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="108.69565217391305" y="59.598214285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ground_green" width="375" height="400"/>
+    </resources>
+</document>

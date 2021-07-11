@@ -25,16 +25,26 @@ class CurrentTableViewCell: UITableViewCell {
         editButton.layer.cornerRadius = editButton.layer.frame.height / 2
         editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     @objc func editButtonTapped() {
         if let dateString = date {
             delegate?.moveToEditVC(title: "진행 중", rocketID: rocketID ?? 0, date: dateString)
         }
         
+    }
+    
+    func configure(rocket: MyRocket) {
+        self.rocketID = rocket.rocketID
+        self.date = rocket.period
+        self.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
+        self.nameLabel.text = rocket.name
+        self.periodLabel.text = "~\(rocket.period)"
+    }
+    
+    func showPlaceholder() {
+        self.nameLabel.text = "아직 우주선이 없어요"
+        self.periodLabel.isHidden = true
+        self.editButton.isHidden = true
     }
     
 }

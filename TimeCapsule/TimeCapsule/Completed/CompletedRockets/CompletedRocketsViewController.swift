@@ -91,7 +91,7 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
             print("LOG - stones: \(stones)")
             cell?.configure(color: rocket.rocketColor, currentItems: stones.count, stones: stones)
         } else {
-            self.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ")
+            self.presentAlert(title: "우주선이 존재하지 않습니다. ")
         }
         cell?.backgroundColor = .clear
         

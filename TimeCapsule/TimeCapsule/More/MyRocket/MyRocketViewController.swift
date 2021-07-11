@@ -26,6 +26,7 @@ class MyRocketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "내 우주선 관리"
         self.view.backgroundColor = .mainPurple
         
@@ -73,16 +74,18 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if let rocket = currentRocket {
-                let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as! CurrentTableViewCell
-                cell.rocketID = currentRocket?.rocketID
-                cell.date = currentRocket?.period
-                cell.delegate = self
-                cell.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
-                cell.nameLabel.text = rocket.name
-                cell.periodLabel.text = "~\(rocket.period)"
-                return cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as? CurrentTableViewCell
+                if rocket.name.isEmpty {
+                    cell?.showPlaceholder()
+                } else {
+                    cell?.configure(rocket: rocket)
+                    cell?.delegate = self
+                }
+                return cell ?? UITableViewCell()
             } else {
-                return UITableViewCell()
+                let cell = tableView.dequeueReusableCell(withIdentifier: currentCell.cellID) as? CurrentTableViewCell
+                cell?.showPlaceholder()
+                return cell ?? UITableViewCell()
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: launchedCell.cellID) as! LaunchedTableViewCell
@@ -97,12 +100,14 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if let date = currentRocket?.period {
-                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+                if ((currentRocket?.name.isEmpty) != nil) {
+                    print("current rocket do not exist")
+                } else {
+                    self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+                }
             } else {
-                let date = dateformatter.string(from: Date())
-                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+                print("current rocket do not exist")
             }
-            
         } else {
             self.navigationController?.popToRootViewController(animated: true)
             

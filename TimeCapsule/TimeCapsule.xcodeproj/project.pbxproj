@@ -54,6 +54,9 @@
 		596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */; };
 		596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */; };
 		596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF4266C632500328E8B /* MyRocketDataManager.swift */; };
+		598E3B15269A84FE00DE973D /* LaunchedGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */; };
+		598E3B18269A867800DE973D /* MyLaunchedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */; };
+		598E3B19269A867800DE973D /* MyLaunchedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */; };
 		5990E2AE267ED7D500178E8C /* CompletedRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */; };
 		5990E2AF267ED7D500178E8C /* CompletedRocketsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */; };
 		5990E2B1267ED94100178E8C /* RocketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */; };
@@ -172,6 +175,9 @@
 		596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRocketEditViewController.xib; sourceTree = "<group>"; };
 		596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketEditDataManager.swift; sourceTree = "<group>"; };
 		596A1CF4266C632500328E8B /* MyRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketDataManager.swift; sourceTree = "<group>"; };
+		598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedGameScene.swift; sourceTree = "<group>"; };
+		598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLaunchedRocketViewController.swift; sourceTree = "<group>"; };
+		598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLaunchedRocketViewController.xib; sourceTree = "<group>"; };
 		5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketsViewController.swift; sourceTree = "<group>"; };
 		5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedRocketsViewController.xib; sourceTree = "<group>"; };
 		5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -321,6 +327,8 @@
 				596A1CE62669DBCF00328E8B /* MyRocketEdit */,
 				59C686812642EB4D006D9F3B /* MyRocketViewController.swift */,
 				59C686822642EB4D006D9F3B /* MyRocketViewController.xib */,
+				598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */,
+				598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */,
 			);
 			path = MyRocket;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 				5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */,
 				5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */,
 				5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */,
+				598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */,
 			);
 			path = CompletedRockets;
 			sourceTree = "<group>";
@@ -777,6 +786,7 @@
 				5990E2AF267ED7D500178E8C /* CompletedRocketsViewController.xib in Resources */,
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
+				598E3B19269A867800DE973D /* MyLaunchedRocketViewController.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */,
 				592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */,
@@ -876,6 +886,7 @@
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */,
 				59E80A6B268420A800C63BDA /* CheckedListCell.swift in Sources */,
+				598E3B18269A867800DE973D /* MyLaunchedRocketViewController.swift in Sources */,
 				2516E83F25FB855200ADD135 /* GameScene.swift in Sources */,
 				59E971DB25FB003B008A7EF9 /* UIView.swift in Sources */,
 				252076EE25FB3A8D004366E4 /* AddWishViewController.swift in Sources */,
@@ -918,6 +929,7 @@
 				59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */,
 				59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */,
 				59C686832642EB4D006D9F3B /* MyRocketViewController.swift in Sources */,
+				598E3B15269A84FE00DE973D /* LaunchedGameScene.swift in Sources */,
 				59E971E125FB003B008A7EF9 /* Color.swift in Sources */,
 				59E971E025FB003B008A7EF9 /* UIFont.swift in Sources */,
 				596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */,
