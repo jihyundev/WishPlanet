@@ -84,9 +84,11 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
                     <rect key="frame" x="272" y="746" width="122" height="72"/>
-                    <state key="normal" image="add"/>
+                    <state key="normal" image="add">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                    </state>
                     <connections>
                         <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="Hvz-Od-XgA"/>
                     </connections>

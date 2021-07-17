@@ -89,11 +89,11 @@ class RocketCollectionViewCell: UICollectionViewCell {
     }
     
     func makeGameScene(currentItems: Int, stones: [Int]) {
-        let scene = LaunchedGameScene(size: self.gameView.bounds.size)
+        let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as SKView
         scene.currentItemCount = currentItems
         scene.marbles = stones
-        
+        print("LOG - stones: \(stones)")
         scene.backgroundColor = .clear
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .aspectFit
@@ -103,8 +103,6 @@ class RocketCollectionViewCell: UICollectionViewCell {
     
     func configure(color: Int, currentItems: Int, stones: [Int]) {
         rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
-        //self.currentItems = currentItems
-        //self.stones = stones
         makeGameScene(currentItems: currentItems, stones: stones)
     }
 }

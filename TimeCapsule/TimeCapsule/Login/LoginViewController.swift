@@ -110,8 +110,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
                let tokenString = String(data: identityToken, encoding: .utf8) {
                 print("authorizationCode: \(authorizationCode)")
                 print("identityToken: \(identityToken)")
-                print("authString: \(authString)")
-                print("tokenString: \(tokenString)")
+                print("authorizationCodeString: \(authString)")
+                print("identityTokenString: \(tokenString)")
                 dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
             }
         

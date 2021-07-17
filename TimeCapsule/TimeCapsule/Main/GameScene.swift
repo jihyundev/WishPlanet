@@ -50,6 +50,7 @@ class GameScene: SKScene {
     
     
     func createTile(count: Int, index: Int) {
+        print(#function)
         
         x += (bodySize * 2)
         if x >= self.size.width - bodySize * 4 {

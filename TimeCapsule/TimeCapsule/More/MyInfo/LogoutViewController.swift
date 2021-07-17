@@ -50,18 +50,27 @@ class LogoutViewController: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func proceedButtonTapped(_ sender: Any) {
-        // 키체인에서 삭제
-        keychain.clear()
-        // 카카오 API 로그아웃 처리 (토큰 삭제)
-        UserApi.shared.logout {(error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("logout() success.")
-                self.dismiss(animated: true) {
-                    self.delegate?.goToLoginVC()
+        //self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+        let socialType = self.keychain.get(Keys.loginType)
+        if socialType == "카카오 로그인" {
+            // 카카오 API 로그아웃 처리 (토큰 삭제)
+            UserApi.shared.logout { error in
+                if let error = error {
+                    print(error)
+                    self.presentAlert(title: "로그아웃에 실패했습니다. ")
+                } else {
+                    print("kakao logout() success.")
+                    self.keychain.clear()
+                    self.dismiss(animated: true) {
+                        self.delegate?.goToLoginVC()
+                    }
                 }
+            }
+        } else {
+            // 애플 로그아웃 처리
+            keychain.clear()
+            self.dismiss(animated: true) {
+                self.delegate?.goToLoginVC()
             }
         }
     }

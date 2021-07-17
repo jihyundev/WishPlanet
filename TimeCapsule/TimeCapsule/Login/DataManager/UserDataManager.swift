@@ -142,12 +142,16 @@ class UserDataManager {
                 let jwtToken = response
                 
                 self.keychain.set(jwtToken, forKey: Keys.token)
-                self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                if loginType == LoginType.kakao {
+                    self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                } else {
+                    self.keychain.set("애플 로그인", forKey: Keys.loginType)
+                }
+                
                 self.keychain.set(nickname, forKey: Keys.nickname)
                 self.keychain.set("1", forKey: Keys.rocketStatus)
                 
                 print("token: \(jwtToken)")
-                print("login type: kakao")
                 
                 // 메인으로 넘어가기
                 viewController.didRetreiveData()

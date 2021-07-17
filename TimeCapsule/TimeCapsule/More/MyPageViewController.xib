@@ -54,6 +54,9 @@
                             </state>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="1SH-kt-JnB" firstAttribute="centerY" secondItem="gwQ-My-4zU" secondAttribute="centerY" id="rvd-9r-5aj"/>
+                    </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLr-Xo-atR">
                     <rect key="frame" x="0.0" y="196.5" width="414" height="12"/>

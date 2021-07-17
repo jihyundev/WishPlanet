@@ -59,6 +59,7 @@ class CompletedRocketsViewController: UIViewController {
     }
     
     func didRetrieveData(rockets: [GetRocketsResponse]) {
+        print("CompletedRocketsViewController - didRetrieveData() called")
         self.rockets = rockets
         collectionView.reloadData()
         periodLabel.text = "\(rockets[0].createdAt) ~ \(rockets[0].launchDate)"
@@ -78,6 +79,7 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("CompletedRocketsViewController - cellForItemAt called")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketCollectionViewCell.identifier, for: indexPath) as? RocketCollectionViewCell
         if let rocket = rockets?[indexPath.item] {
             var stones: [Int] = []
@@ -88,7 +90,6 @@ extension CompletedRocketsViewController: UICollectionViewDataSource {
                     }
                 }
             }
-            print("LOG - stones: \(stones)")
             cell?.configure(color: rocket.rocketColor, currentItems: stones.count, stones: stones)
         } else {
             self.presentAlert(title: "우주선이 존재하지 않습니다. ")
