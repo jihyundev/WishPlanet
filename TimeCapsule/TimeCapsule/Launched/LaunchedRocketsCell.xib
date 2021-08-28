@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Spoqa Han Sans Neo Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LaunchedRocketsCell" id="gTV-IL-0wX" customClass="LaunchedRocketsCell" customModule="TimeCapsule" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="172" height="197"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="172" height="197"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="cloud_circle" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-4S-lfh">
+                        <rect key="frame" x="0.0" y="0.0" width="172" height="156"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon rocket_0_mid" translatesAutoresizingMaskIntoConstraints="NO" id="Ze4-CV-GSD">
+                        <rect key="frame" x="36" y="28" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Pap-RN-kIU"/>
+                            <constraint firstAttribute="height" constant="100" id="abx-tF-PUz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtf-9d-Rke">
+                        <rect key="frame" x="54.5" y="172" width="63" height="25"/>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Wfi-4S-lfh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2qn-eo-zTg"/>
+                <constraint firstAttribute="bottom" secondItem="jtf-9d-Rke" secondAttribute="bottom" id="9AK-Dw-4y6"/>
+                <constraint firstItem="Wfi-4S-lfh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RPf-wB-7mz"/>
+                <constraint firstItem="Ze4-CV-GSD" firstAttribute="centerY" secondItem="Wfi-4S-lfh" secondAttribute="centerY" id="aeJ-aI-fPq"/>
+                <constraint firstAttribute="trailing" secondItem="Wfi-4S-lfh" secondAttribute="trailing" id="gnC-Yf-FEw"/>
+                <constraint firstItem="jtf-9d-Rke" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gtU-yo-HfP"/>
+                <constraint firstItem="jtf-9d-Rke" firstAttribute="top" secondItem="Wfi-4S-lfh" secondAttribute="bottom" constant="16" id="mEH-ci-odd"/>
+                <constraint firstItem="Ze4-CV-GSD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wgj-tn-cmS"/>
+            </constraints>
+            <size key="customSize" width="172" height="197"/>
+            <connections>
+                <outlet property="rocketImageView" destination="Ze4-CV-GSD" id="e8V-gu-3dH"/>
+                <outlet property="rocketNameLabel" destination="jtf-9d-Rke" id="8FT-oI-iql"/>
+            </connections>
+            <point key="canvasLocation" x="255.07246376811597" y="126.22767857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cloud_circle" width="156" height="156"/>
+        <image name="icon rocket_0_mid" width="100" height="100"/>
+    </resources>
+</document>

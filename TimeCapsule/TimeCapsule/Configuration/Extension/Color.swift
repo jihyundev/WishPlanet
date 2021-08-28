@@ -25,6 +25,7 @@ extension UIColor {
     class var dividePurple: UIColor { UIColor(red: 0.44, green: 0.21, blue: 0.94, alpha: 1.0)}
     class var graphic: UIColor { UIColor(red: 0.706, green: 0.796, blue: 0.949, alpha: 1) }
     class var backgroundSky: UIColor { UIColor(red: 0.492, green: 0.695, blue: 1, alpha: 1) }
+    class var popupViolet: UIColor { UIColor(red: 0.149, green: 0.127, blue: 0.197, alpha: 1) }
     
     class var mainGrey: UIColor { UIColor(hex: 0xEFEFEF)}
     class var mainBlack: UIColor { UIColor(hex: 0x2C2C2C)}

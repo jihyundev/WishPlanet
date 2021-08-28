@@ -54,7 +54,11 @@
 		596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */; };
 		596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */; };
 		596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A1CF4266C632500328E8B /* MyRocketDataManager.swift */; };
-		598E3B15269A84FE00DE973D /* LaunchedGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */; };
+		598C960F26D1FBF70003B17B /* LaunchedRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C960D26D1FBF70003B17B /* LaunchedRocketsViewController.swift */; };
+		598C961026D1FBF70003B17B /* LaunchedRocketsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598C960E26D1FBF70003B17B /* LaunchedRocketsViewController.xib */; };
+		598C961326D1FE710003B17B /* LaunchedRocketsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C961126D1FE710003B17B /* LaunchedRocketsCell.swift */; };
+		598C961426D1FE710003B17B /* LaunchedRocketsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598C961226D1FE710003B17B /* LaunchedRocketsCell.xib */; };
+		598C961726DA3D210003B17B /* LaunchedRocketsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */; };
 		598E3B18269A867800DE973D /* MyLaunchedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */; };
 		598E3B19269A867800DE973D /* MyLaunchedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */; };
 		5990E2AE267ED7D500178E8C /* CompletedRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */; };
@@ -175,7 +179,11 @@
 		596A1CE32669D46B00328E8B /* MyRocketEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRocketEditViewController.xib; sourceTree = "<group>"; };
 		596A1CF1266C517900328E8B /* MyRocketEditDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketEditDataManager.swift; sourceTree = "<group>"; };
 		596A1CF4266C632500328E8B /* MyRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocketDataManager.swift; sourceTree = "<group>"; };
-		598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedGameScene.swift; sourceTree = "<group>"; };
+		598C960D26D1FBF70003B17B /* LaunchedRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedRocketsViewController.swift; sourceTree = "<group>"; };
+		598C960E26D1FBF70003B17B /* LaunchedRocketsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchedRocketsViewController.xib; sourceTree = "<group>"; };
+		598C961126D1FE710003B17B /* LaunchedRocketsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedRocketsCell.swift; sourceTree = "<group>"; };
+		598C961226D1FE710003B17B /* LaunchedRocketsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchedRocketsCell.xib; sourceTree = "<group>"; };
+		598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedRocketsDataManager.swift; sourceTree = "<group>"; };
 		598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLaunchedRocketViewController.swift; sourceTree = "<group>"; };
 		598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLaunchedRocketViewController.xib; sourceTree = "<group>"; };
 		5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketsViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +425,27 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		598C960C26D1FBB00003B17B /* Launched */ = {
+			isa = PBXGroup;
+			children = (
+				598C961526DA3CFF0003B17B /* DataManager */,
+				598C960D26D1FBF70003B17B /* LaunchedRocketsViewController.swift */,
+				598C960E26D1FBF70003B17B /* LaunchedRocketsViewController.xib */,
+				598C961126D1FE710003B17B /* LaunchedRocketsCell.swift */,
+				598C961226D1FE710003B17B /* LaunchedRocketsCell.xib */,
+				59FED102268179EF004659A6 /* LaunchedList */,
+			);
+			path = Launched;
+			sourceTree = "<group>";
+		};
+		598C961526DA3CFF0003B17B /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		5990E2B2267EDC5000178E8C /* CompletedRockets */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +454,6 @@
 				5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */,
 				5990E2AD267ED7D500178E8C /* CompletedRocketsViewController.xib */,
 				5990E2B0267ED94100178E8C /* RocketCollectionViewCell.swift */,
-				598E3B14269A84FE00DE973D /* LaunchedGameScene.swift */,
 			);
 			path = CompletedRockets;
 			sourceTree = "<group>";
@@ -466,7 +494,6 @@
 			isa = PBXGroup;
 			children = (
 				5990E2B2267EDC5000178E8C /* CompletedRockets */,
-				59FED102268179EF004659A6 /* CompletedList */,
 			);
 			path = Completed;
 			sourceTree = "<group>";
@@ -573,6 +600,7 @@
 				59E971E825FB0047008A7EF9 /* Login */,
 				595B809D26455D3C00B4866D /* Intro+MakeRocket */,
 				59E971F225FB0483008A7EF9 /* Main */,
+				598C960C26D1FBB00003B17B /* Launched */,
 				59BD6032262C6B7F009B4DE6 /* Completed */,
 				592A0954263C39C500BA3926 /* More */,
 				59E971AC25FB0007008A7EF9 /* AppDelegate.swift */,
@@ -691,7 +719,7 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		59FED102268179EF004659A6 /* CompletedList */ = {
+		59FED102268179EF004659A6 /* LaunchedList */ = {
 			isa = PBXGroup;
 			children = (
 				596A82AD2681B05700FE34E9 /* Entity */,
@@ -703,7 +731,7 @@
 				59E80A69268420A800C63BDA /* CheckedListCell.swift */,
 				59E80A6A268420A800C63BDA /* CheckedListCell.xib */,
 			);
-			path = CompletedList;
+			path = LaunchedList;
 			sourceTree = "<group>";
 		};
 		59FED10326817E64004659A6 /* DataManager */ = {
@@ -787,6 +815,7 @@
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
 				598E3B19269A867800DE973D /* MyLaunchedRocketViewController.xib in Resources */,
+				598C961026D1FBF70003B17B /* LaunchedRocketsViewController.xib in Resources */,
 				59E971E425FB003B008A7EF9 /* NotoSansCJKkr-Regular.otf in Resources */,
 				2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */,
 				592A0958263C39E900BA3926 /* MyPageViewController.xib in Resources */,
@@ -815,6 +844,7 @@
 				5921F98A25FBC7D700D097B4 /* Gaegu-Light.ttf in Resources */,
 				59CA8AE82699C4980057D3B1 /* OpenSourceTableViewCell.xib in Resources */,
 				5997197726458371008E88EA /* RocketNameViewController.xib in Resources */,
+				598C961426D1FE710003B17B /* LaunchedRocketsCell.xib in Resources */,
 				5921F98825FBC7D700D097B4 /* Gaegu-Regular.ttf in Resources */,
 				59C686842642EB4D006D9F3B /* MyRocketViewController.xib in Resources */,
 				59E971E325FB003B008A7EF9 /* NotoSansCJKkr-Medium.otf in Resources */,
@@ -882,6 +912,7 @@
 				59FED10526817E92004659A6 /* ListDataManager.swift in Sources */,
 				59E9720825FB0722008A7EF9 /* LoginViewController.swift in Sources */,
 				59C686A72644155D006D9F3B /* UITextField.swift in Sources */,
+				598C961326D1FE710003B17B /* LaunchedRocketsCell.swift in Sources */,
 				596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */,
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */,
@@ -914,12 +945,14 @@
 				595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */,
 				593D80732666823E002DE3D8 /* LaunchedTableViewCell.swift in Sources */,
 				59236AA82672F35000BA855C /* OpenSourceViewController.swift in Sources */,
+				598C960F26D1FBF70003B17B /* LaunchedRocketsViewController.swift in Sources */,
 				59E971DA25FB003B008A7EF9 /* Date.swift in Sources */,
 				595B80942644DB7500B4866D /* LeaveConfirmViewController.swift in Sources */,
 				2520770A25FB5E55004366E4 /* NicknameViewController.swift in Sources */,
 				59CA8AF22699E3EB0057D3B1 /* OpenSourceDetailViewController.swift in Sources */,
 				59E971DD25FB003B008A7EF9 /* UIButton.swift in Sources */,
 				599C945E2650A3B200986DE6 /* DateHelper.swift in Sources */,
+				598C961726DA3D210003B17B /* LaunchedRocketsDataManager.swift in Sources */,
 				25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */,
 				59BD6042262C6D06009B4DE6 /* CompletedListViewController.swift in Sources */,
 				59E971F525FB0512008A7EF9 /* UIViewController.swift in Sources */,
@@ -929,7 +962,6 @@
 				59C6868E264395E5006D9F3B /* MyInfoTableViewCell.swift in Sources */,
 				59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */,
 				59C686832642EB4D006D9F3B /* MyRocketViewController.swift in Sources */,
-				598E3B15269A84FE00DE973D /* LaunchedGameScene.swift in Sources */,
 				59E971E125FB003B008A7EF9 /* Color.swift in Sources */,
 				59E971E025FB003B008A7EF9 /* UIFont.swift in Sources */,
 				596A1CF5266C632500328E8B /* MyRocketDataManager.swift in Sources */,

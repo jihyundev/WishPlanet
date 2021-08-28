@@ -13,8 +13,6 @@ class RocketCollectionViewCell: UICollectionViewCell {
     static let identifier = "RocketCollectionViewCell"
     
     var rocketColor: Int = 0 // 로켓 색상
-    //var currentItems: Int = 0 // 소원석 개수
-    //var stones: [Int] = []
     
     // 로켓 top 이미지
     lazy var rocketImageView: UIImageView = {
@@ -54,7 +52,14 @@ class RocketCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("RocketCollectionViewCell - prepareForReuse() called")
+    }
+    
+    
     private func setupLayout() {
+        print("RocketCollectionViewCell - setupLayout() called")
         contentView.addSubview(rocketImageView)
         rocketImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 22).isActive = true
         rocketImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
@@ -89,20 +94,28 @@ class RocketCollectionViewCell: UICollectionViewCell {
     }
     
     func makeGameScene(currentItems: Int, stones: [Int]) {
+        print("RocketCollectionViewCell - makeGameScene() called")
         let scene = GameScene(size: self.gameView.bounds.size)
         let skView = self.gameView as SKView
         scene.currentItemCount = currentItems
         scene.marbles = stones
+        print("LOG - currentItems: \(currentItems)")
         print("LOG - stones: \(stones)")
-        scene.backgroundColor = .clear
+        scene.backgroundColor = .systemBlue
         skView.ignoresSiblingOrder = true
+        //gameView.ignoresSiblingOrder = true
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
+        //gameView.presentScene(scene)
         print("RocketCollectionViewCell - makeGameScene() finished")
     }
     
     func configure(color: Int, currentItems: Int, stones: [Int]) {
         rocketImageView.image = UIImage(named: "rocket_top_fire_\(color)")
         makeGameScene(currentItems: currentItems, stones: stones)
+    }
+    
+    deinit {
+        print("RocketCollectionViewCell - deinit() called")
     }
 }

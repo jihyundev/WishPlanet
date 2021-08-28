@@ -48,6 +48,7 @@ class CompletedRocketsViewController: UIViewController {
         view.backgroundColor = UIColor(hex: 0x7DB1FF)
         collectionView.backgroundColor = .clear
         collectionView.isPagingEnabled = true
+        
         let barButtonAppearance = UIBarButtonItem.appearance()
         barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -30), for: .default)
         
@@ -126,7 +127,13 @@ extension CompletedRocketsViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: view.frame.width, height: view.frame.height)
+        let size = CGSize(width: view.frame.width, height: view.frame.height - 2)
         return size
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    
 }

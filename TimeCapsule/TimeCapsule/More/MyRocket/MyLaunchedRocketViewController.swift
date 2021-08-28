@@ -7,10 +7,9 @@
 
 import UIKit
 import SpriteKit
+import PanModal
 
 class MyLaunchedRocketViewController: UIViewController {
-    
-    // 지금 우주선 상세정보 조회 api가 발사된 우주선으로는 조회 안 되는 상태 ㅠㅠ
     
     let dataManager = MyRocketDataManager()
     private let rocketID: Int
@@ -67,6 +66,10 @@ class MyLaunchedRocketViewController: UIViewController {
         setupUI()
         prepareRocket()
         dataManager.getLaunchedRocket(rocketID: self.rocketID, viewController: self)
+        
+        let rocketTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapRocket(_:)))
+        view.addGestureRecognizer(rocketTapGestureRecognizer)
+        
     }
     
     private func setupUI() {
@@ -123,7 +126,11 @@ class MyLaunchedRocketViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
-        print("RocketCollectionViewCell - makeGameScene() finished")
+    }
+    
+    @objc func didTapRocket(_ sender: UITapGestureRecognizer) {
+        let listVC = CompletedListViewController(rocketID: rocketID)
+        self.presentPanModal(listVC)
     }
     
     func didRetrieveData(rocketResponse: GetRocketsResponse, stones: [Int]) {
@@ -133,7 +140,6 @@ class MyLaunchedRocketViewController: UIViewController {
         self.rocketLabel.text = rocketResponse.rocketName
         self.periodLabel.text = "\(rocketResponse.createdAt) ~ \(rocketResponse.launchDate)"
         self.rocketColor = rocketResponse.rocketColor
-        //self.rocketImageView.image = UIImage(named: "rocket_top_fire_\(rocketResponse.rocketColor)")
         makeGameScene(currentItems: stones.count, stones: stones)
     }
     

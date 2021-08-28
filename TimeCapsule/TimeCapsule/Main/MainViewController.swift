@@ -277,7 +277,8 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func rocketListButtonTapped() {
-        let vc = CompletedRocketsViewController()
+        //let vc = CompletedRocketsViewController()
+        let vc = LaunchedRocketsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

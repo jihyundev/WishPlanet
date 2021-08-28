@@ -27,6 +27,10 @@ class GameScene: SKScene {
     lazy var x: CGFloat = (-bodySize * 2)
     lazy var y: CGFloat = bodySize * 2
     
+    override func sceneDidLoad() {
+        print(#function)
+    }
+    
     override func didMove(to view: SKView) {
         //print(currentItemCount, marbles)
         if currentItemCount>0 {
@@ -50,7 +54,6 @@ class GameScene: SKScene {
     
     
     func createTile(count: Int, index: Int) {
-        print(#function)
         
         x += (bodySize * 2)
         if x >= self.size.width - bodySize * 4 {
