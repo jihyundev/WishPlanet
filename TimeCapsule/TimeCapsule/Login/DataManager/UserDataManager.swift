@@ -89,6 +89,7 @@ class UserDataManager {
             case .failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
+                    viewController.dismissIndicator()
                     viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
                 }
             }
@@ -112,13 +113,14 @@ class UserDataManager {
                 self.keychain.set(jwtToken, forKey: Keys.token)
                 let rocketStatusString = String(rocketStatus)
                 self.keychain.set(rocketStatusString, forKey: Keys.rocketStatus)
-                self.keychain.set("카카오 로그인", forKey: Keys.loginType)
+                self.keychain.set(loginType.rawValue, forKey: Keys.loginType)
                 
                 // 메인으로 넘어가기
                 viewController.userExisted(rocketStatus: rocketStatus)
             case .failure(let error):
                 print(error.localizedDescription)
                 DispatchQueue.main.async {
+                    viewController.dismissIndicator()
                     viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
                 }
             }
@@ -142,11 +144,7 @@ class UserDataManager {
                 let jwtToken = response
                 
                 self.keychain.set(jwtToken, forKey: Keys.token)
-                if loginType == LoginType.kakao {
-                    self.keychain.set("카카오 로그인", forKey: Keys.loginType)
-                } else {
-                    self.keychain.set("애플 로그인", forKey: Keys.loginType)
-                }
+                self.keychain.set(loginType.rawValue, forKey: Keys.loginType)
                 
                 self.keychain.set(nickname, forKey: Keys.nickname)
                 self.keychain.set("1", forKey: Keys.rocketStatus)

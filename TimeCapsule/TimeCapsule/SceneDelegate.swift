@@ -19,17 +19,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: Keys.userIdentifier) { credentialState, error in
-            switch credentialState {
-            case .authorized:
-                print("apple credential authorized.")
-            case .revoked, .notFound:
-                print("apple credential revoked / not found.")
+        /*
+        if let loginType: LoginType.RawValue = keychain.get(Keys.loginType) {
+            print("loginType: \(loginType)")
+            switch loginType {
+            case LoginType.apple.rawValue:
+                print("애플로그인 됨")
+                let appleIDProvider = ASAuthorizationAppleIDProvider()
+                appleIDProvider.getCredentialState(forUserID: Keys.userIdentifier) { credentialState, error in
+                    switch credentialState {
+                    case .authorized:
+                        print("apple credential authorized.")
+                    case .revoked, .notFound:
+                        print("apple credential revoked / not found.")
+                    default:
+                        break
+                    }
+                }
+            case LoginType.kakao.rawValue:
+                print("카카오로그인됨")
             default:
-                break
+                print("키체인 로그인 정보 없음")
             }
-        }
+        }*/
+        
+        
         if let token = keychain.get(Keys.token) {
             // 키체인에 토큰이 존재할 경우
             // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)

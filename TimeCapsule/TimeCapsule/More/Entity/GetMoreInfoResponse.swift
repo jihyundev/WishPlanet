@@ -8,5 +8,6 @@
 import Foundation
 
 struct GetMoreInfoResponse: Codable {
-    var nickName, rocketCount, socialType, version: String
+    var nickName, socialType, version: String
+    var rocketCount: Int
 }

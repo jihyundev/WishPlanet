@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func appleloginButtonTapped(_ sender:Any) {
+        self.showIndicator()
         //dataManager.appleLogin(viewController: self)
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
@@ -37,10 +38,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func kakaologinButtonTapped(_ sender: Any) {
+        self.showIndicator()
         dataManager.kakaoLogin(viewController: self)
     }
     
     func goToNickname(loginType: LoginType, token: String) {
+        self.dismissIndicator()
         fadeoutAnimate()
         let vc = NicknameViewController(loginType: loginType, accessToken: token)
         vc.delegate = self
@@ -50,6 +53,7 @@ class LoginViewController: UIViewController {
     }
     
     func userExisted(rocketStatus: Int) {
+        self.dismissIndicator()
         switch rocketStatus {
         case 1:
             // 로켓이 하나도 없는 상태 (신규회원)

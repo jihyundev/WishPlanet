@@ -29,7 +29,7 @@ class UncheckedListCell: UITableViewCell {
     
     func configure(color: Int, date: String, wish: String) {
         stoneImageView.image = UIImage(named: "small_dol_\(color + 1)")
-        dateLabel.text = date
+        dateLabel.text = DateHelper.switchDateformat(dateString: date)
         wishLabel.text = wish
     }
     

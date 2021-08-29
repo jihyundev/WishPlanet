@@ -51,6 +51,12 @@ class CompletedListViewController: UIViewController {
         countLabel.text = "총 \(stoneCount)개"
         self.stoneList = stoneList
         tableView.reloadData()
+        
+        if stoneCount == 0 {
+            tableView.setEmptyStoneView()
+        } else {
+            tableView.restoreWithoutLine()
+        }
     }
     
     // 소원석 체크 성공

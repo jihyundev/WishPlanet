@@ -55,7 +55,7 @@ class WishplanetViewController: UIViewController {
         descLabel.makeBold(targetString: "위시플래닛")
         descLabel.setLineHeight(lineHeightMultiple: 1.31)
         
-        subLabel.text = "위시플래닛이 사용자들의 소원이 이뤄질 수 있도록 \n함께 응원하겠습니다."
+        subLabel.text = "위시플래닛이 여러분들의 소원이 이뤄질 수 있도록 \n함께 응원하겠습니다."
         subLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 14)
         subLabel.setLineHeight(lineHeightMultiple: 1.31)
     }

@@ -26,7 +26,14 @@ class LaunchedRocketsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         setNavBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.title = ""
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func setupUI() {
@@ -38,8 +45,15 @@ class LaunchedRocketsViewController: UIViewController {
     }
     
     private func setNavBar() {
-        self.navigationController?.navigationBar.isTransparent = true
+        self.title = "착륙 우주선"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.SpoqaHanSansNeo(.bold, size: 24)]
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont.SpoqaHanSansNeo(.bold, size: 15)]
         self.navigationController?.navigationBar.tintColor = .white
+        
+        self.navigationController?.navigationBar.isTransparent = true
+        self.navigationController?.navigationBar.layoutMargins.left = 22
+        self.navigationController?.navigationBar.layoutMargins.top = 16
         
         let backButtonBackgroundImage = UIImage(named: "navigation_bar")
         self.navigationController?.navigationBar.backIndicatorImage = backButtonBackgroundImage

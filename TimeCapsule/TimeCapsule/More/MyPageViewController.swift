@@ -81,15 +81,15 @@ class MyPageViewController: UIViewController {
         } else {
             self.nameLabel.text = ""
         }
-        if let socialType = keychain.get(Keys.loginType) {
-            self.loginTypeLabel.text = socialType
-        } else {
-            self.loginTypeLabel.text = ""
-        }
         rocketCountLabel.text = ""
         versionLabel.text = ""
         firstFooterView.backgroundColor = UIColor.init(hex: 0x743EE9)
         secondFooterView.backgroundColor = UIColor.init(hex: 0x743EE9)
+        
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        if let version = version{
+            versionLabel.text = "버전 정보 \(version)"
+        }
     }
     
     fileprivate func setNavBar() {
@@ -99,6 +99,8 @@ class MyPageViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.isTransparent = true
+        self.navigationController?.navigationBar.layoutMargins.left = 22
+        self.navigationController?.navigationBar.layoutMargins.top = 30
         
         let backButtonBackgroundImage = UIImage(named: "navigation_bar")
         self.navigationController?.navigationBar.backIndicatorImage = backButtonBackgroundImage
@@ -132,8 +134,7 @@ class MyPageViewController: UIViewController {
     func didRetrieveData(data: GetMoreInfoResponse) {
         self.nameLabel.text = data.nickName
         self.loginTypeLabel.text = data.socialType
-        self.rocketCountLabel.text = data.rocketCount
-        self.versionLabel.text = "버전정보 \(data.version)"
+        self.rocketCountLabel.text = "\(data.rocketCount)대"
     }
     
     func didRetrieveRocketData(current: MyRocket, launched: [MyRocket]) {

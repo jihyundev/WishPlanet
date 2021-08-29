@@ -27,10 +27,6 @@ class GameScene: SKScene {
     lazy var x: CGFloat = (-bodySize * 2)
     lazy var y: CGFloat = bodySize * 2
     
-    override func sceneDidLoad() {
-        print(#function)
-    }
-    
     override func didMove(to view: SKView) {
         //print(currentItemCount, marbles)
         if currentItemCount>0 {
@@ -45,6 +41,7 @@ class GameScene: SKScene {
         manager.startAccelerometerUpdates(to: .main) { data, error in
             self.physicsWorld.gravity = CGVector(dx: CGFloat((data?.acceleration.x)!) * 2, dy: CGFloat((data?.acceleration.y)!) * 2)
             self.physicsWorld.contactDelegate = self
+            
         }
     }
     
@@ -81,7 +78,7 @@ class GameScene: SKScene {
     func createWall() {
         
         let tile: SKSpriteNode = {
-            let size = CGSize(width: 1, height: self.size.height)
+            let size = CGSize(width: 10, height: self.size.height)
             let tile = SKSpriteNode(color: .clear, size: size)
             
             tile.position = .init(x: 0, y: self.size.height/2)
@@ -102,7 +99,7 @@ class GameScene: SKScene {
         addChild(tile)
         
         let tile2: SKSpriteNode = {
-            let size = CGSize(width: 1, height: self.size.height)
+            let size = CGSize(width: 10, height: self.size.height)
             let tile = SKSpriteNode(color: .clear, size: size)
             
             tile.position = .init(x: self.size.width, y: self.size.height/2)
@@ -123,7 +120,7 @@ class GameScene: SKScene {
         
         
         let tile3: SKSpriteNode = {
-            let size = CGSize(width: self.size.width, height: 1)
+            let size = CGSize(width: self.size.width, height: 10)
             let tile = SKSpriteNode(color: .clear, size: size)
             
             tile.position = .init(x: self.size.width/2, y: 0)
@@ -143,10 +140,10 @@ class GameScene: SKScene {
         addChild(tile3)
         
         let tile4: SKSpriteNode = {
-            let size = CGSize(width: self.size.width, height: 1)
+            let size = CGSize(width: self.size.width, height: 10)
             let tile = SKSpriteNode(color: .clear, size: size)
             
-            tile.position = .init(x: self.size.width/2, y: self.size.height)
+            tile.position = .init(x: self.size.width/2, y: self.size.height + 1)
             tile.physicsBody = SKPhysicsBody(rectangleOf: size)
             tile.physicsBody?.isDynamic = false
             tile.physicsBody?.allowsRotation = false

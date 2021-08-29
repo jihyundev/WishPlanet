@@ -41,6 +41,9 @@ class NicknameEditViewController: UIViewController {
         self.nameTextField.borderStyle = .none
         self.nameTextField.addLeftPadding()
         self.nameTextField.returnKeyType = .done
+        
+        textCountLabel.alpha = 0.5
+        textCountLabel.isHidden = true
         if let name = self.nickname {
             self.textCountLabel.text = "\(name.count)/10"
         } else {
@@ -59,6 +62,7 @@ class NicknameEditViewController: UIViewController {
     }
     
     @IBAction func nameTextFieldEditingChanged(_ sender: Any) {
+        textCountLabel.isHidden = false
         if nameTextField.text?.isEmpty == true {
             clearButton.isHidden = true
             textCountLabel.isHidden = true
