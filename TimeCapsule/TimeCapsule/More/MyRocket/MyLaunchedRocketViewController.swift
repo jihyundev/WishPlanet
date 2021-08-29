@@ -142,7 +142,12 @@ class MyLaunchedRocketViewController: UIViewController {
             $0?.isHidden = false
         }
         self.rocketLabel.text = rocketResponse.rocketName
-        self.periodLabel.text = "\(rocketResponse.createdAt) ~ \(rocketResponse.launchDate)"
+        
+        let createdAtString = DateHelper.switchDateformat(dateString: rocketResponse.createdAt)
+        let launchDateString = DateHelper.switchDateformat(dateString: rocketResponse.launchDate)
+        let interval = DateHelper.numberOfDaysBetween(fromDateString: createdAtString, toDateString: launchDateString)
+        
+        self.periodLabel.text = "\(createdAtString) ~ \(launchDateString)  \(interval)일"
         self.rocketColor = rocketResponse.rocketColor
         makeGameScene(currentItems: stones.count, stones: stones)
         

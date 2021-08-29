@@ -25,9 +25,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground_green" translatesAutoresizingMaskIntoConstraints="NO" id="C6Q-xc-5lw">
-                    <rect key="frame" x="0.0" y="516" width="414" height="380"/>
+                    <rect key="frame" x="0.0" y="461" width="414" height="435"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="380" id="xeN-vS-z0F"/>
+                        <constraint firstAttribute="width" secondItem="C6Q-xc-5lw" secondAttribute="height" multiplier="375:394" id="WPR-Mb-vJq"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위시님의 우주선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIm-xb-87d">

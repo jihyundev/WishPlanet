@@ -35,10 +35,11 @@ class CurrentTableViewCell: UITableViewCell {
     
     func configure(rocket: MyRocket) {
         self.rocketID = rocket.rocketID
+        let periodString = DateHelper.switchDateformat(dateString: rocket.period)
         self.date = rocket.period
         self.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
         self.nameLabel.text = rocket.name
-        self.periodLabel.text = "~\(rocket.period)"
+        self.periodLabel.text = "~\(periodString)"
     }
     
     func showPlaceholder() {

@@ -13,12 +13,6 @@ class MyRocketViewController: UIViewController {
     let launchedCell = LaunchedTableViewCell()
     
     let dataManager = MyRocketDataManager()
-    let dateformatter: DateFormatter = {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
-        return dateformatter
-    }()
-    
     var currentRocket: MyRocket?
     var launchedRockets: [MyRocket] = []
 
@@ -92,7 +86,8 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
             let rocket = launchedRockets[indexPath.row]
             cell.rocketImageView.image = UIImage(named: "icon rocket_\(rocket.color)")
             cell.nameLabel.text = rocket.name
-            cell.periodLabel.text = "~\(rocket.period)"
+            let periodString = DateHelper.switchDateformat(dateString: rocket.period)
+            cell.periodLabel.text = "~\(periodString)"
             return cell
         }
     }
