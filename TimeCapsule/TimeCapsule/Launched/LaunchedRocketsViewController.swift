@@ -50,10 +50,8 @@ class LaunchedRocketsViewController: UIViewController {
     }
     
     func didRetrieveData(rockets: [GetRocketsResponse]) {
-        print("CompletedRocketsViewController - didRetrieveData() called")
         self.rockets = rockets
         collectionView.reloadData()
-        //self.presentCenterAlert(message: "누르면 내역을 볼 수 있어요!")
     }
     
     func failedToRequest(message: String) {
@@ -88,15 +86,20 @@ extension LaunchedRocketsViewController: UICollectionViewDelegate {
 
 extension LaunchedRocketsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 26
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 2 - 2
-        return CGSize(width: width, height: width)
+        let width = (collectionView.frame.width - 48) / 2 - 16
+        return CGSize(width: width, height: 188)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let insets = UIEdgeInsets(top: 36, left: 24, bottom: 24, right: 24)
+        return insets
     }
 }

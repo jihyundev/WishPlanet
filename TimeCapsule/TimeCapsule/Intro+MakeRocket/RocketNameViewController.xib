@@ -115,10 +115,10 @@
                                     </constraints>
                                     <state key="normal" image="icon_check_rocket_0"/>
                                     <connections>
-                                        <action selector="redRocketTapped:" destination="-1" eventType="touchUpInside" id="r5t-ce-tYY"/>
+                                        <action selector="rocketButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="pRT-31-MuM"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-J9-O3c">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-J9-O3c">
                                     <rect key="frame" x="48" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="Ox6-rs-iR4"/>
@@ -126,10 +126,10 @@
                                     </constraints>
                                     <state key="normal" image="icon rocket_1"/>
                                     <connections>
-                                        <action selector="yellowRocketTapped:" destination="-1" eventType="touchUpInside" id="l9n-3f-ae3"/>
+                                        <action selector="rocketButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="H1g-hh-Z67"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6k-VO-u32">
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6k-VO-u32">
                                     <rect key="frame" x="96" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="HgW-Ph-0sT"/>
@@ -137,10 +137,10 @@
                                     </constraints>
                                     <state key="normal" image="icon rocket_4"/>
                                     <connections>
-                                        <action selector="purpleRocketTapped:" destination="-1" eventType="touchUpInside" id="2HM-gx-znJ"/>
+                                        <action selector="rocketButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="QhZ-Xu-ErR"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awV-25-uR8">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awV-25-uR8">
                                     <rect key="frame" x="144" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="3L7-vI-ANd"/>
@@ -148,7 +148,7 @@
                                     </constraints>
                                     <state key="normal" image="icon rocket_3"/>
                                     <connections>
-                                        <action selector="blueRocketTapped:" destination="-1" eventType="touchUpInside" id="nDt-6O-AVF"/>
+                                        <action selector="rocketButtonTappedWithSender:" destination="-1" eventType="touchUpInside" id="9hP-p8-LWP"/>
                                     </connections>
                                 </button>
                             </subviews>

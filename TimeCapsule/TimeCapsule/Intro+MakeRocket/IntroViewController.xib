@@ -106,10 +106,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSh-ja-qTM">
-                    <rect key="frame" x="25" y="762" width="60" height="60"/>
+                    <rect key="frame" x="25" y="752" width="70" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="7Kc-YC-Irv"/>
-                        <constraint firstAttribute="width" constant="60" id="eSq-Y9-NZj"/>
+                        <constraint firstAttribute="height" constant="70" id="7Kc-YC-Irv"/>
+                        <constraint firstAttribute="width" constant="70" id="eSq-Y9-NZj"/>
                     </constraints>
                     <state key="normal" image="earth"/>
                     <connections>
@@ -117,7 +117,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earthToast" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-mQ-jyC">
-                    <rect key="frame" x="19" y="712" width="170" height="50"/>
+                    <rect key="frame" x="19" y="702" width="170" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="Pf9-OP-kch"/>
                         <constraint firstAttribute="height" constant="50" id="YkG-YJ-opD"/>

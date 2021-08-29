@@ -84,9 +84,14 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
-                    <rect key="frame" x="272" y="746" width="122" height="72"/>
-                    <state key="normal" image="add">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDH-8X-hzq">
+                    <rect key="frame" x="288" y="756" width="102" height="52"/>
+                    <color key="backgroundColor" red="0.48701292280000003" green="0.22190776470000001" blue="0.95691555740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="102" id="2Zv-GJ-xvZ"/>
+                        <constraint firstAttribute="height" constant="52" id="oQZ-ov-bxb"/>
+                    </constraints>
+                    <state key="normal" title="추가" image="small dol 6">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                     </state>
                     <connections>
@@ -100,10 +105,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9o-lh-RU0">
-                    <rect key="frame" x="25" y="748" width="65" height="65"/>
+                    <rect key="frame" x="25" y="752" width="70" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="65" id="8ZZ-BX-STd"/>
-                        <constraint firstAttribute="width" constant="65" id="EW8-LZ-IIX"/>
+                        <constraint firstAttribute="height" constant="70" id="8ZZ-BX-STd"/>
+                        <constraint firstAttribute="width" constant="70" id="EW8-LZ-IIX"/>
                     </constraints>
                     <state key="normal" image="earth"/>
                 </button>
@@ -116,10 +121,9 @@
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="centerY" secondItem="gQV-3l-bCN" secondAttribute="centerY" id="4cN-ko-nQh"/>
                 <constraint firstItem="BxY-LE-dtE" firstAttribute="top" secondItem="CWP-Yp-vn4" secondAttribute="bottom" constant="36" id="5J4-2p-FJE"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="7Vw-QF-C3K"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y9o-lh-RU0" secondAttribute="bottom" constant="49" id="AD4-mI-Cjl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y9o-lh-RU0" secondAttribute="bottom" constant="40" id="AD4-mI-Cjl"/>
                 <constraint firstAttribute="bottom" secondItem="UBf-zc-Kd0" secondAttribute="bottom" id="AGg-OU-R5x"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CZX-UQ-rgn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uDH-8X-hzq" secondAttribute="bottom" constant="44" id="GL2-0y-iTd"/>
                 <constraint firstAttribute="bottom" secondItem="hF7-fI-Qcf" secondAttribute="bottom" id="I1a-Xe-gYT"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IXI-Wb-kaZ"/>
                 <constraint firstItem="hF7-fI-Qcf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WU3-fI-RFk"/>
@@ -127,8 +131,9 @@
                 <constraint firstItem="Gjs-br-YEJ" firstAttribute="leading" secondItem="gQV-3l-bCN" secondAttribute="trailing" constant="6" id="aAM-es-817"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hF7-fI-Qcf" secondAttribute="trailing" id="bCY-C6-5Pd"/>
                 <constraint firstItem="Y9o-lh-RU0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="d0H-kn-JrF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uDH-8X-hzq" secondAttribute="trailing" constant="20" id="fot-Zj-Wce"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uDH-8X-hzq" secondAttribute="trailing" constant="24" id="fot-Zj-Wce"/>
                 <constraint firstItem="CWP-Yp-vn4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="17" id="oSo-SA-Ce9"/>
+                <constraint firstItem="uDH-8X-hzq" firstAttribute="centerY" secondItem="Y9o-lh-RU0" secondAttribute="centerY" constant="-5" id="pOr-ad-B7i"/>
                 <constraint firstItem="UBf-zc-Kd0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q5b-1t-Hfi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gjs-br-YEJ" secondAttribute="trailing" constant="10" id="yE8-WV-vE3"/>
                 <constraint firstItem="1xx-d1-ngR" firstAttribute="top" secondItem="gQV-3l-bCN" secondAttribute="bottom" constant="4" id="yqf-Wa-Jgj"/>
@@ -137,12 +142,12 @@
         </view>
     </objects>
     <resources>
-        <image name="add" width="122" height="72"/>
         <image name="background" width="375" height="812"/>
         <image name="earth" width="76" height="76"/>
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>
         <image name="icon_fire_locked" width="44" height="44"/>
+        <image name="small dol 6" width="44" height="44"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

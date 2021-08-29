@@ -63,6 +63,10 @@ class AddWishViewController: UIViewController{
         setupButton()
         prepareKeyboard()
         self.dismissKeyboardWhenTappedAround()
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        self.view.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
     
     func prepareKeyboard() {
@@ -87,6 +91,10 @@ class AddWishViewController: UIViewController{
         }
     }
     
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func completionButtonTapped(_ sender: Any) {
         guard let content = wishTextView.text else { return }
         self.view.isUserInteractionEnabled = false
@@ -99,7 +107,7 @@ class AddWishViewController: UIViewController{
     
     // MARK:- UI 셋업
     private func setupUI() {
-        wishTextView.contentInset = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
+        wishTextView.textContainerInset = UIEdgeInsets(top: 10, left: 8, bottom: 10, right: 8)
         wishTextView.text = "소원을 입력해주세요"
         wishTextView.textColor = .enabledGrey
         wishTextView.returnKeyType = .done
@@ -149,26 +157,23 @@ class AddWishViewController: UIViewController{
         case 1:
             redButton.setImage(UIImage(named: "icon_check_0"), for: .normal)
             stoneColor = 0
-            print("red button tapped")
             break
         case 2:
             yellowButton.setImage(UIImage(named: "icon_check_1"), for: .normal)
             stoneColor = 1
-            print("yellow button tapped")
             break
         case 3:
             greenButton.setImage(UIImage(named: "icon_check_2"), for: .normal)
             stoneColor = 2
-            print("green button tapped")
             break
         case 4:
             blueButton.setImage(UIImage(named: "icon_check_3"), for: .normal)
             stoneColor = 3
-            print("blue button tapped")
+            break
         case 5:
             purpleButton.setImage(UIImage(named: "icon_check_4"), for: .normal)
             stoneColor = 4
-            print("purple button tapped")
+            break
         default:
             print("Failed to select color button")
         }
@@ -237,5 +242,11 @@ extension AddWishViewController: UITextViewDelegate {
         } else {
             isActivated = true
         }
+    }
+}
+
+extension AddWishViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view != containerView
     }
 }

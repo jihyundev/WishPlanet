@@ -33,6 +33,10 @@ class RocketDateViewController: UIViewController {
         createDatePicker()
         prepareKeyboard()
         self.dismissKeyboardWhenTappedAround()
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        self.view.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
     
     fileprivate func setupUI() {
@@ -157,4 +161,10 @@ class RocketDateViewController: UIViewController {
         self.presentAlert(title: message, isCancelActionIncluded: false)
     }
     
+}
+
+extension RocketDateViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view != containerView
+    }
 }

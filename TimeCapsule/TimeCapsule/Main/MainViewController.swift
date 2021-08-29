@@ -151,7 +151,11 @@ class MainViewController: UIViewController {
         countLabel.backgroundColor = UIColor.init(hex: 0xB4CBF2).withAlphaComponent(0.5)
         countLabel.layer.zPosition = 9
         
-        addButton.layer.cornerRadius = 26
+        addButton.titleLabel?.font = UIFont.SpoqaHanSansNeo(.bold, size: 20)
+        addButton.layer.cornerRadius = addButton.frame.height / 2
+        addButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
+        addButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        addButton.imageView?.contentMode = .scaleAspectFill
         addButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
         addButton.layer.shadowOpacity = 1.0
         addButton.layer.shadowRadius = 10
@@ -168,7 +172,7 @@ class MainViewController: UIViewController {
     func prepareRocket() {
         view.addSubview(rocketImageView)
         rocketImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
-        rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
+        rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
         
         rocketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -277,7 +281,6 @@ class MainViewController: UIViewController {
     }
     
     @objc fileprivate func rocketListButtonTapped() {
-        //let vc = CompletedRocketsViewController()
         let vc = LaunchedRocketsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

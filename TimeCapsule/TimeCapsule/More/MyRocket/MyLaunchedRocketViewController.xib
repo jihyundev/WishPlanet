@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.01.08 ~ 2022.01.07 365일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iys-cx-dzW">
-                    <rect key="frame" x="22" y="97" width="190" height="16"/>
+                    <rect key="frame" x="22" y="95" width="190" height="16"/>
                     <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -50,8 +50,8 @@
                 <constraint firstItem="C6Q-xc-5lw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DfB-UE-AWL"/>
                 <constraint firstItem="lIm-xb-87d" firstAttribute="leading" secondItem="iys-cx-dzW" secondAttribute="leading" id="RVX-NM-S9P"/>
                 <constraint firstItem="iys-cx-dzW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="S3H-Wq-wNK"/>
-                <constraint firstItem="iys-cx-dzW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="VtE-pf-Qd9"/>
-                <constraint firstItem="lIm-xb-87d" firstAttribute="top" secondItem="iys-cx-dzW" secondAttribute="bottom" constant="4" id="eaQ-7W-vF4"/>
+                <constraint firstItem="iys-cx-dzW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="7" id="VtE-pf-Qd9"/>
+                <constraint firstItem="lIm-xb-87d" firstAttribute="top" secondItem="iys-cx-dzW" secondAttribute="bottom" constant="6" id="eaQ-7W-vF4"/>
                 <constraint firstAttribute="bottom" secondItem="C6Q-xc-5lw" secondAttribute="bottom" id="xxa-sH-fF8"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

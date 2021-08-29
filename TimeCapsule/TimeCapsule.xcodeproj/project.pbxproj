@@ -59,6 +59,7 @@
 		598C961326D1FE710003B17B /* LaunchedRocketsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C961126D1FE710003B17B /* LaunchedRocketsCell.swift */; };
 		598C961426D1FE710003B17B /* LaunchedRocketsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598C961226D1FE710003B17B /* LaunchedRocketsCell.xib */; };
 		598C961726DA3D210003B17B /* LaunchedRocketsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */; };
+		598C961A26DA73FF0003B17B /* IntroEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598C961926DA73FF0003B17B /* IntroEntity.swift */; };
 		598E3B18269A867800DE973D /* MyLaunchedRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */; };
 		598E3B19269A867800DE973D /* MyLaunchedRocketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */; };
 		5990E2AE267ED7D500178E8C /* CompletedRocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */; };
@@ -99,6 +100,7 @@
 		59CA8AEB2699D0C10057D3B1 /* OpenSourceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA8AEA2699D0C10057D3B1 /* OpenSourceEntity.swift */; };
 		59CA8AF22699E3EB0057D3B1 /* OpenSourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CA8AF02699E3EB0057D3B1 /* OpenSourceDetailViewController.swift */; };
 		59CA8AF32699E3EB0057D3B1 /* OpenSourceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59CA8AF12699E3EB0057D3B1 /* OpenSourceDetailViewController.xib */; };
+		59CC56A226DB2552002B258D /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC56A126DB2552002B258D /* UserDefaultsKeys.swift */; };
 		59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */; };
 		59E5D3A12652A60700A67DB1 /* MainDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D3A02652A60700A67DB1 /* MainDataManager.swift */; };
 		59E80A6B268420A800C63BDA /* CheckedListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E80A69268420A800C63BDA /* CheckedListCell.swift */; };
@@ -184,6 +186,7 @@
 		598C961126D1FE710003B17B /* LaunchedRocketsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedRocketsCell.swift; sourceTree = "<group>"; };
 		598C961226D1FE710003B17B /* LaunchedRocketsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchedRocketsCell.xib; sourceTree = "<group>"; };
 		598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchedRocketsDataManager.swift; sourceTree = "<group>"; };
+		598C961926DA73FF0003B17B /* IntroEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroEntity.swift; sourceTree = "<group>"; };
 		598E3B16269A867800DE973D /* MyLaunchedRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLaunchedRocketViewController.swift; sourceTree = "<group>"; };
 		598E3B17269A867800DE973D /* MyLaunchedRocketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyLaunchedRocketViewController.xib; sourceTree = "<group>"; };
 		5990E2AC267ED7D500178E8C /* CompletedRocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRocketsViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		59CA8AEA2699D0C10057D3B1 /* OpenSourceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceEntity.swift; sourceTree = "<group>"; };
 		59CA8AF02699E3EB0057D3B1 /* OpenSourceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceDetailViewController.swift; sourceTree = "<group>"; };
 		59CA8AF12699E3EB0057D3B1 /* OpenSourceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenSourceDetailViewController.xib; sourceTree = "<group>"; };
+		59CC56A126DB2552002B258D /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		59E5C574264F62120089FA23 /* CreateRocketDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRocketDataManager.swift; sourceTree = "<group>"; };
 		59E5D3A02652A60700A67DB1 /* MainDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataManager.swift; sourceTree = "<group>"; };
 		59E80A69268420A800C63BDA /* CheckedListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedListCell.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		595B809D26455D3C00B4866D /* Intro+MakeRocket */ = {
 			isa = PBXGroup;
 			children = (
+				598C961826DA73CB0003B17B /* Entity */,
 				59E5C573264F61850089FA23 /* DataManager */,
 				595B809826455AE600B4866D /* IntroViewController.swift */,
 				595B809926455AE600B4866D /* IntroViewController.xib */,
@@ -444,6 +449,14 @@
 				598C961626DA3D210003B17B /* LaunchedRocketsDataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		598C961826DA73CB0003B17B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				598C961926DA73FF0003B17B /* IntroEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		5990E2B2267EDC5000178E8C /* CompletedRockets */ = {
@@ -619,10 +632,6 @@
 				59E971C325FB003B008A7EF9 /* CommonClass */,
 				59E971C625FB003B008A7EF9 /* Extension */,
 				59E971D125FB003B008A7EF9 /* Font */,
-				2516E84125FB890E00ADD135 /* URLType.swift */,
-				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
-				591BDBFD268809F000178E85 /* Parameters.swift */,
-				59CA8AE32699660E0057D3B1 /* Notifications.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -633,6 +642,11 @@
 				599C945D2650A3B200986DE6 /* DateHelper.swift */,
 				59E971C425FB003B008A7EF9 /* IndicatorView.swift */,
 				59E971C525FB003B008A7EF9 /* Device.swift */,
+				2516E84125FB890E00ADD135 /* URLType.swift */,
+				59E9723325FB4CE6008A7EF9 /* Keys.swift */,
+				591BDBFD268809F000178E85 /* Parameters.swift */,
+				59CA8AE32699660E0057D3B1 /* Notifications.swift */,
+				59CC56A126DB2552002B258D /* UserDefaultsKeys.swift */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -939,6 +953,8 @@
 				5931039E26833CD9005F2232 /* UncheckedListCell.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,
 				59C686A426441168006D9F3B /* MyInfoDataManager.swift in Sources */,
+				598C961A26DA73FF0003B17B /* IntroEntity.swift in Sources */,
+				59CC56A226DB2552002B258D /* UserDefaultsKeys.swift in Sources */,
 				5990E2B1267ED94100178E8C /* RocketCollectionViewCell.swift in Sources */,
 				592A0957263C39E900BA3926 /* MyPageViewController.swift in Sources */,
 				5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */,

@@ -45,7 +45,12 @@ class WishplanetViewController: UIViewController {
         container5.backgroundColor = .mainPurple
         opensourceView.backgroundColor = .mainPurple
         
-        descLabel.text = "위시플래닛은 \n하고싶은 일, 이루고 싶은 소원들wish을 \n지금은 아닌, 미지의 먼 미래 (미지의 우주 - 행성 planet)에 할 수 있도록 미리 담아두는 타임캡슐 서비스 입니다."
+        if UIScreen.main.bounds.size.width > 380 {
+            descLabel.text = "위시플래닛은 \n하고싶은 일, 이루고 싶은 소원들wish을 \n지금은 아닌, 미지의 먼 미래 (미지의 우주 - 행성 planet)에 \n할 수 있도록 미리 담아두는 타임캡슐 서비스 입니다."
+        } else {
+            descLabel.text = "위시플래닛은 \n하고싶은 일, 이루고 싶은 소원들wish을 \n지금은 아닌, 미지의 먼 미래 (미지의 우주 - 행성 planet)에 할 수 있도록 미리 담아두는 타임캡슐 서비스 입니다."
+        }
+        
         descLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 14)
         descLabel.makeBold(targetString: "위시플래닛")
         descLabel.setLineHeight(lineHeightMultiple: 1.31)

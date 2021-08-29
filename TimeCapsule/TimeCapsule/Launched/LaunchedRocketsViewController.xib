@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="peG-0k-fqI">
-                    <rect key="frame" x="0.0" y="169" width="414" height="693"/>
+                    <rect key="frame" x="0.0" y="143" width="414" height="719"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vcA-KN-Xu4">
                         <size key="itemSize" width="128" height="128"/>
@@ -49,7 +49,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="peG-0k-fqI" secondAttribute="bottom" id="G8S-gb-7TN"/>
                 <constraint firstItem="peG-0k-fqI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d9s-4v-lNV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="peG-0k-fqI" secondAttribute="trailing" id="ffW-kr-bko"/>
-                <constraint firstItem="peG-0k-fqI" firstAttribute="top" secondItem="Rbq-Q9-SaN" secondAttribute="bottom" constant="36" id="wcd-48-pYi"/>
+                <constraint firstItem="peG-0k-fqI" firstAttribute="top" secondItem="Rbq-Q9-SaN" secondAttribute="bottom" constant="10" id="wcd-48-pYi"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="106" y="56"/>

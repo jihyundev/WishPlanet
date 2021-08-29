@@ -76,12 +76,14 @@ class MyLaunchedRocketViewController: UIViewController {
         view.backgroundColor = UIColor(hex: 0x7DB1FF)
         periodLabel.text = ""
         rocketLabel.text = ""
+        periodLabel.layer.zPosition = 3
+        rocketLabel.layer.zPosition = 3
     }
     
     private func prepareRocket() {
         view.addSubview(rocketImageView)
         rocketImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22).isActive = true
-        rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
+        rocketImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 35).isActive = true
         rocketImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         rocketImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         rocketImageView.contentMode = .scaleAspectFit
@@ -131,6 +133,8 @@ class MyLaunchedRocketViewController: UIViewController {
     @objc func didTapRocket(_ sender: UITapGestureRecognizer) {
         let listVC = CompletedListViewController(rocketID: rocketID)
         self.presentPanModal(listVC)
+        
+        UserDefaults.standard.setValue(true, forKey: UserDefaultsKeys.isToggledRocket)
     }
     
     func didRetrieveData(rocketResponse: GetRocketsResponse, stones: [Int]) {
@@ -141,6 +145,12 @@ class MyLaunchedRocketViewController: UIViewController {
         self.periodLabel.text = "\(rocketResponse.createdAt) ~ \(rocketResponse.launchDate)"
         self.rocketColor = rocketResponse.rocketColor
         makeGameScene(currentItems: stones.count, stones: stones)
+        
+        let isToggled = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isToggledRocket)
+        if !isToggled {
+            self.presentCenterAlert(message: "누르면 내역을 볼 수 있어요!")
+        }
+        
     }
     
     func failedToRequest(message: String) {

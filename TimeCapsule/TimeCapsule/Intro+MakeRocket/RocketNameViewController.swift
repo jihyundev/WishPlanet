@@ -47,6 +47,10 @@ class RocketNameViewController: UIViewController {
         self.dismissKeyboardWhenTappedAround()
         self.isActivate = false
         textField.delegate = self
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        self.view.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
     
     fileprivate func setupUI() {
@@ -97,37 +101,40 @@ class RocketNameViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    @IBAction func redRocketTapped(_ sender: Any) {
-        redButton.setImage(UIImage(named: "icon_check_rocket_0"), for: .normal)
+    @IBAction func rocketButtonTapped(sender: UIButton) {
+        switch sender.tag {
         
-        yellowButton.setImage(UIImage(named: "icon rocket_1"), for: .normal)
-        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
-        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
-        currentRocket = 0
-    }
-    @IBAction func yellowRocketTapped(_ sender: Any) {
-        yellowButton.setImage(UIImage(named: "icon_check_rocket_1"), for: .normal)
-        
-        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
-        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
-        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
-        currentRocket = 1
-    }
-    @IBAction func purpleRocketTapped(_ sender: Any) {
-        purpleButton.setImage(UIImage(named: "icon_check_rocket_4"), for: .normal)
-        
-        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
-        yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
-        blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
-        currentRocket = 4
-    }
-    @IBAction func blueRocketTapped(_ sender: Any) {
-        blueButton.setImage(UIImage(named: "icon_check_rocket_3"), for: .normal)
-        
-        redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
-        yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
-        purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
-        currentRocket = 3
+        case SelectedRocketButtonTag.Red.rawValue:
+            redButton.setImage(UIImage(named: "icon_check_rocket_0"), for: .normal)
+            yellowButton.setImage(UIImage(named: "icon rocket_1"), for: .normal)
+            purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+            blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+            currentRocket = 0
+            
+        case SelectedRocketButtonTag.Orange.rawValue:
+            yellowButton.setImage(UIImage(named: "icon_check_rocket_1"), for: .normal)
+            redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+            purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+            blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+            currentRocket = 1
+            
+        case SelectedRocketButtonTag.Purple.rawValue:
+            purpleButton.setImage(UIImage(named: "icon_check_rocket_4"), for: .normal)
+            redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+            yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
+            blueButton.setImage(UIImage(named: "icon rocket_3"), for: .normal)
+            currentRocket = 4
+            
+        case SelectedRocketButtonTag.Blue.rawValue:
+            blueButton.setImage(UIImage(named: "icon_check_rocket_3"), for: .normal)
+            redButton.setImage(UIImage(named: "icon rocket_0"), for: .normal)
+            yellowButton.setImage((UIImage(named: "icon rocket_1")), for: .normal)
+            purpleButton.setImage((UIImage(named: "icon rocket_4")), for: .normal)
+            currentRocket = 3
+            
+        default:
+            print("not a rocket button")
+        }
     }
     
     
@@ -167,6 +174,8 @@ class RocketNameViewController: UIViewController {
         }
     }
     
+
+    
     
 }
 extension RocketNameViewController: UITextFieldDelegate {
@@ -175,6 +184,8 @@ extension RocketNameViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        clearButton.isHidden = true
+        countLabel.isHidden = true
         if textField.text?.isEmpty == true {
             isActivate = false
         } else {
@@ -189,5 +200,11 @@ extension RocketNameViewController: UITextFieldDelegate {
         
         countLabel.text = "\(min(updatedText.count,10))/10"
         return updatedText.count <= 10
+    }
+}
+
+extension RocketNameViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view != containerView
     }
 }

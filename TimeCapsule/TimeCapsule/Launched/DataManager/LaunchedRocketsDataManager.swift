@@ -23,12 +23,10 @@ class LaunchedRocketsDataManager {
         AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseDecodable(of: [GetRocketsResponse].self) { (response) in
-            print("getRocket() called")
             switch response.result {
             case .success(let response):
-                print(response)
                 if response.count > 0 {
-                    viewController.didRetrieveData(rockets: response)
+                    viewController.didRetrieveData(rockets: response.reversed())
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
                 }
