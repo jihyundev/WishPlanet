@@ -113,7 +113,7 @@ extension LaunchedRocketsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let insets = UIEdgeInsets(top: 36, left: 24, bottom: 24, right: 24)
+        let insets = UIEdgeInsets(top: 14, left: 24, bottom: 24, right: 24)
         return insets
     }
 }

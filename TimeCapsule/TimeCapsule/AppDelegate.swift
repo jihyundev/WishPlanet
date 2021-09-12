@@ -7,14 +7,14 @@
 
 import UIKit
 import KakaoSDKCommon
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        KakaoSDKCommon.initSDK(appKey: "90bc2ba9d3efcc9ed544183102a6fd6f")
+        KakaoSDKCommon.initSDK(appKey: Constant.KAKAO_SDK_KEY)
+        FirebaseApp.configure()
         return true
     }
 

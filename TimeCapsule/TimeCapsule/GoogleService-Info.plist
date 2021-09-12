@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>441329038806-7jk0fci0ts7vtb024h2ocef7bnq2em59.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.441329038806-7jk0fci0ts7vtb024h2ocef7bnq2em59</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAv29AaO9VlMf0GQvSQ0EAG1JJyEJv1HDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>441329038806</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.makeus.wishplanet</string>
+	<key>PROJECT_ID</key>
+	<string>wishplanet-6de4b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wishplanet-6de4b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:441329038806:ios:1c2f586b79ff974d332077</string>
+</dict>
+</plist>

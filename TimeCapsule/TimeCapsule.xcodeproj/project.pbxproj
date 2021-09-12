@@ -15,6 +15,7 @@
 		2520770B25FB5E55004366E4 /* NicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2520770925FB5E55004366E4 /* NicknameViewController.xib */; };
 		25437B6925FC424A00F3C8EF /* EndPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */; };
 		25437B6A25FC424A00F3C8EF /* EndPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */; };
+		5908C45C26ED993D007983BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5908C45B26ED993D007983BF /* GoogleService-Info.plist */; };
 		591BDBFE268809F000178E85 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BDBFD268809F000178E85 /* Parameters.swift */; };
 		5921F98825FBC7D700D097B4 /* Gaegu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */; };
 		5921F98925FBC7D700D097B4 /* Gaegu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */; };
@@ -138,6 +139,7 @@
 		2520770925FB5E55004366E4 /* NicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NicknameViewController.xib; sourceTree = "<group>"; };
 		25437B6725FC424A00F3C8EF /* EndPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPopUpViewController.swift; sourceTree = "<group>"; };
 		25437B6825FC424A00F3C8EF /* EndPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EndPopUpViewController.xib; sourceTree = "<group>"; };
+		5908C45B26ED993D007983BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		591BDBFD268809F000178E85 /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		5921F98525FBC7D600D097B4 /* Gaegu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Regular.ttf"; sourceTree = "<group>"; };
 		5921F98625FBC7D600D097B4 /* Gaegu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gaegu-Bold.ttf"; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				59E971B525FB000C008A7EF9 /* Assets.xcassets */,
 				59E971B725FB000C008A7EF9 /* LaunchScreen.storyboard */,
 				59E971BA25FB000C008A7EF9 /* Info.plist */,
+				5908C45B26ED993D007983BF /* GoogleService-Info.plist */,
 			);
 			path = TimeCapsule;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				596A1CE52669D46B00328E8B /* MyRocketEditViewController.xib in Resources */,
+				5908C45C26ED993D007983BF /* GoogleService-Info.plist in Resources */,
 				59E9720925FB0722008A7EF9 /* LoginViewController.xib in Resources */,
 				59C6868F264395E5006D9F3B /* MyInfoTableViewCell.xib in Resources */,
 				595B80952644DB7500B4866D /* LeaveConfirmViewController.xib in Resources */,
@@ -1091,7 +1095,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TimeCapsule/TimeCapsule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = TimeCapsule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1113,7 +1117,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TimeCapsule/TimeCapsule.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 69F5355JYF;
 				INFOPLIST_FILE = TimeCapsule/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -104,13 +104,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9o-lh-RU0">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9o-lh-RU0">
                     <rect key="frame" x="25" y="752" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="8ZZ-BX-STd"/>
                         <constraint firstAttribute="width" constant="70" id="EW8-LZ-IIX"/>
                     </constraints>
-                    <state key="normal" image="earth"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" image="earth">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                    </state>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -143,7 +146,7 @@
     </objects>
     <resources>
         <image name="background" width="375" height="812"/>
-        <image name="earth" width="76" height="76"/>
+        <image name="earth" width="80" height="80"/>
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>
         <image name="icon_fire_locked" width="44" height="44"/>

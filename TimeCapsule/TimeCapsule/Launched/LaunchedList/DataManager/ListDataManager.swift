@@ -21,7 +21,13 @@ class ListDataManager {
         AF.request(url, method: .get, headers: headers, requestModifier: { $0.timeoutInterval = 10 }).validate().responseDecodable(of: GetStonesResponse.self) { response in
             switch response.result {
             case .success(let response):
-                viewController.didRetrieveData(stoneCount: response.totalStoneCount, stoneList: response.stoneList)
+                var finishedStones = 0
+                for stone in response.stoneList {
+                    if stone.wishChecked {
+                        finishedStones += 1
+                    }
+                }
+                viewController.didRetrieveData(stoneCount: response.totalStoneCount, finishedStoneCount: finishedStones, stoneList: response.stoneList)
             case .failure(let error):
                 print(error)
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")

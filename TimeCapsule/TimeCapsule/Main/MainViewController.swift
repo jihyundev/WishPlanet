@@ -164,6 +164,8 @@ class MainViewController: UIViewController {
         
         rocketListButton.layer.zPosition = 10
         rocketListButton.addTarget(self, action: #selector(rocketListButtonTapped), for: .touchUpInside)
+        rocketListButton.imageView?.contentMode = .scaleAspectFill
+        rocketListButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         nameLabel.layer.zPosition = 9
         backImageView.contentMode = .scaleAspectFill

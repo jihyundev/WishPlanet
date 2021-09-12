@@ -15,5 +15,6 @@ target 'TimeCapsule' do
   pod 'KeychainSwift', '~> 19.0'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'PanModal'
+  pod 'Firebase/Analytics'
 
 end

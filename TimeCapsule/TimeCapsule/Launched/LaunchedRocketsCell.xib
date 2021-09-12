@@ -32,8 +32,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우주선 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtf-9d-Rke">
-                        <rect key="frame" x="54.5" y="172" width="63" height="25"/>
-                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="13"/>
+                        <rect key="frame" x="52" y="164" width="68" height="33"/>
+                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -47,7 +47,7 @@
                 <constraint firstItem="Ze4-CV-GSD" firstAttribute="centerY" secondItem="Wfi-4S-lfh" secondAttribute="centerY" id="aeJ-aI-fPq"/>
                 <constraint firstAttribute="trailing" secondItem="Wfi-4S-lfh" secondAttribute="trailing" id="gnC-Yf-FEw"/>
                 <constraint firstItem="jtf-9d-Rke" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gtU-yo-HfP"/>
-                <constraint firstItem="jtf-9d-Rke" firstAttribute="top" secondItem="Wfi-4S-lfh" secondAttribute="bottom" constant="16" id="mEH-ci-odd"/>
+                <constraint firstItem="jtf-9d-Rke" firstAttribute="top" secondItem="Wfi-4S-lfh" secondAttribute="bottom" constant="8" id="mEH-ci-odd"/>
                 <constraint firstItem="Ze4-CV-GSD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wgj-tn-cmS"/>
             </constraints>
             <size key="customSize" width="172" height="197"/>

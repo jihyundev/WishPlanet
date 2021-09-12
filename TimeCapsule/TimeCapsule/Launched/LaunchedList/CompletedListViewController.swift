@@ -13,10 +13,12 @@ class CompletedListViewController: UIViewController {
     private let rocketID: Int
     private let dataManager = ListDataManager()
     
-    var stoneCount: Int = 0
-    var stoneList: [StoneList] = []
+    private var stoneCount: Int = 0
+    private var finishedStoneCount: Int = 0
+    private var stoneList: [StoneList] = []
     
     @IBOutlet weak var countLabel: UILabel! // 소원석 개수 카운트
+    @IBOutlet weak var finishedCountLabel: UILabel! // 완료한 소원석 개수 카운트
     @IBOutlet weak var tableView: UITableView!
     
     init(rocketID: Int) {
@@ -46,9 +48,13 @@ class CompletedListViewController: UIViewController {
     }
     
     // 소원석 목록 조회 성공
-    func didRetrieveData(stoneCount: Int, stoneList: [StoneList]) {
+    func didRetrieveData(stoneCount: Int, finishedStoneCount: Int, stoneList: [StoneList]) {
         self.stoneCount = stoneCount
         countLabel.text = "총 \(stoneCount)개"
+        
+        self.finishedStoneCount = finishedStoneCount
+        finishedCountLabel.text = "완료 \(finishedStoneCount)개"
+        
         self.stoneList = stoneList
         tableView.reloadData()
         

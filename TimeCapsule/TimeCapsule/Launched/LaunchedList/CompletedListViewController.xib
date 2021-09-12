@@ -16,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompletedListViewController" customModule="TimeCapsule" customModuleProvider="target">
             <connections>
                 <outlet property="countLabel" destination="DNl-tJ-4Vl" id="s3t-Jm-YG6"/>
+                <outlet property="finishedCountLabel" destination="Kfe-Zo-diU" id="C2T-9Q-SZQ"/>
                 <outlet property="tableView" destination="K9r-Gg-3NF" id="aiE-Ie-utS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,6 +36,12 @@
                     <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfe-Zo-diU">
+                    <rect key="frame" x="53" y="64" width="30" height="20"/>
+                    <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.4823529411764706" green="0.25490196078431371" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,6 +53,8 @@
                 <constraint firstItem="K9r-Gg-3NF" firstAttribute="top" secondItem="DNl-tJ-4Vl" secondAttribute="bottom" constant="20" id="S5v-yD-1XD"/>
                 <constraint firstItem="K9r-Gg-3NF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hCV-3H-EHR"/>
                 <constraint firstItem="DNl-tJ-4Vl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="jG0-Lf-TR4"/>
+                <constraint firstItem="Kfe-Zo-diU" firstAttribute="leading" secondItem="DNl-tJ-4Vl" secondAttribute="trailing" constant="16" id="m50-Q9-6Yc"/>
+                <constraint firstItem="Kfe-Zo-diU" firstAttribute="centerY" secondItem="DNl-tJ-4Vl" secondAttribute="centerY" id="pz0-y7-jal"/>
             </constraints>
             <point key="canvasLocation" x="94" y="49"/>
         </view>

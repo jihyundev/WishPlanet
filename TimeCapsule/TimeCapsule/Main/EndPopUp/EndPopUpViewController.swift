@@ -36,6 +36,9 @@ class EndPopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissView))
+        self.view.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
     @IBAction func exitButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -43,6 +46,10 @@ class EndPopUpViewController: UIViewController {
     
     @IBAction func completionButtonTapped(_ sender: Any) {
         dataManager.patchRocketLaunch(rocketID: rocketID, viewController: self)
+    }
+    
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupUI() {
@@ -65,6 +72,7 @@ class EndPopUpViewController: UIViewController {
  
     }
     
+    
     func successToPatch() {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
@@ -77,4 +85,10 @@ class EndPopUpViewController: UIViewController {
         self.presentAlert(title: message)
     }
 
+}
+
+extension EndPopUpViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view != containerView
+    }
 }
