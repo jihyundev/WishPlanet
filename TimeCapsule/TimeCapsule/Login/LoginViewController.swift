@@ -25,8 +25,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func appleloginButtonTapped(_ sender:Any) {
-        self.showIndicator()
-        //dataManager.appleLogin(viewController: self)
+        //self.showIndicator()
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -38,12 +37,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func kakaologinButtonTapped(_ sender: Any) {
-        self.showIndicator()
+        //self.showIndicator()
         dataManager.kakaoLogin(viewController: self)
     }
     
     func goToNickname(loginType: LoginType, token: String) {
-        self.dismissIndicator()
+        //self.dismissIndicator()
         fadeoutAnimate()
         let vc = NicknameViewController(loginType: loginType, accessToken: token)
         vc.delegate = self
@@ -53,7 +52,7 @@ class LoginViewController: UIViewController {
     }
     
     func userExisted(rocketStatus: Int) {
-        self.dismissIndicator()
+        //self.dismissIndicator()
         switch rocketStatus {
         case 1:
             // 로켓이 하나도 없는 상태 (신규회원)
@@ -101,30 +100,18 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             // Create an account in your system
             let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            print("userIdentifier: \(userIdentifier)")
-            print("fullName: \(String(describing: fullName))")
-            print("email: \(String(describing: email))")
             keychain.set(userIdentifier, forKey: Keys.userIdentifier)
             
             if let authorizationCode = appleIDCredential.authorizationCode,
                let identityToken = appleIDCredential.identityToken,
-               let authString = String(data: authorizationCode, encoding: .utf8),
-               let tokenString = String(data: identityToken, encoding: .utf8) {
-                print("authorizationCode: \(authorizationCode)")
-                print("identityToken: \(identityToken)")
-                print("authorizationCodeString: \(authString)")
-                print("identityTokenString: \(tokenString)")
-                dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
+               //let authString = String(data: authorizationCode, encoding: .utf8),
+               let tokenString = String(data: identityToken, encoding: .utf8) {                dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
             }
         
         case let passwordCredential as ASPasswordCredential:
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
-            print("username: \(username)")
-            print("password: \(password)")
             
         default:
             break

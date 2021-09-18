@@ -43,7 +43,6 @@ class MoreDataManager {
             
             switch response.result {
             case .success(let response):
-                print(response)
                 
                 var currentRocket: MyRocket = MyRocket(rocketID: 0, name: "", period: "", color: 0)
                 var launchedRockets: [MyRocket] = []

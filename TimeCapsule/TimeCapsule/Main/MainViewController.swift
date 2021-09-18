@@ -200,7 +200,12 @@ class MainViewController: UIViewController {
         view.addSubview(shadowView)
         shadowView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         shadowView.leadingAnchor.constraint(equalTo: rocketImageView.leadingAnchor).isActive = true
-        shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        if UIScreen.main.bounds.size.width > 380 {
+            shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        } else {
+            shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        }
         shadowView.heightAnchor.constraint(equalTo: rocketImageView.heightAnchor, multiplier: 160/752).isActive = true
         shadowView.contentMode = .scaleAspectFit
         shadowView.layer.zPosition = 1

@@ -48,9 +48,9 @@ class ListDataManager {
                     print("success")
                     switch checked {
                     case true:
-                        viewController.successToCheckStone(message: "소원석 체크가 해제되었습니다. ")
+                        viewController.successToCheckStone(message: "", isChecked: true)
                     case false:
-                        viewController.successToCheckStone(message: "소원석 체크가 완료되었습니다. ")
+                        viewController.successToCheckStone(message: "소원 이루기 성공 💫", isChecked: false)
                     }
                 case .failure(let error):
                     print(error)

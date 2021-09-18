@@ -57,18 +57,15 @@ class MainDataManager {
         guard let token = keychain.get(Keys.token) else { return }
         let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
         let url = URLType.rocketLaunch(rocketID).makeURL
-        print("rocketID: \(rocketID)")
         AF.request(url, method: .patch, headers: headers, requestModifier: { $0.timeoutInterval = 10 })
             .validate()
             .responseJSON { response in
             switch response.result {
-            case .success(let result):
-                print("patchRocketLaunch() - result: ", result)
+            case .success(_):
                 viewController.successToPatch()
                 self.keychain.set("3", forKey: Keys.rocketStatus) // 로켓 생성 후 발사 완료
             case .failure(let error):
                 if let data = response.data {
-                    print("Failure Data: \(data)")
                     let jsonString = String(data: data, encoding: .utf8)
                     print("Failure String: \(jsonString ?? "우주선을 발사할 수 없어요. ")")
                 }

@@ -94,8 +94,10 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if let date = currentRocket?.period {
-                self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+            if let date = currentRocket?.period, let name = currentRocket?.name {
+                if !name.isEmpty {
+                    self.moveToEditVC(title: "진행 중", rocketID: currentRocket?.rocketID ?? 0, date: date)
+                }
             } else {
                 print("current rocket do not exist-2")
             }
@@ -152,7 +154,7 @@ extension MyRocketViewController: UITableViewDataSource, UITableViewDelegate {
             label.textColor = .white
             label.font = UIFont.SpoqaHanSansNeo(.medium, size: 13)
             
-            let countLabel = UILabel(frame: CGRect(x: 77, y: 15, width: 20, height: view.frame.size.height))
+            let countLabel = UILabel(frame: CGRect(x: 77, y: 15, width: 30, height: view.frame.size.height))
             view.addSubview(countLabel)
             countLabel.text = "\(launchedRockets.count)대"
             countLabel.textColor = .init(white: 1.0, alpha: 0.5)

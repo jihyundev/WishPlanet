@@ -106,10 +106,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSh-ja-qTM">
-                    <rect key="frame" x="25" y="752" width="70" height="70"/>
+                    <rect key="frame" x="10" y="722" width="100" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="7Kc-YC-Irv"/>
-                        <constraint firstAttribute="width" constant="70" id="eSq-Y9-NZj"/>
+                        <constraint firstAttribute="height" constant="100" id="7Kc-YC-Irv"/>
+                        <constraint firstAttribute="width" constant="100" id="eSq-Y9-NZj"/>
                     </constraints>
                     <state key="normal" image="earth"/>
                     <connections>
@@ -117,7 +117,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earthToast" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-mQ-jyC">
-                    <rect key="frame" x="19" y="702" width="170" height="50"/>
+                    <rect key="frame" x="25" y="672" width="170" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="Pf9-OP-kch"/>
                         <constraint firstAttribute="height" constant="50" id="YkG-YJ-opD"/>
@@ -128,7 +128,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="yHD-Qe-KtV" firstAttribute="centerY" secondItem="zR6-HS-6zU" secondAttribute="centerY" id="0ay-Pq-3NS"/>
-                <constraint firstItem="ydz-mQ-jyC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="19" id="1v6-aW-a0e"/>
+                <constraint firstItem="ydz-mQ-jyC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="1v6-aW-a0e"/>
                 <constraint firstItem="zR6-HS-6zU" firstAttribute="top" secondItem="cVX-Ib-SOY" secondAttribute="bottom" constant="12" id="EwF-1B-qpE"/>
                 <constraint firstItem="tT0-fz-QCj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FKs-Sa-Scd"/>
                 <constraint firstItem="bPD-GU-EIm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hee-a6-YBD"/>
@@ -140,7 +140,7 @@
                 <constraint firstItem="cVX-Ib-SOY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Rkr-Ld-WDA"/>
                 <constraint firstAttribute="bottom" secondItem="czf-Hy-1Zg" secondAttribute="bottom" id="SA4-Dh-GOy"/>
                 <constraint firstItem="B29-nX-aws" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SHT-Ef-Aap"/>
-                <constraint firstItem="cSh-ja-qTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Sgi-d0-VFZ"/>
+                <constraint firstItem="cSh-ja-qTM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Sgi-d0-VFZ"/>
                 <constraint firstItem="cSh-ja-qTM" firstAttribute="top" secondItem="ydz-mQ-jyC" secondAttribute="bottom" id="WDu-tn-cPL"/>
                 <constraint firstItem="bPD-GU-EIm" firstAttribute="top" secondItem="tT0-fz-QCj" secondAttribute="bottom" constant="16" id="Yic-VW-fy4"/>
                 <constraint firstItem="tT0-fz-QCj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="ZjX-8U-KFN"/>
@@ -158,7 +158,7 @@
     </objects>
     <resources>
         <image name="background" width="375" height="812"/>
-        <image name="earth" width="76" height="76"/>
+        <image name="earth" width="80" height="80"/>
         <image name="earthToast" width="178" height="52"/>
         <image name="ground" width="375" height="200"/>
         <image name="icon more" width="44" height="44"/>

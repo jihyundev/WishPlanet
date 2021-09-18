@@ -66,15 +66,16 @@ class CompletedListViewController: UIViewController {
     }
     
     // 소원석 체크 성공
-    func successToCheckStone(message: String) {
+    func successToCheckStone(message: String, isChecked: Bool) {
         self.dismissIndicator()
-        self.presentAlert(title: message)
+        if !isChecked {
+            self.presentAlert(title: message)
+        }
         dataManager.getStones(rocketID: rocketID, viewController: self)
     }
     
     func failedToRequest(message: String) {
         self.dismissIndicator()
-        self.presentAlert(title: "소원석 체크에 실패하였습니다. ")
         self.presentAlert(title: message)
     }
 
