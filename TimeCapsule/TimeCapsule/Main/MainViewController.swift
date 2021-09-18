@@ -107,7 +107,7 @@ class MainViewController: UIViewController {
             view.scene?.isPaused = false
             print("LOG - Unpausing the SKScene...")
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(updateRocket), name: Notification.Name(Notifications.UpdateRocket), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNameOrDate), name: Notification.Name(Notifications.UpdateNameOrDate), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
             view.scene?.isPaused = true
             print("LOG - Pausing the SKScene...")
         }
-        //NotificationCenter.default.removeObserver(self, name: Notification.Name(Notifications.UpdateRocket), object: nil)
+        //NotificationCenter.default.removeObserver(self, name: Notification.Name(Notifications.UpdateNameOrDate), object: nil)
     }
     
     // MARK: -IBAction 메소드
@@ -267,6 +267,26 @@ class MainViewController: UIViewController {
         
     }
     
+    func didRetrieveNameDate(rocketResponse: GetRocketsResponse, daysLeft: Int) {
+        self.nameLabel.text = rocketResponse.rocketName
+        if rocketResponse.totalRocketCount > 1 {
+            rocketListFlag = true
+        } else {
+            rocketListFlag = false
+        }
+        
+        if daysLeft == 0 {
+            rocketLaunchFlag = true
+            self.dayCountLabel.text = "D-DAY"
+        } else if daysLeft < 0 {
+            rocketLaunchFlag = true
+            self.dayCountLabel.text = "D+\(-daysLeft)"
+        } else {
+            rocketLaunchFlag = false
+            self.dayCountLabel.text = "D-\(daysLeft)"
+        }
+    }
+    
     func failedToRequest(message: String) {
         self.presentAlert(title: message)
     }
@@ -292,8 +312,8 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func updateRocket() {
-        dataManager.getRocket(viewController: self)
+    @objc private func updateNameOrDate() {
+        dataManager.getRocketNameDate(viewController: self)
     }
     
     private func addAnimationAsSubview() {

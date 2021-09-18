@@ -10,4 +10,5 @@ import Foundation
 struct Notifications {
     static let FadeInIntroVC = "FadeInIntroVC"
     static let UpdateRocket = "UpdateRocket"
+    static let UpdateNameOrDate = "UpdateNameOrDate"
 }

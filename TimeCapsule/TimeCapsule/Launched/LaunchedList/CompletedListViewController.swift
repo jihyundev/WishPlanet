@@ -42,6 +42,7 @@ class CompletedListViewController: UIViewController {
     
     private func setupUI() {
         countLabel.text = ""
+        finishedCountLabel.text = ""
         tableView.backgroundColor = .mainPurple
         tableView.rowHeight = 88
         tableView.separatorStyle = .none

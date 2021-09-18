@@ -41,7 +41,6 @@ class MainDataManager {
                         }
                     }
                     let daysLeft: Int = self.calculateDaysLeft(launchDate: rocket.launchDate)
-                    //viewController.didRetrieveData(rocketID: rocket.rocketID, rocketColor: rocket.rocketColor, rocketName: rocket.rocketName, launchDate: rocket.launchDate, stones: stones, rocketCount: rocket.totalRocketCount, daysLeft: daysLeft)
                     viewController.didRetrieveData(rocketResponse: rocket, stones: stones, daysLeft: daysLeft)
                 } else {
                     viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
@@ -51,6 +50,30 @@ class MainDataManager {
                 viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
             }
         }
+    }
+    
+    func getRocketNameDate(viewController: MainViewController) {
+        guard let token = keychain.get(Keys.token) else { return }
+        let url = URLType.rocket.makeURL
+        let parameters = ["scope": Scope.AWAITING.rawValue, "stoneColorCount": "false"]
+        let headers: HTTPHeaders = [RequestHeader.jwtToken: token]
+        AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString), headers: headers, requestModifier: { $0.timeoutInterval = 10 })
+            .validate()
+            .responseDecodable(of: [GetRocketsResponse].self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.count > 0 {
+                        let rocket = response[0]
+                        let daysLeft: Int = self.calculateDaysLeft(launchDate: rocket.launchDate)
+                        viewController.didRetrieveNameDate(rocketResponse: rocket, daysLeft: daysLeft)
+                    } else {
+                        viewController.failedToRequest(message: "로켓이 존재하지 않습니다. ")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
+                }
+            }
     }
     
     func patchRocketLaunch(rocketID: Int, viewController: EndPopUpViewController) {

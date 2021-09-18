@@ -208,7 +208,7 @@ class MyRocketEditViewController: UIViewController {
     func successToPatch() {
         // 데이터 업데이트 후 pop
         delegate?.reloadData()
-        NotificationCenter.default.post(name: NSNotification.Name(Notifications.UpdateRocket), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(Notifications.UpdateNameOrDate), object: nil, userInfo: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
