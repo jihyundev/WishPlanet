@@ -16,6 +16,7 @@ class MyPageViewController: UIViewController {
     var currentRocket: MyRocket?
     var launchedRockets: [MyRocket]?
 
+    @IBOutlet weak var myInfoView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginTypeLabel: UILabel!
     @IBOutlet weak var loginTypeStackView: UIStackView!
@@ -40,7 +41,7 @@ class MyPageViewController: UIViewController {
         let rocketTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToRocketVC))
         let wishplanetTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToWishplanet))
         
-        self.loginTypeStackView.addGestureRecognizer(infoTapGesture)
+        self.myInfoView.addGestureRecognizer(infoTapGesture)
         self.rocketView.addGestureRecognizer(rocketTapGesture)
         self.wishplanetView.addGestureRecognizer(wishplanetTapGesture)
         
@@ -69,6 +70,7 @@ class MyPageViewController: UIViewController {
         wishplanetLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 15)
         versionLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 11)
         versionLabel.alpha = 0.5
+        myInfoView.backgroundColor = .mainPurple
         rocketView.backgroundColor = .mainPurple
         wishplanetView.backgroundColor = .mainPurple
         rocketView.layer.addBorder([.bottom], color: UIColor(red: 0.455, green: 0.243, blue: 0.914, alpha: 1), width: 1)
