@@ -12,7 +12,6 @@ class NicknameEditViewController: UIViewController {
     
     let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
     let dataManager = MyInfoDataManager()
-    var nickname: String?
     var delegate: ReloadNicknameDelegate?
     
     lazy var completeButton: UIBarButtonItem = {
@@ -28,14 +27,13 @@ class NicknameEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        self.nameTextField.text = nickname
         self.dismissKeyboardWhenTappedAround()
         self.nameTextField.delegate = self
     }
     
     fileprivate func setupUI() {
         self.title = "닉네임 수정"
-        self.nickname = keychain.get(Keys.nickname)
+        self.nameTextField.text = keychain.get(Keys.nickname)
         self.view.backgroundColor = .mainPurple
         self.nameTextField.cornerRadius = 12
         self.nameTextField.borderStyle = .none
@@ -44,7 +42,7 @@ class NicknameEditViewController: UIViewController {
         
         textCountLabel.alpha = 0.5
         textCountLabel.isHidden = true
-        if let name = self.nickname {
+        if let name = self.nameTextField.text {
             self.textCountLabel.text = "\(name.count)/10"
         } else {
             self.textCountLabel.text = "0/10"
@@ -73,7 +71,7 @@ class NicknameEditViewController: UIViewController {
     }
     
     @objc private func completeButtonPressed(_ sender: Any) {
-        guard let name = self.nickname else { return }
+        guard let name = self.nameTextField.text else { return }
         dataManager.patchNickname(nickname: name, viewController: self)
     }
     
@@ -102,8 +100,6 @@ extension NicknameEditViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let name = self.nameTextField.text else { return }
-        self.nickname = name
         clearButton.isHidden = true
     }
     
