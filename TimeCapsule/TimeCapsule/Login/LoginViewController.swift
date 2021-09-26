@@ -98,6 +98,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            print("ASAuthorizationAppleIDCredential")
             // Create an account in your system
             let userIdentifier = appleIDCredential.user
             keychain.set(userIdentifier, forKey: Keys.userIdentifier)
@@ -105,13 +106,15 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
             if let authorizationCode = appleIDCredential.authorizationCode,
                let identityToken = appleIDCredential.identityToken,
                //let authString = String(data: authorizationCode, encoding: .utf8),
-               let tokenString = String(data: identityToken, encoding: .utf8) {                dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
+               let tokenString = String(data: identityToken, encoding: .utf8) {
+                dataManager.verifyUser(loginType: .apple, accessToken: tokenString, viewController: self)
             }
         
         case let passwordCredential as ASPasswordCredential:
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
+            print("ASPasswordCredential login")
             
         default:
             break

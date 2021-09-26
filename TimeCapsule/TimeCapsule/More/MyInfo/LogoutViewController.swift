@@ -50,9 +50,8 @@ class LogoutViewController: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func proceedButtonTapped(_ sender: Any) {
-        //self.keychain.set("카카오 로그인", forKey: Keys.loginType)
         let socialType = self.keychain.get(Keys.loginType)
-        if socialType == "카카오 로그인" {
+        if (socialType == "카카오 로그인") || (socialType == LoginType.kakao.rawValue) {
             // 카카오 API 로그아웃 처리 (토큰 삭제)
             UserApi.shared.logout { error in
                 if let error = error {
