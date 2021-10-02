@@ -71,6 +71,7 @@
 		5997197B26458380008E88EA /* RocketDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5997197926458380008E88EA /* RocketDateViewController.swift */; };
 		5997197C26458380008E88EA /* RocketDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5997197A26458380008E88EA /* RocketDateViewController.xib */; };
 		599C945E2650A3B200986DE6 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C945D2650A3B200986DE6 /* DateHelper.swift */; };
+		59A063D127080F75002AA9BC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A063D027080F75002AA9BC /* Colors.swift */; };
 		59AA3C6C265D1AF3003A29B9 /* fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6B265D1AF3003A29B9 /* fire.json */; };
 		59AA3C6E265D1AFD003A29B9 /* smoke.json in Resources */ = {isa = PBXBuildFile; fileRef = 59AA3C6D265D1AFD003A29B9 /* smoke.json */; };
 		59B5198F263696B300FEFF00 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5198E263696B300FEFF00 /* HapticsManager.swift */; };
@@ -195,6 +196,7 @@
 		5997197926458380008E88EA /* RocketDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDateViewController.swift; sourceTree = "<group>"; };
 		5997197A26458380008E88EA /* RocketDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RocketDateViewController.xib; sourceTree = "<group>"; };
 		599C945D2650A3B200986DE6 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		59A063D027080F75002AA9BC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		59AA3C6B265D1AF3003A29B9 /* fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fire.json; sourceTree = "<group>"; };
 		59AA3C6D265D1AFD003A29B9 /* smoke.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = smoke.json; sourceTree = "<group>"; };
 		59B5198E263696B300FEFF00 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				591BDBFD268809F000178E85 /* Parameters.swift */,
 				59CA8AE32699660E0057D3B1 /* Notifications.swift */,
 				59CC56A126DB2552002B258D /* UserDefaultsKeys.swift */,
+				59A063D027080F75002AA9BC /* Colors.swift */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				59C6867A2642E9F0006D9F3B /* CALayer.swift in Sources */,
 				595B80852644362B00B4866D /* MoreDataManager.swift in Sources */,
 				595B809A26455AE600B4866D /* IntroViewController.swift in Sources */,
+				59A063D127080F75002AA9BC /* Colors.swift in Sources */,
 				59E9723425FB4CE6008A7EF9 /* Keys.swift in Sources */,
 				5931039E26833CD9005F2232 /* UncheckedListCell.swift in Sources */,
 				59E971DC25FB003B008A7EF9 /* String.swift in Sources */,

@@ -18,9 +18,21 @@ class MyInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.contentView.backgroundColor = .mainPurple
         mainLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 15)
-        mainLabel.textColor = .white
         subLabel.font = UIFont.SpoqaHanSansNeo(.regular, size: 14)
-        subLabel.textColor = .white
+    }
+    
+    func configure(main: String, sub: String?, color: Colors) {
+        mainLabel.text = main
+        subLabel.text = sub ?? ""
+        switch color {
+        case .darkPurple:
+            [mainLabel, subLabel].forEach{ $0.textColor = UIColor.darkPurple }
+        case .white:
+            [mainLabel, subLabel].forEach{ $0.textColor = UIColor.white }
+        default:
+            [mainLabel, subLabel].forEach{ $0.textColor = UIColor.white }
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

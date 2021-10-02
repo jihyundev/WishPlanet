@@ -55,27 +55,21 @@ extension MyInfoViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
-            cell.mainLabel.text = "닉네임 수정"
-            let nickname = self.name
-            cell.subLabel.text = nickname
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as? MyInfoTableViewCell
+            cell?.configure(main: "닉네임 수정", sub: self.name, color: .white)
+            return cell ?? UITableViewCell()
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
-            cell.mainLabel.text = "개인정보 처리방침"
-            cell.subLabel.isHidden = true
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as? MyInfoTableViewCell
+            cell?.configure(main: "개인정보 처리방침", sub: nil, color: .white)
+            return cell ?? UITableViewCell()
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
-            cell.mainLabel.text = "로그아웃"
-            cell.subLabel.isHidden = true
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as? MyInfoTableViewCell
+            cell?.configure(main: "로그아웃", sub: nil, color: .white)
+            return cell ?? UITableViewCell()
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as! MyInfoTableViewCell
-            cell.mainLabel.text = "탈퇴하기"
-            cell.mainLabel.textColor = #colorLiteral(red: 0.4237937331, green: 0.1606132686, blue: 0.8150677085, alpha: 1)
-            cell.subLabel.isHidden = true
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: infoCell.cellID) as? MyInfoTableViewCell
+            cell?.configure(main: "탈퇴하기", sub: nil, color: .darkPurple)
+            return cell ?? UITableViewCell()
         default:
             return UITableViewCell()
         }
@@ -121,8 +115,6 @@ extension MyInfoViewController: ReloadNicknameDelegate {
         print("MyInfoViewController - updateNickname() called")
         dataManager.getNickname(viewController: self)
         delegate?.updateNickname()
-        //let index = IndexPath(row: 0, section: 0)
-        //tableView.reloadRows(at: [index], with: .none)
     }
 }
 
