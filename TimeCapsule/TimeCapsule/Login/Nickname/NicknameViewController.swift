@@ -79,6 +79,7 @@ class NicknameViewController: UIViewController {
     
     @IBAction func completionButtonTapped(_ sender: Any) {
         guard let text = nameTextField.text else { return }
+        self.view.isUserInteractionEnabled = false
         dataManager.signUp(loginType: loginType, nickname: text, token: accessToken, viewController: self)
     }
     
@@ -126,6 +127,7 @@ class NicknameViewController: UIViewController {
     }
     
     func didRetreiveData() {
+        self.view.isUserInteractionEnabled = true
         guard let pvc = self.presentingViewController else { return }
         let nextVC = IntroViewController(flag: 0)
         let vc = UINavigationController(rootViewController: nextVC)
@@ -133,6 +135,11 @@ class NicknameViewController: UIViewController {
         self.dismiss(animated: true) {
             pvc.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    func failedToRequest(message: String) {
+        self.view.isUserInteractionEnabled = true
+        self.presentAlert(title: message, isCancelActionIncluded: false)
     }
     
 }

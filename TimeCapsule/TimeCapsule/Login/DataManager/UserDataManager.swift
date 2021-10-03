@@ -155,9 +155,7 @@ class UserDataManager {
                 viewController.didRetreiveData()
             case .failure(let error):
                 print(error.localizedDescription)
-                DispatchQueue.main.async {
-                    viewController.presentAlert(title: "서버와의 연결이 원활하지 않습니다. ", isCancelActionIncluded: false)
-                }
+                viewController.failedToRequest(message: "서버와의 연결이 원활하지 않습니다. ")
             }
         }
     }
