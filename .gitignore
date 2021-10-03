@@ -23,4 +23,7 @@ DerivedData/
 *.mode1v3
 !default.mode1v3
 
+TimeCapsule/TimeCapsule.xcworkspace/xcuserdata/jeongjihyeon.xcuserdatad/UserInterfaceState.xcuserstate
+TimeCapsule/TimeCapsule/Configuration/Constant.swift
+
 *.xcuserstate
