@@ -38,6 +38,7 @@
 		593D80752666823E002DE3D8 /* CurrentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593D80712666823E002DE3D8 /* CurrentTableViewCell.xib */; };
 		593D80762666823E002DE3D8 /* LaunchedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593D80722666823E002DE3D8 /* LaunchedTableViewCell.xib */; };
 		593D807926668577002DE3D8 /* MyRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593D807826668577002DE3D8 /* MyRocket.swift */; };
+		593DADAE270953DD0055E4CF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DADAD270953DD0055E4CF /* Constant.swift */; };
 		595B807B2644275B00B4866D /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B80792644275B00B4866D /* PrivacyPolicyViewController.swift */; };
 		595B807C2644275B00B4866D /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */; };
 		595B8080264427CA00B4866D /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B807E264427CA00B4866D /* LogoutViewController.swift */; };
@@ -107,7 +108,6 @@
 		59E971AF25FB0007008A7EF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971AE25FB0007008A7EF9 /* SceneDelegate.swift */; };
 		59E971B625FB000C008A7EF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E971B525FB000C008A7EF9 /* Assets.xcassets */; };
 		59E971B925FB000C008A7EF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E971B725FB000C008A7EF9 /* LaunchScreen.storyboard */; };
-		59E971D725FB003B008A7EF9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971C225FB003B008A7EF9 /* Constant.swift */; };
 		59E971D825FB003B008A7EF9 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971C425FB003B008A7EF9 /* IndicatorView.swift */; };
 		59E971D925FB003B008A7EF9 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971C525FB003B008A7EF9 /* Device.swift */; };
 		59E971DA25FB003B008A7EF9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E971C725FB003B008A7EF9 /* Date.swift */; };
@@ -163,6 +163,7 @@
 		593D80712666823E002DE3D8 /* CurrentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentTableViewCell.xib; sourceTree = "<group>"; };
 		593D80722666823E002DE3D8 /* LaunchedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchedTableViewCell.xib; sourceTree = "<group>"; };
 		593D807826668577002DE3D8 /* MyRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRocket.swift; sourceTree = "<group>"; };
+		593DADAD270953DD0055E4CF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		595B80792644275B00B4866D /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		595B807A2644275B00B4866D /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
 		595B807E264427CA00B4866D /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -235,7 +236,6 @@
 		59E971B525FB000C008A7EF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59E971B825FB000C008A7EF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59E971BA25FB000C008A7EF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59E971C225FB003B008A7EF9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		59E971C425FB003B008A7EF9 /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		59E971C525FB003B008A7EF9 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		59E971C725FB003B008A7EF9 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -589,10 +589,10 @@
 		59E971C125FB003B008A7EF9 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				59E971C225FB003B008A7EF9 /* Constant.swift */,
 				59E971C325FB003B008A7EF9 /* CommonClass */,
 				59E971C625FB003B008A7EF9 /* Extension */,
 				59E971D125FB003B008A7EF9 /* Font */,
+				593DADAD270953DD0055E4CF /* Constant.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -889,6 +889,7 @@
 				59E9720825FB0722008A7EF9 /* LoginViewController.swift in Sources */,
 				59C686A72644155D006D9F3B /* UITextField.swift in Sources */,
 				598C961326D1FE710003B17B /* LaunchedRocketsCell.swift in Sources */,
+				593DADAE270953DD0055E4CF /* Constant.swift in Sources */,
 				596A1CF2266C517900328E8B /* MyRocketEditDataManager.swift in Sources */,
 				59E9722F25FB4377008A7EF9 /* UserDataManager.swift in Sources */,
 				59E5C575264F62120089FA23 /* CreateRocketDataManager.swift in Sources */,
@@ -948,7 +949,6 @@
 				59E971D925FB003B008A7EF9 /* Device.swift in Sources */,
 				59CA8AEB2699D0C10057D3B1 /* OpenSourceEntity.swift in Sources */,
 				595B808A264439FF00B4866D /* GetMoreInfoResponse.swift in Sources */,
-				59E971D725FB003B008A7EF9 /* Constant.swift in Sources */,
 				5997197626458370008E88EA /* RocketNameViewController.swift in Sources */,
 				59B930EC2663118D00AD8564 /* LoginResponse.swift in Sources */,
 				2516E84225FB890E00ADD135 /* URLType.swift in Sources */,
