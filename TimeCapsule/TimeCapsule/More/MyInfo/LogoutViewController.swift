@@ -50,6 +50,14 @@ class LogoutViewController: UIViewController, UIGestureRecognizerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func proceedButtonTapped(_ sender: Any) {
+        keychain.clear()
+        self.dismiss(animated: true) {
+            self.delegate?.goToLoginVC()
+        }
+        
+        // TODO: 카카오 로그인 모듈 변경사항 적용한 뒤 UserApi로 로그아웃 재적용
+        
+        /*
         let socialType = self.keychain.get(Keys.loginType)
         if (socialType == "카카오 로그인") || (socialType == LoginType.kakao.rawValue) {
             // 카카오 API 로그아웃 처리 (토큰 삭제)
@@ -72,5 +80,6 @@ class LogoutViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.delegate?.goToLoginVC()
             }
         }
+        */
     }
 }
