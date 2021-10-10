@@ -7,79 +7,21 @@
 
 import UIKit
 import KakaoSDKAuth
-import AuthenticationServices
-import KeychainSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let keychain = KeychainSwift(keyPrefix: Keys.keyPrefix)
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        /*
-        if let loginType: LoginType.RawValue = keychain.get(Keys.loginType) {
-            print("loginType: \(loginType)")
-            switch loginType {
-            case LoginType.apple.rawValue:
-                print("애플로그인 됨")
-                let appleIDProvider = ASAuthorizationAppleIDProvider()
-                appleIDProvider.getCredentialState(forUserID: Keys.userIdentifier) { credentialState, error in
-                    switch credentialState {
-                    case .authorized:
-                        print("apple credential authorized.")
-                    case .revoked, .notFound:
-                        print("apple credential revoked / not found.")
-                    default:
-                        break
-                    }
-                }
-            case LoginType.kakao.rawValue:
-                print("카카오로그인됨")
-            default:
-                print("키체인 로그인 정보 없음")
-            }
-        }*/
         
+        self.window = UIWindow(windowScene: scene)
+        let entryViewController = Router.shared.checkRoute()
+        let entryViewControllerWithNav = UINavigationController(rootViewController: entryViewController)
+        setupWindow(viewController: entryViewControllerWithNav)
         
-        if let token = keychain.get(Keys.token) {
-            // 키체인에 토큰이 존재할 경우
-            // 추후 토큰 유효성검사 API 연동 필요 (자동로그인 반영시)
-            self.window = UIWindow(windowScene: scene)
-            print("token: \(token)")
-            
-            if let rocketStatus = keychain.get(Keys.rocketStatus) {
-                switch rocketStatus {
-                case "1":
-                    print("로켓이 하나도 없는 상태 (신규회원)")
-                    let introVC = IntroViewController(flag: 0) // 인트로 소개화면
-                    let vc = UINavigationController(rootViewController: introVC)
-                    setupWindow(viewController: vc)
-                case "2":
-                    print("로켓 존재, 발사되지 않은 상태")
-                    let mainVC = MainViewController()
-                    let vc = UINavigationController(rootViewController: mainVC)
-                    setupWindow(viewController: vc)
-                case "3":
-                    print("로켓 존재, 발사된 상태")
-                    let introVC = IntroViewController(flag: 1) // 인트로 소개화면
-                    let vc = UINavigationController(rootViewController: introVC)
-                    setupWindow(viewController: vc)
-                default:
-                    let introVC = IntroViewController(flag: 0) // 인트로 소개화면
-                    let vc = UINavigationController(rootViewController: introVC)
-                    setupWindow(viewController: vc)
-                }
-            } else {
-                setupWindow(viewController: LoginViewController())
-            }
-        } else {
-            // 로그인 처리가 필요한 경우
-            self.window = UIWindow(windowScene: scene)
-            setupWindow(viewController: LoginViewController())
-        }
     }
     
     private func setupWindow(viewController: UIViewController) {

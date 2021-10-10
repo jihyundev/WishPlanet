@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "KakaoSDKCommon.h"
 
 FOUNDATION_EXPORT double KakaoSDKCommonVersionNumber;
 FOUNDATION_EXPORT const unsigned char KakaoSDKCommonVersionString[];

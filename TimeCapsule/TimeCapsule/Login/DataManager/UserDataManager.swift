@@ -22,9 +22,9 @@ class UserDataManager {
     
     func kakaoLogin(viewController: LoginViewController) {
         // 카카오톡 설치 여부 확인
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
             // 카카오톡 로그인. api 호출 결과를 클로저로 전달
-            AuthApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 if let error = error {
                     // 예외 처리 (로그인 취소 등)
                     print(error)
@@ -39,7 +39,7 @@ class UserDataManager {
             }
         } else {
             // 카카오톡이 기기에 설치되지 않았을 경우 - 웹 브라우저를 통한 로그인
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -49,19 +49,7 @@ class UserDataManager {
                     _ = oauthToken
                     // Access Token
                     let accessToken = oauthToken?.accessToken
-                    UserApi.shared.me() { (user, error) in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            print("me() success.")
-                            
-                            // do something
-                            _ = user
-                            if user?.id != nil {
-                                self.verifyUser(loginType: .kakao, accessToken: accessToken!, viewController: viewController)
-                            }
-                        }
-                    }
+                    self.verifyUser(loginType: .kakao, accessToken: accessToken!, viewController: viewController)
                 }
             }
         }
