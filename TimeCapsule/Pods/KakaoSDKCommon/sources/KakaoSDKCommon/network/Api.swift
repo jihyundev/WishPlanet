@@ -25,10 +25,10 @@ public enum SessionType {
     case PartnerAuthApi
 }
 
-public enum ApiType {
-    case KApi
-    case KAuth
-}
+//public enum ApiType {
+//    case KApi
+//    case KAuth
+//}
 
 public class Api {
     public static let shared = Api()
@@ -63,12 +63,42 @@ extension Api {
 }
 
 extension Api {
+    public func getSdkError(error: Error) -> SdkError? {
+        if let aferror = error as? AFError {
+            switch aferror {
+            case .responseValidationFailed(let reason):
+                switch reason {
+                case .customValidationFailed(let error):
+                    return error as? SdkError
+                default:
+                    break
+                }
+            default:
+                break
+            }
+        }
+        return nil
+    }
+    
+    public func getRequestRetryFailedError(error:Error) -> SdkError? {
+        if let aferror = error as? AFError {
+            switch aferror {
+            case .requestRetryFailed(let retryError, _):
+                return retryError as? SdkError
+            default:
+                break
+            }
+        }
+        return nil
+    }
+    
     public func responseData(_ HTTPMethod: Alamofire.HTTPMethod,
                       _ url: String,
                       parameters: [String: Any]? = nil,
                       headers: [String: String]? = nil,
                       sessionType: SessionType = .AuthApi,
                       apiType: ApiType,
+                      logging: Bool = true,
                       completion: @escaping (HTTPURLResponse?, Data?, Error?) -> Void) {
         
         API.session(sessionType)
@@ -86,7 +116,7 @@ extension Api {
                     SdkLog.d("===================================================================================================")
                     SdkLog.d("session: \n type: \(sessionType)\n\n")
                     SdkLog.i("request: \n method: \(HTTPMethod)\n url:\(url)\n headers:\(String(describing: headers))\n parameters: \(String(describing: parameters)) \n\n")
-                    SdkLog.i("response:\n \(String(describing: json))\n\n" )
+                    (logging) ? SdkLog.i("response:\n \(String(describing: json))\n\n" ) : SdkLog.i("response: - \n\n")
                     
                     if let sdkError = SdkError(response: response, data: data, type: apiType) {
                         return .failure(sdkError)
@@ -96,22 +126,31 @@ extension Api {
                     }
                 }
                 else {
-                    return .failure(SdkError())
+                    return .failure(SdkError(reason: .Unknown, message: "data is nil."))
                 }
             })
-            .responseData { response in
-                if let data = response.data, let response = response.response {
+            .responseData { [unowned self] response in
+                if let afError = response.error, let retryError = self.getRequestRetryFailedError(error:afError) {
+                    SdkLog.e("response:\n api error: \(retryError)")
+                    completion(nil, nil, retryError)
+                }
+                else if let afError = response.error, self.getSdkError(error:afError) == nil {
+                    //일반에러
+                    SdkLog.e("response:\n not api error: \(afError)")
+                    completion(nil, nil, afError)                    
+                }
+                else if let data = response.data, let response = response.response {
                     if let sdkError = SdkError(response: response, data: data, type: apiType) {
                         completion(nil, nil, sdkError)
                         return
                     }
+                    
                     completion(response, data, nil)
-                    return
                 }
                 else {
                     //data or response 가 문제
-                    completion(nil, nil, SdkError())
-                    return
+                    SdkLog.e("response:\n error: response or data is nil.")
+                    completion(nil, nil, SdkError(reason: .Unknown, message: "response or data is nil."))
                 }
             }
     }
@@ -175,12 +214,25 @@ extension Api {
                 }
             }
             .responseData { (response) in
-                guard let resultResponse = response.response, let resultData = response.data else {
-                    SdkLog.e("response:\n error: upload response or data is nil.")
+                if let afError = response.error, let retryError = self.getRequestRetryFailedError(error:afError) {
+                    SdkLog.e("response:\n api error: \(retryError)")
+                    completion(nil, nil, retryError)
+                }
+                else if let afError = response.error, self.getSdkError(error:afError) == nil {
+                    //일반에러
+                    SdkLog.e("response:\n not api error: \(afError)")
+                    completion(nil, nil, afError)
+                }
+                else if let data = response.data, let response = response.response {
+                    completion(response, data, nil)
+                    return
+                }
+                else {
+                    //data or response 가 문제
+                    SdkLog.e("response:\n error: response or data is nil.")
                     completion(nil, nil, SdkError(reason: .Unknown, message: "response or data is nil."))
                     return
                 }
-                completion(resultResponse, resultData, nil)
             }
     }
 }
