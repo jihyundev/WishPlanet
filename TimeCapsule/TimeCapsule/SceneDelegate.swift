@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         self.window = UIWindow(windowScene: scene)
-        let entryViewController = Router.shared.checkRoute()
+        //let entryViewController = Router.shared.checkRoute()()
+        let entryViewController = Router.shared.makeFinalEntrypoint()
         let entryViewControllerWithNav = UINavigationController(rootViewController: entryViewController)
         setupWindow(viewController: entryViewControllerWithNav)
         
